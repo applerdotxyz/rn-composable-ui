@@ -1,4 +1,18 @@
-# [Next.js Example](https://www.nextjs.org/)
+# NextExpoUnirepoNavi
+
+
+### Based on Expo Examples
+- Max credits go to https://github.com/nandorojo/expo-next-react-navigation & https://github.com/expo/examples/tree/master/with-nextjs 
+- created a starter repo out of theior work
+
+
+### A mobile starter template with :: 
+- `react-native` with `expo`
+- `expo-web` with `next` via `next-adapter`
+- `react-navigation`
+- `nextjs` based structure
+- TODO: capability to have `api` code 
+
 
 <p>
   <!-- Web -->

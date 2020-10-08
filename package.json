@@ -19,6 +19,9 @@
   },
   "scripts": {
     "build": "next build",
+    "start": "expo start -c",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
     "web": "yarn next dev"
   }
 }

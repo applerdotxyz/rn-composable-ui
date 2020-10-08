@@ -1,5 +1,21 @@
 # NextExpoUnirepoNavi
+![Demo](./demo.png)
 
+<p align="center">
+  <a href='https://github.com/saurshaz/next-expo-unirepo-navigable/actions'>
+    <img src='https://github.com/saurshaz/next-expo-unirepo-navigable/workflows/Default/badge.svg'>
+  </a>
+
+  <a href='https://coveralls.io/github/saurshaz/next-expo-unirepo-navigable?branch=master'>
+    <img src='https://coveralls.io/repos/github/saurshaz/next-expo-unirepo-navigable/badge.svg?branch=master' alt='Coverage Status' />
+  </a>
+
+  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/saurshaz/next-expo-unirepo-navigable">
+
+  <img alt="GitHub" src="https://img.shields.io/github/license/saurshaz/next-expo-unirepo-navigable">
+</p>
+
+---
 
 ### Based on Expo Examples
 - Max credits go to https://github.com/nandorojo/expo-next-react-navigation & https://github.com/expo/examples/tree/master/with-nextjs 

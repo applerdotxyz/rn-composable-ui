@@ -27,6 +27,6 @@
   "name": "9to5work",
   "version": "1.0.0",
   "description": "A unorepo to work as a Booking Widget generator for taking appointments better on the web",
-  "main": "index.js"
+  "main": "pages/index.js"
 
 }

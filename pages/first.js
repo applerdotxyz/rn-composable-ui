@@ -1,24 +1,24 @@
 // @generated: @expo/next-adapter@2.1.0
 import React from 'react';
-import { Link } from 'expo-next-react-navigation';
 import { StyleSheet, View, Text } from 'react-native';
 import Header from './components/Header';
 
 export default function index(props) {
   
   return (
-    <Link style={{
-      backgroundColor: 'blue',
-      width: 50,
-      height: 50,
-      color: 'white',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: 50
-    }} routeName='first'>
-      Go
-    </Link>
+    <View style={styles.container}>
+      <Text accessibilityRole="header" style  ={styles.text}>
+        Expo for Web & Next.js
+      </Text>
+
+      <Header />
+
+      <View style={styles.textContainer}>
+        <Text accessibilityRole="header" aria-level="2" style={styles.text}>
+          <Text style={styles.text}>Welcome to Expo + Next.js 👋</Text>
+        </Text>
+      </View>
+    </View>
   )
 }
 

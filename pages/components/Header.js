@@ -6,6 +6,9 @@ export default function Header() {
     return (
         <View>
             <Link style={{ color: 'green', fontSize: 20 }} routeName="index">
+                Initial App
+            </Link>
+            <Link style={{ color: 'green', fontSize: 20 }} routeName="first">
                 Home
             </Link>
             <Link style={{ color: 'green', fontSize: 20 }} routeName="Alternate">

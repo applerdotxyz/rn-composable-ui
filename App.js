@@ -7,6 +7,7 @@ import Alternate from './pages/Alternate';
 import Header from './pages/components/Header';
 import Test from './pages/Test';
 import Index from './pages/index';
+import First from './pages/first';
 
 // See the pages/folder for the next.js routes
 // everything else is confined in this file :)
@@ -43,6 +44,7 @@ function Button({ text, onPress }: { text: string; onPress?: () => void }) {
 }
 
 const AppNavigator = createStackNavigator({
+    'first': First,
     'index': Index,
     'Alternate': Alternate,
     'Test': Test,

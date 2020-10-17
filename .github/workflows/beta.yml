@@ -71,7 +71,11 @@ jobs:
           expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
           expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
           expo-cache: true
-      - run: expo build:ios --release-channel='default' 
+      - run: expo build:ios --release-channel='default' --non-interactive --no-publish
+      - name: Get Ipa
+        run: curl -o app.ipa "$(expo url:ipa --non-interactive)"
+#       - name: fastlane deliver 
+#         run: fastlane deliver --verbose --ipa "app.ipa" --skip_screenshots --skip_metadata  
   test-cavy:
     name: Test - E2E
     runs-on: macos-latest
@@ -91,10 +95,6 @@ jobs:
         run: |
           brew tap wix/brew
           brew install applesimutils --HEAD
-      
-#       - name: Install Pods
-#         run: |
-#           npx pod-install
       - name: Run Cavy Tests
         run: yarn cavy:test:ios
         env:

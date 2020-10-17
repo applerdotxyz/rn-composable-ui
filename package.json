@@ -70,7 +70,7 @@
     "wait-port": "^0.2.9"
   },
   "scripts": {
-    "lint": "eslint --format unix **/*.js **/*.tsx",
+    "lint": "eslint --format unix src",
     "build": "next build",
     "start": "expo start -c",
     "android": "expo start --android",

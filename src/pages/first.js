@@ -1,13 +1,13 @@
 // @generated: @expo/next-adapter@2.1.0
-import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Header from './components/Header';
+import React from "react";
+import { StyleSheet, View, Text } from "react-native";
+import Header from "./components/Header";
 
-export default function index(props) {
-  
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export default function index() {
   return (
     <View style={styles.container}>
-      <Text accessibilityRole="header" style  ={styles.text}>
+      <Text accessibilityRole="header" style={styles.text}>
         Expo for Web & Next.js
       </Text>
 
@@ -19,25 +19,25 @@ export default function index(props) {
         </Text>
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    alignItems: "center",
     flexGrow: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   link: {
-    color: 'blue',
+    color: "blue",
   },
   textContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 16,
   },
   text: {
-    alignItems: 'center',
+    alignItems: "center",
     fontSize: 24,
     marginBottom: 24,
   },
-})
+});

@@ -89,7 +89,9 @@
     "build:android:beta": "expo build:android --release-channel='default' -t app-bundle",
     "ota:prod": "expo publish --release-channel='production' --non-interactive ",
     "ota:beta": "expo publish --release-channel='default' --non-interactive",
-    "coverage": "jest --watchAll=false --coverage  --setupFiles ./dotenv.js"
+    "coverage": "jest --watchAll=false --coverage  --setupFiles ./dotenv.js",
+    "cavy:test:ios": "cavy run-ios -t 15",
+    "cavy:test:android": "cavy run-android -t 15"
   },
   "name": "9to5work",
   "version": "1.0.0",

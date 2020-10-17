@@ -37,75 +37,73 @@ jobs:
       - name: Lint
         run: yarn lint
       - name: Test
-        run: yarn test --coverage --watchAll=false
+        run: yarn test
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-  setup-macos:
-    name: Setup - MacOS
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v1
-        id: cache
-        with:
-          path: node_modules
-          key: v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-      - name: Yarn Install
-        run: yarn install
-      - name: Cavy Install
-        run: yarn add cavy-cli
-
-  
-  build:
-    name: Builds with expo
-    runs-on: macos-latest
-    needs: setup-macos
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - uses: expo/expo-github-action@v5
-        with:
-          expo-version: 3.x
-          expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
-          expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
-          expo-cache: true
-      - run: expo build:ios --release-channel='default' 
-  test-cavy:
-    name: Test - E2E
-    runs-on: macos-latest
-    needs: setup-macos
-    env:
-      CODE_SIGNING_REQUIRED: NO
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v1
-        id: cache
-        with:
-          path: node_modules
-          key: v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-      - name: Create Google Services Config File
-        run: echo "$GOOGLE_SERVICES" >> "google-services.json"
-      - name: Install mac simulator
-        run: |
-          brew tap wix/brew
-          brew install applesimutils --HEAD
-      
-#       - name: Install Pods
+#   setup-macos:
+#     name: Setup - MacOS
+#     runs-on: macos-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/cache@v1
+#         id: cache
+#         with:
+#           path: node_modules
+#           key: v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+#       - name: Yarn Install
+#         run: yarn install
+#       - name: Cavy Install
+#         run: yarn add cavy-cli
+#   build:
+#     name: Builds with expo
+#     runs-on: macos-latest
+#     needs: setup-macos
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: 12.x
+#       - uses: expo/expo-github-action@v5
+#         with:
+#           expo-version: 3.x
+#           expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
+#           expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
+#           expo-cache: true
+#       - run: expo build:ios --release-channel='default' 
+#   test-cavy:
+#     name: Test - E2E
+#     runs-on: macos-latest
+#     needs: setup-macos
+#     env:
+#       CODE_SIGNING_REQUIRED: NO
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/cache@v1
+#         id: cache
+#         with:
+#           path: node_modules
+#           key: v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+#       - name: Create Google Services Config File
+#         run: echo "$GOOGLE_SERVICES" >> "google-services.json"
+#       - name: Install mac simulator
 #         run: |
-#           npx pod-install
-      - name: Run Cavy Tests
-        run: yarn cavy:test:ios
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-          AMPLITUDE_KEY: ${{ secrets.AMPLITUDE_KEY }}
-          AWS_APPSYNC_URL: ${{ secrets.AWS_APPSYNC_URL }}
-          AWS_APPSYNC_REGION: ${{ secrets.AWS_APPSYNC_REGION }}
-          AWS_APPSYNC_API_KEY: ${{ secrets.AWS_APPSYNC_API_KEY }}
-          CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
-          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-          CONTENTFUL_ACCESS_TOKEN_DRAFTS: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_DRAFTS }}
+#           brew tap wix/brew
+#           brew install applesimutils --HEAD
+      
+# #       - name: Install Pods
+# #         run: |
+# #           npx pod-install
+#       - name: Run Cavy Tests
+#         run: yarn cavy:test:ios
+#         env:
+#           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+#           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+#           AMPLITUDE_KEY: ${{ secrets.AMPLITUDE_KEY }}
+#           AWS_APPSYNC_URL: ${{ secrets.AWS_APPSYNC_URL }}
+#           AWS_APPSYNC_REGION: ${{ secrets.AWS_APPSYNC_REGION }}
+#           AWS_APPSYNC_API_KEY: ${{ secrets.AWS_APPSYNC_API_KEY }}
+#           CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
+#           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+#           CONTENTFUL_ACCESS_TOKEN_DRAFTS: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_DRAFTS }}

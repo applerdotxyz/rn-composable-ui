@@ -61,6 +61,8 @@ jobs:
     runs-on: macos-latest
     needs: setup-macos
     steps:
+      - name: expo setup
+        run: npm i -g expo-cli
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:

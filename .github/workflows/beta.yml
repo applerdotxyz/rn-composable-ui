@@ -61,8 +61,6 @@ jobs:
     runs-on: macos-latest
     needs: setup-macos
     steps:
-      - name: expo setup
-        run: yarn add expo-cli expo
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
@@ -73,8 +71,11 @@ jobs:
           expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
           expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
           expo-cache: true
-      - run: expo build:ios --release-channel='default' --non-interactive --no-publish
-      - name: Get Ipa
+      - name: expo setup
+        run: yarn add expo-cli expo  
+      - name: expo build
+        run: expo build:ios --release-channel='default' --non-interactive --no-publish
+      - name: expo get IPA
         run: curl -o app.ipa "$(expo url:ipa --non-interactive)"
 #       - name: fastlane deliver 
 #         run: fastlane deliver --verbose --ipa "app.ipa" --skip_screenshots --skip_metadata  

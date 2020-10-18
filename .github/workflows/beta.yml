@@ -62,7 +62,7 @@ jobs:
     needs: setup-macos
     steps:
       - name: expo setup
-        run: npm i -g expo-cli
+        run: yarn add expo-cli expo
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:

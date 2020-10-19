@@ -52,10 +52,16 @@ jobs:
         with:
           path: node_modules
           key: v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}:  
       - name: Yarn Install
         run: yarn install
-      - name: Cavy Install
-        run: yarn add cavy-cli
   build:
     name: Builds with expo
     runs-on: macos-latest
@@ -98,6 +104,8 @@ jobs:
         run: |
           brew tap wix/brew
           brew install applesimutils --HEAD
+      - name: Cavy Install
+        run: yarn add cavy-cli
       - name: Run Cavy Tests
         run: yarn cavy:test:ios
         env:

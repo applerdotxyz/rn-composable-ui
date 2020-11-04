@@ -7,7 +7,7 @@ name: CI
 on:
   push:
     branches: [ master ]
-  pull_request:
+  pull_request:`
     branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -22,16 +22,16 @@ jobs:
         with:
           path: node_modules
           key: v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-      - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Yarn Install
-        run: yarn install
+#       - name: Lint
+#         run: yarn lint
+#       - name: Test
+#         run: yarn test
+#       - name: Coveralls
+#         uses: coverallsapp/github-action@master
+#         with:
+#           github-token: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Yarn Install
+#         run: yarn install
   e2e:
     name: Test - E2E
     runs-on: macos-latest

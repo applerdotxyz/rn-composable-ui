@@ -1,11 +1,12 @@
 // @generated: @expo/next-adapter@2.1.0
-import { useRouting } from "expo-next-react-navigation";
+// import { useRouting } from "expo-next-react-navigation";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export default function Test() {
-  const { goBack } = useRouting();
+export const Test = () => {
+  const { goBack } = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -13,7 +14,7 @@ export default function Test() {
       <Button title="👈 Go back" onPress={() => goBack()} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

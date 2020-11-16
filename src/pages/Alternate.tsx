@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { useRouting } from "expo-next-react-navigation";
+import { Button, StyleSheet, Text, View } from "react-native";
+// import { useRouting } from "expo-next-react-navigation";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export default function Alternate() {
-  const { goBack } = useRouting();
+export const Alternate = () => {
+  const { goBack } = useNavigation();
   return (
     <View style={styles.container}>
       <Text accessibilityRole="header" style={styles.text}>
@@ -21,7 +22,7 @@ export default function Alternate() {
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

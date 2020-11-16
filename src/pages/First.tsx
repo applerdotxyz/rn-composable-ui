@@ -1,10 +1,8 @@
-// @generated: @expo/next-adapter@2.1.0
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import Header from "./components/Header";
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export default function index() {
+export const First = () => {
   return (
     <View style={styles.container}>
       <Text accessibilityRole="header" style={styles.text}>
@@ -20,7 +18,7 @@ export default function index() {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

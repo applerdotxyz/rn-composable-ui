@@ -1,4 +1,5 @@
-import { Link } from "expo-next-react-navigation";
+// import { Link } from "expo-next-react-navigation";
+import { Link } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";
 
@@ -6,16 +7,16 @@ import { View } from "react-native";
 export default function Header() {
   return (
     <View>
-      <Link style={{ color: "green", fontSize: 20 }} routeName="index">
+      <Link style={{ color: "green", fontSize: 20 }} to="/Index">
         Initial App
       </Link>
-      <Link style={{ color: "green", fontSize: 20 }} routeName="first">
+      <Link style={{ color: "green", fontSize: 20 }} to="/First">
         Home
       </Link>
-      <Link style={{ color: "green", fontSize: 20 }} routeName="Alternate">
+      <Link style={{ color: "green", fontSize: 20 }} to="/Alternate">
         Alternate
       </Link>
-      <Link style={{ color: "green", fontSize: 20 }} routeName="Test">
+      <Link style={{ color: "green", fontSize: 20 }} to="/Test">
         Test
       </Link>
     </View>

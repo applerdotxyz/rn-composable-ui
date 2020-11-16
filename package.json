@@ -1,22 +1,26 @@
 {
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.13.2",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/bottom-tabs": "^5.3.1",
+    "@react-navigation/drawer": "^5.9.3",
+    "@react-navigation/material-bottom-tabs": "^5.2.16",
+    "@react-navigation/native": "^5.2.1",
+    "@react-navigation/stack": "^5.2.16",
     "expo": "~39.0.2",
-    "expo-next-react-navigation": "^0.0.26",
-    "next": "9.3.5",
     "react": "~16.13.0",
     "react-dom": "~16.13.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
-    "react-native-gesture-handler": "^1.8.0",
-    "react-native-screens": "^2.11.0",
-    "react-navigation": "^4.4.2",
-    "react-navigation-stack": "^2.8.4"
+    "react-native-gesture-handler": "~1.7.0",
+    "react-native-screens": "~2.10.1",
+    "react-redux": "^7.2.2",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/preset-env": "latest",
     "@commitlint/config-conventional": "^8.3.4",
     "@expo/config": "^3.2.1",
-    "@expo/next-adapter": "2.1.39",
     "@expo/webpack-config": "^0.12.38",
     "@testing-library/jest-native": "^3.3.0",
     "@testing-library/react-native": "^7.0.2",
@@ -64,6 +68,7 @@
     "react-native-testing-library": "^6.0.0",
     "react-native-web": "~0.11.7",
     "react-test-renderer": "16.9.0",
+    "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.4",
     "sentry-expo": "2.0.3",
     "typescript": "^3.9.6",
@@ -71,11 +76,11 @@
   },
   "scripts": {
     "lint": "eslint --format unix src",
-    "build": "next build",
+    "build": "expo build",
     "start": "expo start -c",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "yarn next dev",
+    "web": "expo start --web",
     "check-types": "tsc",
     "prettify": "prettier --write \"{./,./src/**/}*.{js,json,ts,tsx}\"",
     "validate": "yarn install && yarn run lint && yarn run check-types",
@@ -96,5 +101,5 @@
   "name": "9to5work",
   "version": "1.0.0",
   "description": "A unorepo to work as a Booking Widget generator for taking appointments better on the web",
-  "main": "App.js"
+  "main": "index.js"
 }

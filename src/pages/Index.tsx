@@ -1,8 +1,6 @@
-// @generated: @expo/next-adapter@2.1.0
 import { Link } from "@react-navigation/native";
 import React from "react";
-import { View, Text } from "react-native";
-// import { Link } from "expo-next-react-navigation";
+import { View } from "react-native";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Index = () => {

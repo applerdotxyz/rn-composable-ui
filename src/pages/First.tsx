@@ -6,14 +6,14 @@ export const First = () => {
   return (
     <View style={styles.container}>
       <Text accessibilityRole="header" style={styles.text}>
-        Expo for Web & Next.js
+        Expo for Web
       </Text>
 
       <Header />
 
       <View style={styles.textContainer}>
         <Text accessibilityRole="header" aria-level="2" style={styles.text}>
-          <Text style={styles.text}>Welcome to Expo + Next.js 👋</Text>
+          <Text style={styles.text}>Welcome to Expo + Web 👋</Text>
         </Text>
       </View>
     </View>

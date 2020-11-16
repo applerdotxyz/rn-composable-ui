@@ -1,4 +1,3 @@
-// import { Link } from "expo-next-react-navigation";
 import { Link } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";

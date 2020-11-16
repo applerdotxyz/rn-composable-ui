@@ -1,5 +1,3 @@
-// @generated: @expo/next-adapter@2.1.0
-// import { useRouting } from "expo-next-react-navigation";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";

@@ -8,7 +8,7 @@ export const Test = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text} title="Test!" />
+      <Text style={styles.text}>Test</Text>
       <Button title="👈 Go back" onPress={() => goBack()} />
     </View>
   );

@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/native";
 import { createBrowserHistory } from "history";
 import React, { useState } from "react";
 import { Platform, StyleSheet } from "react-native";
@@ -6,27 +5,35 @@ import Form from "react-native-web-jsonschema-form";
 import { MainContainer, UIProvider } from "react-native-web-ui-components";
 import useSafeSetState from "../../../utils/useSafeState";
 
+const noOp = (): void => {
+  /* */
+};
+
 export const JsonForm = ({
-  _onBeforeSubmit,
-  _onSuccess,
-  _onError,
-  _onSubmit,
-  _onChange,
-  _formData,
-  schema,
-  uiSchema,
-  onClose,
+  _onBeforeSubmit = noOp,
+  _onSuccess = noOp,
+  _onError = noOp,
+  _onSubmit = noOp,
+  _onChange = noOp,
+  _formData = {},
+  _onClose = noOp,
+  schema = {},
+  uiSchema = {},
   ...props
-}) => {
+}): AnyRecord => {
+  // TODO: show loading indicator based on loading value
   const [loading, setLoading] = useSafeSetState(false);
+  // TODO: show exceptions as errors
   const [exception, setException] = useSafeSetState(null);
+  // TODO: show message
   const [message, setMessage] = useSafeSetState(null);
+  // TODO: submit formData to ideal connected endpoint
   const [formData, setFormData] = useState(_formData);
 
-  const onBeforeSubmit = (e) => {
+  const onBeforeSubmit = (event) => {
     console.log("*** onBeforeSubmit ***");
-    console.log(e);
-    _onBeforeSubmit(e);
+    console.log(event);
+    _onBeforeSubmit(event);
   };
 
   const onSuccess = (event) => {
@@ -107,7 +114,7 @@ export const JsonForm = ({
           formData={formData}
           schema={schema}
           onChange={onChange}
-          onCancel={onClose}
+          onCancel={_onClose}
           onSuccess={onSuccess}
           onSubmit={onSubmit}
           onError={onError}

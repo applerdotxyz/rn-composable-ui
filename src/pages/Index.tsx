@@ -37,9 +37,9 @@ export const Index = (props) => {
         //   console.log("*** _onError ***");
         //   console.log(e);
         // }}
-        // _onSuccess={(e) => {
-        //   props.navigation.navigate("First");
-        // }}
+        _onSuccess={(e) => {
+          props.navigation.navigate("First");
+        }}
         // _onChange={(e) => {
         //   console.log("data changed");
         // }}

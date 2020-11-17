@@ -1,6 +1,7 @@
 import { Link } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";
+import useSafeSetState from "../utils/useSafeState";
 import { JsonForm } from "./components/json-form/JsonForm";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -11,19 +12,19 @@ export const Index = (props) => {
     password: "Password@1",
   };
 
-  // form schema
-  const schema = {
+  // // form schema
+  const [_schema, setSchema] = useSafeSetState({
     type: "object",
     properties: {
       username: { type: "string" },
       password: { type: "string" },
     },
-  };
+  });
 
   return (
     <View>
       <JsonForm
-        schema={schema}
+        schema={_schema}
         _formData={_formData}
         // _onBeforeSubmit={(e) => {
         //   console.log("*** _onBeforeSubmit ***");

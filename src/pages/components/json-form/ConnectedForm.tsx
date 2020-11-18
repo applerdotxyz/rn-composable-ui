@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet, View } from "react-native";
 import { createBrowserHistory } from "history";
 
 import {
@@ -59,7 +59,26 @@ export const ConnectedForm = ({ controller, action }) => {
         },
       }),
     },
-    platform: "web",
+    // All components will receive the prop fontFamily
+    "*": {
+      fontFamily: {
+        regular: "Lucida Sans",
+        bold: "Lucida Sans Bold",
+      },
+    },
+    platform: {
+      // When running on web, the fontFamily property will be overwritten by the following.
+      web: {
+        "*": {
+          fontFamily: {
+            regular:
+              '"Lucida Sans Unicode","Lucida Grande",Arial,Helvetica,clean,sans-serif',
+            bold:
+              '"Lucida Grande", "Lucida Sans Unicode","Lucida Grande",Arial,Helvetica,clean,sans-serif',
+          },
+        },
+      },
+    },
   };
 
   const ThemeWrapper = ({ children }) => {
@@ -73,7 +92,7 @@ export const ConnectedForm = ({ controller, action }) => {
     );
   };
   return (
-    <React.Fragment>
+    <View>
       {posting ? <Loading /> : null}
       {message ? <Alert>Message</Alert> : null}
       <ThemeWrapper>
@@ -87,6 +106,6 @@ export const ConnectedForm = ({ controller, action }) => {
           />
         </MainContainer>
       </ThemeWrapper>
-    </React.Fragment>
+    </View>
   );
 };

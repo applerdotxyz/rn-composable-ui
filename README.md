@@ -1,4 +1,5 @@
 # RNStarter
+
 ![Beta](https://github.com/saurshaz/rn-starter/workflows/Beta/badge.svg)
 ![Demo](./demo.png)
 
@@ -10,23 +11,26 @@
 </p>
 
 ---
-### A mobile starter template with :: 
+
+### A mobile starter template with ::
+
 - `react-native` with `expo`
 - `expo-web` based web
 - `react-navigation`
 - `nextjs` like structure
-- TODO: capability to have `api` code 
-
+- TODO: capability to have `api` code
 
 - Setup your project with Expo
   - Install the CLI: `npm i -g expo-cli`
   - `cd` into the project `npm i` or `yarn`
   - Start the project with `yarn web`
+  - Copy `src/config/env.ts` to create `src/config/env.dev.ts` and `src/config/env.stage.ts` for maintaining your env data
   - Go to `http://localhost:19006/` to see your project!
 
 ### 🏁 New Commands
 
 - **Starting web**
+
   - ✅ `yarn web`
 
 - **Building web**

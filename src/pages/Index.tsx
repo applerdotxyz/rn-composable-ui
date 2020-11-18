@@ -2,6 +2,7 @@ import { Link } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";
 import useSafeSetState from "../utils/useSafeState";
+import { ConnectedForm } from "./components/json-form/ConnectedForm";
 import { JsonForm } from "./components/json-form/JsonForm";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -23,6 +24,7 @@ export const Index = (props) => {
 
   return (
     <View>
+      {/* <ConnectedForm controller="person" action="get" /> */}
       <JsonForm
         schema={_schema}
         _formData={_formData}

@@ -22,3 +22,5 @@ yarn-error.log*
 .env*
 
 src/config/env.*.ts
+coverage
+coverage/lcov-report

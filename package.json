@@ -81,7 +81,7 @@
     "wait-port": "^0.2.9"
   },
   "scripts": {
-    "lint": "eslint --format unix src",
+    "lint": "./node_modules/.bin/eslint --format unix src",
     "build": "expo build",
     "start": "expo start -c",
     "android": "expo start --android",
@@ -100,7 +100,7 @@
     "build:android:beta": "expo build:android --release-channel='default' -t app-bundle",
     "ota:prod": "expo publish --release-channel='production' --non-interactive ",
     "ota:beta": "expo publish --release-channel='default' --non-interactive",
-    "coverage": "jest --watchAll=false --coverage  --setupFiles ./dotenv.js",
+    "coverage": "./node_modules/.bin/jest --watchAll=false --coverage",
     "cavy:test:ios": "cavy run-ios -t 15",
     "cavy:test:android": "cavy run-android -t 15"
   },

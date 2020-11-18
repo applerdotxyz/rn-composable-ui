@@ -38,8 +38,8 @@ jobs:
         with:
           path: node_modules
           key: v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-      - name: Lint
-        run: yarn lint
+      #- name: Lint
+      #  run: yarn lint
       - name: Test with coverage
         run: yarn coverage
       - name: Coveralls

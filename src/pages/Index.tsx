@@ -9,24 +9,132 @@ import { JsonForm } from "./components/json-form/JsonForm";
 export const Index = (props) => {
   // form field values
   const _formData = {
-    username: "Saurabh",
-    password: "Password@1",
+    firstName:"Raj",
+    lastName:"Shah",
+    stype:"Male",
+    date:"10-05-1980",
+    username:"raj@1234",
+    password:"Raj@123",
+    "Confirm password":"Raj@123",
+    languages:["Java","C"],
+    "recievemsgs":true
   };
 
-  // // form schema
-  const [_schema, setSchema] = useSafeSetState({
-    type: "object",
-    properties: {
-      username: { type: "string" },
-      password: { type: "string" },
+
+
+
+const languages = ["Java", "Python", "C"];
+
+
+const [_schema, setSchema] = useSafeSetState({
+  type: "object",
+  required: [
+    "firstName",
+    "lastName",
+    "stype",
+    "date",
+    "username",
+    "password",
+    "Confirm password",
+    "languages",
+    "recievemsgs",
+  ],
+  properties: {
+    firstName: { type: "string" },
+    lastName: { type: "string" },
+    stype: {
+      enum: ["Male", "Female", "Others"],
+      type: "string",
     },
-  });
+    date: {
+      format: "date",
+      type: "string",
+      title: "Date",
+    },
+    username: { type: "string" },
+    password: { type: "string" },
+    "Confirm password": { type: "string" },
+    languages: {
+      type: "array",
+      items: {
+        type: "string",
+      },
+    },
+    recievemsgs: { type: "boolean" },
+    upload: {
+      format: "data-url",
+      type: "string",
+    },
+    age: {
+      type: "integer",
+      title: "Age"
+    },
+  }
+    
+});
+
+  // // form schema
+  const _uiSchema = {
+    languages: {
+      "ui:title": "Languages Known",
+      "ui:options": {
+        addable: false,
+        orderable: false,
+        removable: false,
+        minimumNumberOfItems: languages.length,
+      },
+      items: {
+        // The `ui:iterate` allows you to define the uiSchema for each item of the array.
+        // The default is to have a list of TextInput.
+        "ui:iterate": (i, { values }) => ({
+          "ui:title": false,
+          "ui:widget": "checkbox",
+          "ui:widgetProps": {
+            text: languages[i],
+            value: languages[i],
+            checked: (values.languages || []).includes(languages[i]),
+          },
+        }),
+      },
+    },
+    recievemsgs: {
+      "ui:title": "Are you okay if you recieve emails from our side?",
+      "ui:widget": "radio",
+      "ui:widgetProps": {
+        style: { backgroundColor: "lightgrey" },
+      },
+      "ui:containerProps": {
+        style: { paddingTop: 10 },
+      },
+    },
+    stype: {
+      "ui:title": "Gender",
+      "ui:placeholder": "Please select your gender",
+      "ui:widget": "select",
+    },
+    date: {
+      "ui:widget": "date",
+      "ui:title": "Select your Birthdate ",
+    },
+    upload: {
+      "ui:widget": "file",
+      "ui:title": "Upload your documents",
+    },
+    "submitButton":false,
+    "age": {
+      "ui:widget": "range"
+    },
+  //   "background-color":{
+  //     'ui:widget':"ColorPicker"
+  // },
+  };
 
   return (
     <View>
       {/* <ConnectedForm controller="person" action="get" /> */}
       <JsonForm
         schema={_schema}
+        uiSchema={_uiSchema}
         _formData={_formData}
         // _onBeforeSubmit={(e) => {
         //   console.log("*** _onBeforeSubmit ***");

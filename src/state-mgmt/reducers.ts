@@ -10,9 +10,6 @@ let environment;
 if (process.env.REACT_NATIVE_NODE_ENV !== "stage") {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   environment = require("../config/env.dev").default;
-} else {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  environment = require("../config/env.stage").default;
 }
 
 const user = (state = { ...initialState.user }, action) => {

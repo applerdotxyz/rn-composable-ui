@@ -14,7 +14,7 @@
 
 
 
-### A mobile starter template with ::
+### A mobile starter template with Configurability and Composability
 
 [Demo](https://rn-composable-ui.applerdotxyz.vercel.app/)
 - `react-native` with `expo`

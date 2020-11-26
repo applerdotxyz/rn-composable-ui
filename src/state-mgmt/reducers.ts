@@ -6,7 +6,8 @@ import {
   UPDATE_STATE,
 } from "./actions"; //Import the actions types constant we defined in our actions
 import { initialState } from "./app";
-let environment;
+
+let environment = {};
 if (process.env.REACT_NATIVE_NODE_ENV !== "stage") {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   environment = require("../config/env.dev").default;

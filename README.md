@@ -1,7 +1,8 @@
 # RN Composable UI (Starter Kit)
-
 ![Beta](https://github.com/applerdotxyz/rn-composable-ui/workflows/Beta/badge.svg)
 
+
+--- 
 <p align="center">
   
   <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/applerdotxyz/rn-composable-ui">

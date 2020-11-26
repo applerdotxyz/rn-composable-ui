@@ -1,19 +1,22 @@
-# RNStarter
+# RN Composable UI (Starter Kit)
+![Beta](https://github.com/applerdotxyz/rn-composable-ui/workflows/Beta/badge.svg)
 
-![Beta](https://github.com/saurshaz/rn-starter/workflows/Beta/badge.svg)
-![Demo](./demo.png)
 
+--- 
 <p align="center">
   
-  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/saurshaz/rn-starter">
+  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/applerdotxyz/rn-composable-ui">
 
-  <img alt="GitHub" src="https://img.shields.io/github/license/saurshaz/rn-starter">
+  <img alt="GitHub" src="https://img.shields.io/github/license/applerdotxyz/rn-composable-ui">
 </p>
 
 ---
 
-### A mobile starter template with ::
 
+
+### A mobile starter template with Configurability and Composability
+
+[Demo](https://rn-composable-ui.applerdotxyz.vercel.app/)
 - `react-native` with `expo`
 - `expo-web` based web
 - `react-navigation`
@@ -24,7 +27,7 @@
   - Install the CLI: `npm i -g expo-cli`
   - `cd` into the project `npm i` or `yarn`
   - Start the project with `yarn web`
-  - Copy `src/config/env.ts` to create `src/config/env.dev.ts` and `src/config/env.stage.ts` for maintaining your env data
+  - Copy `src/config/env.ts` to create `src/config/env.dev.ts` for maintaining your env data
   - Go to `http://localhost:19006/` to see your project!
 
 ### 🏁 New Commands

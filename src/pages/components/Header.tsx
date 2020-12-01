@@ -18,6 +18,9 @@ export default function Header() {
       <Link style={{ color: "green", fontSize: 20 }} to="/Test">
         Test
       </Link>
+      <Link style={{ color: "green", fontSize: 20 }} to="/List">
+        SearchList
+      </Link>
     </View>
   );
 }

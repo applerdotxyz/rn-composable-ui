@@ -15,6 +15,7 @@ const routes = {
   Alternate: "Alternate",
   Test: "Test",
   First: "First",
+  List: "List"
 };
 
 //  main wrapper component

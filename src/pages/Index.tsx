@@ -1,6 +1,7 @@
 import { Link } from "@react-navigation/native";
 import React from "react";
 import { View, Text } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { updateState } from "../state-mgmt/actions";
 import useSafeSetState from "../utils/useSafeState";
 import { ConnectedForm } from "./components/json-form/ConnectedForm";
@@ -126,7 +127,7 @@ export const Index = (props) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <ScrollView style={{ flex: 1 }}>
       <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
         Current User is :: {props.route.params.state.user.lastEmail}
       </Text>
@@ -170,7 +171,8 @@ export const Index = (props) => {
       >
         Go
       </Link>
-    </View>
+    </ScrollView>
   );
 };
 // };
+export default Index;

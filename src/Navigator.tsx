@@ -21,7 +21,7 @@ export const Navigator = ({ routes = {} }) => {
         dispatch,
       }}
       // eslint-disable-next-line @typescript-eslint/no-var-requires
-      component={require(`./pages/${key}`)[key]}
+      component={routes[key]}
     />
   ));
   return (

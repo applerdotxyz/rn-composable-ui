@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, View } from "react-native";
 // import { useRouting } from "expo-next-react-navigation";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const Alternate = () => {
+const Alternate = () => {
   const { goBack } = useNavigation();
   return (
     <View style={styles.container}>
@@ -39,3 +39,4 @@ const styles = StyleSheet.create({
     color: "blue",
   },
 });
+export default Alternate;

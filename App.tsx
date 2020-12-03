@@ -11,10 +11,10 @@ const persistor = persistStore(store);
 // routeConfig
 // TODO: bring from anywhere you wish
 const routes = {
-  Index: "Index",
-  Alternate: "Alternate",
-  Test: "Test",
-  First: "First"
+  Index: require(`./src/pages/Index`).default,
+  Alternate: require(`./src/pages/Alternate`).default,
+  Test: require(`./src/pages/Test`).default,
+  First: require(`./src/pages/First`).default,
 };
 
 //  main wrapper component

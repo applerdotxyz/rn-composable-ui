@@ -2,7 +2,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { default as React } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import UiX from "./UIconfigurator/UIX";
+// import UiX from "./UIconfigurator/UIX";
+import UiX from "./UIconfigurator/UIx"
 
 // routing setup with react-navigation
 const Stack = createStackNavigator();
@@ -37,18 +38,18 @@ export const Navigator = ({ routes = {} }) => {
   // return <Stack.Screen name={`${route.idx}`} component={() => <UiX idx={route.idx} {...props} />} />
 
 
-  const navigationSection = Object.keys(routes).map((key) => (
-    <Stack.Screen
-      key={key}
-      name={key}
-      initialParams={{
-        state,
-        dispatch,
-      }}
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      component={require(`./pages/${key}`)[key]}
-    />
-  ));
+  // const navigationSection = Object.keys(routes).map((key) => (
+  //   <Stack.Screen
+  //     key={key}
+  //     name={key}
+  //     initialParams={{
+  //       state,
+  //       dispatch,
+  //     }}
+  //     // eslint-disable-next-line @typescript-eslint/no-var-requires
+  //     component={require(`./pages/${key}`)[key]}
+  //   />
+  // ));
   return (
     <NavigationContainer>
       {/* <Stack.Navigator>{navigationSection}</Stack.Navigator> */}

@@ -4,7 +4,7 @@ import { componentsSet } from "../uiConfig/index";
 import config from '../uiConfig/index';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { useDispatch } from 'react-redux';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 const Column = (props: any) => (
     <Col size={props.size} style={{ /*backgroundColor: "gray"*/ }}  >
@@ -13,21 +13,21 @@ const Column = (props: any) => (
 )
 
 
-const UiX = (props : any) => {
+const UiX = (props: any) => {
     console.log("props in Uix : : ", props);
-    
-    const mapState = React.useCallback((state: any) => state, [ ]);
+
+    const mapState = React.useCallback((state: any) => state, []);
     const appState = useState(mapState);
     const dispatch = useDispatch();
 
-    
+
     const { idx } = props;
     console.log("idx : :: : --> ", idx);
-    
+
     const key: any = `${idx}Config`;
     console.log("Key : : : ", key);
 
-    if(idx && config && config[key]) {
+    if (idx && config && config[key]) {
         const configuration = config[key];
         console.log("Configuration : : : --> ", configuration);
 
@@ -39,12 +39,17 @@ const UiX = (props : any) => {
         configKeys.forEach((key: string, idx: number) => {
             const rowData = configuration[key];
             console.log("rowData : : : ", rowData);
-            
+
             const colIds = Object.keys(rowData);
             console.log("colIds : : : ", colIds);
-            
+
+
+
 
             colSection = colIds.map((colId: string, idxCol: number) => {
+                console.log("Row Data name :: : ==> ", rowData[colId].name);
+                
+                console.log("ComponentsSet ===> ", componentsSet[rowData[colId].name]);
                 return (
                     // changes in react-native frame
                     <Column key={idxCol} size={rowData[colId].span || 4 / (colIds.length)} render={
@@ -52,21 +57,25 @@ const UiX = (props : any) => {
                     } />
                 );
             });
-            rowSection.push(<Row  key={idx}>{colSection}</Row>);
+            rowSection.push(<Row key={idx}>{colSection}</Row>);
             console.log("rowSection after push : : : ", rowSection);
-            
+
         });
 
         const Layout = () => (
-            <section>
-                <View>{rowSection}</View>
-            </section>
+            // <section>
+            <View>{rowSection}</View>
+            // </section>
         );
         return (<Layout />)
     }
-    return (<p>Loading ... </p>)
+    return (
+        <View>
+            <Text>Loading ... </Text>
+        </View>
+    )
 
-    
+
 }
 
 export default UiX;

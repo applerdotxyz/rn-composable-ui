@@ -15,6 +15,11 @@ const routes = {
   Alternate: "Alternate",
   Test: "Test",
   First: "First",
+  AddEditEntity : "AddEditEntity",
+  ListEntities : "ListEntities",
+  ShowEntity : "ShowEntity",
+  MainApp : "MainApp",
+  OneMoreApp : "OneMoreApp"
 };
 
 //  main wrapper component

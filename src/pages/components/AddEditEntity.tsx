@@ -1,27 +1,17 @@
-import { Link } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text, Platform, StyleSheet } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import { updateState } from "../state-mgmt/actions";
-import useSafeSetState from "../utils/useSafeState";
-import { ConnectedForm } from "./components/json-form/ConnectedForm";
-import { JsonForm } from "./components/json-form/JsonForm";
+import { StyleSheet, Text, View, Button, Platform, ScrollView } from "react-native";
+import { updateState } from "../../state-mgmt/actions";
+import useSafeSetState from "../../utils/useSafeState";
+import { ConnectedForm } from "./json-form/ConnectedForm";
+import { JsonForm } from "./json-form/JsonForm";
 import { MainContainer, UIProvider } from 'react-native-web-ui-components';
 import { createBrowserHistory } from "history";
 
-const theme = {
-  input: {
-    focused: StyleSheet.create({
-      border: {
-        borderColor: "#33bfff",
-      },
-    }),
-  },
-};
-
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const Index = (props) => {
-  // form field values
+export const AddEditEntity = (props) => {
+  const { goBack } = useNavigation();
+
   const _formData = {
     firstName: "Raj",
     lastName: "Shah",
@@ -30,8 +20,8 @@ export const Index = (props) => {
     username: "raj@1234",
     password: "Raj@123",
     "Confirm password": "Raj@123",
-    languages: ["Java", "C"],
-    recievemsgs: true,
+    // languages: ["Java", "C"],
+    // recievemsgs: true,
   };
 
   const languages = ["Java", "Python", "C"];
@@ -46,8 +36,8 @@ export const Index = (props) => {
       "username",
       "password",
       "Confirm password",
-      "languages",
-      "recievemsgs",
+      // "languages",
+      // "recievemsgs",
     ],
     properties: {
       firstName: { type: "string" },
@@ -64,17 +54,17 @@ export const Index = (props) => {
       username: { type: "string" },
       password: { type: "string" },
       "Confirm password": { type: "string" },
-      languages: {
-        type: "array",
-        items: {
-          type: "string",
-        },
-      },
-      recievemsgs: { type: "boolean" },
-      upload: {
-        format: "data-url",
-        type: "string",
-      },
+      // languages: {
+      //   type: "array",
+      //   items: {
+      //     type: "string",
+      //   },
+      // },
+      // recievemsgs: { type: "boolean" },
+      // upload: {
+      //   format: "data-url",
+      //   type: "string",
+      // },
       age: {
         type: "integer",
         title: "Age",
@@ -82,40 +72,39 @@ export const Index = (props) => {
     },
   });
 
-  // // form schema
   const _uiSchema = {
-    languages: {
-      "ui:title": "Languages Known",
-      "ui:options": {
-        addable: false,
-        orderable: false,
-        removable: false,
-        minimumNumberOfItems: languages.length,
-      },
-      items: {
-        // The `ui:iterate` allows you to define the uiSchema for each item of the array.
-        // The default is to have a list of TextInput.
-        "ui:iterate": (i, { values }) => ({
-          "ui:title": false,
-          "ui:widget": "checkbox",
-          "ui:widgetProps": {
-            text: languages[i],
-            value: languages[i],
-            checked: (values.languages || []).includes(languages[i]),
-          },
-        }),
-      },
-    },
-    recievemsgs: {
-      "ui:title": "Are you okay if you recieve emails from our side?",
-      "ui:widget": "radio",
-      "ui:widgetProps": {
-        style: { backgroundColor: "lightgrey" },
-      },
-      "ui:containerProps": {
-        style: { paddingTop: 10 },
-      },
-    },
+    // languages: {
+    //   "ui:title": "Languages Known",
+    //   "ui:options": {
+    //     addable: false,
+    //     orderable: false,
+    //     removable: false,
+    //     minimumNumberOfItems: languages.length,
+    //   },
+    //   items: {
+    //     // The `ui:iterate` allows you to define the uiSchema for each item of the array.
+    //     // The default is to have a list of TextInput.
+    //     "ui:iterate": (i, { values }) => ({
+    //       "ui:title": false,
+    //       "ui:widget": "checkbox",
+    //       "ui:widgetProps": {
+    //         text: languages[i],
+    //         value: languages[i],
+    //         checked: (values.languages || []).includes(languages[i]),
+    //       },
+    //     }),
+    //   },
+    // },
+    // recievemsgs: {
+    //   "ui:title": "Are you okay if you recieve emails from our side?",
+    //   "ui:widget": "radio",
+    //   "ui:widgetProps": {
+    //     style: { backgroundColor: "lightgrey" },
+    //   },
+    //   "ui:containerProps": {
+    //     style: { paddingTop: 10 },
+    //   },
+    // },
     stype: {
       "ui:title": "Gender",
       "ui:placeholder": "Please select your gender",
@@ -138,6 +127,16 @@ export const Index = (props) => {
     // },
   };
 
+  const theme = {
+    input: {
+      focused: StyleSheet.create({
+        border: {
+          borderColor: "#33bfff",
+        },
+      }),
+    },
+  };
+
   const ThemeWrapper = ({ children }) => {
     return (
       <UIProvider
@@ -149,16 +148,17 @@ export const Index = (props) => {
     );
   };
 
+
+
   return (
     <ThemeWrapper>
     <MainContainer>
-    <ScrollView style={{ flex: 1, borderWidth : 0, height : 20}}>
-      <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
+    <ScrollView style={styles.container}>
+      <Text style={styles.text}>AddEditEntity</Text>
+      {/* TODO : Remove this Current User stuff from AddEditEntity */}
+      {/* <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
         Current User is :: {props.route.params.state.user.lastEmail}
-      </Text>
-      {/* <ConnectedForm controller="person" action="get" /> */}
-      {/* <ScrollView>  */}
-        {/* Use Grid */}
+      </Text> */}
       <JsonForm
         schema={_schema}
         uiSchema={_uiSchema}
@@ -183,26 +183,22 @@ export const Index = (props) => {
         //   console.log("data changed");
         // }}
       />
-      {/* </ScrollView> */}
-      
-      <Link
-        style={{
-          backgroundColor: "blue",
-          width: 50,
-          height: 50,
-          color: "white",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          borderRadius: 50,
-        }}
-        to="/First"
-      >
-        Go
-      </Link>
-      </ScrollView>
+      {/* <Button title="👈 Go back" onPress={() => goBack()} /> */}
+    </ScrollView>
     </MainContainer>
     </ThemeWrapper>
   );
 };
-// };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // justifyContent: "center",
+    // alignItems: "center",
+    padding : 20,
+    borderWidth : 1,
+  },
+  text: {
+    fontSize: 16,
+  },
+});

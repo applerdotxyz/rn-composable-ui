@@ -73,7 +73,7 @@ export const JsonForm = ({
     input: {
       focused: StyleSheet.create({
         border: {
-          borderColor: "yellow",
+          borderColor: "#33bfff",
         },
       }),
     },

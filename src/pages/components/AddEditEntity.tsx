@@ -151,14 +151,13 @@ export const AddEditEntity = (props) => {
 
 
   return (
-    <ThemeWrapper>
-    <MainContainer>
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.text}>AddEditEntity</Text>
       {/* TODO : Remove this Current User stuff from AddEditEntity */}
       {/* <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
         Current User is :: {props.route.params.state.user.lastEmail}
       </Text> */}
+      <ScrollView>
       <JsonForm
         schema={_schema}
         uiSchema={_uiSchema}
@@ -183,20 +182,19 @@ export const AddEditEntity = (props) => {
         //   console.log("data changed");
         // }}
       />
+      </ScrollView>
       {/* <Button title="👈 Go back" onPress={() => goBack()} /> */}
-    </ScrollView>
-    </MainContainer>
-    </ThemeWrapper>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     // justifyContent: "center",
     // alignItems: "center",
-    padding : 20,
     borderWidth : 1,
+    height : 600
   },
   text: {
     fontSize: 16,

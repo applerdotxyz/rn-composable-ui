@@ -98,6 +98,9 @@ export const MainAppConfig: any = {
     "0": {
         "0": {
             name: "AddEditEntity", size: "2"
+        },
+        "1": {
+            name: "ShowEntity", size: "2"
         }
     },
     "1": {

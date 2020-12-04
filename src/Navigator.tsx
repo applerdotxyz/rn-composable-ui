@@ -11,29 +11,25 @@ const Stack = createStackNavigator();
 // This puts screens in a native ViewController or Activity.
 // enableScreens();
 
-export const Navigator = ({ routes = {} }) => {
+export const Navigator = (props) => {
   const state = useSelector((s) => s);
   const dispatch = useDispatch((s) => s);
 
   let routesSection: any = [];
 
-  console.log("routes : : :  -> ", routes);
+  console.log("routes : : :  -> ", props.routes);
 
   // TODO : props.appId || added to getRouteConfig parameter
-  routesSection = Object.keys(routes).map((key) => (
+  routesSection = Object.keys(props.routes).map((key) => (
     <Stack.Screen
       key={key}
       name={key}
       initialParams={{
         state,
         dispatch,
-      }}
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      component={(props) => {
-        return <UiX idx={key} {...props} />
-      }
-      }
-    />
+      }}>
+      {({route, navigation}) => <UiX idx={key} {...props } route={route} navigation={navigation} />}
+    </Stack.Screen>
   ))
   // return <Stack.Screen name={`${route.idx}`} component={() => <UiX idx={route.idx} {...props} />} />
 

@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { ActivityIndicator, Button, ScrollView, StyleSheet, Text, View } from "react-native";
 import RenderList from '../components/RenderList'
+import SearchList from '../components/SearchList'
 // import { useRouting } from "expo-next-react-navigation";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -22,30 +23,44 @@ export const ListEntities = () => {
     fetchData()
   }, [])
 
-  if(loading) return (
+  if (loading) return (
     <View style={styles.container}>
-        <ActivityIndicator />
+      <ActivityIndicator />
     </View>
   )
 
   return (
     <View style={styles.container}>
-        <Text style={styles.heading}>Search Filter Example</Text>
-        <RenderList 
-            data={data} 
-            searchFields={["name", "description", "category", "subCategory"]} 
-            visibleKeys={["name","category", "subCategory"]}
-            titleStyle={null}
-            dataStyle={{color: 'darkblue'}}
-        />
-        <Button
-            style={styles.link}
-            accessibilityRole="link"
-            onPress={() => {
-            goBack();
-            }}
-            title="Go Back"
-        />
+      <Text style={styles.heading}>Search Filter Example</Text>
+      {/* Component I rendered */}
+      {/* <RenderList
+        data={data}
+        searchFields={["name", "description", "category", "subCategory"]}
+        visibleKeys={["name", "category", "subCategory"]}
+        titleStyle={null}
+        dataStyle={{ color: 'darkblue' }}
+      /> */}
+      {/* COmponent Satyam Rendered */}
+      <SearchList 
+        data={data} 
+        searchFields={["name", "description", "category", "subCategory"]} 
+        visibleKeys={["name", "category", "description"]}
+        flexWidth={[1,1,3]} // Column-span (length of array should be equal to that of visibleKeys)
+        numberOfLines={3} // Row-span
+        searchBarWrapperStyle={null}
+        searchBarStyle={null}
+        titleStyle={null}
+        dataStyle={{color: 'darkblue'}}
+        inputPlaceholder="Search Here"
+    /> 
+      <Button
+        style={styles.link}
+        accessibilityRole="link"
+        onPress={() => {
+          goBack();
+        }}
+        title="Go Back"
+      />
     </View>
   );
 };

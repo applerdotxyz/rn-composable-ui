@@ -5,6 +5,7 @@ import { Test } from '../pages/Test';
 import {AddEditEntity} from  '../pages/components/AddEditEntity';
 import {ListEntities} from '../pages/components/ListEntities';
 import {ShowEntity} from '../pages/components/ShowEntity';
+import SearchList from '../pages/components/SearchList'
 // import {MainApp} from '../pages/screens/MainApp'
 
 // All component which will be rendered
@@ -16,6 +17,7 @@ export const componentsSet : any = {
     AddEditEntity,
     ListEntities,
     ShowEntity,
+    SearchList
     // MainApp
 }
 

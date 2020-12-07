@@ -1,8 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
-import { ActivityIndicator, Button, Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
-import RenderList from '../components/RenderList'
-import SearchList from '../components/SearchList'
+import {
+  ActivityIndicator,
+  Button,
+  Dimensions,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import RenderList from "../components/RenderList";
+import SearchList from "../components/SearchList";
 // import { useRouting } from "expo-next-react-navigation";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -14,20 +22,23 @@ export const ListEntities = () => {
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
-      const res = await fetch('https://run.mocky.io/v3/56a7c1e0-434a-4773-b6b4-4cfc12fe1624');
+      const res = await fetch(
+        "https://run.mocky.io/v3/56a7c1e0-434a-4773-b6b4-4cfc12fe1624"
+      );
       const resJSON = await res.json();
       setData(resJSON.ticketDetails);
 
       setLoading(false);
-    }
-    fetchData()
-  }, [])
+    };
+    fetchData();
+  }, []);
 
-  if (loading) return (
-    <View style={styles.container}>
-      <ActivityIndicator />
-    </View>
-  )
+  if (loading)
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator />
+      </View>
+    );
 
   return (
     <ScrollView style={styles.container}>
@@ -38,7 +49,7 @@ export const ListEntities = () => {
         searchFields={["name", "description", "category", "subCategory"]}
         visibleKeys={["name", "category", "subCategory"]}
         titleStyle={null}
-        dataStyle={{ color: 'darkblue' }}
+        dataStyle={{ color: "darkblue" }}
       />
       {/* COmponent Satyam Rendered */}
       {/* <SearchList 
@@ -53,25 +64,26 @@ export const ListEntities = () => {
         dataStyle={{color: 'darkblue'}}
         inputPlaceholder="Search Here"
     />  */}
-    <View style={{
-      marginLeft : 100,
-      marginRight : 100,
-      marginBottom : 10,
-      marginTop : 10
-    }}>
-      <Button
-        style={styles.link}
-        accessibilityRole="link"
-        onPress={() => {
-          goBack();
+      <View
+        style={{
+          marginLeft: 100,
+          marginRight: 100,
+          marginBottom: 10,
+          marginTop: 10,
         }}
-        title="Go Back"
-      />
+      >
+        <Button
+          style={styles.link}
+          accessibilityRole="link"
+          onPress={() => {
+            goBack();
+          }}
+          title="Go Back"
+        />
       </View>
     </ScrollView>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -91,7 +103,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 20,
     fontWeight: "bold",
-    marginVertical: 10
+    marginVertical: 10,
   },
   link: {
     color: "blue",

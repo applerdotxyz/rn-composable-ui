@@ -1,11 +1,18 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { StyleSheet, Text, View, Button, Platform, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Platform,
+  ScrollView,
+} from "react-native";
 import { updateState } from "../../state-mgmt/actions";
 import useSafeSetState from "../../utils/useSafeState";
 import { ConnectedForm } from "./json-form/ConnectedForm";
 import { JsonForm } from "./json-form/JsonForm";
-import { MainContainer, UIProvider } from 'react-native-web-ui-components';
+import { MainContainer, UIProvider } from "react-native-web-ui-components";
 import { createBrowserHistory } from "history";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -148,8 +155,6 @@ export const AddEditEntity = (props) => {
     );
   };
 
-
-
   return (
     <View style={styles.container}>
       <Text style={styles.text}>AddEditEntity</Text>
@@ -158,30 +163,30 @@ export const AddEditEntity = (props) => {
         Current User is :: {props.route.params.state.user.lastEmail}
       </Text> */}
       <ScrollView>
-      <JsonForm
-        schema={_schema}
-        uiSchema={_uiSchema}
-        _formData={_formData}
-        // _onBeforeSubmit={(e) => {
-        //   console.log("*** _onBeforeSubmit ***");
-        //   console.log(e);
-        // }}
-        // _onSubmit={(e) => {
-        //   console.log("*** _onSubmit ***");
-        //   console.log(e);
-        // }}
-        // _onError={(e) => {
-        //   console.log("*** _onError ***");
-        //   console.log(e);
-        // }}
-        _onSuccess={(e) => {
-          props.route.params.dispatch(updateState());
-          props.navigation.navigate("First");
-        }}
-        // _onChange={(e) => {
-        //   console.log("data changed");
-        // }}
-      />
+        <JsonForm
+          schema={_schema}
+          uiSchema={_uiSchema}
+          _formData={_formData}
+          // _onBeforeSubmit={(e) => {
+          //   console.log("*** _onBeforeSubmit ***");
+          //   console.log(e);
+          // }}
+          // _onSubmit={(e) => {
+          //   console.log("*** _onSubmit ***");
+          //   console.log(e);
+          // }}
+          // _onError={(e) => {
+          //   console.log("*** _onError ***");
+          //   console.log(e);
+          // }}
+          _onSuccess={(e) => {
+            props.route.params.dispatch(updateState());
+            props.navigation.navigate("First");
+          }}
+          // _onChange={(e) => {
+          //   console.log("data changed");
+          // }}
+        />
       </ScrollView>
       {/* <Button title="👈 Go back" onPress={() => goBack()} /> */}
     </View>
@@ -193,8 +198,8 @@ const styles = StyleSheet.create({
     // flex: 1,
     // justifyContent: "center",
     // alignItems: "center",
-    borderWidth : 1,
-    height : 600
+    borderWidth: 1,
+    height: 600,
   },
   text: {
     fontSize: 16,

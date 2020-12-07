@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { default as React } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import UiX from "./UIconfigurator/UIX";
-import UiX from "./UIconfigurator/UIx"
+import UiX from "./UIconfigurator/UIx";
 
 // routing setup with react-navigation
 const Stack = createStackNavigator();
@@ -27,12 +27,14 @@ export const Navigator = (props) => {
       initialParams={{
         state,
         dispatch,
-      }}>
-      {({route, navigation}) => <UiX idx={key} {...props } route={route} navigation={navigation} />}
+      }}
+    >
+      {({ route, navigation }) => (
+        <UiX idx={key} {...props} route={route} navigation={navigation} />
+      )}
     </Stack.Screen>
-  ))
+  ));
   // return <Stack.Screen name={`${route.idx}`} component={() => <UiX idx={route.idx} {...props} />} />
-
 
   // const navigationSection = Object.keys(routes).map((key) => (
   //   <Stack.Screen

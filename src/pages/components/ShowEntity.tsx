@@ -43,35 +43,59 @@ const Item = ({ item, onPress, style }) => (
     {/* <Text style={styles.title}>{item.title}</Text>
     <Text style={styles.description}>{item.description}</Text>
     <Text style={styles.subInfo}>{item.subInfo}</Text> */}
-    <Grid style={{
-      flex: 1
-    }}>
-      <Row style={{
-        // borderWidth : 1,
-        // height: Dimensions.get("window").height - 500
-      }}>
-        <Col style={{
-          // borderWidth: 1
-        }}>
+    <Grid
+      style={{
+        flex: 1,
+      }}
+    >
+      <Row
+        style={
+          {
+            // borderWidth : 1,
+            // height: Dimensions.get("window").height - 500
+          }
+        }
+      >
+        <Col
+          style={
+            {
+              // borderWidth: 1
+            }
+          }
+        >
           <Text style={styles.title}>{item.title}</Text>
         </Col>
       </Row>
-      <Row style={{
-        // borderWidth: 1
-      }}>
-        <Col style={{
-          // borderWidth: 1
-        }}>
+      <Row
+        style={
+          {
+            // borderWidth: 1
+          }
+        }
+      >
+        <Col
+          style={
+            {
+              // borderWidth: 1
+            }
+          }
+        >
           <Text style={styles.description}>{item.description}</Text>
         </Col>
       </Row>
-      <Row style={{
-        // borderWidth: 1
-      }}>
-        <Col style={{
-          // borderWidth: 1,
-          justifyContent: "center"
-        }}>
+      <Row
+        style={
+          {
+            // borderWidth: 1
+          }
+        }
+      >
+        <Col
+          style={{
+            // borderWidth: 1,
+            justifyContent: "center",
+          }}
+        >
           <Text style={styles.subInfo}>{item.subInfo}</Text>
         </Col>
       </Row>
@@ -109,20 +133,22 @@ export const ShowEntity = (props) => {
         />
       </ScrollView>
       {/* </SafeAreaView> */}
-      <View style={{
-        marginLeft : 100,
-        marginRight : 100,
-        marginBottom : 10,
-        marginTop : 10
-      }}>
-      <Button
-        title="Book"
-        color = '#0e73ca'
-        onPress={() => {
-          // props.navigation.navigate("Cal");
-          alert("Booked Successfully")
+      <View
+        style={{
+          marginLeft: 100,
+          marginRight: 100,
+          marginBottom: 10,
+          marginTop: 10,
         }}
-      />
+      >
+        <Button
+          title="Book"
+          color="#0e73ca"
+          onPress={() => {
+            // props.navigation.navigate("Cal");
+            alert("Booked Successfully");
+          }}
+        />
       </View>
     </View>
   );
@@ -133,8 +159,8 @@ const styles = StyleSheet.create({
     flex: 1,
     // marginTop: StatusBar.currentHeight || 0,
     borderWidth: 0,
-    // TODO :  this calculation of screen should come from props 
-    minHeight: Dimensions.get("window").height - 85, 
+    // TODO :  this calculation of screen should come from props
+    minHeight: Dimensions.get("window").height - 85,
     minWidth: Dimensions.get("window").width / 4,
   },
   item: {
@@ -150,16 +176,14 @@ const styles = StyleSheet.create({
     // borderRadius: 2,
     height: 200,
     // alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
     elevation: 5,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
     borderRadius: 1,
-
-
   },
   title: {
     fontSize: 20,
-    color: '#0d47a1',
+    color: "#0d47a1",
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -172,6 +196,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#1565c0",
     textAlign: "center",
-    fontWeight : "bold"
+    fontWeight: "bold",
   },
 });

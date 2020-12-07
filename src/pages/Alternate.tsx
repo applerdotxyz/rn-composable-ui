@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   text: {
     alignItems: "center",
     fontSize: 24,
-    color: "red"
+    color: "red",
     // marginBottom: 24,
   },
   link: {

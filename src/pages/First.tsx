@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexGrow: 1,
     justifyContent: "center",
-    marginTop : 50
+    marginTop: 50,
   },
   link: {
     color: "blue",

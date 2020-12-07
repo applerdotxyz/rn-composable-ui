@@ -6,7 +6,7 @@ import { updateState } from "../state-mgmt/actions";
 import useSafeSetState from "../utils/useSafeState";
 import { ConnectedForm } from "./components/json-form/ConnectedForm";
 import { JsonForm } from "./components/json-form/JsonForm";
-import { MainContainer, UIProvider } from 'react-native-web-ui-components';
+import { MainContainer, UIProvider } from "react-native-web-ui-components";
 import { createBrowserHistory } from "history";
 
 const theme = {
@@ -150,10 +150,13 @@ export const Index = (props) => {
   };
 
   return (
-    <ScrollView style={{
-      flex: 1, borderWidth: 0,
-      minHeight: Dimensions.get("window").height - 85,
-    }}>
+    <ScrollView
+      style={{
+        flex: 1,
+        borderWidth: 0,
+        minHeight: Dimensions.get("window").height - 85,
+      }}
+    >
       <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
         Current User is :: {props.route.params.state.user.lastEmail}
       </Text>
@@ -180,9 +183,9 @@ export const Index = (props) => {
           props.route.params.dispatch(updateState());
           props.navigation.navigate("First");
         }}
-      // _onChange={(e) => {
-      //   console.log("data changed");
-      // }}
+        // _onChange={(e) => {
+        //   console.log("data changed");
+        // }}
       />
       {/* </ScrollView> */}
 

@@ -44,3 +44,21 @@
 
 - Configuration based routes (from `pages` directory)
 - then passed onto the `Navigator` component in `App.tsx`
+<hr>
+
+## Documentation
+### Redux Implementation
+- In the `src\state-mgmt` folder their exist 4 files
+    - `src\state-mgmt\actions.ts`
+        - Some constants are defined within action.ts
+        - Here all the actions for the UI Boilerplate is defined
+          - `doLogin` ==> For Login part
+          - `updateState` ==> Update the state with a dispatch as `lastEmail`
+    - `src\state-mgmt\app.ts`
+        - Here `initialState` of app is defined.
+    - `src\state-mgmt\reducers.ts`
+        - Here all the reducer are stated where
+          - For different actions which were defined in `action.ts` file are added in switch case for that particular user as reducers.
+          - env as reducer is also defined here.
+    - `src\state-mgmt\store.ts`
+        - Overall store creation with inital state and persistedReducers are defined in `store.ts` file.

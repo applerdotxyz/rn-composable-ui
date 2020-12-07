@@ -1,11 +1,23 @@
 import { Link } from "@react-navigation/native";
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Platform, StyleSheet, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { updateState } from "../state-mgmt/actions";
 import useSafeSetState from "../utils/useSafeState";
 import { ConnectedForm } from "./components/json-form/ConnectedForm";
 import { JsonForm } from "./components/json-form/JsonForm";
+import { MainContainer, UIProvider } from "react-native-web-ui-components";
+import { createBrowserHistory } from "history";
+
+const theme = {
+  input: {
+    focused: StyleSheet.create({
+      border: {
+        borderColor: "#33bfff",
+      },
+    }),
+  },
+};
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Index = (props) => {
@@ -126,12 +138,31 @@ export const Index = (props) => {
     // },
   };
 
+  const ThemeWrapper = ({ children }) => {
+    return (
+      <UIProvider
+        theme={theme}
+        history={Platform.OS === "web" ? createBrowserHistory() : {}}
+      >
+        {children}
+      </UIProvider>
+    );
+  };
+
   return (
-    <ScrollView style={{ flex: 1 }}>
+    <ScrollView
+      style={{
+        flex: 1,
+        borderWidth: 0,
+        minHeight: Dimensions.get("window").height - 85,
+      }}
+    >
       <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
         Current User is :: {props.route.params.state.user.lastEmail}
       </Text>
       {/* <ConnectedForm controller="person" action="get" /> */}
+      {/* <ScrollView>  */}
+      {/* Use Grid */}
       <JsonForm
         schema={_schema}
         uiSchema={_uiSchema}
@@ -156,6 +187,8 @@ export const Index = (props) => {
         //   console.log("data changed");
         // }}
       />
+      {/* </ScrollView> */}
+
       <Link
         style={{
           backgroundColor: "blue",

@@ -18,13 +18,11 @@ export const First = ({
       <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
         Changed User is :: {route.params.state.user.lastEmail}
       </Text>
-
-      <Header />
-
       <View style={styles.textContainer}>
         <Text accessibilityRole="header" aria-level="2" style={styles.text}>
           <Text style={styles.text}>Welcome to Expo + Web 👋</Text>
         </Text>
+        <Header />
       </View>
     </View>
   );
@@ -35,13 +33,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexGrow: 1,
     justifyContent: "center",
+    marginTop: 50,
   },
   link: {
     color: "blue",
   },
   textContainer: {
     alignItems: "center",
-    marginTop: 16,
+    // marginTop: 0,
   },
   text: {
     alignItems: "center",

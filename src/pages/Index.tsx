@@ -1,6 +1,6 @@
 import { Link } from "@react-navigation/native";
 import React from "react";
-import { View, Text, Platform, StyleSheet } from "react-native";
+import { View, Text, Platform, StyleSheet, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { updateState } from "../state-mgmt/actions";
 import useSafeSetState from "../utils/useSafeState";
@@ -150,15 +150,16 @@ export const Index = (props) => {
   };
 
   return (
-    <ThemeWrapper>
-    <MainContainer>
-    <ScrollView style={{ flex: 1, borderWidth : 0, height : 20}}>
+    <ScrollView style={{
+      flex: 1, borderWidth: 0,
+      minHeight: Dimensions.get("window").height - 85,
+    }}>
       <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
         Current User is :: {props.route.params.state.user.lastEmail}
       </Text>
       {/* <ConnectedForm controller="person" action="get" /> */}
       {/* <ScrollView>  */}
-        {/* Use Grid */}
+      {/* Use Grid */}
       <JsonForm
         schema={_schema}
         uiSchema={_uiSchema}
@@ -179,12 +180,12 @@ export const Index = (props) => {
           props.route.params.dispatch(updateState());
           props.navigation.navigate("First");
         }}
-        // _onChange={(e) => {
-        //   console.log("data changed");
-        // }}
+      // _onChange={(e) => {
+      //   console.log("data changed");
+      // }}
       />
       {/* </ScrollView> */}
-      
+
       <Link
         style={{
           backgroundColor: "blue",
@@ -200,9 +201,7 @@ export const Index = (props) => {
       >
         Go
       </Link>
-      </ScrollView>
-    </MainContainer>
-    </ThemeWrapper>
+    </ScrollView>
   );
 };
 // };

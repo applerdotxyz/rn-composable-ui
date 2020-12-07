@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
-import { ActivityIndicator, Button, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, Button, Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
 import RenderList from '../components/RenderList'
 import SearchList from '../components/SearchList'
 // import { useRouting } from "expo-next-react-navigation";
@@ -30,18 +30,18 @@ export const ListEntities = () => {
   )
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.heading}>Search Filter Example</Text>
       {/* Component I rendered */}
-      {/* <RenderList
+      <RenderList
         data={data}
         searchFields={["name", "description", "category", "subCategory"]}
         visibleKeys={["name", "category", "subCategory"]}
         titleStyle={null}
         dataStyle={{ color: 'darkblue' }}
-      /> */}
+      />
       {/* COmponent Satyam Rendered */}
-      <SearchList 
+      {/* <SearchList 
         data={data} 
         searchFields={["name", "description", "category", "subCategory"]} 
         visibleKeys={["name", "category", "description"]}
@@ -52,7 +52,13 @@ export const ListEntities = () => {
         titleStyle={null}
         dataStyle={{color: 'darkblue'}}
         inputPlaceholder="Search Here"
-    /> 
+    />  */}
+    <View style={{
+      marginLeft : 100,
+      marginRight : 100,
+      marginBottom : 10,
+      marginTop : 10
+    }}>
       <Button
         style={styles.link}
         accessibilityRole="link"
@@ -61,16 +67,21 @@ export const ListEntities = () => {
         }}
         title="Go Back"
       />
-    </View>
+      </View>
+    </ScrollView>
   );
 };
 
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
-    flexGrow: 1,
-    justifyContent: "center",
+    flex: 1,
+    borderWidth: 0,
+    minHeight: Dimensions.get("window").height - 50,
+    minWidth: Dimensions.get("window").width / 4,
+    // alignItems: "center",
+    // flexGrow: 1,
+    // justifyContent: "center",
   },
   text: {
     alignItems: "center",

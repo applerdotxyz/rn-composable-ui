@@ -24,3 +24,4 @@ yarn-error.log*
 src/config/env.*.ts
 coverage
 coverage/lcov-report
+yarn.lock

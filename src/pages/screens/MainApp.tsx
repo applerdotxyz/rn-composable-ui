@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet } from "react-native";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const MainApp = () => {

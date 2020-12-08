@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Index } from "../pages/Index";
 import { First } from "../pages/First";
 import { Alternate } from "../pages/Alternate";

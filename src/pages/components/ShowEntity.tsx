@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import {
+  Button,
+  Dimensions,
   FlatList,
-  SafeAreaView,
-  StatusBar,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  Button,
-  ScrollView,
-  Dimensions,
   View,
 } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
@@ -103,7 +101,7 @@ const Item = ({ item, onPress, style }) => (
   </TouchableOpacity>
 );
 
-export const ShowEntity = (props) => {
+export const ShowEntity = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({ item }) => {

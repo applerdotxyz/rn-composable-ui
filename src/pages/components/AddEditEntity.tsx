@@ -1,24 +1,11 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Platform,
-  ScrollView,
-} from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { updateState } from "../../state-mgmt/actions";
 import useSafeSetState from "../../utils/useSafeState";
-import { ConnectedForm } from "./json-form/ConnectedForm";
 import { JsonForm } from "./json-form/JsonForm";
-import { MainContainer, UIProvider } from "react-native-web-ui-components";
-import { createBrowserHistory } from "history";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const AddEditEntity = (props) => {
-  const { goBack } = useNavigation();
-
   const _formData = {
     firstName: "Raj",
     lastName: "Shah",
@@ -31,9 +18,7 @@ export const AddEditEntity = (props) => {
     // recievemsgs: true,
   };
 
-  const languages = ["Java", "Python", "C"];
-
-  const [_schema, setSchema] = useSafeSetState({
+  const [_schema] = useSafeSetState({
     type: "object",
     required: [
       "firstName",
@@ -144,17 +129,6 @@ export const AddEditEntity = (props) => {
     },
   };
 
-  const ThemeWrapper = ({ children }) => {
-    return (
-      <UIProvider
-        theme={theme}
-        history={Platform.OS === "web" ? createBrowserHistory() : {}}
-      >
-        {children}
-      </UIProvider>
-    );
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.text}>AddEditEntity</Text>
@@ -179,7 +153,7 @@ export const AddEditEntity = (props) => {
           //   console.log("*** _onError ***");
           //   console.log(e);
           // }}
-          _onSuccess={(e) => {
+          _onSuccess={() => {
             props.route.params.dispatch(updateState());
             props.navigation.navigate("First");
           }}

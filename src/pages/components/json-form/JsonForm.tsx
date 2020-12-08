@@ -14,19 +14,17 @@ export const JsonForm = ({
   _onSuccess = noOp,
   _onError = noOp,
   _onSubmit = noOp,
-  _onChange = noOp,
   _formData = {},
   _onClose = noOp,
   schema = {},
   uiSchema = {},
-  ...props
-}): AnyRecord => {
+}) => {
   // TODO: show loading indicator based on loading value
-  const [loading, setLoading] = useSafeSetState(false);
+  const [, setLoading] = useSafeSetState(false);
   // TODO: show exceptions as errors
-  const [exception, setException] = useSafeSetState(null);
+  const [] = useSafeSetState(null);
   // TODO: show message
-  const [message, setMessage] = useSafeSetState(null);
+  const [] = useSafeSetState(null);
   // TODO: submit formData to ideal connected endpoint
   const [formData, setFormData] = useState(_formData);
 
@@ -48,18 +46,12 @@ export const JsonForm = ({
   const onError = (event) => {
     console.log("*** onError ***");
     console.log(event);
-    const { exceptions } = event.params;
-    const exceptionsMessages = exceptions.map((messages) =>
-      messages.join(", ")
-    );
     _onError(event);
     // setLoading(false);
     // if (exceptionsMessages.length) {
     //   setException(exceptionsMessages.join("\n"));
     // }
   };
-
-  const onErrorOk = () => setException(null);
 
   // form data mutator
   const onChange = (event) => {
@@ -82,7 +74,6 @@ export const JsonForm = ({
   const onSubmit = async (event) => {
     await onBeforeSubmit(event);
     setLoading(true);
-    const { values } = event.params;
     _onSubmit(event);
     // const mutation = getMutation({
     //   values,
@@ -95,6 +86,7 @@ export const JsonForm = ({
     // });
   };
 
+  // eslint-disable-next-line react/prop-types
   const ThemeWrapper = ({ children }) => {
     return (
       <UIProvider

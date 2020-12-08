@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { default as React } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import UiX from "./UIconfigurator/UIX";
 import UiX from "./UIconfigurator/UIx";
 
@@ -15,7 +15,7 @@ export const Navigator = (props) => {
   const state = useSelector((s) => s);
   const dispatch = useDispatch((s) => s);
 
-  let routesSection: any = [];
+  let routesSection = [];
 
   console.log("routes : : :  -> ", props.routes);
 

@@ -1,10 +1,8 @@
-import { stringify } from "querystring";
 import React, { useState } from "react";
-import { componentsSet } from "../uiConfig/index";
-import config from "../uiConfig/index";
-import { Col, Row, Grid } from "react-native-easy-grid";
+import { Text, View } from "react-native";
+import { Col, Row } from "react-native-easy-grid";
 import { useDispatch } from "react-redux";
-import { View, Text } from "react-native";
+import config, { componentsSet } from "../uiConfig/index";
 
 const Column = (props: any) => (
   <Col

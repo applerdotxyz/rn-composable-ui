@@ -6,7 +6,7 @@ export const UPDATE_STATE = "UPDATE_STATE";
 // login
 export const doLogin = (details = { isWeb: false }) => {
   delete details.isWeb;
-  return async (dispatch: Function) => {
+  return async (dispatch) => {
     dispatch({
       type: LOGIN_SUCCESS,
       data: { response: { error: false } },
@@ -16,7 +16,7 @@ export const doLogin = (details = { isWeb: false }) => {
 
 // updateState test
 export const updateState = () => {
-  return async (dispatch: Function) => {
+  return async (dispatch) => {
     dispatch({
       type: UPDATE_STATE,
       data: { lastEmail: "new.email@pm.me" },

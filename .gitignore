@@ -25,3 +25,4 @@ src/config/env.*.ts
 coverage
 coverage/lcov-report
 yarn.lock
+e2e/cypress/videos/

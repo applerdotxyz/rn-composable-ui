@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import PropTypes from "prop-types";
 import SearchInput, { createFilter } from "react-native-search-filter";
 
 export default function RenderList({
@@ -49,6 +50,7 @@ export default function RenderList({
                       // Remove numberOfLines and ellipsizeMode, if the content row span doesn't bother us
                       // Doesn't seem too polished for web
                       <Text
+                        key={i}
                         numberOfLines={2}
                         ellipsizeMode="tail"
                         style={[styles.tableVal, dataStyle]}
@@ -65,6 +67,14 @@ export default function RenderList({
     </View>
   );
 }
+
+RenderList.propTypes = {
+  data: PropTypes.array,
+  searchFields: PropTypes.array,
+  visibleKeys: PropTypes.array,
+  titleStyle: PropTypes.object,
+  dataStyle: PropTypes.object,
+};
 
 const styles = StyleSheet.create({
   tableHead: {

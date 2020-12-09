@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { updateState } from "../../state-mgmt/actions";
 import useSafeSetState from "../../utils/useSafeState";
 import { JsonForm } from "./json-form/JsonForm";
+import PropTypes from "prop-types";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const AddEditEntity = (props) => {
@@ -165,6 +166,11 @@ export const AddEditEntity = (props) => {
       {/* <Button title="👈 Go back" onPress={() => goBack()} /> */}
     </View>
   );
+};
+
+AddEditEntity.propTypes = {
+  route: PropTypes.object,
+  navigation: PropTypes.object,
 };
 
 const styles = StyleSheet.create({

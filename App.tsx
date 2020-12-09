@@ -19,11 +19,11 @@ const routes = {
   Alternate: "Alternate",
   Test: "Test",
   First: "First",
-  AddEditEntity : "AddEditEntity",
-  ListEntities : "ListEntities",
-  ShowEntity : "ShowEntity",
-  MainApp : "MainApp",
-  OneMoreApp : "OneMoreApp",
+  AddEditEntity: "AddEditEntity",
+  ListEntities: "ListEntities",
+  ShowEntity: "ShowEntity",
+  MainApp: "MainApp",
+  OneMoreApp: "OneMoreApp",
   // Index: require(`./src/pages/Index`).default,
   // Alternate: require(`./src/pages/Alternate`).default,
   // Test: require(`./src/pages/Test`).default,
@@ -31,7 +31,6 @@ const routes = {
 };
 
 const Stack = createStackNavigator();
-
 
 //  main wrapper component
 const App: FunctionComponent = () => (
@@ -55,7 +54,6 @@ const App: FunctionComponent = () => (
       </Stack.Navigator>
     </NavigationContainer>
     </ReduxProvider> */}
-
     </View>
   </>
 );

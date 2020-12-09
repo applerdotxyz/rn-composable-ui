@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import PropTypes from "prop-types";
 import SearchInput, { createFilter } from "react-native-search-filter";
 
 {
@@ -109,6 +110,18 @@ export default function SearchList({
     </View>
   );
 }
+
+SearchList.propTypes = {
+  data: PropTypes.array,
+  searchFields: PropTypes.array,
+  visibleKeys: PropTypes.array,
+  flexWidth: PropTypes.array,
+  titleStyle: PropTypes.object,
+  dataStyle: PropTypes.object,
+  inputPlaceholder: PropTypes.string,
+  searchBarWrapperStyle: PropTypes.object,
+  searchBarStyle: PropTypes.object,
+};
 
 const styles = StyleSheet.create({
   tableHead: {

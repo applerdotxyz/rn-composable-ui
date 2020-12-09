@@ -5,6 +5,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { updateState } from "../state-mgmt/actions";
 import useSafeSetState from "../utils/useSafeState";
 import { JsonForm } from "./components/json-form/JsonForm";
+import PropTypes from "prop-types";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Index = (props) => {
@@ -184,4 +185,10 @@ export const Index = (props) => {
   );
 };
 // };
+
+Index.propTypes = {
+  route: PropTypes.object,
+  navigation: PropTypes.object,
+};
+
 export default Index;

@@ -83,6 +83,7 @@
     "redux-mock-store": "^1.5.4",
     "sentry-expo": "2.0.3",
     "typescript": "^3.9.6",
+    "cypress":"latest",
     "wait-port": "^0.2.9"
   },
   "scripts": {

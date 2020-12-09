@@ -28,6 +28,7 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "cypress":"latest",
     "@babel/preset-env": "latest",
     "@commitlint/config-conventional": "^8.3.4",
     "@expo/config": "^3.2.1",

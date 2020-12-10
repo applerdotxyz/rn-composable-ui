@@ -38,8 +38,9 @@ jobs:
         run: yarn install
       - uses: cypress-io/github-action@v2
         with:
-          command: npm run e2e-ci
-          install: false
+          start: yarn stage:web && cd web-build  && http-server
+          wait-on: 'npx wait-on --timeout 5000 http://localhost:8080'
+          command: npm run cy:run
           headless: true
 #   setup-linux:
 #     name: Setup - Linux

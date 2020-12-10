@@ -24,6 +24,7 @@ const routes = {
   ShowEntity : "ShowEntity",
   MainApp : "MainApp",
   OneMoreApp : "OneMoreApp",
+  OrderLineView : "OrderLineView"
   // Index: require(`./src/pages/Index`).default,
   // Alternate: require(`./src/pages/Alternate`).default,
   // Test: require(`./src/pages/Test`).default,

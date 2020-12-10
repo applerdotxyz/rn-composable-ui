@@ -7,8 +7,8 @@ export default function Header() {
   return (
     <View>
       <Text style={{
-        fontWeight : 'bold',
-        fontSize : 20
+        fontWeight: 'bold',
+        fontSize: 20
       }}>
         COMPONENTS-SETS CREATED
       </Text>
@@ -36,9 +36,12 @@ export default function Header() {
       <Link style={{ color: "green", fontSize: 20 }} to="/ShowEntity">
         ShowEntity
       </Link>
+      <Link style={{ color: "green", fontSize: 20 }} to="/OrderLineView">
+        OrderLineView
+      </Link>
       <Text style={{
-        fontWeight : 'bold',
-        fontSize : 20
+        fontWeight: 'bold',
+        fontSize: 20
       }}>
         SCREEN LAYOUT CONFIGURED
       </Text>

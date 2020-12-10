@@ -73,8 +73,7 @@ export const ListEntities = () => {
         }}
       >
         <Button
-          style={styles.link}
-          accessibilityRole="link"
+          accessibilityLabel="link"
           onPress={() => {
             goBack();
           }}

@@ -35,10 +35,11 @@ jobs:
         run: yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh 
       - uses: cypress-io/github-action@v2
         with:
-          command: 'yarn e2e-ci'
-#           browser: chrome
-          headless: true
+          build: 'yarn stage:build'
+          working-directory: web-build
+          start: http-server
           wait-on: 'http://localhost:8080'
+          headless: true
 #   setup-linux:
 #     name: Setup - Linux
 #     runs-on: ubuntu-latest

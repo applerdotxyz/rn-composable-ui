@@ -6,7 +6,7 @@ import { AddEditEntity } from "../pages/components/AddEditEntity";
 import { ListEntities } from "../pages/components/ListEntities";
 import { ShowEntity } from "../pages/components/ShowEntity";
 import SearchList from "../pages/components/SearchList";
-import { View } from "react-native";
+import { OrderLineView } from "../pages/components/OrderLineView";
 // import {MainApp} from '../pages/screens/MainApp'
 
 // All component which will be rendered
@@ -19,6 +19,7 @@ export const componentsSet: any = {
   ListEntities,
   ShowEntity,
   SearchList,
+  OrderLineView
   // MainApp
 };
 
@@ -213,7 +214,7 @@ export const OneMoreAppConfig: any = {
       }
     },
     "1": {
-      name: "AddEditEntity", // navigation
+      name: "Test", // navigation
       size: "1",
     }
   },
@@ -227,53 +228,81 @@ export const OneMoreAppConfig: any = {
 
 
 // export const OneMoreAppConfig: any = {
-  //   "0": {
-  //     "0.0": {
-  //       // name: "AddEditEntity", // navigation
-  //       // size: "1",
-  //       "layout": {
-  //         "0.0.0": {
-  //           "0.0.0.0": {
-  //             name: "Alternate",
-  //             size: "1"
-  //           },
-  //           "0.0.0.1": {
-  //             "size": "11",
-  //             "layout": {
-  //               "0.0.0.1.0": {
-  //                 "0.0.0.1.0.0": {
-  //                   name: "Test",
-  //                   size: 4
-  //                 }
-  //               },
-  //               "0.0.0.1.1": {
-  //                 "0.0.0.1.1.0": {
-  //                   name: "ShowEntity",
-  //                   size: 2
-  //                 },
-  //                 "0.0.0.1.1.1": {
-  //                   name: "AddEditEntity",
-  //                   size: 2
-  //                 },
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     },
-  //     "1": {
-  //       name: "ListEntities", // navigation
-  //       size: "1",
-  //     }
-  //   },
-  //   "0.1": {
-  //     "0": {
-  //       name: "ShowEntity",
-  //       size: "4",
-  //     },
-  //   },
-  // };
-  
+//   "0": {
+//     "0.0": {
+//       // name: "AddEditEntity", // navigation
+//       // size: "1",
+//       "layout": {
+//         "0.0.0": {
+//           "0.0.0.0": {
+//             name: "Alternate",
+//             size: "1"
+//           },
+//           "0.0.0.1": {
+//             "size": "11",
+//             "layout": {
+//               "0.0.0.1.0": {
+//                 "0.0.0.1.0.0": {
+//                   name: "Test",
+//                   size: 4
+//                 }
+//               },
+//               "0.0.0.1.1": {
+//                 "0.0.0.1.1.0": {
+//                   name: "ShowEntity",
+//                   size: 2
+//                 },
+//                 "0.0.0.1.1.1": {
+//                   name: "AddEditEntity",
+//                   size: 2
+//                 },
+//               }
+//             }
+//           }
+//         }
+//       }
+//     },
+//     "1": {
+//       name: "ListEntities", // navigation
+//       size: "1",
+//     }
+//   },
+//   "0.1": {
+//     "0": {
+//       name: "ShowEntity",
+//       size: "4",
+//     },
+//   },
+// };
+
+export const OrderLineViewConfig: any = {
+  "0": {
+    "0": {
+      name: "OrderLineView",
+      size: "4",
+      props: {
+        _formData: {
+          keyName: "YourName",
+        },
+        _schema: {
+          type: "object",
+          required: [
+            "keyName",
+          ],
+          properties: {
+            keyName: { type: "string" },
+          },
+        },
+        _uiSchema : {
+          submitButton: false,
+        }
+      }
+    },
+  },
+};
+
+
+
 
 
 const exported: any = {
@@ -286,6 +315,7 @@ const exported: any = {
   ShowEntityConfig,
   MainAppConfig,
   OneMoreAppConfig,
+  OrderLineViewConfig
 };
 
 export default exported;

@@ -36,7 +36,8 @@ jobs:
       - uses: cypress-io/github-action@v2
         with:
           command: 'yarn e2e-ci'
-          headless: true
+          browser: chrome
+#           headless: true
 #   setup-linux:
 #     name: Setup - Linux
 #     runs-on: ubuntu-latest

@@ -10,13 +10,26 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    # let's make sure our "app" works on several versions of Node
+    strategy:
+      matrix:
+        node: [14]
     steps:
       - uses: actions/checkout@v1
-      - name: Yarn Install
-        if: steps.cache.outputs.cache-hit != 'true' || steps.submodule-cache.outputs.cache-hit != 'true'
-        run: yarn install
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - run: npm i cypress
       - uses: cypress-io/github-action@v2
         with:
+          install: false
           headless: true
 #   setup-linux:
 #     name: Setup - Linux

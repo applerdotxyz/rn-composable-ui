@@ -12,8 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+        with:
+          node-version: "14.13.1"
       - uses: cypress-io/github-action@v2
         with:
+          record: true
+          tag: node-14.13.1
+          browser: firefox
           headless: true
 #   setup-linux:
 #     name: Setup - Linux

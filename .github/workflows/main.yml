@@ -26,9 +26,8 @@ jobs:
           path: |
             ~/.cache/Cypress
             node_modules
-          key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}  
       - name: Yarn Install
-        if: steps.cache.outputs.cache-hit != 'true' || steps.submodule-cache.outputs.cache-hit != 'true'
         run: yarn install
       - name: expo global setup
         run: npm install -g expo-cli  
@@ -36,7 +35,7 @@ jobs:
         run: yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh 
       - uses: cypress-io/github-action@v2
         with:
-          build: 'yarn build:web'
+          build: 'yarn stage:web'
           start: 'cd web-build  && http-server'
           wait-on: 'npx wait-on --timeout 15000 http://localhost:8080'
           headless: true

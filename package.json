@@ -100,6 +100,7 @@
     "stage": "REACT_NATIVE_NODE_ENV=stage expo start -a --no-dev --https --ios",
     "eject": "expo eject",
     "test": "jest",
+    "serve:web": "http-server web-build",
     "e2e": "./node_modules/.bin/concurrently -k --success first './node_modules/.bin/wait-port -t 60000 19000 && ./node_modules/.bin/detox test' 'expo start >/dev/null'",
     "e2e-ci": "./node_modules/.bin/concurrently -k -s=first './node_modules/.bin/wait-port -t 60000 8080' 'yarn stage:web && http-server web-build' 'npx cypress run'",
     "stage:web": "REACT_NATIVE_NODE_ENV=stage ./node_modules/.bin/expo build:web",

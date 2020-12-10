@@ -36,8 +36,7 @@ jobs:
       - uses: cypress-io/github-action@v2
         with:
           build: 'yarn stage:web'
-          start: 'cd web-build  && http-server'
-          wait-on: 'npx wait-on --timeout 15000 http://localhost:8080'
+          start: 'npx wait-on --timeout 15000 http://localhost:8080 && http-server web-build'
           headless: true
 #   setup-linux:
 #     name: Setup - Linux

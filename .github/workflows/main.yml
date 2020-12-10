@@ -40,7 +40,8 @@ jobs:
         run: yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh 
       - uses: cypress-io/github-action@v2
         with:
-          command: 'yarn stage:web && cd web-build  && http-server'
+          build: 'yarn stage:web'
+          start: 'cd web-build  && http-server'
           wait-on: 'npx wait-on --timeout 15000 http://localhost:8080'
           headless: true
 #   setup-linux:

@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://rn-compose.vercel.app/",
+  "pluginsFile": false,
+  "supportFile": false,
+  "fixturesFolder": false
+}

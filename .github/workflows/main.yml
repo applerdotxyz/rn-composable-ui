@@ -36,6 +36,8 @@ jobs:
       - name: Yarn Install
         if: steps.cache.outputs.cache-hit != 'true' || steps.submodule-cache.outputs.cache-hit != 'true'
         run: yarn install
+      - name: expo hotfix
+        run: npm install -D @pmmmwh/react-refresh-webpack-plugin react-refresh 
       - uses: cypress-io/github-action@v2
         with:
           start: yarn stage:web && cd web-build  && http-server

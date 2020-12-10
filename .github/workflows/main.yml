@@ -36,8 +36,7 @@ jobs:
       - uses: cypress-io/github-action@v2
         with:
           build: 'yarn stage:build'
-          working-directory: web-build
-          start: http-server
+          start: './node_modules/.bin/http-server web-build'
           wait-on: 'http://localhost:8080'
           headless: true
 #   setup-linux:

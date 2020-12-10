@@ -38,11 +38,9 @@ jobs:
         run: yarn install
       - uses: cypress-io/github-action@v2
         with:
+          command: npm run e2e-ci
           install: false
           headless: true
-          start: yarn web
-          # quote the url to be safe against YML parsing surprises
-          wait-on: 'http://localhost:19006'
 #   setup-linux:
 #     name: Setup - Linux
 #     runs-on: ubuntu-latest

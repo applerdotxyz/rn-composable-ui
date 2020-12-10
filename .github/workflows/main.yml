@@ -36,8 +36,9 @@ jobs:
       - uses: cypress-io/github-action@v2
         with:
           command: 'yarn e2e-ci'
-          browser: chrome
-#           headless: true
+#           browser: chrome
+          headless: true
+          wait-on: 'http://localhost:8080'
 #   setup-linux:
 #     name: Setup - Linux
 #     runs-on: ubuntu-latest

@@ -5,6 +5,7 @@
 
 ![Beta](https://github.com/applerdotxyz/rn-composable-ui/workflows/Beta/badge.svg)
 
+![E2E](https://github.com/applerdotxyz/rn-composable-ui/workflows/E2E/badge.svg)
 
 --- 
 <p align="center">

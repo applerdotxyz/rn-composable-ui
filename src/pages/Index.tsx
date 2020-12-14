@@ -19,7 +19,10 @@ export const Index = (props) => {
           Where to keep this redux representation should be displayed ?
        */}
       <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
-        Current User is :: {props.route.params.state.user.lastEmail}
+        Current User is :: {JSON.stringify(props.route.params.state.user)}
+      </Text>
+      <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
+        Order View Update is :: {JSON.stringify(props.route.params.state.orderViewUpdate)}
       </Text>
       {/* 
       THE WHOLE CODE FOR JSON FORM HAS BEEN MOVED TO 

@@ -141,9 +141,9 @@ export const ShowEntity = (props) => {
       </ScrollView>
       {/* </SafeAreaView> */}
       {/* TODO : Remove before final demo */}
-  <Text>
+  {/* <Text>
     {JSON.stringify(props)}
-  </Text>
+  </Text> */}
       <View
         style={{
           marginLeft: 100,

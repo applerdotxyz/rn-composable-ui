@@ -3,6 +3,8 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const UPDATE_STATE = "UPDATE_STATE";
 
+export const UPDATE_ORDER_VIEW_DATA = 'UPDATE_ORDER_VIEW_DATA';
+
 // login
 export const doLogin = (details = { isWeb: false }) => {
   delete details.isWeb;
@@ -23,3 +25,15 @@ export const updateState = () => {
     });
   };
 };
+
+
+export const updateOrderViewData = (keyName) => {
+  return async (dispatch : Function) => {
+    dispatch({
+      type : UPDATE_ORDER_VIEW_DATA,
+      data : {
+        keyName : keyName
+      }
+    })
+  }
+}

@@ -2,7 +2,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { default as React } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import UiX from "./UIconfigurator/UIX";
 import UiX from "./UIconfigurator/UIx";
 
 // routing setup with react-navigation

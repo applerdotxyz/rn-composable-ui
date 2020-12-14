@@ -17,4 +17,7 @@ export const initialState = {
     lastEmail: "admin.user@gmail.com",
   },
   env: { BASE_URL: "" },
+  orderViewUpdate : {
+    keyName : "YourName"
+  }
 };

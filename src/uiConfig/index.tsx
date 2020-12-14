@@ -178,53 +178,93 @@ export const MainAppConfig: any = {
 //   },
 // };
 
+
+
+// export const OneMoreAppConfig: any = {
+//   "0": {
+//     "0": {
+//       // name: "AddEditEntity", // navigation
+//       // size: "1",
+//       "layout": {
+//         "0": {
+//           "0": {
+//             name: "Alternate",
+//             size: "1"
+//           },
+//           "1": {
+//             "size": "11",
+//             "layout": {
+//               "0": {
+//                 "0": {
+//                   name: "Test",
+//                   size: 4
+//                 }
+//               },
+//               "1": {
+//                 "0": {
+//                   name: "ShowEntity",
+//                   size: 2
+//                 },
+//                 "1": {
+//                   name: "ListEntities",
+//                   size: 2
+//                 },
+//               }
+//             }
+//           }
+//         }
+//       }
+//     },
+//     "1": {
+//       name: "Test", // navigation
+//       size: "1",
+//     }
+//   },
+//   "1": {
+//     "0": {
+//       name: "ShowEntity",
+//       size: "4",
+//     },
+//   },
+// };
+
+
 export const OneMoreAppConfig: any = {
-  "0": {
-    "0": {
-      // name: "AddEditEntity", // navigation
-      // size: "1",
+  "0": {    // ROW
+    "0": {  // Column
       "layout": {
-        "0": {
-          "0": {
+        "0": {  // ROW
+          "0": {  // COLUMN 
             name: "Alternate",
             size: "1"
           },
-          "1": {
-            "size": "11",
-            "layout": {
-              "0": {
-                "0": {
-                  name: "Test",
-                  size: 4
+          "1" : { // Column
+            "size" : "4",
+            "layout" : {
+              "0" : {  // Row
+                "0" : { // Column
+                  name : "Test",
+                  size : '4'
                 }
               },
-              "1": {
-                "0": {
-                  name: "ShowEntity",
-                  size: 2
+              "1" : { // Row
+                "0" : { // Column
+                  name : "ShowEntity",
+                  size : '2'
                 },
-                "1": {
-                  name: "ListEntities",
-                  size: 2
-                },
+                "1" : { // Column
+                  name : "ListEntities",
+                  size : '2'
+                }
               }
             }
           }
         }
       }
     },
-    "1": {
-      name: "Test", // navigation
-      size: "1",
-    }
-  },
-  "1": {
-    "0": {
-      name: "ShowEntity",
-      size: "4",
-    },
-  },
+  }
 };
+
 
 
 // export const OneMoreAppConfig: any = {

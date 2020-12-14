@@ -1,8 +1,8 @@
 import { Link } from "@react-navigation/native";
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Platform, StyleSheet, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { updateState } from "../../state-mgmt/actions";
+import { updateOrderViewData, updateState } from "../../state-mgmt/actions";
 import useSafeSetState from "../../utils/useSafeState";
 import { JsonForm } from "../components/json-form/JsonForm";
 import { MainContainer, UIProvider } from "react-native-web-ui-components";
@@ -11,31 +11,18 @@ import { createBrowserHistory } from "history";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const OrderLineView = (props) => {
-    // form field values
-    // const _formData = {
-    //     firstName: "Raj",
-    // };
-
     const _formData = props._formData;
-
-    // const [_schema, setSchema] = useSafeSetState({
-    //     type: "object",
-    //     required: [
-    //         "firstName",
-    //     ],
-    //     properties: {
-    //         firstName: { type: "string" },
-    //     },
-    // });
 
     const [_schema, setSchema] = useSafeSetState(props._schema);
 
-    // // form schema
-    // const _uiSchema = {
-    //     submitButton: false,
-    // };
 
-    const _uiSchema = props._uiSchema ;
+    const _uiSchema = props._uiSchema;
+
+    const initialFormState = {
+        keyName : 'YourName'
+    }
+
+    const [formState, setFormState] = useState(initialFormState)
 
     return (
         <ScrollView
@@ -50,7 +37,10 @@ export const OrderLineView = (props) => {
                 {JSON.stringify(props)}
             </Text> */}
             <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
-                Current User is :: {props.route.params.state.user.lastEmail}
+                Current User is :: {JSON.stringify(props.route.params.state.user)}
+            </Text>
+            <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
+                Order View Update is :: {JSON.stringify(props.route.params.state.orderViewUpdate)}
             </Text>
             {/* <ConnectedForm controller="person" action="get" /> */}
             {/* <ScrollView>  */}
@@ -63,16 +53,19 @@ export const OrderLineView = (props) => {
                 //   console.log("*** _onBeforeSubmit ***");
                 //   console.log(e);
                 // }}
-                // _onSubmit={(e) => {
-                //   console.log("*** _onSubmit ***");
-                //   console.log(e);
-                // }}
+                _onSubmit={(e) => {
+                    console.log("*** _onSubmit ***");
+                    console.log(e);
+                    
+                }}
                 // _onError={(e) => {
                 //   console.log("*** _onError ***");
                 //   console.log(e);
                 // }}
                 _onSuccess={(e) => {
-                    props.route.params.dispatch(updateState());
+                    console.log("Form Data after updation : :: ", e.params.values);
+                    props.route.params.dispatch(updateOrderViewData(e.params.values.keyName));
+                    console.log("State Updated from updateOrderViewUpdate action ");
                     props.navigation.navigate("First");
                 }}
             // _onChange={(e) => {

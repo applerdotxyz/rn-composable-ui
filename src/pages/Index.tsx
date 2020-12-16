@@ -1,5 +1,6 @@
 import { Link } from "@react-navigation/native";
 import React from "react";
+import PropTypes from "prop-types"; // ES6
 import { Dimensions, View, Text } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -11,7 +12,7 @@ export const Index = (props) => {
         flex: 1,
         borderWidth: 0,
         minHeight: Dimensions.get("window").height - 85,
-        alignContent: 'center'
+        alignContent: "center",
       }}
     >
       {/* TODO : 
@@ -21,24 +22,29 @@ export const Index = (props) => {
         Current User is :: {JSON.stringify(props.route.params.state.user)}
       </Text>
       <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
-        Order View Update is :: {JSON.stringify(props.route.params.state.orderViewUpdate)}
+        Order View Update is ::{" "}
+        {JSON.stringify(props.route.params.state.orderViewUpdate)}
       </Text>
       {/* 
       THE WHOLE CODE FOR JSON FORM HAS BEEN MOVED TO 
       `src\pages\components\AddEditEntity.tsx`
        */}
-      <View style={{
-        borderWidth: 0,
-        // maxWidth: Dimensions.get('screen').width / 4,
-      }}>
-        <Text style={{
-          marginLeft: 10,
-          marginRight: 10,
-          // fontSize: 20,
-          fontWeight: 'bold'
-        }}>
+      <View
+        style={{
+          borderWidth: 0,
+          // maxWidth: Dimensions.get('screen').width / 4,
+        }}
+      >
+        <Text
+          style={{
+            marginLeft: 10,
+            marginRight: 10,
+            // fontSize: 20,
+            fontWeight: "bold",
+          }}
+        >
           Click on the Go Link to navigate to Demo Here.
-         </Text>
+        </Text>
         <Link
           style={{
             backgroundColor: "#283593",
@@ -51,13 +57,13 @@ export const Index = (props) => {
             marginLeft: 100,
             marginRight: 100,
             marginTop: 20,
-            marginBottom: 20
+            marginBottom: 20,
             // borderRadius: 50,
           }}
           to="/First"
         >
           Go
-      </Link>
+        </Link>
       </View>
     </ScrollView>
   );

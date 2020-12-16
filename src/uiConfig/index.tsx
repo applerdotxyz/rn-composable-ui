@@ -19,7 +19,7 @@ export const componentsSet: any = {
   ListEntities,
   ShowEntity,
   SearchList,
-  OrderLineView
+  OrderLineView,
   // MainApp
 };
 
@@ -86,7 +86,7 @@ export const AddEditEntityConfig: any = {
     "0": {
       name: "AddEditEntity",
       size: "4",
-      props: { 'Hello': 'World', 'entity': 'catalog' }
+      props: { Hello: "World", entity: "catalog" },
     },
   },
 };
@@ -128,7 +128,8 @@ export const MainAppConfig: any = {
   },
 };
 
-{/*
+{
+  /*
 
   <Grid>
         <Row>
@@ -157,7 +158,8 @@ export const MainAppConfig: any = {
         </Row>
       </Grid>
 
-*/}
+*/
+}
 
 // export const OneMoreAppConfig: any = {
 //   "0": {
@@ -177,8 +179,6 @@ export const MainAppConfig: any = {
 //     },
 //   },
 // };
-
-
 
 // export const OneMoreAppConfig: any = {
 //   "0": {
@@ -228,44 +228,53 @@ export const MainAppConfig: any = {
 //   },
 // };
 
-
+// FIXME: TODO: TO DOCUMENT IN WIKI AND README.md
 export const OneMoreAppConfig: any = {
-  "0": {    // ROW
-    "0": {  // Column
-      "layout": {
-        "0": {  // ROW
-          "0": {  // COLUMN 
-            name: "Alternate",
-            size: "1"
+  "0": {
+    // Column
+    "0": {
+      // ROW
+      layout: {
+        // COLUMN
+        "0": {
+          // ROW
+          "0": {
+            name: "AddEditEntity",
           },
-          "1" : { // Column
-            "size" : "4",
-            "layout" : {
-              "0" : {  // Row
-                "0" : { // Column
-                  name : "Test",
-                  size : '4'
-                }
-              },
-              "1" : { // Row
-                "0" : { // Column
-                  name : "ShowEntity",
-                  size : '2'
+        },
+        // Column
+        "1": {
+          // ROW
+          "0": {
+            name: "ListEntities",
+          },
+          // ROW
+          "1": {
+            // Column
+            layout: {
+              // Column
+              "0": {
+                // Row
+                "0": {
+                  // Column
+                  name: "ShowEntity",
                 },
-                "1" : { // Column
-                  name : "ListEntities",
-                  size : '2'
-                }
-              }
-            }
-          }
-        }
-      }
+              },
+              // Column
+              "1": {
+                // Row
+                "0": {
+                  // Column
+                  name: "ListEntities",
+                },
+              },
+            },
+          },
+        },
+      },
     },
-  }
+  },
 };
-
-
 
 // export const OneMoreAppConfig: any = {
 //   "0": {
@@ -326,24 +335,18 @@ export const OrderLineViewConfig: any = {
         },
         _schema: {
           type: "object",
-          required: [
-            "keyName",
-          ],
+          required: ["keyName"],
           properties: {
             keyName: { type: "string" },
           },
         },
-        _uiSchema : {
+        _uiSchema: {
           submitButton: false,
-        }
-      }
+        },
+      },
     },
   },
 };
-
-
-
-
 
 const exported: any = {
   IndexConfig,
@@ -355,7 +358,7 @@ const exported: any = {
   ShowEntityConfig,
   MainAppConfig,
   OneMoreAppConfig,
-  OrderLineViewConfig
+  OrderLineViewConfig,
 };
 
 export default exported;

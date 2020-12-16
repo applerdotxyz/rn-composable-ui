@@ -9,7 +9,7 @@ const Column = (props: any) => (
     size={props.size}
     style={{
       borderWidth: 2,
-      borderColor: 'red'
+      borderColor: "red",
     }}
   >
     {props.render}
@@ -30,12 +30,12 @@ const UiX = (props: any) => {
     const gridSection: Array<any> = [];
     /**
      * ProcessEngine()
-     * @param configuration 
-     * @param isRootCall 
+     * @param configuration
+     * @param isRootCall
      */
     const ProcessEngine = (configuration = {}, isRootCall = true) => {
       // console.log("Result from search : : ", getValueFromObject(key, configuration));
-      let colSection: any = null;
+      const colSection: any = null;
       const rowSection: Array<any> = [];
       const configKeys = Object.keys(configuration);
       // console.log("ConfigKey : : : ---> ", configKeys);
@@ -55,7 +55,7 @@ const UiX = (props: any) => {
               // changes in react-native frame
               <Column
                 key={idxCol}
-                size={rowData[colId].span || 4 / colIds.length}
+                size={rowData[colId].size}
                 render={React.createElement(
                   componentsSet[rowData[colId].name],
                   { ...rowData[colId].props, appState, ...props, dispatch },
@@ -65,8 +65,14 @@ const UiX = (props: any) => {
             );
           } else if (rowData[colId].layout !== undefined) {
             console.log("SOME NESTED LAYOUT JSON OBJECT");
-            console.log("rowData[colId].layout : : : : ", rowData[colId].layout);
-            console.log("Object.keys(rowData[colId].layout) : : :: --? ", Object.keys(rowData[colId].layout));
+            console.log(
+              "rowData[colId].layout : : : : ",
+              rowData[colId].layout
+            );
+            console.log(
+              "Object.keys(rowData[colId].layout) : : :: --? ",
+              Object.keys(rowData[colId].layout)
+            );
             return ProcessEngine(rowData[colId].layout, false);
           } else {
             console.log("INVALID CONFIG");
@@ -74,39 +80,46 @@ const UiX = (props: any) => {
             return null;
           }
         });
-        return (<Row style={{
-          borderWidth: 0,
-          borderColor: 'green'
-        }} key={rowId}><Col>{rowJsx}</Col></Row>);
+        return (
+          <Row
+            style={{
+              borderWidth: 0,
+              borderColor: "green",
+            }}
+            key={rowId}
+          >
+            {/* TODO: size is not working as expected . fix that */}
+            <Col size={rowData.size}>{rowJsx}</Col>
+          </Row>
+        );
       });
       // colSection = ProcessEngine(configuration, true1);
       // console.log("colSection : : : ", colSection);
       if (isRootCall) {
-        gridSection.push(<Grid style={{
-          borderWidth: 2,
-          borderColor: 'yellow'
-        }}
-        ><Row><Col>{gridJsx}</Col></Row></Grid>)
-        return gridSection
+        gridSection.push(
+          <Grid
+            style={{
+              borderWidth: 2,
+              borderColor: "yellow",
+            }}
+          >
+            <Row>
+              <Col>{gridJsx}</Col>
+            </Row>
+          </Grid>
+        );
+        return gridSection;
       } else {
-        return (
-          <Row>{gridJsx}</Row>
-        )
+        return <Row>{gridJsx}</Row>;
       }
     };
     // second arg below is value for isRootCall, when true
-    let outputSection = ProcessEngine(configuration, true);
+    const outputSection = ProcessEngine(configuration, true);
     console.log("OUTPUT SECTION : : : :: ---> ", outputSection);
 
-    return (<View>
-      {
-        outputSection
-          ?
-          outputSection : (
-            <Text>Loading ... </Text>
-          )
-      }
-    </View>)
+    return (
+      <View>{outputSection ? outputSection : <Text>Loading ... </Text>}</View>
+    );
   }
 };
 export default UiX;

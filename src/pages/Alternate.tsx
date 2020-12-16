@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 // import { useRouting } from "expo-next-react-navigation";
+// TODO : HAVE BEEN ASKED BY SAURABH TO REMOVE I AM JUST COMMENTING THIS Component from the UI.
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const Alternate = () => {
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexGrow: 1,
     justifyContent: "center",
+    borderWidth : 1
   },
   text: {
     alignItems: "center",

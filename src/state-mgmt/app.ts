@@ -1,7 +1,5 @@
-import { AnyRecord } from "dns";
-
 export interface window {
-  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: AnyRecord;
+  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
 }
 
 export const initialState = {
@@ -19,4 +17,7 @@ export const initialState = {
     lastEmail: "admin.user@gmail.com",
   },
   env: { BASE_URL: "" },
+  orderViewUpdate : {
+    keyName : "YourName"
+  }
 };

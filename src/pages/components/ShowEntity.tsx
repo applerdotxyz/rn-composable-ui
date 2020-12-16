@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import {
-  Button,
-  Dimensions,
   FlatList,
-  ScrollView,
+  SafeAreaView,
+  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
+  Button,
+  ScrollView,
+  Dimensions,
   View,
 } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
@@ -29,6 +31,13 @@ const DATA = [
   },
   {
     id: "3",
+    title: "Details",
+    description:
+      "We provide service for music sessions.\nYou will learn here:\nClassical\nPop",
+    subInfo: " 2 batches a week\nTimings are 1pm-2pm 2pm-3pm ",
+  },
+  {
+    id: "4",
     title: "Details",
     description:
       "We provide service for music sessions.\nYou will learn here:\nClassical\nPop",
@@ -101,7 +110,7 @@ const Item = ({ item, onPress, style }) => (
   </TouchableOpacity>
 );
 
-export const ShowEntity = () => {
+export const ShowEntity = (props) => {
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({ item }) => {
@@ -131,6 +140,10 @@ export const ShowEntity = () => {
         />
       </ScrollView>
       {/* </SafeAreaView> */}
+      {/* TODO : Remove before final demo */}
+  {/* <Text>
+    {JSON.stringify(props)}
+  </Text> */}
       <View
         style={{
           marginLeft: 100,

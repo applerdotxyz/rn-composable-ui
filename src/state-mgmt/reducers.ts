@@ -3,6 +3,7 @@ import {
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
   LOGOUT_SUCCESS,
+  UPDATE_ORDER_VIEW_DATA,
   UPDATE_STATE,
 } from "./actions"; //Import the actions types constant we defined in our actions
 import { initialState } from "./app";
@@ -55,6 +56,7 @@ const user = (state = { ...initialState.user }, action) => {
         user: initialState.user,
         lastEmail: action.data.lastEmail,
       };
+
     default:
       return state;
   }
@@ -64,10 +66,28 @@ const user = (state = { ...initialState.user }, action) => {
 const env = () => {
   return environment;
 };
+
+/*
+* ORDER VIEW UPDATE REDUCER <--
+*/
+const orderViewUpdate = (state = { ...initialState.orderViewUpdate }, action) => {
+  switch (action.type) {
+    case UPDATE_ORDER_VIEW_DATA:
+      return {
+        ...state,
+        user: initialState.user,
+        keyName: action.data.keyName
+      };
+    default:
+      return state;
+  }
+}
+
 // Combine all the reducers
 const rootReducer = combineReducers({
   user,
   env,
+  orderViewUpdate
 });
 
 export default rootReducer;

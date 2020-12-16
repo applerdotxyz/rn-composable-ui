@@ -11,9 +11,9 @@ const persistConfig = {
   blacklist: ["navigation", "env", "app", "session"],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-export const configureStore = () => {
+export const configureStore = (queueReleaseThrottle = 1000) => {
   if (process.env.REACT_NATIVE_NODE_ENV !== "stage") {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const { createLogger } = require("redux-logger");
 
     const composeEnchancers =

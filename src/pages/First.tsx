@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Header from "./components/Header";
+import { useSelector, useDispatch } from "react-redux";
+
 
 export const First = ({
   route = {
@@ -13,10 +15,16 @@ export const First = ({
 }) => {
   console.log("state for lastEmail >>> ", route.params.state.user.lastEmail);
 
+  // TODO : Setup of State can be  extracted to common location in Navigator.tsx
+  const state = useSelector((s) => s); //s.keyName --> Performance Benefit
+
   return (
     <View style={styles.container}>
       <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
-        Changed User is :: {route.params.state.user.lastEmail}
+        Changed User is :: {JSON.stringify(route.params.state.user)}
+      </Text>
+      <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
+        orderViewUpdate is :: {JSON.stringify(state.orderViewUpdate)}
       </Text>
       <View style={styles.textContainer}>
         <Text accessibilityRole="header" aria-level="2" style={styles.text}>

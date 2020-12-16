@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ScrollView,
-  StyleSheet,
-  Text,
   TouchableOpacity,
   View,
+  Text,
+  StyleSheet,
 } from "react-native";
 import PropTypes from "prop-types";
 import SearchInput, { createFilter } from "react-native-search-filter";
@@ -27,7 +27,7 @@ import SearchInput, { createFilter } from "react-native-search-filter";
 }
 
 export default function SearchList({
-  data = [],
+  data,
   searchFields,
   visibleKeys,
   flexWidth,
@@ -90,7 +90,7 @@ export default function SearchList({
                       // Remove numberOfLines and ellipsizeMode, if the content row span doesn't bother us
                       // Doesn't seem too polished for web
                       <Text
-                        key={`${i}x`}
+                        key={i}
                         {...props}
                         style={[
                           styles.tableVal,

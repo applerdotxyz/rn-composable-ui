@@ -1,23 +1,32 @@
 import { Link } from "@react-navigation/native";
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Header() {
   return (
     <View>
+      <Text style={{
+        fontWeight: 'bold',
+        fontSize: 20
+      }}>
+        COMPONENTS-SETS CREATED
+      </Text>
+      <View style={{
+        borderWidth: 0.5
+      }} />
       <Link style={{ color: "green", fontSize: 20 }} to="/Index">
-        Initial App
+        Index
       </Link>
       <Link style={{ color: "green", fontSize: 20 }} to="/First">
         Home
       </Link>
-      <Link style={{ color: "green", fontSize: 20 }} to="/Alternate">
+      {/* <Link style={{ color: "green", fontSize: 20 }} to="/Alternate">
         Alternate
       </Link>
       <Link style={{ color: "green", fontSize: 20 }} to="/Test">
         Test
-      </Link>
+      </Link> */}
       <Link style={{ color: "green", fontSize: 20 }} to="/AddEditEntity">
         AddEditEntity
       </Link>
@@ -27,6 +36,18 @@ export default function Header() {
       <Link style={{ color: "green", fontSize: 20 }} to="/ShowEntity">
         ShowEntity
       </Link>
+      <Link style={{ color: "green", fontSize: 20 }} to="/OrderLineView">
+        OrderLineView
+      </Link>
+      <Text style={{
+        fontWeight: 'bold',
+        fontSize: 20
+      }}>
+        SCREEN LAYOUT CONFIGURED
+      </Text>
+      <View style={{
+        borderWidth: 0.5
+      }} />
       <Link style={{ color: "green", fontSize: 20 }} to="/MainApp">
         Main App
       </Link>

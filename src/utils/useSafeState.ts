@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
-const useSafeSetState = (initialValue = {}) => {
+const useSafeSetState = (initialValue) => {
   const queue = useRef([]);
   const mounted = useRef(false);
 

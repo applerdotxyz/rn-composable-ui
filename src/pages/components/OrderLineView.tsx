@@ -1,16 +1,27 @@
 import { Link } from "@react-navigation/native";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { View, Text, Platform, StyleSheet, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { updateOrderViewData, updateState } from "../../state-mgmt/actions";
 import useSafeSetState from "../../utils/useSafeState";
 import { JsonForm } from "../components/json-form/JsonForm";
-import { MainContainer, UIProvider } from "react-native-web-ui-components";
-import { createBrowserHistory } from "history";
+import ButtonX from "./ButtonX";
 
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const OrderLineView = (props) => {
+
+    const buttonRef = useRef(null);
+
+    const handleClick = () => {
+        console.log("Button Clicked");
+
+        console.log(Object.keys(buttonRef.current)); // ['someExposedProperty']
+        console.log("click in index.tsx");
+        buttonRef.current.someExposedProperty();
+    };
+
+
     const _formData = props._formData;
 
     const [_schema, setSchema] = useSafeSetState(props._schema);
@@ -19,11 +30,8 @@ export const OrderLineView = (props) => {
     const _uiSchema = props._uiSchema;
 
     const initialFormState = {
-        keyName : 'YourName'
+        keyName: 'YourName'
     }
-
-    const [formState, setFormState] = useState(initialFormState)
-
     return (
         <ScrollView
             style={{
@@ -56,7 +64,7 @@ export const OrderLineView = (props) => {
                 _onSubmit={(e) => {
                     console.log("*** _onSubmit ***");
                     console.log(e);
-                    
+
                 }}
                 // _onError={(e) => {
                 //   console.log("*** _onError ***");
@@ -89,6 +97,8 @@ export const OrderLineView = (props) => {
       >
         Go
       </Link> */}
+            <ButtonX onClick={handleClick} ref={buttonRef} />
+
         </ScrollView>
     );
 };

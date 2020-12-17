@@ -3,7 +3,7 @@ import { componentsSet, OneMoreAppConfig } from "../uiConfig/index";
 import config from "../uiConfig/index";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { useDispatch } from "react-redux";
-import { View, Text } from "react-native";
+import { View, Text, Dimensions } from "react-native";
 const Column = (props: any) => (
   <Col
     size={props.size}

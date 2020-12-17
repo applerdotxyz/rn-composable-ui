@@ -155,12 +155,13 @@ export const AddEditEntity = (props) => {
         flex: 1,
         borderWidth: 0,
         minHeight: Dimensions.get("window").height - 85,
+        minWidth : Dimensions.get("window").width/4,
       }}
     >
       {/* TODO : Remove before final demo */}
-      <Text>
+      {/* <Text>
         {JSON.stringify(props)}
-      </Text>
+      </Text> */}
       <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
         Current User is :: {props.route.params.state.user.lastEmail}
       </Text>

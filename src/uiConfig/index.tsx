@@ -7,6 +7,7 @@ import { ListEntities } from "../pages/components/ListEntities";
 import { ShowEntity } from "../pages/components/ShowEntity";
 import SearchList from "../pages/components/SearchList";
 import { OrderLineView } from "../pages/components/OrderLineView";
+import { Dimensions } from "react-native";
 // import {MainApp} from '../pages/screens/MainApp'
 
 // All component which will be rendered
@@ -239,14 +240,15 @@ export const OneMoreAppConfig: any = {
         "0": {
           // ROW
           "0": {
-            name: "AddEditEntity",
+            name: "Test",
+            size : 1
           },
         },
         // Column
         "1": {
           // ROW
           "0": {
-            name: "ListEntities",
+            name: "ShowEntity",
           },
           // ROW
           "1": {
@@ -257,7 +259,7 @@ export const OneMoreAppConfig: any = {
                 // Row
                 "0": {
                   // Column
-                  name: "ShowEntity",
+                  name: "AddEditEntity",
                 },
               },
               // Column

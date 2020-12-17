@@ -10,12 +10,12 @@ function ButtonX(props, ref) {
     
   useImperativeHandle(ref, () => ({
     someExposedProperty: () => {
-      console.log(`we're inside the exposed property function!`);
+      console.log(`we're inside the exposed property function!`)
       
     }
   }));
   return (
-    <Button ref={buttonRef} {...props} title="Submit" onPress={props.onClick}>
+    <Button ref={ref} {...props} title="Submit" onPress={props.onClick}>
     </Button>
   );
 }

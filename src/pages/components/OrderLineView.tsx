@@ -32,6 +32,10 @@ export const OrderLineView = (props) => {
     const initialFormState = {
         keyName: 'YourName'
     }
+
+    const [formState, setFormstate] = useState(initialFormState);
+
+
     return (
         <ScrollView
             style={{
@@ -73,7 +77,10 @@ export const OrderLineView = (props) => {
                 _onSuccess={(e) => {
                     console.log("Form Data after updation : :: ", e.params.values);
                     props.route.params.dispatch(updateOrderViewData(e.params.values.keyName));
-                    console.log("State Updated from updateOrderViewUpdate action ");
+                    setFormstate({
+                        keyName : e.params.values.keyName
+                    })
+                    console.log("State Updated from updateOrderViewUpdate action ", formState);
                     props.navigation.navigate("First");
                 }}
             // _onChange={(e) => {

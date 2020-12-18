@@ -8,6 +8,7 @@ import { ShowEntity } from "../pages/components/ShowEntity";
 import SearchList from "../pages/components/SearchList";
 import { OrderLineView } from "../pages/components/OrderLineView";
 import { Dimensions } from "react-native";
+import {OrderSearchList} from "../pages/components/OrderSearchList";
 // import {MainApp} from '../pages/screens/MainApp'
 
 // All component which will be rendered
@@ -21,6 +22,7 @@ export const componentsSet: any = {
   ShowEntity,
   SearchList,
   OrderLineView,
+  OrderSearchList
   // MainApp
 };
 
@@ -50,6 +52,15 @@ export const AlternateConfig: any = {
     },
   },
 };
+
+export const OrderSearchListConfig: any = {
+  "0" : {
+    "0" : {
+      name : 'OrderSearchList',
+      size : "4"
+    } 
+  }
+}
 
 // inner col
 // outer row
@@ -112,19 +123,48 @@ export const ShowEntityConfig: any = {
 
 export const MainAppConfig: any = {
   "0": {
+    // Column
     "0": {
-      name: "AddEditEntity",
-      size: "2",
-    },
-    "1": {
-      name: "ShowEntity",
-      size: "2",
-    },
-  },
-  "1": {
-    "0": {
-      name: "ShowEntity",
-      size: "2",
+      // ROW
+      layout: {
+        // COLUMN
+        "0": {
+          // ROW
+          "0": {
+            name: "Test",
+            size : 1
+          },
+        },
+        // Column
+        "1": {
+          // ROW
+          "0": {
+            name: "OrderSearchList",
+          },
+          // ROW
+          "1": {
+            // Column
+            layout: {
+              // Column
+              "0": {
+                // Row
+                "0": {
+                  // Column
+                  name: "AddEditEntity",
+                },
+              },
+              // Column
+              "1": {
+                // Row
+                "0": {
+                  // Column
+                  name: "ListEntities",
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
 };

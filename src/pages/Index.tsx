@@ -51,7 +51,7 @@ export const Index = (props) => {
             width: 80,
             height: 40,
             color: "white",
-            display: "flex",
+            // display: "flex",
             justifyContent: "center",
             alignItems: "center",
             marginLeft: 100,

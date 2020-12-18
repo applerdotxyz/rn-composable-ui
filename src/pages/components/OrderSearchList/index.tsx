@@ -9,8 +9,8 @@ import {
     Text,
     View,
 } from "react-native";
-import RenderList from "../components/RenderList";
-import SearchList from "../components/SearchList";
+import RenderList from "../RenderList";
+import SearchList from "../SearchList";
 // import { useRouting } from "expo-next-react-navigation";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

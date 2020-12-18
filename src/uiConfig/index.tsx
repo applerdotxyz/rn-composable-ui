@@ -8,8 +8,13 @@ import { ShowEntity } from "../pages/components/ShowEntity";
 import SearchList from "../pages/components/SearchList";
 import { OrderLineView } from "../pages/components/OrderLineView";
 import { Dimensions } from "react-native";
-import {OrderSearchList} from "../pages/components/OrderSearchList";
-// import {MainApp} from '../pages/screens/MainApp'
+
+
+// TSD WEB APP INTEGRATION
+import { HeaderComponent } from '../pages/components/HeaderComponent';
+import { OrderSearchList } from "../pages/components/OrderSearchList";
+import { NavigationComponent } from '../pages/components/NavigationComponent';
+
 
 // All component which will be rendered
 export const componentsSet: any = {
@@ -22,7 +27,9 @@ export const componentsSet: any = {
   ShowEntity,
   SearchList,
   OrderLineView,
-  OrderSearchList
+  OrderSearchList,
+  HeaderComponent,
+  NavigationComponent
   // MainApp
 };
 
@@ -54,11 +61,11 @@ export const AlternateConfig: any = {
 };
 
 export const OrderSearchListConfig: any = {
-  "0" : {
-    "0" : {
-      name : 'OrderSearchList',
-      size : "4"
-    } 
+  "0": {
+    "0": {
+      name: 'OrderSearchList',
+      size: "4"
+    }
   }
 }
 
@@ -121,47 +128,24 @@ export const ShowEntityConfig: any = {
   },
 };
 
-export const MainAppConfig: any = {
+// TSD WEB APP
+export const MainAppConfig: any = { // OrderLayout
   "0": {
-    // Column
     "0": {
-      // ROW
+      name: 'HeaderComponent',
+      size: '4'
+    },
+    "1": {
       layout: {
-        // COLUMN
         "0": {
-          // ROW
           "0": {
-            name: "Test",
-            size : 1
+            name: "NavigationComponent", // Navigation bar
+            size: '1',
           },
         },
-        // Column
         "1": {
-          // ROW
           "0": {
-            name: "OrderSearchList",
-          },
-          // ROW
-          "1": {
-            // Column
-            layout: {
-              // Column
-              "0": {
-                // Row
-                "0": {
-                  // Column
-                  name: "AddEditEntity",
-                },
-              },
-              // Column
-              "1": {
-                // Row
-                "0": {
-                  // Column
-                  name: "ListEntities",
-                },
-              },
-            },
+            name: "OrderSearchList", // SearhList
           },
         },
       },
@@ -281,7 +265,7 @@ export const OneMoreAppConfig: any = {
           // ROW
           "0": {
             name: "Test",
-            size : 1
+            size: '1'
           },
         },
         // Column

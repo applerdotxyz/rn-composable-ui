@@ -8,7 +8,7 @@ const Column = (props: any) => (
   <Col
     size={props.size}
     style={{
-      borderWidth: 2,
+      // borderWidth: 2,
       borderColor: "red",
     }}
   >
@@ -83,7 +83,7 @@ const UiX = (props: any) => {
         return (
           <Row
             style={{
-              borderWidth: 0,
+              // borderWidth: 0,
               borderColor: "green",
             }}
             key={rowId}
@@ -99,7 +99,7 @@ const UiX = (props: any) => {
         gridSection.push(
           <Grid
             style={{
-              borderWidth: 2,
+              // borderWidth: 2,
               borderColor: "yellow",
             }}
           >

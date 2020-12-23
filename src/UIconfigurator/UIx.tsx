@@ -9,6 +9,7 @@ const Column = (props: any) => (
     size={props.size}
     style={{
       // borderWidth: 2,
+      flex : 1,
       borderColor: "red",
     }}
   >

@@ -1,6 +1,7 @@
 import { Link } from "@react-navigation/native";
 import React, { useRef, useState } from "react";
 import { View, Text, Platform, StyleSheet, Dimensions } from "react-native";
+import { Grid } from "react-native-easy-grid";
 import { ScrollView } from "react-native-gesture-handler";
 import { updateOrderViewData, updateState } from "../../state-mgmt/actions";
 import useSafeSetState from "../../utils/useSafeState";
@@ -41,22 +42,24 @@ export const OrderLineView = (props) => {
             style={{
                 flex: 1,
                 borderWidth: 0,
-                minHeight: Dimensions.get("window").height - 85,
+                // minHeight: Dimensions.get("window").height / 4,
+                maxHeight : Dimensions.get("window").height / 4,
             }}
         >
             {/* TODO : Remove before final demo */}
             {/* <Text>
                 {JSON.stringify(props)}
             </Text> */}
-            <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
+            {/* <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
                 Current User is :: {JSON.stringify(props.route.params.state.user)}
             </Text>
             <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
                 Order View Update is :: {JSON.stringify(props.route.params.state.orderViewUpdate)}
-            </Text>
+            </Text> */}
             {/* <ConnectedForm controller="person" action="get" /> */}
             {/* <ScrollView>  */}
             {/* Use Grid */}
+            <Grid>
             <JsonForm
                 schema={_schema}
                 uiSchema={_uiSchema}
@@ -87,25 +90,7 @@ export const OrderLineView = (props) => {
             //   console.log("data changed");
             // }}
             />
-            {/* </ScrollView> */}
-
-            {/* <Link
-        style={{
-          backgroundColor: "blue",
-          width: 50,
-          height: 50,
-          color: "white",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          borderRadius: 50,
-        }}
-        to="/First"
-      >
-        Go
-      </Link> */}
-            {/* <ButtonX onClick={handleClick} ref={buttonRef} /> */}
-
+            </Grid>
         </ScrollView>
     );
 };

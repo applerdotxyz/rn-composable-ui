@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     // TODO : I have coded for Web View but for mobile It should change accordingly needed to implement
     minHeight: Dimensions.get('window').height / 9,
     backgroundColor: '#ebb155',
+    elevation : 20,
     // borderWidth: 1
   },
   logoStyle: {

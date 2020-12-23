@@ -13,7 +13,7 @@ import { Dimensions } from "react-native";
 // TSD WEB APP INTEGRATION
 import { HeaderComponent } from '../pages/components/HeaderComponent';
 import { OrderSearchList } from "../pages/components/OrderSearchList";
-import { NavigationComponent } from '../pages/components/NavigationComponent';
+import NavigationComponent from '../pages/components/NavigationComponent';
 
 
 // All component which will be rendered
@@ -137,15 +137,35 @@ export const MainAppConfig: any = { // OrderLayout
     },
     "1": {
       layout: {
-        "0": {
-          "0": {
+        "0": { //Col id
+          "0": { // Row ID
             name: "NavigationComponent", // Navigation bar
             size: '1',
           },
         },
         "1": {
           "0": {
-            name: "OrderSearchList", // SearhList
+            name: "OrderLineView", // SearhListForm ROW 1
+            size : '4',
+            props: {
+              _formData: {
+                keyName: "YourName",
+              },
+              _schema: {
+                type: "object",
+                required: ["keyName"],
+                properties: {
+                  keyName: { type: "string" },
+                },
+              },
+              _uiSchema: {
+                submitButton: false,
+              },
+            },
+          },
+          "1": {
+            name: "OrderSearchList", // SearhList ROW 2
+            size : '4'
           },
         },
       },

@@ -25,6 +25,8 @@ export const ListEntities = () => {
       const res = await fetch(
         "https://run.mocky.io/v3/56a7c1e0-434a-4773-b6b4-4cfc12fe1624"
       );
+      console.log("Res : : : : : : ", res);
+      
       const resJSON = await res.json();
       setData(resJSON.ticketDetails);
 

@@ -1,6 +1,7 @@
 describe("RN Compose Test", () => {
   it("check all needed is present", () => {
     cy.visit("http://localhost:8080/");
+    expect(process.env.ADMIN_PWD).toEqual("Welcome@123");
     cy.get('[placeholder="Enter Keyword to Search"]')
       .first()
       .type(process.env.ADMIN_USER);

@@ -11,7 +11,7 @@ import { initialState } from "./app";
 let environment = {};
 if (process.env.REACT_NATIVE_NODE_ENV !== "stage") {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  environment = require("../config/env.dev").default;
+  environment = require("../config/env").default;
 } else {
   environment = process.env;
 }
@@ -68,26 +68,29 @@ const env = () => {
 };
 
 /*
-* ORDER VIEW UPDATE REDUCER <--
-*/
-const orderViewUpdate = (state = { ...initialState.orderViewUpdate }, action) => {
+ * ORDER VIEW UPDATE REDUCER <--
+ */
+const orderViewUpdate = (
+  state = { ...initialState.orderViewUpdate },
+  action
+) => {
   switch (action.type) {
     case UPDATE_ORDER_VIEW_DATA:
       return {
         ...state,
         user: initialState.user,
-        keyName: action.data.keyName
+        keyName: action.data.keyName,
       };
     default:
       return state;
   }
-}
+};
 
 // Combine all the reducers
 const rootReducer = combineReducers({
   user,
   env,
-  orderViewUpdate
+  orderViewUpdate,
 });
 
 export default rootReducer;

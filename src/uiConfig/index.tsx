@@ -24,14 +24,48 @@ export const componentsSet: any = {
   // MainApp
 };
 
+
 export const IndexConfig: any = {
-  "0": {
-    "0": {
-      name: "Index",
-      size: "4",
-    },
-  },
-};
+  r1: {
+    // Column
+    c1: {
+      // ROW
+      layout: {
+        // COLUMN
+        c11: {
+          // ROW
+          r11: {
+            name: "ShowEntity",
+            size: 35,
+          },
+          // ROW
+          r12: {
+            // Column
+            name: "ListEntities",
+            size: 35,
+          },
+        },
+        // COLUMN
+        c12: {
+          // ROW
+          r21: {
+            name: "Test",
+            size: 85,
+          },
+          // ROW
+          r221: {
+            name: "ShowEntity",
+            size: 35,
+          },
+          // ROW
+          r222: {
+            // Column
+            name: "ShowEntity",
+            size: 35,
+          },
+        },
+      },
+    }}};
 
 export const FirstConfig: any = {
   "0": {
@@ -162,73 +196,6 @@ export const MainAppConfig: any = {
 */
 }
 
-// export const OneMoreAppConfig: any = {
-//   "0": {
-//     "0": {
-//       name: "AddEditEntity",
-//       size: "2",
-//     },
-//     "1": {
-//       name: "ListEntities",
-//       size: "2",
-//     },
-//   },
-//   "1": {
-//     "0": {
-//       name: "ShowEntity",
-//       size: "4",
-//     },
-//   },
-// };
-
-// export const OneMoreAppConfig: any = {
-//   "0": {
-//     "0": {
-//       // name: "AddEditEntity", // navigation
-//       // size: "1",
-//       "layout": {
-//         "0": {
-//           "0": {
-//             name: "Alternate",
-//             size: "1"
-//           },
-//           "1": {
-//             "size": "11",
-//             "layout": {
-//               "0": {
-//                 "0": {
-//                   name: "Test",
-//                   size: 4
-//                 }
-//               },
-//               "1": {
-//                 "0": {
-//                   name: "ShowEntity",
-//                   size: 2
-//                 },
-//                 "1": {
-//                   name: "ListEntities",
-//                   size: 2
-//                 },
-//               }
-//             }
-//           }
-//         }
-//       }
-//     },
-//     "1": {
-//       name: "Test", // navigation
-//       size: "1",
-//     }
-//   },
-//   "1": {
-//     "0": {
-//       name: "ShowEntity",
-//       size: "4",
-//     },
-//   },
-// };
-
 // FIXME: TODO: TO DOCUMENT IN WIKI AND README.md
 export const OneMoreAppConfig: any = {
   "0": {
@@ -241,7 +208,7 @@ export const OneMoreAppConfig: any = {
           // ROW
           "0": {
             name: "Test",
-            size : 1
+            size: 1,
           },
         },
         // Column
@@ -277,54 +244,6 @@ export const OneMoreAppConfig: any = {
     },
   },
 };
-
-// export const OneMoreAppConfig: any = {
-//   "0": {
-//     "0.0": {
-//       // name: "AddEditEntity", // navigation
-//       // size: "1",
-//       "layout": {
-//         "0.0.0": {
-//           "0.0.0.0": {
-//             name: "Alternate",
-//             size: "1"
-//           },
-//           "0.0.0.1": {
-//             "size": "11",
-//             "layout": {
-//               "0.0.0.1.0": {
-//                 "0.0.0.1.0.0": {
-//                   name: "Test",
-//                   size: 4
-//                 }
-//               },
-//               "0.0.0.1.1": {
-//                 "0.0.0.1.1.0": {
-//                   name: "ShowEntity",
-//                   size: 2
-//                 },
-//                 "0.0.0.1.1.1": {
-//                   name: "AddEditEntity",
-//                   size: 2
-//                 },
-//               }
-//             }
-//           }
-//         }
-//       }
-//     },
-//     "1": {
-//       name: "ListEntities", // navigation
-//       size: "1",
-//     }
-//   },
-//   "0.1": {
-//     "0": {
-//       name: "ShowEntity",
-//       size: "4",
-//     },
-//   },
-// };
 
 export const OrderLineViewConfig: any = {
   "0": {

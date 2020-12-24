@@ -1,20 +1,24 @@
 import React, { useState } from "react";
-import { componentsSet, OneMoreAppConfig } from "../uiConfig/index";
-import config from "../uiConfig/index";
-import { Col, Row, Grid } from "react-native-easy-grid";
+import { Text, View } from "react-native";
+import { Col, Row } from "react-native-easy-grid";
 import { useDispatch } from "react-redux";
-import { View, Text, Dimensions } from "react-native";
-const Column = (props: any) => (
-  <Col
-    size={props.size}
-    style={{
-      borderWidth: 2,
-      borderColor: "red",
-    }}
-  >
-    {props.render}
-  </Col>
-);
+import config, { componentsSet } from "../uiConfig/index";
+
+export const DIMENSIONS = {
+  c11: {
+    width: 20,
+  },
+  c12: {
+    width: 80,
+  },
+  c21: {
+    width: 20,
+  },
+  c22: {
+    width: 80,
+  },
+};
+
 const UiX = (props: any) => {
   // console.log("props in Uix : : ", props);
   const mapState = React.useCallback((state: any) => state, []);
@@ -22,10 +26,10 @@ const UiX = (props: any) => {
   const dispatch = useDispatch();
   const { idx } = props;
   // console.log("idx : :: : --> ", idx);
-  const key: any = `${idx}Config`;
-  // console.log("Key : : : ", key);
-  if (idx && config && config[key]) {
-    const configuration = config[key];
+  const idKey: any = `${idx}Config`;
+  // console.log("Key : : : ", idKey);
+  if (idx && config && config[idKey]) {
+    const configuration = config[idKey];
     console.log("Configuration : : : -->>>>>>> ", configuration);
     const gridSection: Array<any> = [];
     /**
@@ -38,7 +42,6 @@ const UiX = (props: any) => {
       const colSection: any = null;
       const rowSection: Array<any> = [];
       const configKeys = Object.keys(configuration);
-      // console.log("ConfigKey : : : ---> ", configKeys);
       // ITERATE ON ROWS IN LAYOUT CONFIG
       const gridJsx = configKeys.map((key: string, rowId: number) => {
         const rowData = configuration[key];
@@ -51,28 +54,23 @@ const UiX = (props: any) => {
           console.log("Row Data name :: : ==> ", rowData);
           if (rowData[colId].name !== undefined) {
             console.log("EVERYTHING WORKED WELL !!!!");
+            // sizeArr.push(DIMENSIONS[key] && DIMENSIONS[key].width);
+            console.log(
+              `Column size >> ${DIMENSIONS[key] && DIMENSIONS[key].width} `
+            );
+
             return (
               // changes in react-native frame
-              <Column
-                key={idxCol}
-                size={rowData[colId].size}
-                render={React.createElement(
+              <Col key={idxCol} size={DIMENSIONS[key] && DIMENSIONS[key].width}>
+                {React.createElement(
                   componentsSet[rowData[colId].name],
                   { ...rowData[colId].props, appState, ...props, dispatch },
                   null
                 )}
-              />
+              </Col>
             );
           } else if (rowData[colId].layout !== undefined) {
-            console.log("SOME NESTED LAYOUT JSON OBJECT");
-            console.log(
-              "rowData[colId].layout : : : : ",
-              rowData[colId].layout
-            );
-            console.log(
-              "Object.keys(rowData[colId].layout) : : :: --? ",
-              Object.keys(rowData[colId].layout)
-            );
+            /// "SOME NESTED LAYOUT JSON OBJECT"
             return ProcessEngine(rowData[colId].layout, false);
           } else {
             console.log("INVALID CONFIG");
@@ -95,19 +93,9 @@ const UiX = (props: any) => {
       });
       // colSection = ProcessEngine(configuration, true1);
       // console.log("colSection : : : ", colSection);
+      let ctr = -1;
       if (isRootCall) {
-        gridSection.push(
-          <Grid
-            style={{
-              borderWidth: 2,
-              borderColor: "yellow",
-            }}
-          >
-            <Row>
-              <Col>{gridJsx}</Col>
-            </Row>
-          </Grid>
-        );
+        gridSection.push(<Col size={100}>{gridJsx}</Col>);
         return gridSection;
       } else {
         return <Row>{gridJsx}</Row>;

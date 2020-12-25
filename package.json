@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@babel/preset-env": "latest",
-    "dotenv": "^8.2.0",
     "@commitlint/config-conventional": "^8.3.4",
     "@expo/config": "^3.2.1",
     "@expo/webpack-config": "^0.12.38",
@@ -52,7 +51,7 @@
     "babel-preset-react": "latest",
     "commitlint": "^8.3.5",
     "concurrently": "^5.2.0",
-    "cypress": "latest",
+    "cypress": "^6.2.0",
     "d3-shape": "^2.0.0",
     "detox": "16.5.0",
     "detox-expo-helpers": "^0.6.0",

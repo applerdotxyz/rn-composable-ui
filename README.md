@@ -45,6 +45,10 @@
 
   - ✅ `expo build:web` and then serve from any server
 
+
+### Env setup
+- add a `.env` file bycopying and editing `.env.sample` (in root folder)
+
 #### Noteworthy
 
 - Configuration based routes (from `pages` directory)

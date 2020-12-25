@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "latest",
+    "dotenv": "^8.2.0",
     "@commitlint/config-conventional": "^8.3.4",
     "@expo/config": "^3.2.1",
     "@expo/webpack-config": "^0.12.38",

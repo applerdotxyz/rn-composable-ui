@@ -7,7 +7,7 @@ describe("RN Compose Test", () => {
       .type(Cypress.env("ADMIN_USER"));
     console.log(`USER is ${Cypress.env("ADMIN_USER")}`);
     console.log(`PASSWORD is ${Cypress.env("ADMIN_PWD")}`);
-    cy.contains("Current User is :: ");
+    cy.contains("Current User is ::  ");
     // cy.contains("A TEXT THAT FAILS THIS TEST");
   });
 });

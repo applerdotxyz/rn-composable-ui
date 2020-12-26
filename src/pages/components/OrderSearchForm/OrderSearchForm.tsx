@@ -24,9 +24,19 @@ export const OrderSearchForm = (props) => {
         businessFunctions: []
     }
 
+    const initialAction = {
+        actionKey: 0,
+        actionName: "",
+        endPoint: "",
+        httpMethod: "",
+        showButton: false,
+        tabKey: 0,
+    }
+
     const [formLayout, setformLayout] = useState(initialFormSchema);
-    const [action, setAction] = useState(initialFormAction);
+    const [action, setAction] = useState(initialAction);
     const [loading, setLoading] = useState(true);
+    const [actionType, setactionType] = useState('Search');
 
 
     useEffect(() => {
@@ -45,9 +55,9 @@ export const OrderSearchForm = (props) => {
                     },
                     body: JSON.stringify({
                         // TODO : REMOVE this hardcoding
-                        "moduleKey": 2001,
+                        "moduleKey": 23751,
                         "roleKey": 1,
-                        "tabKey": 118201,
+                        "tabKey": 34601,
                         "userId": "TsdAdmin",
                         "actionName": "Search"
                     })
@@ -55,7 +65,7 @@ export const OrderSearchForm = (props) => {
             );
             const resJSON = await res.json();
             console.log(resJSON);
-            setformLayout(resJSON.SearchOrganisationSchema);
+            setformLayout(resJSON.SearchCreateOrdersSchema);
         };
 
         /**
@@ -94,7 +104,7 @@ export const OrderSearchForm = (props) => {
     // const buttonRef = useRef(null);
     // console.log("FormLayout : : : ", formLayout);
     // console.log("Action : : : ", action);
-    
+
 
     // const handleClick = () => {
     //     console.log("Button Clicked");
@@ -145,27 +155,48 @@ export const OrderSearchForm = (props) => {
                         schema={formLayout}
                         uiSchema={_uiSchema}
                         // _formData={_formData}
-                        // _onBeforeSubmit={(e) => {
-                        //   console.log("*** _onBeforeSubmit ***");
-                        //   console.log(e);
-                        // }}
+                        _onBeforeSubmit={(e) => {
+                          console.log("*** _onBeforeSubmit ***");
+                          console.log(e);
+                        }}
                         _onSubmit={(e) => {
                             console.log("*** _onSubmit ***");
                             console.log(e);
 
                         }}
-                        // _onError={(e) => {
-                        //   console.log("*** _onError ***");
-                        //   console.log(e);
-                        // }}
+                        _onError={(e) => {
+                          console.log("*** _onError ***");
+                          console.log(e);
+                        }}
                         _onSuccess={(e) => {
                             console.log("Form Data after updation : :: ", e.params.values);
-                            // props.route.params.dispatch(updateOrderViewData(e.params.values.keyName));
-                            // setFormstate({
-                            //     keyName: e.params.values.keyName
-                            // })
-                            // console.log("State Updated from updateOrderViewUpdate action ", formState);
-                            props.navigation.navigate("First");
+                            const fetchSearchList = async () => {
+                                const actionEndpoint = action.endPoint;
+                                const res = await fetch(
+                                    `http://localhost:8080/transaction-web/${actionEndpoint}`,
+                                    {
+                                        method: 'POST',
+                                        headers: {
+                                            Accept: 'application/json',
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            extOrderNo: e.params.values.extOrderNo,
+                                            fromDate: e.params.values.fromDate,
+                                            orderKey: e.params.values.orderKey,
+                                            orderName: e.params.values.orderName,
+                                            orderStatus: e.params.values.orderStatus,
+                                            orderType: e.params.values.orderType,
+                                            toDate: e.params.values.toDate,
+                                        })
+                                    }
+                                );
+                                const resJSON = await res.json();
+                                console.log(resJSON);
+                                // TODO : This resJson should get reflected in List Component in Json
+                            };
+                            fetchSearchList();
+
                         }}
                     // _onChange={(e) => {
                     //   console.log("data changed");

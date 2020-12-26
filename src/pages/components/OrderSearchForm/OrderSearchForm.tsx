@@ -151,23 +151,30 @@ export const OrderSearchForm = (props) => {
                 }}
             >
                 <Grid>
+                    {/* TODO : 
+                            Add Error handling in form data
+                            (Backend Team Task : ) Modify the Date property with meaningful form type from payload
+                            Work on some way to send data to list component below...
+                                1. Save the whole payload in state and List component will be subscribe to state Redux SearchOrder Data
+                                2. Explore nested navigations
+                     */}
                     <JsonForm
                         schema={formLayout}
                         uiSchema={_uiSchema}
                         // _formData={_formData}
-                        _onBeforeSubmit={(e) => {
-                          console.log("*** _onBeforeSubmit ***");
-                          console.log(e);
-                        }}
+                        // _onBeforeSubmit={(e) => {
+                        //   console.log("*** _onBeforeSubmit ***");
+                        //   console.log(e);
+                        // }}
                         _onSubmit={(e) => {
                             console.log("*** _onSubmit ***");
                             console.log(e);
 
                         }}
-                        _onError={(e) => {
-                          console.log("*** _onError ***");
-                          console.log(e);
-                        }}
+                        // _onError={(e) => {
+                        //   console.log("*** _onError ***");
+                        //   console.log(e);
+                        // }}
                         _onSuccess={(e) => {
                             console.log("Form Data after updation : :: ", e.params.values);
                             const fetchSearchList = async () => {

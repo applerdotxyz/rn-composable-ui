@@ -26,19 +26,32 @@ const NavigationComponent = () => {
     useEffect(() => {
         setLoading(true);
         const fetchData = async () => {
-          const res = await fetch(
-              `https://run.mocky.io/v3/9f560c86-b261-40a5-a225-b5bad469d7d0`
-          );
-          const resJSON = await res.json();
-          console.log(resJSON);
-          
-          setListDataSource(resJSON.businessFunctions);
+            const res = await fetch(
+                //   `https://run.mocky.io/v3/9f560c86-b261-40a5-a225-b5bad469d7d0`,
+                'http://localhost:8080/transaction-web/v1/schema/',
+                {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        // TODO : REMOVE this hardcoding
+                        userId: 'TsdAdmin',
+                        roleKey: '1'
+                    })
+                }
+            );
+            const resJSON = await res.json();
+            console.log(resJSON);
 
-          setLoading(false);
+            setListDataSource(resJSON.businessFunctions);
+
+            setLoading(false);
         };
         fetchData();
-      }, []);
-    
+    }, []);
+
 
     const updateLayout = (index) => {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -58,17 +71,17 @@ const NavigationComponent = () => {
     };
 
     if (loading)
-    return (
-      <View style={styles.container}>
-        <ActivityIndicator />
-      </View>
-    );
+        return (
+            <View style={styles.container}>
+                <ActivityIndicator />
+            </View>
+        );
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={styles.container}>
-                {/* TODO : Can I give control to User to have a multiple select on or off */}
-                {/* <View style={{ flexDirection: 'row', padding: 10 }}>
+            {/* TODO : Can I give control to User to have a multiple select on or off */}
+            {/* <View style={{ flexDirection: 'row', padding: 10 }}>
           <TouchableOpacity onPress={() => setMultiSelect(!multiSelect)}>
             <Text
               style={{
@@ -136,120 +149,8 @@ const styles = StyleSheet.create({
     },
 });
 
-//Dummy content to show
-//You can also use dynamic data by calling webservice
-const CONTENT = [
-    {
-        isExpanded: false,
-        category_name: 'Item 1',
-        subcategory: [
-            { id: 1, val: 'Sub Cat 1' },
-            { id: 3, val: 'Sub Cat 3' },
-        ],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 2',
-        subcategory: [
-            { id: 4, val: 'Sub Cat 4' },
-            { id: 5, val: 'Sub Cat 5' },
-        ],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 3',
-        subcategory: [
-            { id: 7, val: 'Sub Cat 7' },
-            { id: 9, val: 'Sub Cat 9' },
-        ],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 4',
-        subcategory: [
-            { id: 10, val: 'Sub Cat 10' },
-            { id: 12, val: 'Sub Cat 2' },
-        ],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 5',
-        subcategory: [
-            { id: 13, val: 'Sub Cat 13' },
-            { id: 15, val: 'Sub Cat 5' },
-        ],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 6',
-        subcategory: [
-            { id: 17, val: 'Sub Cat 17' },
-            { id: 18, val: 'Sub Cat 8' },
-        ],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 7',
-        subcategory: [{ id: 20, val: 'Sub Cat 20' }],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 8',
-        subcategory: [{ id: 22, val: 'Sub Cat 22' }],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 9',
-        subcategory: [
-            { id: 26, val: 'Sub Cat 26' },
-            { id: 27, val: 'Sub Cat 7' },
-        ],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 10',
-        subcategory: [
-            { id: 28, val: 'Sub Cat 28' },
-            { id: 30, val: 'Sub Cat 0' },
-        ],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 11',
-        subcategory: [{ id: 31, val: 'Sub Cat 31' }],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 12',
-        subcategory: [{ id: 34, val: 'Sub Cat 34' }],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 13',
-        subcategory: [
-            { id: 38, val: 'Sub Cat 38' },
-            { id: 39, val: 'Sub Cat 9' },
-        ],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 14',
-        subcategory: [
-            { id: 40, val: 'Sub Cat 40' },
-            { id: 42, val: 'Sub Cat 2' },
-        ],
-    },
-    {
-        isExpanded: false,
-        category_name: 'Item 15',
-        subcategory: [
-            { id: 43, val: 'Sub Cat 43' },
-            { id: 44, val: 'Sub Cat 44' },
-        ],
-    },
-];
-
 // Mocky API :- https://run.mocky.io/v3/c7dbb481-bdd6-4d9b-926e-7891fe4627f7
+// TODO : Think on link property.. in JSON and make needful change
 const CONTENT1 = [
     {
         isExpanded: false,

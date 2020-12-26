@@ -9,7 +9,7 @@ const Column = (props: any) => (
     size={props.size}
     style={{
       // borderWidth: 2,
-      flex : 1,
+      flex: 1,
       borderColor: "red",
     }}
   >
@@ -90,7 +90,11 @@ const UiX = (props: any) => {
             key={rowId}
           >
             {/* TODO: size is not working as expected . fix that */}
-            <Col size={rowData.size}>{rowJsx}</Col>
+            <Col size={rowData.size} style={{
+              // borderWidth: 2,
+              flex: 1,
+              borderColor: "red",
+            }}>{rowJsx}</Col>
           </Row>
         );
       });

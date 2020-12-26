@@ -39,9 +39,10 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
               style={styles.content}
               onPress={() => alert('Id: ' + item.moduleKey + ' val: ' + item.moduleName)}>
               <Text style={styles.text}>
-                {key}. {item.moduleDisplayName}
+                {/* {key}.  */}
+                {item.moduleDisplayName}
               </Text>
-              <View style={styles.separator} />
+              {/* <View style={styles.separator} /> */}
             </TouchableOpacity>
           ))}
         </View>
@@ -53,6 +54,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
     header: {
       backgroundColor: '#5cabc5',
       padding: 20,
+      flex : 0
     },
     headerText: {
       fontSize: 20,

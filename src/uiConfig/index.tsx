@@ -14,7 +14,7 @@ import { Dimensions } from "react-native";
 import { HeaderComponent } from '../pages/components/HeaderComponent';
 import { OrderSearchList } from "../pages/components/OrderSearchList";
 import NavigationComponent from '../pages/components/NavigationComponent';
-
+import { OrderSearchForm } from "../pages/components/OrderSearchForm/OrderSearchForm";
 
 // All component which will be rendered
 export const componentsSet: any = {
@@ -29,7 +29,8 @@ export const componentsSet: any = {
   OrderLineView,
   OrderSearchList,
   HeaderComponent,
-  NavigationComponent
+  NavigationComponent,
+  OrderSearchForm,
   // MainApp
 };
 
@@ -145,7 +146,7 @@ export const MainAppConfig: any = { // OrderLayout
         },
         "1": {
           "0": {
-            name: "OrderLineView", // SearhListForm ROW 1
+            name: "OrderSearchForm", // SearhListForm ROW 1
             size : '4',
             props: {
               _formData: {

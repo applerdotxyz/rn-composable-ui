@@ -129,7 +129,7 @@ export const ShowEntityConfig: any = {
   },
 };
 
-// TSD WEB APP
+// TSD WEB APP --> Service Order Searcch Config
 export const MainAppConfig: any = { // OrderLayout
   "0": {
     "0": {

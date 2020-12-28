@@ -55,7 +55,7 @@ export const OrderSearchList = () => {
             <SearchList
                 data={data}
                 searchFields={["name", "description", "category", "subCategory"]}
-                visibleKeys={["name", "category", "description", "subCategory"]}
+                visibleKeys={["name", "category", "description"]}
                 flexWidth={[1, 1, 3]} // Column-span (length of array should be equal to that of visibleKeys)
                 numberOfLines={3} // Row-span
                 searchBarWrapperStyle={null}

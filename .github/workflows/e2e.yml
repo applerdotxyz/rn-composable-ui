@@ -6,6 +6,7 @@ on:
     branches:
       - code_quality
       - master
+      - wip-events
   pull_request:
     branches: [master]
 jobs:

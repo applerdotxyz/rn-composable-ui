@@ -1,0 +1,43 @@
+
+name: E2E
+
+on:
+  push:
+    branches:
+      - code_quality
+      - master
+      - wip-events
+  pull_request:
+    branches: [master]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    # let's make sure our "app" works on several versions of Node
+    strategy:
+      matrix:
+        node: [14]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}  
+      - name: Yarn Install
+        run: yarn install
+      - name: expo global setup
+        run: npm install -g expo-cli  
+      - name: expo hotfix
+        run: yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh 
+      - uses: cypress-io/github-action@v2
+        with:
+          build: 'yarn stage:web'
+          start: 'yarn serve:web'
+          wait-on: 'http://localhost:8080'
+          headless: true

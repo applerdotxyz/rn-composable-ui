@@ -9,6 +9,16 @@ import {
     Platform,
     ActivityIndicator,
 } from 'react-native';
+
+import {
+    Switch,
+    useRouteMatch,
+    useParams,
+    useLocation,
+    useHistory, NativeRouter as Router, Route, Link
+} from "react-router-native";
+
+
 import ExpandableComponent from './ExpandableComponent';
 
 const NavigationComponent = () => {
@@ -78,10 +88,11 @@ const NavigationComponent = () => {
         );
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <View style={styles.container}>
-            {/* TODO : Can I give control to User to have a multiple select on or off */}
-            {/* <View style={{ flexDirection: 'row', padding: 10 }}>
+        <Router>
+            <SafeAreaView style={{ flex: 1 }}>
+                <View style={styles.container}>
+                    {/* TODO : Can I give control to User to have a multiple select on or off */}
+                    {/* <View style={{ flexDirection: 'row', padding: 10 }}>
           <TouchableOpacity onPress={() => setMultiSelect(!multiSelect)}>
             <Text
               style={{
@@ -94,19 +105,20 @@ const NavigationComponent = () => {
             </Text>
           </TouchableOpacity>
         </View> */}
-                <ScrollView>
-                    {listDataSource.map((item, key) => (
-                        <ExpandableComponent
-                            key={item.functionName}
-                            onClickFunction={() => {
-                                updateLayout(key);
-                            }}
-                            item={item}
-                        />
-                    ))}
-                </ScrollView>
-            </View>
-        </SafeAreaView>
+                    <ScrollView>
+                        {listDataSource.map((item, key) => (
+                            <ExpandableComponent
+                                key={item.functionName}
+                                onClickFunction={() => {
+                                    updateLayout(key);
+                                }}
+                                item={item}
+                            />
+                        ))}
+                    </ScrollView>
+                </View>
+            </SafeAreaView>
+        </Router>
     );
 };
 
@@ -151,260 +163,4 @@ const styles = StyleSheet.create({
 
 // Mocky API :- https://run.mocky.io/v3/c7dbb481-bdd6-4d9b-926e-7891fe4627f7
 // TODO : Think on link property.. in JSON and make needful change
-const CONTENT1 = [
-    {
-        isExpanded: false,
-        functionKey: 1000,
-        functionName: 'Sales',
-        modules: [
-            {
-                "moduleKey": 2001,
-                "moduleName": 'OrderConfig',
-                "moduleDisplayName": 'Order Dashboard',
-                "link": '/OrderConfig',
-                "tabs": [
-                    {
-                        "tabKey": 3001,
-                        "tabName": 'CreateOrders',
-                        "tabDisplayName": 'Create Orders',
-                        "moduleKey": 2001,
-                        "action": [
-                            {
-                                "actionKey": 22081,
-                                "actionName": "Search",
-                                "endPoint": "v1/serviceorder/list",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 34601
-                            },
-                            {
-                                "actionKey": 22082,
-                                "actionName": "List",
-                                "endPoint": "v1/serviceorder/list",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 34601
-                            },
-                            {
-                                "actionKey": 22083,
-                                "actionName": "View",
-                                "endPoint": "v1/serviceorder/{orderKey}",
-                                "httpMethod": "GET",
-                                "showButton": true,
-                                "tabKey": 34601
-                            },
-                            {
-                                "actionKey": 22084,
-                                "actionName": "Edit",
-                                "endPoint": "v1/serviceorder/{orderKey}",
-                                "httpMethod": "PUT",
-                                "showButton": true,
-                                "tabKey": 34601
-                            },
-                            {
-                                "actionKey": 21681,
-                                "actionName": "Create",
-                                "endPoint": "v1/serviceorder/",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 34601
-                            }
-                        ]
-                    },
-                    {
-                        "tabKey": 3001,
-                        "tabName": 'BookOrders',
-                        "tabDisplayName": 'Book Orders',
-                        "moduleKey": 2001,
-                        "action": [
-                            {
-                                "actionKey": 100581,
-                                "actionName": "Create",
-                                "endPoint": "v1/serviceorder/",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117701
-                            },
-                            {
-                                "actionKey": 100583,
-                                "actionName": "Search",
-                                "endPoint": "v1/serviceorder/list",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117701
-                            },
-                            {
-                                "actionKey": 100582,
-                                "actionName": "Edit",
-                                "endPoint": "v1/serviceorder/{orderKey}",
-                                "httpMethod": "PUT",
-                                "showButton": true,
-                                "tabKey": 117701
-                            },
-                            {
-                                "actionKey": 100585,
-                                "actionName": "View",
-                                "endPoint": "v1/serviceorder/{orderKey}",
-                                "httpMethod": "GET",
-                                "showButton": true,
-                                "tabKey": 117701
-                            },
-                            {
-                                "actionKey": 100584,
-                                "actionName": "List",
-                                "endPoint": "v1/serviceorder/list",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117701
-                            }
-                        ]
-                    },
-                    {
-                        "tabKey": 117703,
-                        "tabName": "AllocateOrders",
-                        "tabDisplayName": "Allocate ORDERS",
-                        "moduleKey": 23751,
-                        "actions": [
-                            {
-                                "actionKey": 100591,
-                                "actionName": "Edit",
-                                "endPoint": "v1/serviceorder/{orderKey}",
-                                "httpMethod": "PUT",
-                                "showButton": true,
-                                "tabKey": 117703
-                            },
-                            {
-                                "actionKey": 100593,
-                                "actionName": "Create",
-                                "endPoint": "v1/serviceorder/",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117703
-                            },
-                            {
-                                "actionKey": 100592,
-                                "actionName": "View",
-                                "endPoint": "v1/serviceorder/{orderKey}",
-                                "httpMethod": "GET",
-                                "showButton": true,
-                                "tabKey": 117703
-                            },
-                            {
-                                "actionKey": 100595,
-                                "actionName": "Search",
-                                "endPoint": "v1/serviceorder/list",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117703
-                            },
-                            {
-                                "actionKey": 100594,
-                                "actionName": "List",
-                                "endPoint": "v1/serviceorder/list",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117703
-                            }
-                        ]
-                    },
-                    {
-                        "tabKey": 117702,
-                        "tabName": "ReserveOrders",
-                        "tabDisplayName": "Reserve Orders",
-                        "moduleKey": 23751,
-                        "actions": [
-                            {
-                                "actionKey": 100587,
-                                "actionName": "List",
-                                "endPoint": "v1/serviceorder/list",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117702
-                            },
-                            {
-                                "actionKey": 100586,
-                                "actionName": "View",
-                                "endPoint": "v1/serviceorder/{orderKey}",
-                                "httpMethod": "GET",
-                                "showButton": true,
-                                "tabKey": 117702
-                            },
-                            {
-                                "actionKey": 100589,
-                                "actionName": "Create",
-                                "endPoint": "v1/serviceorder/",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117702
-                            },
-                            {
-                                "actionKey": 100588,
-                                "actionName": "Search",
-                                "endPoint": "v1/serviceorder/list",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117702
-                            },
-                            {
-                                "actionKey": 100590,
-                                "actionName": "Edit",
-                                "endPoint": "v1/serviceorder/{orderKey}",
-                                "httpMethod": "PUT",
-                                "showButton": true,
-                                "tabKey": 117702
-                            }
-                        ]
-                    },
-                    {
-                        "tabKey": 117704,
-                        "tabName": "CompleteOrders",
-                        "tabDisplayName": "Complete Orders",
-                        "moduleKey": 23751,
-                        "actions": [
-                            {
-                                "actionKey": 100597,
-                                "actionName": "List",
-                                "endPoint": "v1/serviceorder/list",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117704
-                            },
-                            {
-                                "actionKey": 100596,
-                                "actionName": "Search",
-                                "endPoint": "v1/serviceorder/list",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117704
-                            },
-                            {
-                                "actionKey": 100599,
-                                "actionName": "View",
-                                "endPoint": "v1/serviceorder/{orderKey}",
-                                "httpMethod": "GET",
-                                "showButton": true,
-                                "tabKey": 117704
-                            },
-                            {
-                                "actionKey": 100598,
-                                "actionName": "Edit",
-                                "endPoint": "v1/serviceorder/{orderKey}",
-                                "httpMethod": "PUT",
-                                "showButton": true,
-                                "tabKey": 117704
-                            },
-                            {
-                                "actionKey": 100600,
-                                "actionName": "Create",
-                                "endPoint": "v1/serviceorder/",
-                                "httpMethod": "POST",
-                                "showButton": true,
-                                "tabKey": 117704
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-]
+

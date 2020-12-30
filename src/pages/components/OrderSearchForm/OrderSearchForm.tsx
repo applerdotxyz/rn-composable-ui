@@ -1,4 +1,4 @@
-import { Link } from "@react-navigation/native";
+// import { Link } from "@react-navigation/native";
 import React, { useEffect, useRef, useState } from "react";
 import { View, Text, Platform, StyleSheet, Dimensions } from "react-native";
 import { Grid } from "react-native-easy-grid";
@@ -6,10 +6,18 @@ import { ScrollView } from "react-native-gesture-handler";
 import { updateOrderViewData, updateState } from "../../../state-mgmt/actions";
 import useSafeSetState from "../../../utils/useSafeState";
 import { JsonForm } from "../json-form/JsonForm";
-
+import {
+    Switch,
+    useRouteMatch,
+    useParams,
+    useLocation,
+    useHistory, NativeRouter as Router, Route, Link
+} from "react-router-native";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const OrderSearchForm = (props) => {
+
+    const history = useHistory();
 
     const initialFormSchema = {
         type: "object",
@@ -133,7 +141,7 @@ export const OrderSearchForm = (props) => {
     return (
         <View style={{
             flex: 1,
-            // minHeight: Dimensions.get("window").height / 4,
+            // minHeight: Dimensions.get("window").height,
             maxHeight: Dimensions.get("window").height / 2,
         }}>
             <Text style={{
@@ -201,6 +209,7 @@ export const OrderSearchForm = (props) => {
                                 const resJSON = await res.json();
                                 console.log(resJSON);
                                 // TODO : This resJson should get reflected in List Component in Json
+                                history.push('/search-order/list', resJSON)
                             };
                             fetchSearchList();
 

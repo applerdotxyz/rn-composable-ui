@@ -22,7 +22,7 @@ const UiX = (props: any) => {
   const appState = useState(mapState);
   const dispatch = useDispatch();
   const { idx } = props;
-  // console.log("idx : :: : --> ", idx);
+  console.log("idx : :: : --> ", idx);
   const key: any = `${idx}Config`;
   // console.log("Key : : : ", key);
   if (idx && config && config[key]) {

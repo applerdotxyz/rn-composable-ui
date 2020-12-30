@@ -14,7 +14,7 @@ const persistor = persistStore(store);
 
 // routeConfig
 // TODO: bring from anywhere you wish
-const routes = {
+export const routes = {
   Index: "Index",
   Alternate: "Alternate",
   Test: "Test",
@@ -23,6 +23,7 @@ const routes = {
   ListEntities: "ListEntities",
   ShowEntity: "ShowEntity",
   MainApp: "MainApp",
+  DashboardApp: "DashboardApp",
   OrderLineView: "OrderLineView",
   OneMoreApp: "OneMoreApp",
   // Index: require(`./src/pages/Index`).default,

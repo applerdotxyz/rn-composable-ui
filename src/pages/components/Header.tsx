@@ -48,8 +48,11 @@ export default function Header() {
       <View style={{
         borderWidth: 0.5
       }} />
-      <Link style={{ color: "green", fontSize: 20 }} to="/MainApp">
+      {/* <Link style={{ color: "green", fontSize: 20 }} to="/MainApp">
         Main App
+      </Link> */}
+      <Link style={{ color: "green", fontSize: 20 }} to="/DashboardApp">
+        Dashboard App
       </Link>
       <Link style={{ color: "green", fontSize: 20 }} to="/OneMoreApp">
         OneMoreApp

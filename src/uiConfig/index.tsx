@@ -14,6 +14,7 @@ import { Dimensions } from "react-native";
 import { HeaderComponent } from '../pages/components/HeaderComponent';
 import { OrderSearchList } from "../pages/components/OrderSearchList";
 import NavigationComponent from '../pages/components/NavigationComponent';
+import NavBar from '../pages/components/NavigationComponent/NavBar';
 import { OrderSearchForm } from "../pages/components/OrderSearchForm/OrderSearchForm";
 
 // All component which will be rendered
@@ -31,6 +32,7 @@ export const componentsSet: any = {
   HeaderComponent,
   NavigationComponent,
   OrderSearchForm,
+  NavBar
   // MainApp
 };
 
@@ -129,6 +131,23 @@ export const ShowEntityConfig: any = {
   },
 };
 
+
+export const DashboardAppConfig: any = { // OrderLayout
+  "0": {
+    "0": {
+      name: 'HeaderComponent',
+      size: '4'
+    }
+  },
+  "1": {
+    "0": {
+      name: 'NavBar',
+      size: '4'
+    }
+  }
+};
+
+
 // TSD WEB APP --> Service Order Searcch Config
 export const MainAppConfig: any = { // OrderLayout
   "0": {
@@ -147,7 +166,7 @@ export const MainAppConfig: any = { // OrderLayout
         "1": {
           "0": {
             name: "OrderSearchForm", // SearhListForm ROW 1
-            size : '4',
+            size: '4',
             props: {
               _formData: {
                 keyName: "YourName",
@@ -166,46 +185,13 @@ export const MainAppConfig: any = { // OrderLayout
           },
           "1": {
             name: "OrderSearchList", // SearhList ROW 2
-            size : '4'
+            size: '4'
           },
         },
       },
     },
   },
 };
-
-{
-  /*
-
-  <Grid>
-        <Row>
-          <Col size={1} style={styles.boxStyle}>
-            <Text>Navigation</Text>
-          </Col>
-          <Col size={3}>
-            <Row>
-              <Col style={styles.boxStyle2}>
-                <Text>Search List</Text>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Row>
-                  <Col style={styles.boxStyle3}>
-                    <Text>OrderLineView</Text>
-                  </Col>
-                  <Col style={styles.boxStyle4}>
-                    <Text>AddressView</Text>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Grid>
-
-*/
-}
 
 // export const OneMoreAppConfig: any = {
 //   "0": {
@@ -323,54 +309,6 @@ export const OneMoreAppConfig: any = {
   },
 };
 
-// export const OneMoreAppConfig: any = {
-//   "0": {
-//     "0.0": {
-//       // name: "AddEditEntity", // navigation
-//       // size: "1",
-//       "layout": {
-//         "0.0.0": {
-//           "0.0.0.0": {
-//             name: "Alternate",
-//             size: "1"
-//           },
-//           "0.0.0.1": {
-//             "size": "11",
-//             "layout": {
-//               "0.0.0.1.0": {
-//                 "0.0.0.1.0.0": {
-//                   name: "Test",
-//                   size: 4
-//                 }
-//               },
-//               "0.0.0.1.1": {
-//                 "0.0.0.1.1.0": {
-//                   name: "ShowEntity",
-//                   size: 2
-//                 },
-//                 "0.0.0.1.1.1": {
-//                   name: "AddEditEntity",
-//                   size: 2
-//                 },
-//               }
-//             }
-//           }
-//         }
-//       }
-//     },
-//     "1": {
-//       name: "ListEntities", // navigation
-//       size: "1",
-//     }
-//   },
-//   "0.1": {
-//     "0": {
-//       name: "ShowEntity",
-//       size: "4",
-//     },
-//   },
-// };
-
 export const OrderLineViewConfig: any = {
   "0": {
     "0": {
@@ -404,8 +342,8 @@ const exported: any = {
   ListEntitiesConfig,
   ShowEntityConfig,
   MainAppConfig,
+  DashboardAppConfig,
   OneMoreAppConfig,
   OrderLineViewConfig,
 };
-
 export default exported;

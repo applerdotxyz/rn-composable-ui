@@ -18,6 +18,12 @@
       "bundleIdentifier": "com.starterapp.mobile",
       "supportsTablet": true
     },
-    "web": {}
+    "web": {
+      "build": {
+        "babel": {
+          "include": ["react-router-native"]
+        }
+      }
+    }
   }
 }

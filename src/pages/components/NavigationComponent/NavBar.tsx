@@ -76,10 +76,10 @@ function RenderSearchOrderList(props) {
 // }
 
 const routes = [
-    {
-        path: "/home",
-        component: Home
-    },
+    // {
+    //     path: "/home",
+    //     component: Home
+    // },
     {
         path: "/search-order",
         component: RenderSearchOrderForm,
@@ -196,7 +196,7 @@ const NavBar = () => {
                                 </ScrollView>
                             </Col>
                             <Col size={3}>
-
+                            <Route exact path="/" component={Home} />
                                 {routes.map((route, i) => (
                                     <RouteWithSubRoutes key={i} {...route} />
                                 ))}

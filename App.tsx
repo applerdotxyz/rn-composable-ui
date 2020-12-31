@@ -26,6 +26,7 @@ export const routes = {
   DashboardApp: "DashboardApp",
   OrderLineView: "OrderLineView",
   OneMoreApp: "OneMoreApp",
+  RnComposibleDashboard : "RnComposibleDashboard",
   // Index: require(`./src/pages/Index`).default,
   // Alternate: require(`./src/pages/Alternate`).default,
   // Test: require(`./src/pages/Test`).default,

@@ -51,8 +51,11 @@ export default function Header() {
       {/* <Link style={{ color: "green", fontSize: 20 }} to="/MainApp">
         Main App
       </Link> */}
-      <Link style={{ color: "green", fontSize: 20 }} to="/DashboardApp">
+      {/* <Link style={{ color: "green", fontSize: 20 }} to="/DashboardApp">
         Dashboard App
+      </Link> */}
+      <Link style={{ color: "green", fontSize: 20 }} to="/RnComposibleDashboard">
+        RN Composible Dashboard App
       </Link>
       <Link style={{ color: "green", fontSize: 20 }} to="/OneMoreApp">
         OneMoreApp

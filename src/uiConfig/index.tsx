@@ -1,3 +1,4 @@
+// TODO : Remove the Projects Component Screen segreagation notes...
 import { Index } from "../pages/Index";
 import { First } from "../pages/First";
 import { Alternate } from "../pages/Alternate";
@@ -13,12 +14,14 @@ import { Dimensions } from "react-native";
 // TSD WEB APP INTEGRATION
 import { HeaderComponent } from '../pages/components/HeaderComponent';
 import { OrderSearchList } from "../pages/components/OrderSearchList";
-import NavigationComponent from '../pages/components/NavigationComponent';
 import NavBar from '../pages/components/NavigationComponent/NavBar';
+import RnNavBar from '../pages/components/NavigationComponent/RnNavBar';
 import { OrderSearchForm } from "../pages/components/OrderSearchForm/OrderSearchForm";
 
 // All component which will be rendered
 export const componentsSet: any = {
+
+  // TODO : Rn Composible screen components
   Index,
   First,
   Alternate,
@@ -27,14 +30,16 @@ export const componentsSet: any = {
   ListEntities,
   ShowEntity,
   SearchList,
+  RnNavBar,
+
+  // TODO : TSD  screen components
   OrderLineView,
   OrderSearchList,
   HeaderComponent,
-  NavigationComponent,
   OrderSearchForm,
   NavBar
-  // MainApp
 };
+
 
 export const IndexConfig: any = {
   "0": {
@@ -72,9 +77,6 @@ export const OrderSearchListConfig: any = {
   }
 }
 
-// inner col
-// outer row
-// Remove If possible with Component part
 
 export const TestConfig: any = {
   "0": {
@@ -131,7 +133,19 @@ export const ShowEntityConfig: any = {
   },
 };
 
+// TODO : Screen with Route and Screen Component for RN composible UI
+export const RnComposibleDashboardConfig: any = {
+  "0": {
+    "0": {
+      name: 'RnNavBar',
+      size: '4'
+    }
+  }
+};
 
+
+
+// TODO : Screen with Route and Screen Component for TSD
 export const DashboardAppConfig: any = { // OrderLayout
   "0": {
     "0": {
@@ -146,6 +160,7 @@ export const DashboardAppConfig: any = { // OrderLayout
     }
   }
 };
+
 
 
 // TSD WEB APP --> Service Order Searcch Config
@@ -309,6 +324,7 @@ export const OneMoreAppConfig: any = {
   },
 };
 
+// TODO : For TSD
 export const OrderLineViewConfig: any = {
   "0": {
     "0": {
@@ -341,9 +357,15 @@ const exported: any = {
   AddEditEntityConfig,
   ListEntitiesConfig,
   ShowEntityConfig,
+
+  // TODO : For RN composible
+  RnComposibleDashboardConfig,
+
+  // TODO : For TSD
   MainAppConfig,
   DashboardAppConfig,
   OneMoreAppConfig,
   OrderLineViewConfig,
+  
 };
 export default exported;

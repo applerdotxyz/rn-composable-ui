@@ -14,9 +14,10 @@ import { Dimensions } from "react-native";
 // TSD WEB APP INTEGRATION
 import { HeaderComponent } from '../pages/components/HeaderComponent';
 import { OrderSearchList } from "../pages/components/OrderSearchList";
-import NavBar from '../pages/components/NavigationComponent/NavBar';
-import RnNavBar from '../pages/components/NavigationComponent/RnNavBar';
 import { OrderSearchForm } from "../pages/components/OrderSearchForm/OrderSearchForm";
+
+// RN COMPOSIBLE UI
+import RnNavBar from '../pages/components/NavigationComponent/RnNavBar';
 
 // All component which will be rendered
 export const componentsSet: any = {
@@ -37,7 +38,6 @@ export const componentsSet: any = {
   OrderSearchList,
   HeaderComponent,
   OrderSearchForm,
-  NavBar
 };
 
 

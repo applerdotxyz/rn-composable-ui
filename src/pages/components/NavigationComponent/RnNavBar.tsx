@@ -270,6 +270,3 @@ const styles = StyleSheet.create({
     },
 });
 
-// Mocky API :- https://run.mocky.io/v3/c7dbb481-bdd6-4d9b-926e-7891fe4627f7
-// TODO : Think on link property.. in JSON and make needful change
-

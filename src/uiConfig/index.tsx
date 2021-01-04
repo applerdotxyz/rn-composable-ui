@@ -208,72 +208,6 @@ export const MainAppConfig: any = { // OrderLayout
   },
 };
 
-// export const OneMoreAppConfig: any = {
-//   "0": {
-//     "0": {
-//       name: "AddEditEntity",
-//       size: "2",
-//     },
-//     "1": {
-//       name: "ListEntities",
-//       size: "2",
-//     },
-//   },
-//   "1": {
-//     "0": {
-//       name: "ShowEntity",
-//       size: "4",
-//     },
-//   },
-// };
-
-// export const OneMoreAppConfig: any = {
-//   "0": {
-//     "0": {
-//       // name: "AddEditEntity", // navigation
-//       // size: "1",
-//       "layout": {
-//         "0": {
-//           "0": {
-//             name: "Alternate",
-//             size: "1"
-//           },
-//           "1": {
-//             "size": "11",
-//             "layout": {
-//               "0": {
-//                 "0": {
-//                   name: "Test",
-//                   size: 4
-//                 }
-//               },
-//               "1": {
-//                 "0": {
-//                   name: "ShowEntity",
-//                   size: 2
-//                 },
-//                 "1": {
-//                   name: "ListEntities",
-//                   size: 2
-//                 },
-//               }
-//             }
-//           }
-//         }
-//       }
-//     },
-//     "1": {
-//       name: "Test", // navigation
-//       size: "1",
-//     }
-//   },
-//   "1": {
-//     "0": {
-//       name: "ShowEntity",
-//       size: "4",
-//     },
-//   },
-// };
 
 // FIXME: TODO: TO DOCUMENT IN WIKI AND README.md
 export const OneMoreAppConfig: any = {
@@ -283,42 +217,89 @@ export const OneMoreAppConfig: any = {
       // ROW
       layout: {
         // COLUMN
+        // properties : {
+        //   newGrid : true,
+        //   newRow : true,
+        // },
+        // rowSize : '1',
+
+        // Column 1 below
         "0": {
-          // ROW
+          // Column 1 Row 1
           "0": {
             name: "Test",
             size: '1'
           },
         },
-        // Column
-        "1": {
-          // ROW
-          "0": {
-            name: "ShowEntity",
+
+        // Column 2 below
+        "1" : {
+
+          // Colum 2 row 1
+          "0" : {
+            name : "ShowEntity",
+            size : '3'
           },
-          // ROW
-          "1": {
-            // Column
-            layout: {
-              // Column
-              "0": {
-                // Row
-                "0": {
-                  // Column
-                  name: "AddEditEntity",
-                },
+
+          // Column 2 row 2
+          "1" : {
+            layout : {
+
+              // Column 2 row 2 column 1
+              "0" : {
+                "0" : {
+                  name :  "AddEditEntity",
+                  size : '2'
+                }
               },
-              // Column
-              "1": {
-                // Row
-                "0": {
-                  // Column
+
+            // Column 2 row 2 column 1
+              "1" : {
+                "0" : {
                   name: "ListEntities",
-                },
-              },
-            },
-          },
-        },
+                  size : '2'
+                }
+              }
+            }
+          }
+        }
+        // Column
+        // "1": {
+        //   // ROW
+        //   "0": {
+        //     name: "ShowEntity",
+        //     size : '1'
+        //   },
+        //   // ROW
+        //   "1": {
+        //     // Column
+        //     layout: {
+        //       // Column
+        //       // properties : {
+        //       //   newGrid : true,
+        //       //   newRow : true,
+        //       // },
+        //       // rowSize : '3',
+        //       "0": {
+        //         // Row
+        //         "0": {
+        //           // Column
+        //           name: "AddEditEntity",
+        //           size : "2"
+        //         },
+        //       },
+        //       // Column
+        //       "1": {
+        //         // Row
+        //         "0": {
+        //           // Column
+        //           name: "ListEntities",
+        //           size : "4"
+        //         },
+        //       },
+        //     },
+        //   },
+        // },
       },
     },
   },

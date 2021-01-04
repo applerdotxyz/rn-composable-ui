@@ -216,19 +216,13 @@ export const OneMoreAppConfig: any = {
     "0": {
       // ROW
       layout: {
-        // COLUMN
-        // properties : {
-        //   newGrid : true,
-        //   newRow : true,
-        // },
-        // rowSize : '1',
 
         // Column 1 below
         "0": {
           // Column 1 Row 1
           "0": {
             name: "Test",
-            size: '1'
+            size: '0.5'
           },
         },
 
@@ -238,7 +232,7 @@ export const OneMoreAppConfig: any = {
           // Colum 2 row 1
           "0" : {
             name : "ShowEntity",
-            size : '3'
+            size : '3.5'
           },
 
           // Column 2 row 2
@@ -263,43 +257,6 @@ export const OneMoreAppConfig: any = {
             }
           }
         }
-        // Column
-        // "1": {
-        //   // ROW
-        //   "0": {
-        //     name: "ShowEntity",
-        //     size : '1'
-        //   },
-        //   // ROW
-        //   "1": {
-        //     // Column
-        //     layout: {
-        //       // Column
-        //       // properties : {
-        //       //   newGrid : true,
-        //       //   newRow : true,
-        //       // },
-        //       // rowSize : '3',
-        //       "0": {
-        //         // Row
-        //         "0": {
-        //           // Column
-        //           name: "AddEditEntity",
-        //           size : "2"
-        //         },
-        //       },
-        //       // Column
-        //       "1": {
-        //         // Row
-        //         "0": {
-        //           // Column
-        //           name: "ListEntities",
-        //           size : "4"
-        //         },
-        //       },
-        //     },
-        //   },
-        // },
       },
     },
   },

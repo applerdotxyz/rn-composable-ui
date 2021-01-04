@@ -68,26 +68,29 @@ const env = () => {
 };
 
 /*
-* ORDER VIEW UPDATE REDUCER <--
-*/
-const orderViewUpdate = (state = { ...initialState.orderViewUpdate }, action) => {
+ * ORDER VIEW UPDATE REDUCER <--
+ */
+const orderViewUpdate = (
+  state = { ...initialState.orderViewUpdate },
+  action
+) => {
   switch (action.type) {
     case UPDATE_ORDER_VIEW_DATA:
       return {
         ...state,
         user: initialState.user,
-        keyName: action.data.keyName
+        keyName: action.data.keyName,
       };
     default:
       return state;
   }
-}
+};
 
 // Combine all the reducers
 const rootReducer = combineReducers({
   user,
   env,
-  orderViewUpdate
+  orderViewUpdate,
 });
 
 export default rootReducer;

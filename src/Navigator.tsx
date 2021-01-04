@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/prop-types */
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { default as React } from "react";
@@ -19,7 +22,6 @@ export const Navigator = (props) => {
   console.log("routes : : :  -> ", props.routes);
 
   console.log("Props in navigator : : : ---> ", props);
-  
 
   // TODO : props.appId || added to getRouteConfig parameter
   routesSection = Object.keys(props.routes).map((key) => (

@@ -1,20 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-
-
-import {
-  Switch,
-  useRouteMatch,
-  useParams,
-  useLocation,
-  useHistory, NativeRouter as Router, Route, Link
-} from "react-router-native";
+import { Link } from "react-router-native";
 
 const ExpandableComponent = ({ item, onClickFunction }) => {
   //Custom Component for the Expandable List
@@ -34,24 +23,29 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={onClickFunction}
-        style={styles.header}>
-          {/* <Link to='/home'> */}
+        style={styles.header}
+      >
+        {/* <Link to='/home'> */}
         <Text style={styles.headerText}>{item.functionName}</Text>
         {/* </Link> */}
       </TouchableOpacity>
       <View
         style={{
           height: layoutHeight,
-          overflow: 'hidden',
-        }}>
+          overflow: "hidden",
+        }}
+      >
         {/*Content under the header of the Expandable List Item*/}
         {item.modules.map((item, key) => (
           <TouchableOpacity
             key={key}
             style={styles.content}
-            onPress={() => alert('Id: ' + item.moduleKey + ' val: ' + item.moduleName)}>
-              {/* Link config should API */}
-            <Link to='/search-order' underlayColor="#adc650"> 
+            onPress={() =>
+              alert("Id: " + item.moduleKey + " val: " + item.moduleName)
+            }
+          >
+            {/* Link config should API */}
+            <Link to="/search-order" underlayColor="#adc650">
               <Text style={styles.text}>
                 {/* {key}.  */}
                 {item.moduleDisplayName}
@@ -68,35 +62,34 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#5cabc5',
+    backgroundColor: "#5cabc5",
     padding: 20,
-    flex: 0
+    flex: 0,
   },
   headerText: {
     fontSize: 20,
-    fontWeight: '500',
-    color: 'white',
-    fontStyle: 'italic',
+    fontWeight: "500",
+    color: "white",
+    fontStyle: "italic",
   },
   separator: {
     height: 0.5,
-    backgroundColor: '#808080',
-    width: '95%',
+    backgroundColor: "#808080",
+    width: "95%",
     marginLeft: 16,
     marginRight: 16,
     elevation: 15,
   },
   text: {
     fontSize: 16,
-    color: 'white',
+    color: "white",
     padding: 10,
   },
   content: {
     paddingLeft: 10,
     paddingRight: 10,
-    backgroundColor: '#82bed2',
+    backgroundColor: "#82bed2",
   },
 });
-
 
 export default ExpandableComponent;

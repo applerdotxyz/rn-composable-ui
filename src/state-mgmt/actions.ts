@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const UPDATE_STATE = "UPDATE_STATE";
 
-export const UPDATE_ORDER_VIEW_DATA = 'UPDATE_ORDER_VIEW_DATA';
+export const UPDATE_ORDER_VIEW_DATA = "UPDATE_ORDER_VIEW_DATA";
 
 // login
 export const doLogin = (details = { isWeb: false }) => {
@@ -26,14 +28,13 @@ export const updateState = () => {
   };
 };
 
-
 export const updateOrderViewData = (keyName) => {
-  return async (dispatch : Function) => {
+  return async (dispatch: Function) => {
     dispatch({
-      type : UPDATE_ORDER_VIEW_DATA,
-      data : {
-        keyName : keyName
-      }
-    })
-  }
-}
+      type: UPDATE_ORDER_VIEW_DATA,
+      data: {
+        keyName: keyName,
+      },
+    });
+  };
+};

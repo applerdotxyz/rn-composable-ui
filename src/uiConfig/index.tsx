@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // TODO : Remove the Projects Component Screen segreagation notes...
 import { Index } from "../pages/Index";
 import { First } from "../pages/First";
@@ -8,19 +9,16 @@ import { ListEntities } from "../pages/components/ListEntities";
 import { ShowEntity } from "../pages/components/ShowEntity";
 import SearchList from "../pages/components/SearchList";
 import { OrderLineView } from "../pages/components/OrderLineView";
-import { Dimensions } from "react-native";
-
 
 // TSD WEB APP INTEGRATION
-import { HeaderComponent } from '../pages/components/HeaderComponent';
+import { HeaderComponent } from "../pages/components/HeaderComponent";
 import { OrderSearchList } from "../pages/components/OrderSearchList";
-import NavBar from '../pages/components/NavigationComponent/NavBar';
-import RnNavBar from '../pages/components/NavigationComponent/RnNavBar';
+import NavBar from "../pages/components/NavigationComponent/NavBar";
+import RnNavBar from "../pages/components/NavigationComponent/RnNavBar";
 import { OrderSearchForm } from "../pages/components/OrderSearchForm/OrderSearchForm";
 
 // All component which will be rendered
 export const componentsSet: any = {
-
   // TODO : Rn Composible screen components
   Index,
   First,
@@ -37,9 +35,8 @@ export const componentsSet: any = {
   OrderSearchList,
   HeaderComponent,
   OrderSearchForm,
-  NavBar
+  NavBar,
 };
-
 
 export const IndexConfig: any = {
   "0": {
@@ -71,12 +68,11 @@ export const AlternateConfig: any = {
 export const OrderSearchListConfig: any = {
   "0": {
     "0": {
-      name: 'OrderSearchList',
-      size: "4"
-    }
-  }
-}
-
+      name: "OrderSearchList",
+      size: "4",
+    },
+  },
+};
 
 export const TestConfig: any = {
   "0": {
@@ -137,51 +133,51 @@ export const ShowEntityConfig: any = {
 export const RnComposibleDashboardConfig: any = {
   "0": {
     "0": {
-      name: 'RnNavBar',
-      size: '4'
-    }
-  }
+      name: "RnNavBar",
+      size: "4",
+    },
+  },
 };
 
-
-
 // TODO : Screen with Route and Screen Component for TSD
-export const DashboardAppConfig: any = { // OrderLayout
+export const DashboardAppConfig: any = {
+  // OrderLayout
   "0": {
     "0": {
-      name: 'HeaderComponent',
-      size: '4'
-    }
+      name: "HeaderComponent",
+      size: "4",
+    },
   },
   "1": {
     "0": {
-      name: 'NavBar',
-      size: '4'
-    }
-  }
+      name: "NavBar",
+      size: "4",
+    },
+  },
 };
 
-
-
 // TSD WEB APP --> Service Order Searcch Config
-export const MainAppConfig: any = { // OrderLayout
+export const MainAppConfig: any = {
+  // OrderLayout
   "0": {
     "0": {
-      name: 'HeaderComponent',
-      size: '4'
+      name: "HeaderComponent",
+      size: "4",
     },
     "1": {
       layout: {
-        "0": { //Col id
-          "0": { // Row ID
+        "0": {
+          //Col id
+          "0": {
+            // Row ID
             name: "NavigationComponent", // Navigation bar
-            size: '1',
+            size: "1",
           },
         },
         "1": {
           "0": {
             name: "OrderSearchForm", // SearhListForm ROW 1
-            size: '4',
+            size: "4",
             props: {
               _formData: {
                 keyName: "YourName",
@@ -200,14 +196,13 @@ export const MainAppConfig: any = { // OrderLayout
           },
           "1": {
             name: "OrderSearchList", // SearhList ROW 2
-            size: '4'
+            size: "4",
           },
         },
       },
     },
   },
 };
-
 
 // FIXME: TODO: TO DOCUMENT IN WIKI AND README.md
 export const OneMoreAppConfig: any = {
@@ -216,47 +211,44 @@ export const OneMoreAppConfig: any = {
     "0": {
       // ROW
       layout: {
-
         // Column 1 below
         "0": {
           // Column 1 Row 1
           "0": {
             name: "Test",
-            size: '0.5'
+            size: "0.5",
           },
         },
 
         // Column 2 below
-        "1" : {
-
+        "1": {
           // Colum 2 row 1
-          "0" : {
-            name : "ShowEntity",
-            size : '3.5'
+          "0": {
+            name: "ShowEntity",
+            size: "3.5",
           },
 
           // Column 2 row 2
-          "1" : {
-            layout : {
-
+          "1": {
+            layout: {
               // Column 2 row 2 column 1
-              "0" : {
-                "0" : {
-                  name :  "AddEditEntity",
-                  size : '2'
-                }
+              "0": {
+                "0": {
+                  name: "AddEditEntity",
+                  size: "2",
+                },
               },
 
-            // Column 2 row 2 column 1
-              "1" : {
-                "0" : {
+              // Column 2 row 2 column 1
+              "1": {
+                "0": {
                   name: "ListEntities",
-                  size : '2'
-                }
-              }
-            }
-          }
-        }
+                  size: "2",
+                },
+              },
+            },
+          },
+        },
       },
     },
   },
@@ -304,6 +296,5 @@ const exported: any = {
   DashboardAppConfig,
   OneMoreAppConfig,
   OrderLineViewConfig,
-  
 };
 export default exported;

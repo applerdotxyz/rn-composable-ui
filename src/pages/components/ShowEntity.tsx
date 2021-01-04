@@ -1,9 +1,8 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import {
   FlatList,
-  SafeAreaView,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -110,7 +109,7 @@ const Item = ({ item, onPress, style }) => (
   </TouchableOpacity>
 );
 
-export const ShowEntity = (props) => {
+export const ShowEntity = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({ item }) => {
@@ -141,7 +140,7 @@ export const ShowEntity = (props) => {
       </ScrollView>
       {/* </SafeAreaView> */}
       {/* TODO : Remove before final demo */}
-  {/* <Text>
+      {/* <Text>
     {JSON.stringify(props)}
   </Text> */}
       <View

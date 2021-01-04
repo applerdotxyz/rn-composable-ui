@@ -10,7 +10,6 @@ import {
   View,
 } from "react-native";
 import RenderList from "../components/RenderList";
-import SearchList from "../components/SearchList";
 // import { useRouting } from "expo-next-react-navigation";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -26,7 +25,6 @@ export const ListEntities = () => {
         "https://run.mocky.io/v3/56a7c1e0-434a-4773-b6b4-4cfc12fe1624"
       );
       console.log("Res : : : : : : ", res);
-      
       const resJSON = await res.json();
       setData(resJSON.ticketDetails);
 

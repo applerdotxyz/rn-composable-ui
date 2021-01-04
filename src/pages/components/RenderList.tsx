@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import React, { useState } from "react";
 import {
   ScrollView,
   TouchableOpacity,

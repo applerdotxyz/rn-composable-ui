@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { default as React, FunctionComponent } from "react";
 import { StatusBar, View } from "react-native";
 import { persistStore } from "redux-persist";
@@ -26,7 +27,7 @@ export const routes = {
   DashboardApp: "DashboardApp",
   OrderLineView: "OrderLineView",
   OneMoreApp: "OneMoreApp",
-  RnComposibleDashboard : "RnComposibleDashboard",
+  RnComposibleDashboard: "RnComposibleDashboard",
   // Index: require(`./src/pages/Index`).default,
   // Alternate: require(`./src/pages/Alternate`).default,
   // Test: require(`./src/pages/Test`).default,

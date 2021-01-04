@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { applyMiddleware, compose, createStore } from "redux";
 import { persistReducer } from "redux-persist";

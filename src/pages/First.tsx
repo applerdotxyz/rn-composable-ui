@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Header from "./components/Header";
-import { useSelector, useDispatch } from "react-redux";
-
+import { useSelector } from "react-redux";
 
 export const First = ({
   route = {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface window {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
 }
@@ -17,7 +18,7 @@ export const initialState = {
     lastEmail: "admin.user@gmail.com",
   },
   env: { BASE_URL: "" },
-  orderViewUpdate : {
-    keyName : "YourName"
-  }
+  orderViewUpdate: {
+    keyName: "YourName",
+  },
 };

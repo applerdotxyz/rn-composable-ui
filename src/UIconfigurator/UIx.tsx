@@ -182,7 +182,7 @@ const UiX = (props: any) => {
                 gridSection.push(
                     <Grid
                         style={{
-                            borderWidth: 2,
+                            // borderWidth: 2,
                             borderColor: "yellow",
                         }}
                     >

@@ -1,17 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { default as React, FunctionComponent } from "react";
 import { StatusBar, View } from "react-native";
-import { persistStore } from "redux-persist";
 import { Navigator } from "./src/Navigator";
 import { configureStore } from "./src/state-mgmt/store"; //Import the store
 import { Provider as ReduxProvider } from "react-redux";
-import { NavigationContainer } from "@react-navigation/native";
-import { ListEntities } from "./src/pages/components/ListEntities";
-import { createStackNavigator } from "@react-navigation/stack";
-import UiX from "./src/UIconfigurator/UIx";
 
 const store = configureStore();
-const persistor = persistStore(store);
 
 // routeConfig
 // TODO: bring from anywhere you wish
@@ -23,9 +16,6 @@ export const routes = {
   AddEditEntity: "AddEditEntity",
   ListEntities: "ListEntities",
   ShowEntity: "ShowEntity",
-  MainApp: "MainApp",
-  DashboardApp: "DashboardApp",
-  OrderLineView: "OrderLineView",
   OneMoreApp: "OneMoreApp",
   RnComposibleDashboard: "RnComposibleDashboard",
   // Index: require(`./src/pages/Index`).default,
@@ -33,8 +23,6 @@ export const routes = {
   // Test: require(`./src/pages/Test`).default,
   // First: require(`./src/pages/First`).default,
 };
-
-const Stack = createStackNavigator();
 
 //  main wrapper component
 const App: FunctionComponent = () => (

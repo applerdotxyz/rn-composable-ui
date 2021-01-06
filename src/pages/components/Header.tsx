@@ -40,9 +40,9 @@ export default function Header() {
       <Link style={{ color: "green", fontSize: 20 }} to="/ShowEntity">
         ShowEntity
       </Link>
-      <Link style={{ color: "green", fontSize: 20 }} to="/OrderLineView">
+      {/* <Link style={{ color: "green", fontSize: 20 }} to="/OrderLineView">
         OrderLineView
-      </Link>
+      </Link> */}
       <Text
         style={{
           fontWeight: "bold",

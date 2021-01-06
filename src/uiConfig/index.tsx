@@ -8,13 +8,6 @@ import { AddEditEntity } from "../pages/components/AddEditEntity";
 import { ListEntities } from "../pages/components/ListEntities";
 import { ShowEntity } from "../pages/components/ShowEntity";
 import SearchList from "../pages/components/SearchList";
-import { OrderLineView } from "../pages/components/OrderLineView";
-
-// TSD WEB APP INTEGRATION
-import { HeaderComponent } from "../pages/components/HeaderComponent";
-import { OrderSearchList } from "../pages/components/OrderSearchList";
-// import NavBar from "../pages/components/NavigationComponent/NavBar";
-import { OrderSearchForm } from "../pages/components/OrderSearchForm/OrderSearchForm";
 
 // RN COMPOSIBLE UI
 import RnNavBar from "../pages/components/NavigationComponent/RnNavBar";
@@ -31,13 +24,6 @@ export const componentsSet: any = {
   ShowEntity,
   SearchList,
   RnNavBar,
-
-  // TODO : TSD  screen components
-  OrderLineView,
-  OrderSearchList,
-  HeaderComponent,
-  OrderSearchForm,
-  // NavBar,
 };
 
 export const IndexConfig: any = {
@@ -62,15 +48,6 @@ export const AlternateConfig: any = {
   "0": {
     "0": {
       name: "Alternate",
-      size: "4",
-    },
-  },
-};
-
-export const OrderSearchListConfig: any = {
-  "0": {
-    "0": {
-      name: "OrderSearchList",
       size: "4",
     },
   },
@@ -141,71 +118,6 @@ export const RnComposibleDashboardConfig: any = {
   },
 };
 
-// TODO : Screen with Route and Screen Component for TSD
-export const DashboardAppConfig: any = {
-  // OrderLayout
-  "0": {
-    "0": {
-      name: "HeaderComponent",
-      size: "4",
-    },
-  },
-  "1": {
-    "0": {
-      name: "NavBar",
-      size: "4",
-    },
-  },
-};
-
-// TSD WEB APP --> Service Order Searcch Config
-export const MainAppConfig: any = {
-  // OrderLayout
-  "0": {
-    "0": {
-      name: "HeaderComponent",
-      size: "4",
-    },
-    "1": {
-      layout: {
-        "0": {
-          //Col id
-          "0": {
-            // Row ID
-            name: "NavigationComponent", // Navigation bar
-            size: "1",
-          },
-        },
-        "1": {
-          "0": {
-            name: "OrderSearchForm", // SearhListForm ROW 1
-            size: "4",
-            props: {
-              _formData: {
-                keyName: "YourName",
-              },
-              _schema: {
-                type: "object",
-                required: ["keyName"],
-                properties: {
-                  keyName: { type: "string" },
-                },
-              },
-              _uiSchema: {
-                submitButton: false,
-              },
-            },
-          },
-          "1": {
-            name: "OrderSearchList", // SearhList ROW 2
-            size: "4",
-          },
-        },
-      },
-    },
-  },
-};
-
 // FIXME: TODO: TO DOCUMENT IN WIKI AND README.md
 export const OneMoreAppConfig: any = {
   "0": {
@@ -256,31 +168,6 @@ export const OneMoreAppConfig: any = {
   },
 };
 
-// TODO : For TSD
-export const OrderLineViewConfig: any = {
-  "0": {
-    "0": {
-      name: "OrderLineView",
-      size: "4",
-      props: {
-        _formData: {
-          keyName: "YourName",
-        },
-        _schema: {
-          type: "object",
-          required: ["keyName"],
-          properties: {
-            keyName: { type: "string" },
-          },
-        },
-        _uiSchema: {
-          submitButton: false,
-        },
-      },
-    },
-  },
-};
-
 const exported: any = {
   IndexConfig,
   FirstConfig,
@@ -292,11 +179,6 @@ const exported: any = {
 
   // TODO : For RN composible
   RnComposibleDashboardConfig,
-
-  // TODO : For TSD
-  MainAppConfig,
-  DashboardAppConfig,
   OneMoreAppConfig,
-  OrderLineViewConfig,
 };
 export default exported;

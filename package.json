@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "latest",
+    "eslint-detailed-reporter": "^0.8.0",
     "@commitlint/config-conventional": "^8.3.4",
     "@expo/config": "^3.2.1",
     "@expo/webpack-config": "^0.12.38",
@@ -91,6 +92,7 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --format unix src",
+    "lint-report": "./node_modules/.bin/eslint --format unix '**/*.ts' '**/*.tsx' -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html",
     "build": "expo build",
     "start": "expo start -c",
     "android": "expo start --android",

@@ -48,7 +48,7 @@ export const ListEntities = () => {
         searchFields={["name", "description", "category", "subCategory"]}
         visibleKeys={["name", "category", "description"]}
         flexWidth={[1, 1, 3]} // Column-span (length of array should be equal to that of visibleKeys)
-        numberOfLines={3} // Row-span
+        numberOfLines={4} // Row-span
         searchBarWrapperStyle={null}
         searchBarStyle={null}
         titleStyle={null}

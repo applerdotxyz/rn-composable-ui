@@ -3,6 +3,7 @@ import { StatusBar, View } from "react-native";
 import { Navigator } from "./src/Navigator";
 import { configureStore } from "./src/state-mgmt/store"; //Import the store
 import { Provider as ReduxProvider } from "react-redux";
+import { NativeRouter as Router } from "react-router-native";
 
 const store = configureStore();
 
@@ -18,6 +19,7 @@ export const routes = {
   ShowEntity: "ShowEntity",
   OneMoreApp: "OneMoreApp",
   RnComposibleDashboard: "RnComposibleDashboard",
+  TestDashboard: "TestDashboard",
   // Index: require(`./src/pages/Index`).default,
   // Alternate: require(`./src/pages/Alternate`).default,
   // Test: require(`./src/pages/Test`).default,
@@ -35,7 +37,9 @@ const App: FunctionComponent = () => (
 
     <View style={{ flex: 1 }}>
       <ReduxProvider store={store}>
-        <Navigator routes={routes} />
+        <Router>
+          <Navigator routes={routes} />
+        </Router>
       </ReduxProvider>
       {/* <ReduxProvider store={store}>
       <NavigationContainer>

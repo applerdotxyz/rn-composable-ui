@@ -31,6 +31,7 @@ import {
 import { routes } from "../../../routeConfig";
 import RenderFirstLevelRoutingComponent from "../RenderComponent/RenderFirstLevelRoutingComponent";
 import RenderSecondLevelRoutingComponent from "../RenderComponent/RenderSecondLevelRoutingComponent";
+import ScreenComponent from "../ScreenComponent/ScreenComponent";
 
 import ExpandableComponent from "./RnExpandableComponnent";
 
@@ -111,40 +112,38 @@ const RnNavBar = () => {
     );
 
   return (
-    <Router>
-      <SafeAreaView
-        style={{
-          flex: 1,
-          minHeight: Dimensions.get("window").height,
-        }}
-      >
-        <View style={styles.container}>
-          <Grid>
-            <Row>
-              <Col size={1} style={{ backgroundColor: "#5cabc5" }}>
-                <ScrollView>
-                  {listDataSource.map((item, key) => (
-                    <ExpandableComponent
-                      key={item.functionName}
-                      onClickFunction={() => {
-                        updateLayout(key);
-                      }}
-                      item={item}
-                    />
-                  ))}
-                </ScrollView>
-              </Col>
-              <Col size={3}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        minHeight: Dimensions.get("window").height,
+      }}
+    >
+      <View style={styles.container}>
+        <Grid>
+          <Row>
+            <Col size={1} style={{ backgroundColor: "#5cabc5" }}>
+              <ScrollView>
+                {listDataSource.map((item, key) => (
+                  <ExpandableComponent
+                    key={item.functionName}
+                    onClickFunction={() => {
+                      updateLayout(key);
+                    }}
+                    item={item}
+                  />
+                ))}
+              </ScrollView>
+            </Col>
+            {/* <Col size={3}>
                 <Route exact path="/" component={Home} />
                 {routes.map((route, i) => (
                   <RouteWithSubRoutes key={i} {...route} />
                 ))}
-              </Col>
-            </Row>
-          </Grid>
-        </View>
-      </SafeAreaView>
-    </Router>
+              </Col> */}
+          </Row>
+        </Grid>
+      </View>
+    </SafeAreaView>
   );
 };
 

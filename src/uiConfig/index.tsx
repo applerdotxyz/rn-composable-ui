@@ -11,6 +11,7 @@ import SearchList from "../pages/components/SearchList";
 
 // RN COMPOSIBLE UI
 import RnNavBar from "../pages/components/NavigationComponent/RnNavBar";
+import ScreenComponent from "../pages/components/ScreenComponent/ScreenComponent";
 
 // All component which will be rendered
 export const componentsSet: any = {
@@ -24,6 +25,7 @@ export const componentsSet: any = {
   ShowEntity,
   SearchList,
   RnNavBar,
+  ScreenComponent,
 };
 
 export const IndexConfig: any = {
@@ -118,6 +120,27 @@ export const RnComposibleDashboardConfig: any = {
   },
 };
 
+export const TestDashboardConfig: any = {
+  "0": {
+    "0": {
+      layout: {
+        "0": {
+          "0": {
+            name: "RnNavBar",
+            size: "0.5",
+          },
+        },
+        "1": {
+          "0": {
+            name: "ScreenComponent",
+            size: "3.5",
+          },
+        },
+      },
+    },
+  },
+};
+
 // FIXME: TODO: TO DOCUMENT IN WIKI AND README.md
 export const OneMoreAppConfig: any = {
   "0": {
@@ -180,5 +203,6 @@ const exported: any = {
   // TODO : For RN composible
   RnComposibleDashboardConfig,
   OneMoreAppConfig,
+  TestDashboardConfig,
 };
 export default exported;

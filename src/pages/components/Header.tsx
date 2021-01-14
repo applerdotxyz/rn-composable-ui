@@ -68,6 +68,9 @@ export default function Header() {
       >
         RN Composible Dashboard App
       </Link>
+      <Link style={{ color: "green", fontSize: 20 }} to="/TestDashboard">
+        TestDashboard
+      </Link>
       <Link style={{ color: "green", fontSize: 20 }} to="/OneMoreApp">
         OneMoreApp
       </Link>

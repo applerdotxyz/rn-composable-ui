@@ -21,7 +21,7 @@ const Column = (props: any) => (
 );
 
 const UiX = (props: any) => {
-  // console.log("props in Uix : : ", props);
+  console.log("props in Uix : : ", props);
   const mapState = React.useCallback((state: any) => state, []);
   const appState = useState(mapState);
   const dispatch = useDispatch();

@@ -12,7 +12,8 @@ import SearchList from "../pages/components/SearchList";
 // RN COMPOSIBLE UI
 import RnNavBar from "../pages/components/NavigationComponent/RnNavBar";
 import ScreenComponent from "../pages/components/ScreenComponent/ScreenComponent";
-
+import RenderFirstLevelRoutingComponent from "../pages/components/RenderComponent/RenderFirstLevelRoutingComponent";
+import RenderSecondLevelRoutingComponent from "../pages/components/RenderComponent/RenderSecondLevelRoutingComponent";
 // All component which will be rendered
 export const componentsSet: any = {
   // TODO : Rn Composible screen components
@@ -26,6 +27,8 @@ export const componentsSet: any = {
   SearchList,
   RnNavBar,
   ScreenComponent,
+  RenderFirstLevelRoutingComponent,
+  RenderSecondLevelRoutingComponent,
 };
 
 export const IndexConfig: any = {
@@ -122,21 +125,45 @@ export const RnComposibleDashboardConfig: any = {
 
 export const TestDashboardConfig: any = {
   "0": {
+    // Column
     "0": {
+      // ROW
       layout: {
+        // Column 1 below
         "0": {
+          // Column 1 Row 1
           "0": {
             name: "RnNavBar",
             size: "0.5",
           },
         },
+        // Column 2 below
         "1": {
+          // Colum 2 row 1
           "0": {
             name: "ScreenComponent",
             size: "3.5",
           },
         },
       },
+    },
+  },
+};
+
+export const RenderFirstLevelRoutingComponentConfig: any = {
+  "0": {
+    "0": {
+      name: "RenderFirstLevelRoutingComponent",
+      size: "4",
+    },
+  },
+};
+
+export const RenderSecondLevelRoutingComponentConfig: any = {
+  "0": {
+    "0": {
+      name: "RenderSecondLevelRoutingComponent",
+      size: "4",
     },
   },
 };
@@ -204,5 +231,7 @@ const exported: any = {
   RnComposibleDashboardConfig,
   OneMoreAppConfig,
   TestDashboardConfig,
+  RenderFirstLevelRoutingComponentConfig,
+  RenderSecondLevelRoutingComponentConfig,
 };
 export default exported;

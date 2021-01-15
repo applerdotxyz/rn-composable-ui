@@ -1,8 +1,8 @@
 import React, { createElement, useState } from "react";
 import { Text } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
-import { appConfig } from "../applications/app-one-config";
-// import { appConfig } from "../applications/app-two-config";
+// import { appConfig } from "../applications/app-one-config";
+import { appConfig } from "../applications/app-two-config";
 import { rowStyle, styles } from "../applications/common";
 // import { JsonForm } from "./components/JsonForm";
 import { Home } from "./components/Home";
@@ -10,6 +10,7 @@ import { RandomPic } from "./components/RandomPic";
 import { About } from "./components/About";
 import { ActionComp } from "./components/ActionComp";
 import { Comp5 } from "./components/Comp5";
+import JSONditor from "./components/JSONditor";
 
 /*
 1. DONE ::: Layout from JSON
@@ -51,7 +52,7 @@ export const UXColumn = ({
   appState,
   setAppState
 }) => {
-  console.log(`label is ${label}`);
+  // console.log(`label is ${label}`);
   const colSection = createElement(
     label &&
       appState.ui &&
@@ -65,7 +66,6 @@ export const UXColumn = ({
   return (
     <Col size={colSize} style={{ ...style, ...colStyle }}>
       {colSection}
-      <Text>{label}</Text>
     </Col>
   );
 };
@@ -82,7 +82,7 @@ const GridSection = ({ layoutConfig }) => {
     );
   });
 
-  const headerSection = <Row style={styles.nav}>{linksSection}</Row>;
+  const headerSection = <Col style={styles.nav}>{linksSection}</Col>;
   const [appState, setAppState] = useState({
     ui: {},
     children: {},
@@ -90,13 +90,11 @@ const GridSection = ({ layoutConfig }) => {
   });
 
   //  overall routing engine
-  const UX = (layoutConfig, rowConfig) => {
-    console.log(appState.ui);
+  const UX = (layoutConfig) => {
+    // console.log(appState.ui);
     window.appState = appState;
     window.setAppState = setAppState;
-    const gridSection = (rows, rowConfig) => {
-      let { rowSize, style } = rowConfig;
-
+    const gridSection = (rows) => {
       // builds the columns
       const colsSection = (rId, cols) => {
         let rowJsx = [];
@@ -120,6 +118,7 @@ const GridSection = ({ layoutConfig }) => {
               setAppState
             };
 
+            // console.log(`colSize is ${colSize}`);
             return (
               <Col size={colSize} style={colStyle} key={`${rId}-${cId}`}>
                 <UXColumn {...passProps} />
@@ -127,19 +126,25 @@ const GridSection = ({ layoutConfig }) => {
             );
           }
           if (cols[cId].layout) {
-            // console.log(cols[cId].layout);
-            return UX(cols[cId].layout, rowConfig); // FIXME:
+            return UX(cols[cId].layout);
           }
         });
+        // console.log(`rowSize is ${rowSize}`);
         return rowJsx;
       };
 
       let gridJsx = [];
       gridJsx = Object.keys(rows).map((rId) => {
-        // console.log(`rows`);
-        // console.log(rows);
+        let { style } = rows[rId].rowConfig;
+        // console.log(rows[rId].rowConfig);
+        console.log(`rowSize is ${rows[rId].rowConfig.rowSize}`);
+
         return (
-          <Row size={rowSize} style={rowStyle} key={rId}>
+          <Row
+            size={rows[rId].rowConfig.rowSize}
+            style={{ rowStyle, ...style }}
+            key={rId}
+          >
             {colsSection(rId, rows[rId])}
           </Row>
         );
@@ -147,20 +152,41 @@ const GridSection = ({ layoutConfig }) => {
       return <Grid>{gridJsx}</Grid>; /// return all rows in layout
     };
 
-    return gridSection(layoutConfig, rowConfig);
+    return gridSection(layoutConfig);
   };
 
   return (
     <Grid>
       <Row>{headerSection}</Row>
-      {UX(layoutConfig.layout, layoutConfig.layout[0].rowConfig)}
+      <Row>{UX(layoutConfig.layout)}</Row>
     </Grid>
   );
 };
 
 //  overall container app
 export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      config: appConfig
+    };
+  }
+
   render() {
-    return <GridSection layoutConfig={appConfig} />;
+    return (
+      <>
+        <JSONditor
+          json={this.state.config}
+          onChange={(json) => {
+            // TODO: add schema conformation for JSONEditor values of component names
+            this.setState({ config: json }, () => {
+              console.log(this.state.config);
+            });
+          }}
+        />
+        <GridSection layoutConfig={this.state.config} />
+      </>
+    );
+    // return ;
   }
 }

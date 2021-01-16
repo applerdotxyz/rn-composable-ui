@@ -15,22 +15,25 @@ export const ActionComp = ({ label, appState, children, setAppState }) => {
         title={"Trigger"}
         onPress={() => {
           setAppState({
-            ...appState,
-            ui: {
-              ...appState.ui,
-              about: "Home",
-              "comp5.1": "RandomPic"
+            about: {
+              ui: "About",
+              props: { label: "about" },
+              children: <Text>I am 2nd Child</Text>
             },
-            props: appState.props,
-            children: {
-              ...appState.children,
-              about: <Text>I am 2nd Child</Text>,
-              "comp5.1": <Text>I am 1st Child</Text>
+            "comp5.12": {
+              ui: "RandomPic",
+              props: { label: "comp5.12" },
+              children: <Text>I am 1st Child</Text>
+            },
+            home: {
+              ui: "RandomPic",
+              props: { label: "comp5.12" },
+              children: <Text>I am 0th Child</Text>
             }
           });
         }}
       ></Button>
-      {children || (appState && appState.children && appState.children[label])}
+      {children || (appState && appState[label] && appState[label]?.children)}
       {/* <Text>{appState && JSON.stringify(appState)}</Text> */}
     </View>
   );

@@ -1,15 +1,15 @@
 export const colStyle = {
-  borderWidth: 3,
+  borderWidth: 1,
   borderColor: "cyan"
 };
 
 export const rowStyle = {
-  borderWidth: 2,
+  borderWidth: 1,
   borderColor: "red"
 };
 
 export const style1 = {
-  borderWidth: 2,
+  borderWidth: 1,
   borderColor: "yellow"
 };
 

@@ -1,30 +1,36 @@
 import React from "react";
 import { Button, Text, View } from "react-native";
 import "./RandomPic";
-export const About = ({ appState, label, styles, children, setAppState }) => {
+export const About = ({
+  appState,
+  label,
+  styles,
+  children,
+  setAppState,
+  setLayoutConfig
+}) => {
   return (
     <View>
       <Text>About *** {label}</Text>
       <Button
         onPress={() => {
           setAppState({
-            ...appState,
-            ui: {
-              ...appState.ui,
-              comp5: "About",
-              "comp51.2": "RandomPic"
+            actioncomp: {
+              ui: "Home"
             },
-            children,
-            props: {
-              ...appState.props,
-              comp5: { label: "comp51->1" },
-              "comp51.2": { label: "comp51-2" }
+            comp5: {
+              ui: "RandomPic",
+              props: { label: "comp51->1" }
+            },
+            "comp5.12": {
+              ui: "About",
+              props: { label: "comp5.12" }
             }
           });
         }}
         title={`${"About"}Flash`}
       ></Button>
-      {children || (appState && appState.children && appState.children[label])}
+      {children || (appState && appState[label] && appState[label]?.children)}
     </View>
   );
 };

@@ -28,6 +28,9 @@ export const appConfig = {
     }
   },
   layout: {
+    colConfig: {
+      colSize: 1
+    },
     // row no
     0: {
       rowConfig: {
@@ -37,6 +40,9 @@ export const appConfig = {
       // col no
       0: {
         layout: {
+          colConfig: {
+            colSize: 2
+          },
           0: {
             // row no
             rowConfig: {
@@ -48,7 +54,7 @@ export const appConfig = {
               colSize: 1,
               idx: "Home",
               label: "home",
-              colStyle: { borderWidth: 4, minHeight: 212 }
+              colStyle: { borderWidth: 4 }
             }
           },
           1: {
@@ -62,14 +68,14 @@ export const appConfig = {
               colSize: 1,
               idx: "About",
               label: "about",
-              colStyle: { borderWidth: 4, minHeight: 212 }
+              colStyle: { borderWidth: 4 }
             },
             1: {
               // col no
               colSize: 1,
               idx: "Comp5",
               label: "comp5",
-              colStyle: { borderWidth: 4, minHeight: 212 }
+              colStyle: { borderWidth: 4 }
             }
           },
           2: {
@@ -83,24 +89,68 @@ export const appConfig = {
               colSize: 4,
               idx: "RandomPic",
               label: "rpic",
-              colStyle: { borderWidth: 4, minHeight: 212 }
+              colStyle: { borderWidth: 4 }
             }
           }
         }
       },
       1: {
-        // col no
-        colSize: 2,
-        idx: "Comp5",
-        label: "comp5.1",
-        schema,
-        colStyle: { borderWidth: 4, minHeight: 212 }
+        layout: {
+          colConfig: {
+            colSize: 5
+          },
+          0: {
+            // row no
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle
+            },
+            0: {
+              // col no
+              colSize: 24,
+              idx: "Comp5",
+              label: "comp5.11",
+              schema,
+              colStyle: { borderWidth: 4 }
+            }
+          },
+          1: {
+            // row no
+            rowConfig: {
+              rowSize: 12,
+              style: rowStyle
+            },
+            0: {
+              // col no
+              colSize: 1,
+              idx: "Comp5",
+              label: "comp5.12",
+              schema,
+              colStyle: { borderWidth: 4 }
+            }
+          },
+          2: {
+            // row no
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle
+            },
+            0: {
+              // col no
+              colSize: 1,
+              idx: "Comp5",
+              label: "comp5.13",
+              schema,
+              colStyle: { borderWidth: 4 }
+            }
+          }
+        }
       }
     },
     1: {
       // row no
       rowConfig: {
-        rowSize: 1,
+        rowSize: "0.21",
         style: rowStyle
       },
       0: {
@@ -108,14 +158,7 @@ export const appConfig = {
         colSize: 1,
         idx: "ActionComp",
         label: "actioncomp",
-        colStyle: { borderWidth: 4, minHeight: 212 }
-      },
-      1: {
-        // col no
-        colSize: 2,
-        idx: "Comp5",
-        label: "comp51.2",
-        colStyle: { borderWidth: 4, minHeight: 212 }
+        colStyle: { borderWidth: 4 }
       }
     }
   }

@@ -2,9 +2,11 @@ import merge from "deepmerge";
 import React, { createElement, useState } from "react";
 import { Text } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
-import { screenOne as appConfig } from "../applications/app-one/screen-one";
-// import { appConfig } from "../applications/app-one-config";
-// import { appConfig } from "../applications/app-two-config";
+// import { appConfig, events, getEvents } from "../applications/app-two-config";
+import {
+  screenOne as appConfig,
+  events, getEvents 
+} from "../applications/app-one/screen-one";
 import { rowStyle, styles } from "../applications/common";
 import { About } from "./components/About";
 import { ActionComp } from "./components/ActionComp";
@@ -60,7 +62,16 @@ export const UXColumn = ({
     label && appState[label]?.ui && componentsSet[appState[label]?.ui]
       ? componentsSet[appState[label]?.ui]
       : componentsSet[idx],
-    { ...passProps, appState, setAppState, ...styles, label, setLayoutConfig },
+    {
+      ...passProps,
+      appState,
+      setAppState,
+      ...styles,
+      label,
+      setLayoutConfig,
+      getEvents,
+      events: events && events[label] ? events[label] : {}
+    },
     appState[label]?.children || children
   );
   return colSection;
@@ -120,7 +131,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
 
             // console.log(`colSize is ${colSize}`);
             return (
-              <Col size={colSize} style={colStyle} key={`${rId}-${cId}`}>
+              <Col size={colSize} style={{...colStyle, flexGrow: "stretch", flex: 1}} key={`${rId}-${cId}`}>
                 <UXColumn {...passProps} />
               </Col>
             );
@@ -129,8 +140,11 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
             // console.log(cols[cId]?.layout.colConfig?.colSize);
 
             return (
-              <Col size={cols[cId].layout?.colConfig?.colSize || 1}>
-                <Grid>{UX(cols[cId].layout)}</Grid>
+              <Col
+                size={cols[cId].layout?.colConfig?.colSize || 1}
+                style={{ ...cols[cId].layout?.colConfig?.style, borderWidth:0, borderColor:"blue", flexGrow: "stretch" }}
+              >
+                <Grid style={{}}>{UX(cols[cId].layout)}</Grid>
               </Col>
             );
           }
@@ -150,19 +164,19 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
         return (
           <Row
             size={rows[rId]?.rowConfig?.rowSize || 1}
-            style={{ rowStyle, ...style }}
+            style={{ rowStyle, ...style, borderWidth:6, borderColor:"gray", flexGrow: "stretch", flex: 1 }}
             key={rId}
           >
             {colsSection(rId, rows[rId])}
           </Row>
         );
       });
-      return gridJsx; /// return all rows in layout
+      return <Col style={{borderWidth:5, borderColor:"red", flexGrow: "stretch", flex: 1}}>{gridJsx}</Col> ; /// return all rows in layout
     };
 
     // console.log(`colSize is ${layoutConfig?.colConfig?.colSize}`);
     return (
-      <Col size={layoutConfig?.colConfig?.colSize || 1}>
+      <Col size={layoutConfig?.colConfig?.colSize || 1} style={{ borderWidth:8, borderColor:"cyan", flexGrow: "stretch", flex: 1 }}>
         {gridSection(layoutConfig, setLayoutConfig)}
       </Col>
     );
@@ -171,9 +185,9 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
   // console.log(layoutConfig);
 
   return (
-    <Grid>
-      <Row>{headerSection}</Row>
-      <Row>{UX(layoutConfig.layout)}</Row>
+    <Grid style={{ flex: 1, borderWidth:0, borderColor: "yellow"  }}>
+      <Row size={0.05}>{headerSection}</Row>
+      <Row style={{flex:1}}>{UX(layoutConfig.layout, layoutConfig.layout[0].rowConfig)}</Row>
     </Grid>
   );
 };
@@ -185,6 +199,7 @@ export default class App extends React.Component {
     this.state = {
       config: appConfig
     };
+    // console.log(this.state.config);
   }
 
   render() {
@@ -194,15 +209,20 @@ export default class App extends React.Component {
           json={this.state.config}
           onChangeJSON={(json) => {
             // TODO: add schema conformation for JSONEditor values of component names
-            this.setState({ config: json }, () => {
-              // console.log(this.state.config);
-            });
+            this.setState({ config: json }, () => {});
           }}
         />
         <GridSection
           layoutConfig={this.state.config}
           setLayoutConfig={(config) =>
-            this.setState({ config: merge(this.state.config, config) })
+            this.setState(
+              {
+                config: merge(this.state.config, { layout: config })
+              },
+              () => {
+                console.log(this.state.config);
+              }
+            )
           }
         />
       </>

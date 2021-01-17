@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Button, Image, Text, View } from "react-native";
 
-export const RandomPic = ({ label, style, setAppState, appState }) => {
+export const RandomPic = ({
+  label,
+  style,
+  setAppState,
+  appState,
+  getEvents
+}) => {
   const [randomCatImg, setRandomCatImg] = useState(null);
 
   const fetchRandomCat = () => {

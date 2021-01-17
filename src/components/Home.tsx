@@ -10,19 +10,19 @@ export const Home = (props) => {
     styles,
     children,
     setAppState,
-    setLayoutConfig
+    layoutConfig,
+    setLayoutConfig,
+    getEvents,
+    events
   } = props;
+
   return (
     <View>
       <Text style={{}}>Home *** {label}</Text>
       <Button
-        testID={`${label}-btnFlash`}
-        onPress={() => {
-          //  change the next route with completely different layout
-          setLayoutConfig(layoutConfig);
-          setAppState(nextState.one);
-        }}
-        title={"ACT"}
+        testID={`${label}-btn-one`}
+        title="ACT"
+        {...getEvents(events, `${label}-btn-one`, setLayoutConfig, setAppState)}
       ></Button>
       {children || (appState && appState[label] && appState[label]?.children)}
     </View>

@@ -51,3 +51,20 @@ export const styles = {
     fontSize: 15
   }
 };
+
+
+
+// // *************************************************
+// //  Helper Util
+// // *************************************************
+// // bind events based on the layout config
+// export const getEvents = (events, elId, setLayoutConfig, setAppState) => {
+//   const elEvents = {};
+//   Object.keys(events[elId]).map((eventName) => {
+//     // console.log({ [eventName]: events[elId][eventName] });
+//     elEvents[eventName] = () =>
+//       events[elId][eventName](setLayoutConfig, setAppState);
+//   });
+//   // console.log(elEvents);
+//   return elEvents;
+// };

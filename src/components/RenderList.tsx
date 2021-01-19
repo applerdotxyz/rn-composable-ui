@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   ScrollView,
-  TouchableOpacity,
+  TouchableHighlight,
   View,
   Text,
   StyleSheet,
@@ -43,7 +43,7 @@ export default function RenderList({
         ) : null}
         {filterData.map((d) => {
           return (
-            <TouchableOpacity key={d.id}>
+            <TouchableHighlight key={d.id}>
               <View style={{ flexDirection: "row" }}>
                 {keys.length
                   ? keys.map((key, i) => (
@@ -60,7 +60,7 @@ export default function RenderList({
                     ))
                   : null}
               </View>
-            </TouchableOpacity>
+            </TouchableHighlight>
           );
         })}
       </ScrollView>

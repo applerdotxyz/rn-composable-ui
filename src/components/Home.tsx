@@ -1,7 +1,5 @@
 import React from "react";
 import { Button, Text, View } from "react-native";
-import { appConfig as layoutConfig } from "../../applications/app-one-config";
-import { nextState } from "../../applications/app-one/screen-one";
 
 export const Home = (props) => {
   const {
@@ -16,6 +14,9 @@ export const Home = (props) => {
     events
   } = props;
 
+  console.log(`getEvents`);
+  console.log(getEvents(events, `${label}-btn-one`, setLayoutConfig, setAppState));
+  
   return (
     <View>
       <Text style={{}}>Home *** {label}</Text>

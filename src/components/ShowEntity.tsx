@@ -6,7 +6,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  TouchableHighlight,
   Button,
   ScrollView,
   Dimensions,
@@ -46,7 +46,7 @@ const DATA = [
 ];
 
 const Item = ({ item, onPress, style }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
+  <TouchableHighlight onPress={onPress} style={[styles.item, style]}>
     {/* <Text style={styles.title}>{item.title}</Text>
     <Text style={styles.description}>{item.description}</Text>
     <Text style={styles.subInfo}>{item.subInfo}</Text> */}
@@ -107,7 +107,7 @@ const Item = ({ item, onPress, style }) => (
         </Col>
       </Row>
     </Grid>
-  </TouchableOpacity>
+  </TouchableHighlight>
 );
 
 export const ShowEntity = (props) => {

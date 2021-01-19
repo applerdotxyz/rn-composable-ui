@@ -1,4 +1,19 @@
+// import { route } from "./utils/router";
+// route("/", "home", function () {});
+// route("/page1", "template1", function () {
+//   console.log("page1");
+//   // console.log(window.state);
+//   this.greeting = "Hello world!";
+//   this.moreText = "Bacon ipsum...";
+// });
+// route("/page2", "template2", function () {
+//   console.log("page2");
+//   this.heading = "I'm page two!";
+// });
 import { registerRootComponent } from "expo";
+if (process.env.NODE_ENV !== "production") {
+  console.log("Looks like we are in development mode!");
+}
 
 import App from "./App";
 

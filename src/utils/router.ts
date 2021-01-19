@@ -1,14 +1,14 @@
-var cache = {};
-
+const cache = {};
+let tmpl;
 // Simple JavaScript Templating
 // John Resig - https://johnresig.com/ - MIT Licensed
 (function () {
-  var cache = {};
+  const cache = {};
 
-  this.tmpl = function tmpl(str, data) {
+  tmpl = function (str: string, data: undefined) {
     // Figure out if we're getting a template, or if we need to
     // load the template - and be sure to cache the result.
-    var fn = !/\W/.test(str)
+    const fn = !/\W/.test(str)
       ? (cache[str] =
           cache[str] || tmpl(document.getElementById(str).innerHTML))
       : // Generate a reusable function that will serve as a template
@@ -39,19 +39,27 @@ var cache = {};
   };
 })();
 
-var routes = {};
+const routes: any = {};
 //
-export function route(path, templateId, controller) {
+export function route({
+  path,
+  templateId,
+  controller,
+}: {
+  path: string | number;
+  templateId: any;
+  controller: any;
+}) {
   routes[path] = { templateId: templateId, controller: controller };
 }
-var el = null;
+let el: HTMLElement | null = null;
 function router() {
   // Lazy load view element:
   el = el || document.getElementById("root");
   // Current route url (getting rid of '#' in hash as well):
-  var url = location.hash.slice(1) || "/";
+  const url = location.hash.slice(1) || "/";
   // Get route by url:
-  var route = routes[url];
+  const route = routes[url];
   // Do we have both a view and a route?
   if (el && route.controller) {
     // Render route template with John Resig's template engine:

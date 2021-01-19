@@ -1,5 +1,13 @@
-import { rowStyle, styles } from "./common";
+import { rowStyle, styles } from "../common";
 
+// components section
+const schema = {
+  type: "object",
+  properties: {
+    username: { type: "string" },
+    password: { type: "string" }
+  }
+};
 
 export const routes = {};
 
@@ -103,6 +111,23 @@ export const events = {
     }
   },
 
+  /// <label>
+  about: {
+    //<label>-<element-id> : <handler>
+    "about-btn-one": {
+      // <event> :: <handler>
+      onPress: (setLayoutConfig, setAppState) => {
+        setAppState({
+          "comp5.11": {
+            ui: "RandomPic",
+            props: { label: "comp5.11" },
+            children: "<Text>I am 2nd Child</Text>" // FIXME:: from events file, passing in children part which is JSX
+          }
+        });
+      }
+    }
+  },
+  
   actioncomp: {
     // <label>
     "actioncomp-btn-two": {
@@ -131,28 +156,23 @@ export const events = {
 // bind events based on the layout config
 export const getEvents = (events, elId, setLayoutConfig, setAppState) => {
   const elEvents = {};
-  console.log(`${elId}  - ${events[elId]}`);
-  
+  events[elId] 
+  ? 
   Object.keys(events[elId]).map((eventName) => {
     // console.log({ [eventName]: events[elId][eventName] });
     elEvents[eventName] = () =>
       events[elId][eventName](setLayoutConfig, setAppState);
-  });
+  })
+  :
+  null;
   // console.log(elEvents);
   return elEvents;
 };
 
-
-// components section
-const schema = {
-  type: "object",
-  properties: {
-    username: { type: "string" },
-    password: { type: "string" }
-  }
-};
-
-export const appConfig = {
+// *************************************************
+//  Layout config
+// *************************************************
+export const screenOne = {
   links: {
     "/": {
       style: styles.navItem,
@@ -197,7 +217,7 @@ export const appConfig = {
               colSize: 1,
               idx: "Home",
               label: "home",
-              colStyle: { borderWidth: 4 }
+              colStyle: { borderWidth: 4 },
             }
           },
           1: {
@@ -301,6 +321,126 @@ export const appConfig = {
         colSize: 1,
         idx: "ActionComp",
         label: "actioncomp",
+        colStyle: { borderWidth: 4 }
+      }
+    }
+  }
+};
+
+export const screenTwo = {
+  links: {
+    "/": {
+      style: styles.navItem,
+      linkStyle: styles.tabName,
+      linkText: "Home"
+    },
+    "/about": {
+      style: styles.navItem,
+      linkStyle: styles.tabName,
+      linkText: "Feed"
+    },
+    "/contact": {
+      style: styles.navItem,
+      linkStyle: styles.tabName,
+      linkText: "Messages"
+    }
+  },
+  layout: {
+    colConfig: {
+      colSize: 1
+    },
+    // row no
+    0: {
+      rowConfig: {
+        rowSize: 1,
+        style: rowStyle
+      },
+      // col no
+      0: {
+        layout: {
+          colConfig: {
+            colSize: 3
+          },
+          0: {
+            // row no
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle
+            },
+            0: {
+              // col no
+              colSize: 1,
+              idx: "Home",
+              label: "left-nav",
+              colStyle: { borderWidth: 1, minHeight: 700 }
+            }
+          }
+        }
+      },
+      1: {
+        layout: {
+          colConfig: {
+            colSize: 11
+          },
+          0: {
+            // row no
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle
+            },
+            0: {
+              // col no
+              colSize: 1,
+              idx: "Home",
+              label: "body-header",
+              schema,
+              colStyle: { borderWidth: 1 }
+            }
+          },
+          1: {
+            // row no
+            rowConfig: {
+              rowSize: 7,
+              style: rowStyle
+            },
+            0: {
+              // col no
+              colSize: 1,
+              idx: "Home",
+              label: "body-content",
+              schema,
+              colStyle: { borderWidth: 1, flex: 1 }
+            }
+          },
+          2: {
+            // row no
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle
+            },
+            0: {
+              // col no
+              colSize: 1,
+              idx: "Home",
+              label: "body-footer",
+              schema,
+              colStyle: { borderWidth: 1 }
+            }
+          }
+        }
+      }
+    },
+    1: {
+      // row no
+      rowConfig: {
+        rowSize: "0.21",
+        style: rowStyle
+      },
+      0: {
+        // col no
+        colSize: 1,
+        idx: "Home",
+        label: "footer",
         colStyle: { borderWidth: 4 }
       }
     }

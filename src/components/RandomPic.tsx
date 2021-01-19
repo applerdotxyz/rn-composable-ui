@@ -6,7 +6,7 @@ export const RandomPic = ({
   style,
   setAppState,
   appState,
-  getEvents
+  getEvents,
 }) => {
   const [randomCatImg, setRandomCatImg] = useState(null);
 
@@ -35,13 +35,13 @@ export const RandomPic = ({
               home: {
                 ui: "About",
                 props: { label: "home->1" },
-                children: <Text>Hello from RandomPic</Text>
+                children: <Text>Hello from RandomPic</Text>,
               },
               actioncomp: {
                 ui: "Home",
                 props: { label: "actioncomp-2" },
-                children: null
-              }
+                children: null,
+              },
             });
           }}
           title={`New Image ${label}`}
@@ -51,7 +51,7 @@ export const RandomPic = ({
         <View>
           <Image
             source={{
-              uri: randomCatImg
+              uri: randomCatImg,
             }}
             style={{ width: 170, height: 180, ...style }}
           />

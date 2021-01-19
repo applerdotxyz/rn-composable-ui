@@ -1,26 +1,42 @@
 import merge from "deepmerge";
 import React, { createElement, useState } from "react";
+import { Platform } from "react-native";
 import { Text } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
 // import { appConfig, events, getEvents } from "../applications/app-two-config";
 import {
-  screenOne as appConfig,
   events,
   getEvents,
+  screenOne as appConfig,
 } from "../applications/app-one/screen-one";
 import { rowStyle, styles } from "../applications/common";
 import { About } from "./components/About";
 import { ActionComp } from "./components/ActionComp";
-import AddEditEntity from "./components/AddEditEntity";
 import { Comp5 } from "./components/Comp5";
 // import { JsonForm } from "./components/JsonForm";
 import { Home } from "./components/Home";
-import JSONEditor from "./components/JSONEditor";
-import { ListEntities } from "./components/ListEntities";
-import OrderLineView from "./components/OrderLineView";
 import { RandomPic } from "./components/RandomPic";
-import SearchList from "./components/SearchList";
-import { ShowEntity } from "./components/ShowEntity";
+
+const JsonTree = ({ state, setState }) => {
+  if (Platform.OS !== "web") {
+    return null;
+  } else {
+    // // eslint-disable-next-line @typescript-eslint/no-var-requires
+    // const { JSONEditor } = require("./components/JSONEditor");
+    // return (
+    //   <JSONEditor
+    //     json={state?.config}
+    //     onChangeJSON={(json) => {
+    //       // TODO: add schema conformation for JSONEditor values of component names
+    //       setState({ config: json }, () => {
+    //         //
+    //       });
+    //     }}
+    //   />
+    // );
+    return null;
+  }
+};
 
 /*
 1. DONE ::: Layout from JSON
@@ -47,12 +63,6 @@ export const componentsSet = {
   Home,
   About,
   RandomPic,
-
-  AddEditEntity,
-  ListEntities: ListEntities,
-  ShowEntity: ShowEntity,
-  SearchList: SearchList,
-  OrderLineView: OrderLineView,
   // JsonForm
 };
 
@@ -69,7 +79,7 @@ export const UXColumn = ({
   setAppState,
   setLayoutConfig,
 }) => {
-  // console.log(`label is ${label}`);
+  console.log(`label is ${label}`);
   const colSection = createElement(
     label && appState[label]?.ui && componentsSet[appState[label]?.ui]
       ? componentsSet[appState[label]?.ui]
@@ -99,7 +109,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
         to={path}
         underlayColor="#f0f4f7"
         style={style}
-        key={`${path}-${id}`}
+        key={`${id}-${path}`}
       >
         <Text style={linkStyle}>{linkText}</Text>
       </Col>
@@ -119,8 +129,8 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
 
   //  overall routing engine
   const UX = (layoutConfig) => {
-    window.appState = appState;
-    window.setAppState = setAppState;
+    // window.appState = appState;
+    // window.setAppState = setAppState;
     const gridSection = (rows, setLayoutConfig) => {
       // builds the columns
       const colsSection = (rId, cols) => {
@@ -150,7 +160,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
             return (
               <Col
                 size={colSize}
-                style={{ ...colStyle, flexGrow: "stretch", flex: 1 }}
+                style={{ ...colStyle, flexGrow: 1, flex: 1 }}
                 key={`${rId}-${cId}`}
               >
                 <UXColumn {...passProps} />
@@ -167,7 +177,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
                   ...cols[cId].layout?.colConfig?.style,
                   borderWidth: 0,
                   borderColor: "blue",
-                  flexGrow: "stretch",
+                  flexGrow: 1,
                 }}
               >
                 <Grid style={{}}>{UX(cols[cId].layout)}</Grid>
@@ -195,7 +205,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
               ...style,
               borderWidth: 6,
               borderColor: "gray",
-              flexGrow: "stretch",
+              flexGrow: 1,
               flex: 1,
             }}
             key={rId}
@@ -206,12 +216,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
       });
       return (
         <Col
-          style={{
-            borderWidth: 5,
-            borderColor: "red",
-            flexGrow: "stretch",
-            flex: 1,
-          }}
+          style={{ borderWidth: 5, borderColor: "red", flexGrow: 1, flex: 1 }}
         >
           {gridJsx}
         </Col>
@@ -222,12 +227,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
     return (
       <Col
         size={layoutConfig?.colConfig?.colSize || 1}
-        style={{
-          borderWidth: 8,
-          borderColor: "cyan",
-          flexGrow: "stretch",
-          flex: 1,
-        }}
+        style={{ borderWidth: 8, borderColor: "cyan", flexGrow: 1, flex: 1 }}
       >
         {gridSection(layoutConfig, setLayoutConfig)}
       </Col>
@@ -259,13 +259,7 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        <JSONEditor
-          json={this.state.config}
-          onChangeJSON={(json) => {
-            // TODO: add schema conformation for JSONEditor values of component names
-            this.setState({ config: json }, () => {});
-          }}
-        />
+        <JsonTree state={this.state} setState={this.setState}></JsonTree>
         <GridSection
           layoutConfig={this.state.config}
           setLayoutConfig={(config) =>

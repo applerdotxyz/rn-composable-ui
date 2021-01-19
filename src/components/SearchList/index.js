@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import {
   ScrollView,
-  TouchableOpacity,
+  TouchableHighlight,
   View,
   Text,
   StyleSheet,
 } from "react-native";
 import PropTypes from "prop-types";
 import SearchInput, { createFilter } from "react-native-search-filter";
+import { TouchableHighlight } from "react-native";
 
 {
   /* 
@@ -83,7 +84,7 @@ export default function SearchList({
         ) : null}
         {filterData.map((d) => {
           return (
-            <TouchableOpacity key={d.id}>
+            <TouchableHighlight key={d.id}>
               <View style={{ flexDirection: "row" }}>
                 {keys.length
                   ? keys.map((key, i) => (
@@ -103,7 +104,7 @@ export default function SearchList({
                     ))
                   : null}
               </View>
-            </TouchableOpacity>
+            </TouchableHighlight>
           );
         })}
       </ScrollView>

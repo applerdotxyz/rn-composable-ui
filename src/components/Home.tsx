@@ -1,5 +1,7 @@
 import React from "react";
 import { Button, Text, View } from "react-native";
+import { appConfig as layoutConfig } from "../../applications/app-one-config";
+import { nextState } from "../../applications/app-one/screen-one";
 
 export const Home = (props) => {
   const {

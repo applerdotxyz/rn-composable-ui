@@ -1,6 +1,5 @@
 import merge from "deepmerge";
 import React, { createElement, useState } from "react";
-import { Platform } from "react-native";
 import { Text } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
 // import { appConfig, events, getEvents } from "../applications/app-two-config";
@@ -16,27 +15,7 @@ import { Comp5 } from "./components/Comp5";
 // import { JsonForm } from "./components/JsonForm";
 import { Home } from "./components/Home";
 import { RandomPic } from "./components/RandomPic";
-
-const JsonTree = ({ state, setState }) => {
-  if (Platform.OS !== "web") {
-    return null;
-  } else {
-    // // eslint-disable-next-line @typescript-eslint/no-var-requires
-    // const { JSONEditor } = require("./components/JSONEditor");
-    // return (
-    //   <JSONEditor
-    //     json={state?.config}
-    //     onChangeJSON={(json) => {
-    //       // TODO: add schema conformation for JSONEditor values of component names
-    //       setState({ config: json }, () => {
-    //         //
-    //       });
-    //     }}
-    //   />
-    // );
-    return null;
-  }
-};
+import { JSONEditor } from "./internal/components/JSONEditor";
 
 /*
 1. DONE ::: Layout from JSON
@@ -259,16 +238,24 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        <JsonTree state={this.state} setState={this.setState}></JsonTree>
+        <JSONEditor
+          json={this.state?.config}
+          onChangeJSON={(json) => {
+            // TODO: add schema conformation for JSONEditor values of component names
+            this.setState({ config: json }, () => {
+              //
+            });
+          }}
+        />
         <GridSection
-          layoutConfig={this.state.config}
+          layoutConfig={this?.state?.config}
           setLayoutConfig={(config) =>
             this.setState(
               {
-                config: merge(this.state.config, { layout: config }),
+                config: merge(this?.state?.config, { layout: config }),
               },
               () => {
-                console.log(this.state.config);
+                console.log(this?.state?.config);
               }
             )
           }

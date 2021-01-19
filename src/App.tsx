@@ -131,7 +131,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
 
             // console.log(`colSize is ${colSize}`);
             return (
-              <Col size={colSize} style={{...colStyle, flexGrow: "stretch", flex: 1}} key={`${rId}-${cId}`}>
+              <Col size={colSize} style={{...colStyle, flexGrow: 1, flex: 1}} key={`${rId}-${cId}`}>
                 <UXColumn {...passProps} />
               </Col>
             );
@@ -142,7 +142,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
             return (
               <Col
                 size={cols[cId].layout?.colConfig?.colSize || 1}
-                style={{ ...cols[cId].layout?.colConfig?.style, borderWidth:0, borderColor:"blue", flexGrow: "stretch" }}
+                style={{ ...cols[cId].layout?.colConfig?.style, borderWidth:0, borderColor:"blue", flexGrow: 1 }}
               >
                 <Grid style={{}}>{UX(cols[cId].layout)}</Grid>
               </Col>
@@ -164,19 +164,19 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
         return (
           <Row
             size={rows[rId]?.rowConfig?.rowSize || 1}
-            style={{ rowStyle, ...style, borderWidth:6, borderColor:"gray", flexGrow: "stretch", flex: 1 }}
+            style={{ rowStyle, ...style, borderWidth:6, borderColor:"gray", flexGrow: 1, flex: 1 }}
             key={rId}
           >
             {colsSection(rId, rows[rId])}
           </Row>
         );
       });
-      return <Col style={{borderWidth:5, borderColor:"red", flexGrow: "stretch", flex: 1}}>{gridJsx}</Col> ; /// return all rows in layout
+      return <Col style={{borderWidth:5, borderColor:"red", flexGrow: 1, flex: 1}}>{gridJsx}</Col> ; /// return all rows in layout
     };
 
     // console.log(`colSize is ${layoutConfig?.colConfig?.colSize}`);
     return (
-      <Col size={layoutConfig?.colConfig?.colSize || 1} style={{ borderWidth:8, borderColor:"cyan", flexGrow: "stretch", flex: 1 }}>
+      <Col size={layoutConfig?.colConfig?.colSize || 1} style={{ borderWidth:8, borderColor:"cyan", flexGrow: 1, flex: 1 }}>
         {gridSection(layoutConfig, setLayoutConfig)}
       </Col>
     );

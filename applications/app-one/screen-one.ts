@@ -139,11 +139,15 @@ export const events = {
 // bind events based on the layout config
 export const getEvents = (events, elId, setLayoutConfig, setAppState) => {
   const elEvents = {};
+  events[elId] 
+  ? 
   Object.keys(events[elId]).map((eventName) => {
     // console.log({ [eventName]: events[elId][eventName] });
     elEvents[eventName] = () =>
       events[elId][eventName](setLayoutConfig, setAppState);
-  });
+  })
+  :
+  null;
   // console.log(elEvents);
   return elEvents;
 };
@@ -197,7 +201,6 @@ export const screenOne = {
               idx: "Home",
               label: "home",
               colStyle: { borderWidth: 4 },
-              events
             }
           },
           1: {

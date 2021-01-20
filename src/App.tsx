@@ -3,11 +3,16 @@ import React, { createElement, useState } from "react";
 import { Text } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
 // import { appConfig, events, getEvents } from "../applications/app-two-config";
+// import {
+//   events,
+//   getEvents,
+//   screenOne as appConfig,
+// } from "../applications/app-one/screen-one";
 import {
   events,
   getEvents,
   screenOne as appConfig,
-} from "../applications/app-one/screen-one";
+} from "../applications/sagar-poc/grid-poc";
 import { rowStyle, styles } from "../applications/common";
 import { About } from "./components/About";
 import { ActionComp } from "./components/ActionComp";

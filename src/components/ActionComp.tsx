@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Button, Text, View } from "react-native";
 
@@ -8,8 +11,8 @@ export const ActionComp = ({
   setAppState,
   setLayoutConfig,
   events,
-  getEvents
-}) => {
+  getEvents,
+}: any) => {
   return (
     <View
       style={

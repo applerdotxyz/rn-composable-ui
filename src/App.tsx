@@ -1,3 +1,7 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import merge from "deepmerge";
 import React, { createElement, useState } from "react";
 import { Text } from "react-native";
@@ -57,7 +61,7 @@ export const UXColumn = ({
   appState,
   setAppState,
   setLayoutConfig,
-}) => {
+}: any) => {
   console.log(`label is ${label}`);
   const colSection = createElement(
     label && appState[label]?.ui && componentsSet[appState[label]?.ui]
@@ -79,7 +83,7 @@ export const UXColumn = ({
 };
 
 // render a grid layout as per the configuration
-const GridSection = ({ layoutConfig, setLayoutConfig }) => {
+const GridSection = ({ layoutConfig, setLayoutConfig }: any) => {
   // const history = useHistory();
   const linksSection = Object.keys(layoutConfig.links).map((path, id) => {
     const { style, linkText, linkStyle } = layoutConfig.links[path];
@@ -102,17 +106,17 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
     props: {},
   });
 
-  const setAppState = (newAppState) => {
+  const setAppState = (newAppState: Partial<{ ui: {}; children: {}; props: {}; }>) => {
     _setAppState(merge(appState, newAppState));
   };
 
   //  overall routing engine
-  const UX = (layoutConfig) => {
+  const UX = (layoutConfig: { colConfig: { colSize: any; }; }) => {
     // window.appState = appState;
     // window.setAppState = setAppState;
-    const gridSection = (rows, setLayoutConfig) => {
+    const gridSection = (rows: { [x: string]: any; }, setLayoutConfig: any) => {
       // builds the columns
-      const colsSection = (rId, cols) => {
+      const colsSection = (rId: string, cols: { [x: string]: { layout: any; }; }) => {
         let rowJsx = [];
         rowJsx = Object.keys(cols).map((cId) => {
           if (cId === "rowConfig") {
@@ -240,7 +244,7 @@ export default class App extends React.Component {
       <>
         <JSONEditor
           json={this.state?.config}
-          onChangeJSON={(json) => {
+          onChangeJSON={(json: any) => {
             // TODO: add schema conformation for JSONEditor values of component names
             this.setState({ config: json }, () => {
               //
@@ -249,7 +253,7 @@ export default class App extends React.Component {
         />
         <GridSection
           layoutConfig={this?.state?.config}
-          setLayoutConfig={(config) =>
+          setLayoutConfig={(config: any) =>
             this.setState(
               {
                 config: merge(this?.state?.config, { layout: config }),

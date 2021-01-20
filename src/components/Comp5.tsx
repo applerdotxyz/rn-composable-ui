@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Text, View } from "react-native";
 
-export const Comp5 = ({ label, dispatch, appState, children }) => {
+export const Comp5 = ({ label, dispatch, appState, children }: any) => {
   // console.log(appState);
   return (
     <View key={label}>

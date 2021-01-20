@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { rowStyle, styles } from "./common";
-
 
 export const routes = {};
 
@@ -11,14 +12,14 @@ routes.routeOne = {
         colConfig: {
           // colSize: 0, // *** change the colSize
 
-          style: { display: "none" } // *** hide the 1st column
-        }
-      }
+          style: { display: "none" }, // *** hide the 1st column
+        },
+      },
     },
     1: {
       layout: {
         colConfig: {
-          colSize: 8 // *** change the colSize
+          colSize: 8, // *** change the colSize
         },
 
         1: {
@@ -27,18 +28,18 @@ routes.routeOne = {
             // col no
             colSize: 10,
             idx: "RandomPic",
-            label: "comp5 >> changed at runtime 1"
+            label: "comp5 >> changed at runtime 1",
           },
           1: {
             // col no
             colSize: 10,
             idx: "RandomPic",
-            label: "comp5 >> changed at runtime 2"
-          }
-        }
-      }
-    }
-  }
+            label: "comp5 >> changed at runtime 2",
+          },
+        },
+      },
+    },
+  },
 };
 
 routes.routeTwo = {
@@ -48,14 +49,14 @@ routes.routeTwo = {
       layout: {
         colConfig: {
           // colSize: 0, // *** change the colSize
-          style: { display: "block" } // *** hide the 1st column
-        }
-      }
+          style: { display: "block" }, // *** hide the 1st column
+        },
+      },
     },
     1: {
       layout: {
         colConfig: {
-          colSize: 3 // *** change the colSize
+          colSize: 3, // *** change the colSize
         },
 
         1: {
@@ -64,18 +65,18 @@ routes.routeTwo = {
             // col no
             colSize: 10,
             idx: "About",
-            label: "comp5 >> changed at runtime 1"
+            label: "comp5 >> changed at runtime 1",
           },
           1: {
             // col no
             colSize: 10,
             idx: "About",
-            label: "comp5 >> changed at runtime 2"
-          }
-        }
-      }
-    }
-  }
+            label: "comp5 >> changed at runtime 2",
+          },
+        },
+      },
+    },
+  },
 };
 
 // *************************************************
@@ -92,15 +93,15 @@ export const events = {
       // <event> :: <handler>
       onPress: (setLayoutConfig, setAppState) => {
         setLayoutConfig(routes["routeOne"]);
-      }
+      },
     },
     //<label>-<element-id>
     "home-btn-two": {
       // <event> :: <handler>
       onPress: (setLayoutConfig, setAppState) => {
         setLayoutConfig(routes["routeTwo"]);
-      }
-    }
+      },
+    },
   },
 
   actioncomp: {
@@ -109,7 +110,7 @@ export const events = {
       // <event> :: <handler>
       onPress: (setLayoutConfig, setAppState) => {
         setLayoutConfig(routes["routeTwo"]);
-      }
+      },
     },
     "actioncomp-btn-one": {
       onPress: (setLayoutConfig, setAppState) => {
@@ -117,12 +118,12 @@ export const events = {
           about: {
             ui: "About",
             props: { label: "about" },
-            children: "<Text>I am 2nd Child</Text>" // FIXME:: from events file, passing in children part which is JSX
-          }
+            children: "<Text>I am 2nd Child</Text>", // FIXME:: from events file, passing in children part which is JSX
+          },
         });
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
 // *************************************************
@@ -132,7 +133,7 @@ export const events = {
 export const getEvents = (events, elId, setLayoutConfig, setAppState) => {
   const elEvents = {};
   console.log(`${elId}  - ${events[elId]}`);
-  
+
   Object.keys(events[elId]).map((eventName) => {
     // console.log({ [eventName]: events[elId][eventName] });
     elEvents[eventName] = () =>
@@ -142,14 +143,13 @@ export const getEvents = (events, elId, setLayoutConfig, setAppState) => {
   return elEvents;
 };
 
-
 // components section
 const schema = {
   type: "object",
   properties: {
     username: { type: "string" },
-    password: { type: "string" }
-  }
+    password: { type: "string" },
+  },
 };
 
 export const appConfig = {
@@ -157,96 +157,96 @@ export const appConfig = {
     "/": {
       style: styles.navItem,
       linkStyle: styles.tabName,
-      linkText: "Home"
+      linkText: "Home",
     },
     "/about": {
       style: styles.navItem,
       linkStyle: styles.tabName,
-      linkText: "Feed"
+      linkText: "Feed",
     },
     "/contact": {
       style: styles.navItem,
       linkStyle: styles.tabName,
-      linkText: "Messages"
-    }
+      linkText: "Messages",
+    },
   },
   layout: {
     colConfig: {
-      colSize: 1
+      colSize: 1,
     },
     // row no
     0: {
       rowConfig: {
         rowSize: 1,
-        style: rowStyle
+        style: rowStyle,
       },
       // col no
       0: {
         layout: {
           colConfig: {
-            colSize: 2
+            colSize: 2,
           },
           0: {
             // row no
             rowConfig: {
               rowSize: 1,
-              style: rowStyle
+              style: rowStyle,
             },
             0: {
               // col no
               colSize: 1,
               idx: "Home",
               label: "home",
-              colStyle: { borderWidth: 4 }
-            }
+              colStyle: { borderWidth: 4 },
+            },
           },
           1: {
             // row no
             rowConfig: {
               rowSize: 1,
-              style: rowStyle
+              style: rowStyle,
             },
             0: {
               // col no
               colSize: 1,
               idx: "About",
               label: "about",
-              colStyle: { borderWidth: 4 }
+              colStyle: { borderWidth: 4 },
             },
             1: {
               // col no
               colSize: 1,
               idx: "Comp5",
               label: "comp5",
-              colStyle: { borderWidth: 4 }
-            }
+              colStyle: { borderWidth: 4 },
+            },
           },
           2: {
             // row no
             rowConfig: {
               rowSize: 1,
-              style: rowStyle
+              style: rowStyle,
             },
             0: {
               // col no
               colSize: 4,
               idx: "RandomPic",
               label: "rpic",
-              colStyle: { borderWidth: 4 }
-            }
-          }
-        }
+              colStyle: { borderWidth: 4 },
+            },
+          },
+        },
       },
       1: {
         layout: {
           colConfig: {
-            colSize: 5
+            colSize: 5,
           },
           0: {
             // row no
             rowConfig: {
               rowSize: 1,
-              style: rowStyle
+              style: rowStyle,
             },
             0: {
               // col no
@@ -254,14 +254,14 @@ export const appConfig = {
               idx: "Comp5",
               label: "comp5.11",
               schema,
-              colStyle: { borderWidth: 4 }
-            }
+              colStyle: { borderWidth: 4 },
+            },
           },
           1: {
             // row no
             rowConfig: {
               rowSize: 12,
-              style: rowStyle
+              style: rowStyle,
             },
             0: {
               // col no
@@ -269,14 +269,14 @@ export const appConfig = {
               idx: "Comp5",
               label: "comp5.12",
               schema,
-              colStyle: { borderWidth: 4 }
-            }
+              colStyle: { borderWidth: 4 },
+            },
           },
           2: {
             // row no
             rowConfig: {
               rowSize: 1,
-              style: rowStyle
+              style: rowStyle,
             },
             0: {
               // col no
@@ -284,25 +284,25 @@ export const appConfig = {
               idx: "Comp5",
               label: "comp5.13",
               schema,
-              colStyle: { borderWidth: 4 }
-            }
-          }
-        }
-      }
+              colStyle: { borderWidth: 4 },
+            },
+          },
+        },
+      },
     },
     1: {
       // row no
       rowConfig: {
         rowSize: "0.21",
-        style: rowStyle
+        style: rowStyle,
       },
       0: {
         // col no
         colSize: 1,
         idx: "ActionComp",
         label: "actioncomp",
-        colStyle: { borderWidth: 4 }
-      }
-    }
-  }
+        colStyle: { borderWidth: 4 },
+      },
+    },
+  },
 };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { View } from "react-native";

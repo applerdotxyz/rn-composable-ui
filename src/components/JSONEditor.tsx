@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ace from "brace";
@@ -23,7 +24,7 @@ export default class JSONEditor extends Component {
         onChange={onChangeJSON}
         onError={onError}
         theme={"ace/theme/github"}
-      />
+      />,
     ];
   }
 }
@@ -31,5 +32,5 @@ export default class JSONEditor extends Component {
 JSONEditor.propTypes = {
   json: PropTypes.object,
   onError: PropTypes.func,
-  onChangeJSON: PropTypes.func
+  onChangeJSON: PropTypes.func,
 };

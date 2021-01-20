@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState } from "react";
 import {
   ScrollView,
   TouchableHighlight,
@@ -15,7 +17,7 @@ export default function RenderList({
   visibleKeys,
   titleStyle,
   dataStyle,
-}) {
+}: any) {
   const [searchItem, setSearchItem] = useState("");
 
   const filterData = data.filter(createFilter(searchItem, searchFields));

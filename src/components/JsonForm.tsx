@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react/prop-types */
 import { createBrowserHistory } from "history";
 import React, { useState } from "react";
 import { Platform, StyleSheet } from "react-native";
@@ -66,7 +70,7 @@ export const JsonForm = ({
   const onChange = (event) => {
     setFormData({
       ...formData,
-      [event.params.name]: event.params.value
+      [event.params.name]: event.params.value,
     });
   };
 
@@ -74,13 +78,13 @@ export const JsonForm = ({
     input: {
       focused: StyleSheet.create({
         border: {
-          borderColor: "#33bfff"
-        }
-      })
-    }
+          borderColor: "#33bfff",
+        },
+      }),
+    },
   };
 
-  const onSubmit = async (event) => {
+  const onSubmit = async (event: any) => {
     await onBeforeSubmit(event);
     setLoading(true);
     const { values } = event.params;
@@ -96,7 +100,7 @@ export const JsonForm = ({
     // });
   };
 
-  const ThemeWrapper = ({ children }) => {
+  const ThemeWrapper = ({ children }: any) => {
     return (
       <UIProvider
         theme={theme}

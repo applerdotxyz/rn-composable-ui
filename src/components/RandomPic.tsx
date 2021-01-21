@@ -32,12 +32,12 @@ export const RandomPic = ({
           onPress={() => {
             fetchRandomCat();
             setAppState({
-              home: {
+              bodyFooter: {
                 ui: "About",
-                props: { label: "home->1" },
+                props: { label: "bodyFooter1" },
                 children: <Text>Hello from RandomPic</Text>,
               },
-              actioncomp: {
+              bodyContent: {
                 ui: "Home",
                 props: { label: "actioncomp-2" },
                 children: null,

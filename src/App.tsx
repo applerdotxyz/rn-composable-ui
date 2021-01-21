@@ -11,7 +11,7 @@ import { Col, Grid, Row } from "react-native-easy-grid";
 import {
   events,
   getEvents,
-  screenThree as appConfig,
+  screenFour as appConfig,
 } from "../applications/app-one/screen-one";
 import { rowStyle, styles } from "../applications/common";
 import { About } from "./components/About";

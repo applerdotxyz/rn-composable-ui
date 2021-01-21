@@ -21,12 +21,12 @@ export const ActionComp = ({
       <Button
         title={"Back"}
         testID={`${label}-btn-two`}
-        {...getEvents(events, `${label}-btn-two`, setLayoutConfig, setAppState)}
+        {...getEvents(`${label}-btn-two`, setLayoutConfig, setAppState)}
       ></Button>
       <Button
         testID={`${label}-btn-one`}
         title={"Trigger"}
-        {...getEvents(events, `${label}-btn-one`, setLayoutConfig, setAppState)}
+        {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
       ></Button>
       <Text style={{ textAlign: "center" }}>{label}</Text>
 

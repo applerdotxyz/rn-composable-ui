@@ -4,7 +4,7 @@ export const colStyle = {
 };
 
 export const rowStyle = {
-  borderWidth: 1,
+  borderWidth: 0,
   borderColor: "red",
 };
 

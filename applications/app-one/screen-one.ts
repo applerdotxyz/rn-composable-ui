@@ -445,3 +445,98 @@ export const screenTwo = {
     },
   },
 };
+
+export const screenThree = {
+  links: {
+    "/": {
+      style: styles.navItem,
+      linkStyle: styles.tabName,
+      linkText: "LOGO",
+    },
+    "/about": {
+      style: styles.navItem,
+      linkStyle: styles.tabName,
+      linkText: "WORK FLOW NAME",
+    },
+    "/contact": {
+      style: styles.navItem,
+      linkStyle: styles.tabName,
+      linkText: "PROFILE",
+    },
+    "/logout": {
+      style: styles.navItem,
+      linkStyle: styles.tabName,
+      linkText: "LOGOUT",
+    },
+  },
+  layout: {
+    colConfig: {
+      colSize: 1,
+    },
+    // row no
+    0: {
+      rowConfig: {
+        rowSize: 1,
+        style: rowStyle,
+      },
+      // col no
+      0: {
+        layout: {
+          colConfig: {
+            colSize: 1, // <<< TOTAL SIZE OF COL : 4
+          },
+          0: {
+            // row no
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle,
+            },
+            0: {
+              // col no
+              colSize: 1, // <<<< Size of col : 1
+              idx: "Home",
+              label: "Business Function",
+              colStyle: { borderWidth: 1, minHeight: 700 },
+            },
+          },
+        },
+      },
+      // col 2
+      1: {
+        layout: {
+          colConfig: {
+            colSize: 1, // <<< TOTAL SIZE OF COL : 4
+          },
+          0: {
+            // row 1
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle,
+            },
+            0: {
+              // col no
+              colSize: 1, // <<<< Size of col : 1
+              idx: "TodoApp1",
+              label: "Add Task",
+              colStyle: { borderWidth: 0, minHeight: 350 },
+            },
+          },
+          1: {
+            // row 1
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle,
+            },
+            0: {
+              // col no
+              colSize: 1, // <<<< Size of col : 1
+              idx: "TodoApp2",
+              label: "Show Task",
+              colStyle: { borderWidth: 0, minHeight: 350 },
+            },
+          },
+        },
+      },
+    },
+  },
+};

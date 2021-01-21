@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -10,12 +11,14 @@ import { Col, Grid, Row } from "react-native-easy-grid";
 import {
   events,
   getEvents,
-  screenOne as appConfig,
+  screenThree as appConfig,
 } from "../applications/app-one/screen-one";
 import { rowStyle, styles } from "../applications/common";
 import { About } from "./components/About";
 import { ActionComp } from "./components/ActionComp";
 import { Comp5 } from "./components/Comp5";
+import { TodoApp1 } from "./components/examples/TODOAPP/TodoApp1";
+import { TodoApp2 } from "./components/examples/TODOAPP/TodoApp2";
 // import { JsonForm } from "./components/JsonForm";
 import { Home } from "./components/Home";
 import { RandomPic } from "./components/RandomPic";
@@ -46,6 +49,8 @@ export const componentsSet = {
   Home,
   About,
   RandomPic,
+  TodoApp1,
+  TodoApp2,
   // JsonForm
 };
 
@@ -104,19 +109,25 @@ const GridSection = ({ layoutConfig, setLayoutConfig }: any) => {
     ui: {},
     children: {},
     props: {},
+    todoTask: [], // for todo app example
   });
 
-  const setAppState = (newAppState: Partial<{ ui: {}; children: {}; props: {}; }>) => {
+  const setAppState = (
+    newAppState: Partial<{ ui: {}; children: {}; props: {}; todoTask: [] }>
+  ) => {
     _setAppState(merge(appState, newAppState));
   };
 
   //  overall routing engine
-  const UX = (layoutConfig: { colConfig: { colSize: any; }; }) => {
+  const UX = (layoutConfig: { colConfig: { colSize: any } }) => {
     // window.appState = appState;
     // window.setAppState = setAppState;
-    const gridSection = (rows: { [x: string]: any; }, setLayoutConfig: any) => {
+    const gridSection = (rows: { [x: string]: any }, setLayoutConfig: any) => {
       // builds the columns
-      const colsSection = (rId: string, cols: { [x: string]: { layout: any; }; }) => {
+      const colsSection = (
+        rId: string,
+        cols: { [x: string]: { layout: any } }
+      ) => {
         let rowJsx = [];
         rowJsx = Object.keys(cols).map((cId) => {
           if (cId === "rowConfig") {

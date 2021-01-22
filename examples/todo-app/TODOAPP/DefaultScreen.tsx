@@ -5,7 +5,7 @@
 import React from "react";
 import { Button, Text, View } from "react-native";
 
-export const Home = (props: {
+export const DefaultScreen = (props: {
   appState: any;
   label: any;
   styles: any;
@@ -32,12 +32,15 @@ export const Home = (props: {
 
   return (
     <View>
-      <Text style={{}}>Home *** {label}</Text>
-      <Button
+      <Text style={{}}>SideNavBar *** {label}</Text>
+      <Text>
+        <h1>DEMO FOR TODO APP</h1>
+      </Text>
+      {/* <Button
         testID={`${label}-btn-one`}
-        title="ACT"
+        title="TODO APP DEMO"
         {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
-      ></Button>
+      ></Button> */}
       {children || (appState && appState[label] && appState[label]?.children)}
     </View>
   );

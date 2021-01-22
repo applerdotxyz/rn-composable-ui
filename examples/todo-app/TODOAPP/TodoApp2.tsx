@@ -4,8 +4,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Button, FlatList, Text, View } from "react-native";
-// import { appConfig as layoutConfig } from "../../../../applications/app-one-config";
-// import { nextState } from "../../../../applications/app-one/screen-one";
 
 export const TodoApp2 = (props: {
   appState: any;
@@ -27,15 +25,10 @@ export const TodoApp2 = (props: {
     layoutConfig,
     setLayoutConfig,
     getEvents,
-    events,
   } = props;
 
-  console.log(`getEvents`);
-  console.log(
-    getEvents(events, `${label}-btn-one`, setLayoutConfig, setAppState)
-  );
-
-  console.log("AppState from TODO APP 2 : : : : ", appState);
+  console.log(`label is ${label}`);
+  console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
 
   return (
     <View>
@@ -63,6 +56,11 @@ export const TodoApp2 = (props: {
           )}
         />
       </View>
+      {/* <Button
+        testID={`${label}-btn-one`}
+        title="ACT"
+        {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
+      ></Button> */}
       {children || (appState && appState[label] && appState[label]?.children)}
     </View>
   );

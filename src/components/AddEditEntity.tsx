@@ -32,8 +32,6 @@ export const AddEditEntity = (props) => {
     recievemsgs: true,
   };
 
-  const languages = ["Java", "Python", "C"];
-
   const [_schema, setSchema] = useSafeSetState({
     type: "object",
     required: [
@@ -79,6 +77,8 @@ export const AddEditEntity = (props) => {
       },
     },
   });
+
+  const languages = ["Java", "Python", "C"];
 
   // // form schema
   const _uiSchema = {
@@ -161,7 +161,7 @@ export const AddEditEntity = (props) => {
         {JSON.stringify(props)}
       </Text> */}
       <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
-        Current User is :: {props.route.params.state.user.lastEmail}
+        Current User is :: {props?.route?.params?.state?.user?.lastEmail}
       </Text>
       {/* <ConnectedForm controller="person" action="get" /> */}
       {/* <ScrollView>  */}

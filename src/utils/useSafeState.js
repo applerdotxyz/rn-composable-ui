@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 
 const useSafeSetState = (initialValue) => {
+  const [value, setValue] = useState(initialValue);
   const queue = useRef([]);
   const mounted = useRef(false);
 
-  const [value, setValue] = useState(initialValue);
 
   useEffect(() => {
     mounted.current = true;

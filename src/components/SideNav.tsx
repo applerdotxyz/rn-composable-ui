@@ -4,8 +4,10 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Button, Text, View } from "react-native";
+import { appConfig as layoutConfig } from "../../applications/app-one-config";
+import { nextState } from "../../applications/app-one/screen-one";
 
-export const Home = (props: {
+export const SideNav = (props: {
   appState: any;
   label: any;
   styles: any;
@@ -25,18 +27,21 @@ export const Home = (props: {
     layoutConfig,
     setLayoutConfig,
     getEvents,
+    events,
   } = props;
 
-  console.log(`label is ${label}`);
-  console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
+  console.log(`getEvents`);
+  console.log(
+    getEvents(events, `${label}-btn-one`, setLayoutConfig, setAppState)
+  );
 
   return (
     <View>
-      <Text style={{}}>Home *** {label}</Text>
+      <Text style={{}}>Side Navigation *** {label}</Text>
       <Button
         testID={`${label}-btn-one`}
         title="ACT"
-        {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
+        {...getEvents(events, `${label}-btn-one`, setLayoutConfig, setAppState)}
       ></Button>
       {children || (appState && appState[label] && appState[label]?.children)}
     </View>

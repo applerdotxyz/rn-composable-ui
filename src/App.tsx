@@ -17,6 +17,7 @@ import { rowStyle, styles } from "../applications/common";
 import { About } from "./components/About";
 import { ActionComp } from "./components/ActionComp";
 import { Comp5 } from "./components/Comp5";
+import { SideNav } from "./components/SideNav";
 import { TodoApp1 } from "./components/examples/TODOAPP/TodoApp1";
 import { TodoApp2 } from "./components/examples/TODOAPP/TodoApp2";
 // import { JsonForm } from "./components/JsonForm";
@@ -49,6 +50,7 @@ export const componentsSet = {
   Home,
   About,
   RandomPic,
+  SideNav,
   TodoApp1,
   TodoApp2,
   // JsonForm
@@ -197,7 +199,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }: any) => {
             style={{
               rowStyle,
               ...style,
-              borderWidth: 6,
+              borderWidth: 0,
               borderColor: "gray",
               flexGrow: 1,
               flex: 1,

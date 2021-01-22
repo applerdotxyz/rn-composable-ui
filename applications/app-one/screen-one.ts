@@ -87,6 +87,79 @@ routes.routeTwo = {
   },
 };
 
+routes.routeThree = {
+  layout: {
+    colConfig: {
+      colSize: 1,
+    },
+    // row no
+    0: {
+      rowConfig: {
+        rowSize: 1,
+        style: rowStyle,
+      },
+      // col no
+      0: {
+        layout: {
+          colConfig: {
+            colSize: 1, // <<< TOTAL SIZE OF COL : 4
+          },
+          0: {
+            // row no
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle,
+            },
+            0: {
+              // col no
+              colSize: 1, // <<<< Size of col : 1
+              idx: "Home",
+              label: "Business Function",
+              colStyle: { borderWidth: 1, minHeight: 700 },
+            },
+          },
+        },
+      },
+      // col 2
+      1: {
+        layout: {
+          colConfig: {
+            colSize: 1, // <<< TOTAL SIZE OF COL : 4
+          },
+          0: {
+            // row 1
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle,
+            },
+            0: {
+              // col no
+              colSize: 1, // <<<< Size of col : 1
+              idx: "TodoApp1",
+              label: "Add Task",
+              colStyle: { borderWidth: 0, minHeight: 350 },
+            },
+          },
+          1: {
+            // row 1
+            rowConfig: {
+              rowSize: 1,
+              style: rowStyle,
+            },
+            0: {
+              // col no
+              colSize: 1, // <<<< Size of col : 1
+              idx: "TodoApp2",
+              label: "Show Task",
+              colStyle: { borderWidth: 0, minHeight: 350 },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 // *************************************************
 //  "../applications/app-one/screen-one";
 // *************************************************
@@ -138,6 +211,49 @@ export const events = {
       },
     },
     "actioncomp-btn-one": {
+      onPress: (setLayoutConfig, setAppState) => {
+        setAppState({
+          about: {
+            ui: "About",
+            props: { label: "about" },
+            children: "<Text>I am 2nd Child</Text>", // FIXME:: from events file, passing in children part which is JSX
+          },
+        });
+      },
+    },
+  },
+
+  todoApp1: {
+    // <label>
+    "todoApp1-btn-one": {
+      // <event> :: <handler>
+      onPress: (setLayoutConfig, setAppState) => {
+        setLayoutConfig(routes["routeThree"]);
+      },
+    },
+    "todoApp1-btn-two": {
+      onPress: (setLayoutConfig, setAppState) => {
+        setAppState({
+          about: {
+            ui: "About",
+            props: { label: "about" },
+            children: "<Text>I am 2nd Child</Text>", // FIXME:: from events file, passing in children part which is JSX
+          },
+        });
+      },
+    },
+  },
+
+  sideNav: {
+    // <label>
+    "sideNav-btn-one": {
+      // <event> :: <handler>
+      onPress: (setLayoutConfig, setAppState) => {
+        setLayoutConfig(routes["routeThree"]);
+        console.log("Layout updated");
+      },
+    },
+    "sideNav-btn-two": {
       onPress: (setLayoutConfig, setAppState) => {
         setAppState({
           about: {
@@ -494,8 +610,8 @@ export const screenThree = {
             0: {
               // col no
               colSize: 1, // <<<< Size of col : 1
-              idx: "Home",
-              label: "Business Function",
+              idx: "SideNav",
+              label: "sideNav",
               colStyle: { borderWidth: 1, minHeight: 700 },
             },
           },
@@ -506,6 +622,7 @@ export const screenThree = {
         layout: {
           colConfig: {
             colSize: 1, // <<< TOTAL SIZE OF COL : 4
+            style: { display: "block" }, // *** hide the 1st column
           },
           0: {
             // row 1
@@ -517,7 +634,7 @@ export const screenThree = {
               // col no
               colSize: 1, // <<<< Size of col : 1
               idx: "TodoApp1",
-              label: "Add Task",
+              label: "todoApp1",
               colStyle: { borderWidth: 0, minHeight: 350 },
             },
           },
@@ -531,8 +648,8 @@ export const screenThree = {
               // col no
               colSize: 1, // <<<< Size of col : 1
               idx: "TodoApp2",
-              label: "Show Task",
-              colStyle: { borderWidth: 0, minHeight: 350 },
+              label: "todoApp2",
+              colStyle: { borderWidth: 1, minHeight: 350 },
             },
           },
         },

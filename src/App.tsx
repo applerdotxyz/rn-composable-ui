@@ -1,7 +1,11 @@
+
+// TODO: See if the below LIB can be removed
 import merge from "deepmerge";
 import React, { createElement, useState } from "react";
 import { Text } from "react-native";
+// TODO: See if the below LIB can be removed
 import { Col, Grid, Row } from "react-native-easy-grid";
+<<<<<<< HEAD
 // import { appConfig, events, getEvents } from "../applications/app-two-config";
 // import {
 //   events,
@@ -27,6 +31,9 @@ import { Comp5 } from "./components/Comp5";
 import { Home } from "./components/Home";
 import { RandomPic } from "./components/RandomPic";
 import { JSONEditor } from "./internal/components/JSONEditor";
+=======
+import { styles } from "../examples/common";
+>>>>>>> 4ca17845f42c2da1ee6be5b8d5a7393c3335052d
 
 /*
 1. DONE ::: Layout from JSON
@@ -46,52 +53,46 @@ import { JSONEditor } from "./internal/components/JSONEditor";
 */
 // ******************************************************************** //
 
-// All component which will be rendered
-export const componentsSet = {
-  Comp5,
-  ActionComp,
-  Home,
-  About,
-  RandomPic,
-  // JsonForm
-};
-
-// pick from pre-loaded components and render properly, renders each component at column level
-export const UXColumn = ({
-  label,
-  idx,
-  style,
-  colSize,
-  colStyle,
-  children,
-  passProps,
-  appState,
-  setAppState,
-  setLayoutConfig,
-}) => {
-  console.log(`label is ${label}`);
-  const colSection = createElement(
-    label && appState[label]?.ui && componentsSet[appState[label]?.ui]
-      ? componentsSet[appState[label]?.ui]
-      : componentsSet[idx],
-    {
-      ...passProps,
-      appState,
-      setAppState,
-      ...styles,
-      label,
-      setLayoutConfig,
-      getEvents,
-      events: events && events[label] ? events[label] : {},
-    },
-    appState[label]?.children || children
-  );
-  return colSection;
-};
-
 // render a grid layout as per the configuration
-const GridSection = ({ layoutConfig, setLayoutConfig }) => {
+export const GridSection = ({ layoutConfig, setLayoutConfig, routes, getEvents }) => {
   // const history = useHistory();
+
+  // pick from pre-loaded components and render properly, renders each component at column level
+  const UXColumn = ({
+    label,
+    key,
+    idx,
+    style,
+    colSize,
+    colStyle,
+    children,
+    passProps,
+    appState,
+    setAppState,
+    setLayoutConfig,
+  }) => {
+    // console.log(`label is ${label}`);
+    const colSection = createElement(
+      label &&
+        appState[label]?.ui &&
+        layoutConfig.componentsSet[appState[label]?.ui]
+        ? layoutConfig.componentsSet[appState[label]?.ui]
+        : layoutConfig.componentsSet[idx],
+      {
+        ...passProps,
+        appState,
+        routes,
+        key,
+        setAppState,
+        ...styles,
+        label,
+        setLayoutConfig,
+        getEvents,
+      },
+      appState[label]?.children || children
+    );
+    return colSection;
+  };
   const linksSection = Object.keys(layoutConfig.links).map((path, id) => {
     const { style, linkText, linkStyle } = layoutConfig.links[path];
     return (
@@ -125,7 +126,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
       // builds the columns
       const colsSection = (rId, cols) => {
         let rowJsx = [];
-        rowJsx = Object.keys(cols).map((cId) => {
+        rowJsx = Object.keys(cols).map((cId, colNo) => {
           if (cId === "rowConfig") {
             return null;
           } else if (cols[cId].idx) {
@@ -144,14 +145,15 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
               appState,
               setAppState,
               setLayoutConfig,
+              getEvents,
             };
 
             // console.log(`colSize is ${colSize}`);
             return (
               <Col
-                size={colSize}
+                // size={colSize}
                 style={{ ...colStyle, flexGrow: 1, flex: 1 }}
-                key={`${rId}-${cId}`}
+                key={`${rId}-${colNo}`}
               >
                 <UXColumn {...passProps} />
               </Col>
@@ -167,7 +169,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
                   ...cols[cId].layout?.colConfig?.style,
                   borderWidth: 0,
                   borderColor: "blue",
-                  flexGrow: 1,
+                  // flexGrow: 1,
                 }}
               >
                 <Grid style={{}}>{UX(cols[cId].layout)}</Grid>
@@ -181,43 +183,50 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
 
       let gridJsx = [];
       gridJsx = Object.keys(rows).map((rId) => {
-        const style = rows[rId]?.rowConfig?.style || {};
+        const style = rows[rId]?.rowConfig?.rowStyle || {};
         // console.log(rows[rId].rowConfig);
 
         // FIXME: fix rowSize. is rowConfig used ?
         // console.log(`rowSize is ${rows[rId]?.rowConfig?.rowSize}`);
-
-        return (
-          <Row
-            size={rows[rId]?.rowConfig?.rowSize || 1}
-            style={{
-              rowStyle,
-              ...style,
-              borderWidth: 6,
-              borderColor: "gray",
-              flexGrow: 1,
-              flex: 1,
-            }}
-            key={rId}
-          >
-            {colsSection(rId, rows[rId])}
-          </Row>
-        );
+        if (rId === "colConfig") {
+          return null;
+        } else {
+          return (
+            <Row
+              key={`${rId}`}
+              // size={rows[rId]?.rowConfig?.rowSize || 1}
+              style={{
+                ...style,
+                borderWidth: 6,
+                borderColor: "gray",
+                ...rows[rId]?.rowConfig?.rowStyle,
+                // flexGrow: 1,
+                flex: 1,
+              }}
+            >
+              {colsSection(rId, rows[rId])}
+            </Row>
+          );
+        }
       });
       return (
         <Col
-          style={{ borderWidth: 5, borderColor: "red", flexGrow: 1, flex: 1 }}
+          style={{ borderWidth: 0, borderColor: "red", flexGrow: 1, flex: 1 }}
         >
           {gridJsx}
         </Col>
       ); /// return all rows in layout
     };
 
-    // console.log(`colSize is ${layoutConfig?.colConfig?.colSize}`);
+    console.log(`colSize is ${layoutConfig?.colConfig?.colSize}`);
     return (
       <Col
         size={layoutConfig?.colConfig?.colSize || 1}
-        style={{ borderWidth: 8, borderColor: "cyan", flexGrow: 1, flex: 1 }}
+        style={{
+          // flexGrow: 1,
+          ...layoutConfig?.colConfig?.colStyle,
+          // flex: 1,
+        }}
       >
         {gridSection(layoutConfig, setLayoutConfig)}
       </Col>
@@ -229,49 +238,7 @@ const GridSection = ({ layoutConfig, setLayoutConfig }) => {
   return (
     <Grid style={{ flex: 1, borderWidth: 0, borderColor: "yellow" }}>
       <Row size={0.05}>{headerSection}</Row>
-      <Row style={{ flex: 1 }}>
-        {UX(layoutConfig.layout, layoutConfig.layout[0].rowConfig)}
-      </Row>
+      <Row style={{ flex: 1 }}>{UX(layoutConfig?.layout) || {}}</Row>
     </Grid>
   );
 };
-
-//  overall container app
-export default class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      config: appConfig,
-    };
-    // console.log(this.state.config);
-  }
-
-  render() {
-    return (
-      <>
-        <JSONEditor
-          json={this.state?.config}
-          onChangeJSON={(json) => {
-            // TODO: add schema conformation for JSONEditor values of component names
-            this.setState({ config: json }, () => {
-              //
-            });
-          }}
-        />
-        <GridSection
-          layoutConfig={this?.state?.config}
-          setLayoutConfig={(config) =>
-            this.setState(
-              {
-                config: merge(this?.state?.config, { layout: config }),
-              },
-              () => {
-                console.log(this?.state?.config);
-              }
-            )
-          }
-        />
-      </>
-    );
-  }
-}

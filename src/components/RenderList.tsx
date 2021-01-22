@@ -9,8 +9,8 @@ import {
 import PropTypes from "prop-types";
 import SearchInput, { createFilter } from "react-native-search-filter";
 
-export default function RenderList({
-  data,
+export function RenderList({
+  data = [],
   searchFields,
   visibleKeys,
   titleStyle,

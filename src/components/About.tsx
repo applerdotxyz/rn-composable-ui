@@ -15,14 +15,14 @@ export const About = ({
   setLayoutConfig,
   getEvents,
   events,
-}: any) => {
+}) => {
   // console.log(getEvents(events, `${label}-btn-one`, setLayoutConfig, setAppState));
 
   return (
     <View>
       <Text>About *** {label}</Text>
       <Button
-        {...getEvents(events, `${label}-btn-one`, setLayoutConfig, setAppState)}
+        {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
         testID={`${label}-btn-one`}
         title={`${"About"}Flash`}
       ></Button>

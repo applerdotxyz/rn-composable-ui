@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Button,
@@ -7,10 +7,9 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  View,
+  View
 } from "react-native";
 import RenderList from "../components/RenderList";
-import SearchList from "../components/SearchList";
 // import { useRouting } from "expo-next-react-navigation";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

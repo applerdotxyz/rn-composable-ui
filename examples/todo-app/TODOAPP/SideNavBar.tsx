@@ -5,7 +5,7 @@
 import React from "react";
 import { Button, Text, View } from "react-native";
 
-export const Home = (props: {
+export const SideNavBar = (props: {
   appState: any;
   label: any;
   styles: any;
@@ -32,10 +32,10 @@ export const Home = (props: {
 
   return (
     <View>
-      <Text style={{}}>Home *** {label}</Text>
+      <Text style={{}}>SideNavBar *** {label}</Text>
       <Button
         testID={`${label}-btn-one`}
-        title="ACT"
+        title="TODO APP DEMO"
         {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
       ></Button>
       {children || (appState && appState[label] && appState[label]?.children)}

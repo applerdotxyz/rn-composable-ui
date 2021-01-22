@@ -1,9 +1,30 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { rowStyle, styles } from "./common";
+import { About } from "../../src/components/About";
+import { ActionComp } from "../../src/components/ActionComp";
+import { Comp5 } from "../../src/components/Comp5";
+// import { JsonForm } from "./components/JsonForm";
+import { Home } from "../../src/components/Home";
+import { RandomPic } from "../../src/components/RandomPic";
+import { rowStyle, styles } from "../common";
 
+// All component which will be rendered
+export const componentsSet = {
+  Comp5,
+  ActionComp,
+  Home,
+  About,
+  RandomPic,
+  // JsonForm
+};
 export const routes = {};
 
+// components section
+const schema = {
+  type: "object",
+  properties: {
+    username: { type: "string" },
+    password: { type: "string" },
+  },
+};
 routes.routeOne = {
   0: {
     0: {
@@ -12,7 +33,7 @@ routes.routeOne = {
         colConfig: {
           // colSize: 0, // *** change the colSize
 
-          style: { display: "none" }, // *** hide the 1st column
+          colStyle: { display: "none" }, // *** hide the 1st column
         },
       },
     },
@@ -49,7 +70,7 @@ routes.routeTwo = {
       layout: {
         colConfig: {
           // colSize: 0, // *** change the colSize
-          style: { display: "block" }, // *** hide the 1st column
+          colStyle: { display: "block" }, // *** hide the 1st column
         },
       },
     },
@@ -80,79 +101,10 @@ routes.routeTwo = {
 };
 
 // *************************************************
-//  "../applications/app-one/screen-one";
+//  Layout config
 // *************************************************
-// bind events to
-//  logic that binds
-
-export const events = {
-  /// <label>
-  home: {
-    //<label>-<element-id> : <handler>
-    "home-btn-one": {
-      // <event> :: <handler>
-      onPress: (setLayoutConfig, setAppState) => {
-        setLayoutConfig(routes["routeOne"]);
-      },
-    },
-    //<label>-<element-id>
-    "home-btn-two": {
-      // <event> :: <handler>
-      onPress: (setLayoutConfig, setAppState) => {
-        setLayoutConfig(routes["routeTwo"]);
-      },
-    },
-  },
-
-  actioncomp: {
-    // <label>
-    "actioncomp-btn-two": {
-      // <event> :: <handler>
-      onPress: (setLayoutConfig, setAppState) => {
-        setLayoutConfig(routes["routeTwo"]);
-      },
-    },
-    "actioncomp-btn-one": {
-      onPress: (setLayoutConfig, setAppState) => {
-        setAppState({
-          about: {
-            ui: "About",
-            props: { label: "about" },
-            children: "<Text>I am 2nd Child</Text>", // FIXME:: from events file, passing in children part which is JSX
-          },
-        });
-      },
-    },
-  },
-};
-
-// *************************************************
-//  Helper Util
-// *************************************************
-// bind events based on the layout config
-export const getEvents = (events, elId, setLayoutConfig, setAppState) => {
-  const elEvents = {};
-  console.log(`${elId}  - ${events[elId]}`);
-
-  Object.keys(events[elId]).map((eventName) => {
-    // console.log({ [eventName]: events[elId][eventName] });
-    elEvents[eventName] = () =>
-      events[elId][eventName](setLayoutConfig, setAppState);
-  });
-  // console.log(elEvents);
-  return elEvents;
-};
-
-// components section
-const schema = {
-  type: "object",
-  properties: {
-    username: { type: "string" },
-    password: { type: "string" },
-  },
-};
-
 export const appConfig = {
+  componentsSet,
   links: {
     "/": {
       style: styles.navItem,

@@ -4,8 +4,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Button, Text, TextInput, View } from "react-native";
-// import { appConfig as layoutConfig } from "../../../../applications/app-one-config";
-// import { nextState } from "../../../../applications/app-one/screen-one";
 
 export const TodoApp1 = (props: {
   appState: any;
@@ -27,19 +25,13 @@ export const TodoApp1 = (props: {
     layoutConfig,
     setLayoutConfig,
     getEvents,
-    events,
   } = props;
 
   const [value, onChangeText] = React.useState("Add Task");
   const [task, SetAddTask] = React.useState([]);
 
-  console.log(`getEvents`);
-  console.log(
-    getEvents(events, `${label}-btn-one`, setLayoutConfig, setAppState)
-  );
-
-  console.log("Props from TODO APP 1 : : : : ", props);
-  console.log("AppState from TODO APP 1 : : : : ", appState);
+  console.log(`label is ${label}`);
+  console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
 
   return (
     <View>
@@ -66,13 +58,8 @@ export const TodoApp1 = (props: {
       >
         <Button
           testID={`${label}-btn-one`}
-          title="ADD TASK"
-          {...getEvents(
-            events,
-            `${label}-btn-one`,
-            setLayoutConfig,
-            setAppState
-          )}
+          title="Add Task"
+          {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
         ></Button>
       </View>
       {children || (appState && appState[label] && appState[label]?.children)}

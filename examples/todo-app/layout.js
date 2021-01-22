@@ -323,6 +323,25 @@ export const events = {
       });
     },
   },
+  "sideNavBar-btn-two": {
+    // <event> :: <handler>
+    onPress: (setLayoutConfig, setAppState) => {
+      console.log("Back button clicked");
+      setLayoutConfig(routes["routeFour"]);
+      setAppState({
+        bodyFooter: {
+          ui: "ActionComp",
+          props: { label: "bodyFooter" },
+          children: <Text>Hello from RandomPic</Text>,
+        },
+        bodyContent: {
+          ui: "RandomPic",
+          props: { label: "actioncomp-2" },
+          children: null,
+        },
+      });
+    },
+  },
   "todoAppComponent1-btn-one": {
     // <event> :: <handler>
     onPress: (setLayoutConfig, setAppState) => {

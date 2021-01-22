@@ -33,11 +33,29 @@ export const SideNavBar = (props: {
   return (
     <View>
       <Text style={{}}>SideNavBar *** {label}</Text>
-      <Button
-        testID={`${label}-btn-one`}
-        title="TODO APP DEMO"
-        {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
-      ></Button>
+      <View
+        style={{
+          margin: 20,
+        }}
+      >
+        <Button
+          testID={`${label}-btn-one`}
+          title="TODO APP DEMO"
+          {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
+        ></Button>
+      </View>
+      <View
+        style={{
+          margin: 20,
+        }}
+      >
+        <Button
+          testID={`${label}-btn-two`}
+          title="Back"
+          {...getEvents(`${label}-btn-two`, setLayoutConfig, setAppState)}
+        ></Button>
+      </View>
+
       {children || (appState && appState[label] && appState[label]?.children)}
     </View>
   );

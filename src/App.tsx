@@ -8,11 +8,17 @@ import { Col, Grid, Row } from "react-native-easy-grid";
 //   getEvents,
 //   screenOne as appConfig,
 // } from "../applications/app-one/screen-one";
+
+// import {
+//   events,
+//   getEvents,
+//   screenOne as appConfig,
+// } from "../applications/sagar-poc/grid-poc";
 import {
   events,
   getEvents,
   screenOne as appConfig,
-} from "../applications/sagar-poc/grid-poc";
+} from "../applications/sagar-poc/examp1";
 import { rowStyle, styles } from "../applications/common";
 import { About } from "./components/About";
 import { ActionComp } from "./components/ActionComp";

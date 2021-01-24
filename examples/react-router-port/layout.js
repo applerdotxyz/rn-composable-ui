@@ -47,33 +47,29 @@ export const appConfig = {
     },
   },
   layout: {
-    colConfig: {
-      colSize: 1,
-    },
     // row no
     0: {
-      rowConfig: {
-        rowSize: 1,
-        style: rowStyle,
-      },
       // col no
       0: {
         layout: {
           colConfig: {
-            colSize: 3,
+            colSize: 1,
+            height: "100vh",
           },
           0: {
-            // row no
-            rowConfig: {
-              rowSize: 1,
-              style: rowStyle,
-            },
             0: {
               // col no
-              colSize: 1,
               idx: "Home",
               label: "left-nav",
-              colStyle: { borderWidth: 1, minHeight: 700 },
+              colStyle: { borderWidth: 1, height: "10vh" },
+            },
+          },
+          1: {
+            0: {
+              // col no
+              idx: "About",
+              label: "footer",
+              colStyle: { borderWidth: 4, height: "90vh" },
             },
           },
         },
@@ -81,70 +77,158 @@ export const appConfig = {
       1: {
         layout: {
           colConfig: {
-            colSize: 11,
-            colStyle: {
-              borderWidth: 2,
-              borderColor: "blue",
-            },
+            colSize: 12,
+            height: "100vh",
           },
           0: {
-            // row no
-            rowConfig: {
-              rowSize: 1,
-              style: rowStyle,
-            },
             0: {
               // col no
               colSize: 1,
               idx: "Home",
               label: "body-header",
-              colStyle: { borderWidth: 2, borderColor: "yellow" },
+              colStyle: {
+                borderWidth: 2,
+                borderColor: "yellow",
+                height: "10vh",
+              },
             },
           },
           1: {
-            // row no
-            rowConfig: {
-              rowSize: 7,
-              style: rowStyle,
-            },
             0: {
-              // col no
-              colSize: 1,
-              idx: "Home",
-              label: "body-content",
-              colStyle: { borderWidth: 1, flex: 1 },
+              layout: {
+                colConfig: {
+                  colStyle: {
+                    borderWidth: 2,
+                    borderColor: "yellow",
+                    height: "80vh",
+                  },
+                },
+                0: {
+                  0: {
+                    // col no
+                    colSize: 1,
+                    idx: "Home",
+                    label: "body-content-1",
+                    colStyle: {
+                      borderWidth: 2,
+                      borderColor: "yellow",
+                    },
+                  },
+                  1: {
+                    // col no
+                    colSize: 13,
+                    idx: "Home",
+                    label: "body-content-2",
+                    colStyle: {
+                      borderWidth: 5,
+                      borderColor: "red",
+                    },
+                  },
+                },
+              },
             },
+            // layout: {
+            //   colConfig: {
+            //     colSize: 12,
+            //     height: "100vh",
+            //   },
+            //   0: {
+            //     0: {
+            //       // col no
+            //       idx: "Home",
+            //       label: "body-content-1",
+            //       colSize: 2,
+            //       colStyle: {
+            //         borderWidth: 2,
+            //         borderColor: "red",
+            //         width: "90vw",
+            //         height: "100vh",
+            //       },
+            //     },
+            //     1: {
+            //       // col no
+            //       idx: "Home",
+            //       label: "body-content-2",
+            //       colSize: 11,
+            //       colStyle: {
+            //         borderWidth: 2,
+            //         borderColor: "red",
+            //         width: "10vw",
+            //         height: "100vh",
+            //       },
+            //     },
+            //   },
+            // },
           },
           2: {
-            // row no
-            rowConfig: {
-              rowSize: 1,
-              style: rowStyle,
-            },
             0: {
               // col no
               colSize: 1,
               idx: "Home",
               label: "body-footer",
-              colStyle: { borderWidth: 1 },
+              colStyle: { borderWidth: 1, height: "10vh" },
             },
           },
         },
       },
     },
-    1: {
-      // row no
-      rowConfig: {
-        rowSize: "0.21",
-        style: rowStyle,
-      },
-      0: {
-        // col no
-        colSize: 1,
-        idx: "Home",
-        label: "footer",
-        colStyle: { borderWidth: 4 },
-      },
+  },
+};
+
+// *************************************************
+//  "../applications/app-one/screen-one";
+// *************************************************
+// bind events to
+//  logic that binds
+
+export const events = {
+  /// <label>
+  //<label>-<element-id> : <handler>
+  "leftNavHeader-btn-one": {
+    // <event> :: <handler>
+    onPress: (setLayoutConfig, setAppState) => {
+      // setLayoutConfig(routes["routeTwo"]);
+      setAppState({
+        bodyFooter: {
+          ui: "ActionComp",
+          props: { label: "bodyFooter" },
+          children: <Text>Hello from RandomPic</Text>,
+        },
+        bodyContent: {
+          ui: "RandomPic",
+          props: { label: "actioncomp-2" },
+          children: null,
+        },
+      });
     },
   },
+  //<label>-<element-id>
+  "leftNavHeader-btn-two": {
+    // <event> :: <handler>
+    onPress: (setLayoutConfig, setAppState) => {
+      setLayoutConfig(routes["routeOne"]);
+    },
+  },
+
+  // <label>
+  "leftNavBody-btn-two": {},
+  "leftNavBody-btn-one": {},
+};
+
+// *************************************************
+//  Helper Util
+// *************************************************
+// bind events based on the layout config
+export const getEvents = (elId, setLayoutConfig, setAppState) => {
+  const elEvents = {};
+  events[elId] &&
+    Object.keys(events[elId]).map((eventName) => {
+      // console.log({ [eventName]: events[elId][eventName] });
+      elEvents[eventName] = () =>
+        events[elId] && events[elId][eventName] && events[elId][eventName]
+          ? events[elId][eventName](setLayoutConfig, setAppState)
+          : {};
+    });
+  // console.log(elEvents);
+  return elEvents;
 };

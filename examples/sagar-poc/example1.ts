@@ -35,16 +35,13 @@ routes.routeOne = {
       // layout: null // evict the earlier 1st column, other way is to hide it
       layout: {
         colConfig: {
-          colSize: 3, // *** change the colSize
+          // colSize: 0, // *** change the colSize
           colStyle: { display: "block" }, // *** hide the 1st column
         },
       },
     },
     1: {
       layout: {
-        colConfig: {
-          colSize: 8, // *** change the colSize
-        },
         1: {
           // *** below we are adding a new row(this will replace current layout config values), and this will have 2 columns
           0: {
@@ -58,12 +55,6 @@ routes.routeOne = {
             colSize: 10,
             idx: "About",
             label: "comp5 >> changed at runtime 2",
-          },
-          2: {
-            // col no
-            colSize: 10,
-            idx: "About",
-            label: "comp5 >> changed at runtime 3",
           },
         },
       },
@@ -124,11 +115,6 @@ export const appConfig = {
       linkStyle: styles.tabName,
       linkText: "Feed",
     },
-    "/contact": {
-      style: styles.navItem,
-      linkStyle: styles.tabName,
-      linkText: "Messages",
-    },
   },
   layout: {
     colConfig: {
@@ -158,7 +144,7 @@ export const appConfig = {
               // col no
               colSize: 1,
               idx: "Home",
-              label: "leftNavHeader",
+              label: "home",
               colStyle: { borderWidth: 1 },
             },
           },
@@ -188,45 +174,64 @@ export const appConfig = {
           "1.2.1.bodyHeaderRow": {
             // row no
             rowConfig: {
-              rowStyle: { height: "10vh" },
+              rowStyle: { height: "40vh" },
             },
             bodyHeader: {
               // col no
-              colSize: 1,
-              idx: "About",
+              colSize: 2,
+              idx: "RandomPic",
               label: "bodyHeader",
               schema,
               colStyle: { borderWidth: 1 },
             },
+            bodyHeader1: {
+              // col no
+              colSize: 9,
+              idx: "Home",
+              label: "bodyHeader1",
+              schema,
+              colStyle: { borderWidth: 2, height: "8vh" },
+            },
           },
+        //   bodyHeader2: {
+        //     // col no
+        //     colSize: 9,
+        //     idx: "Home",
+        //     label: "bodyHeader2",
+        //     schema,
+        //     colStyle: { borderWidth: 2, height: "20vh" },
+        //   },
+
+          //   "1.2.2.bodyContentCol": {
+          //     layout: {
+          //       colConfig: {
+          //         colSize: 11,
+          //       },
+
           "1.2.2.bodyContentRow": {
             // row no
             rowConfig: {
-              rowStyle: { height: "80vh" },
+              rowStyle: { height: "60vh" },
             },
             bodyContent: {
               // col no
-              colSize: 1,
+              colSize: 2,
               idx: "Home",
               label: "bodyContent",
               schema,
-              colStyle: { borderWidth: 1, flex: 1 },
+              colStyle: { borderWidth: 1, flex: 0.1, width: "30vw" },
             },
-          },
-          "1.2.3.bodyFooterRow": {
-            // row no
-            rowConfig: {
-              rowStyle: { height: "10vh" },
-            },
-            bodyFooter: {
+            bodyContent1: {
               // col no
-              colSize: 1,
-              idx: "Home",
-              label: "bodyFooter",
+              colSize: 9,
+              idx: "About",
+              label: "aboutComponent",
               schema,
-              colStyle: { borderWidth: 1 },
+              colStyle: { borderWidth: 1, flex: 0.9, width: "70vw" },
             },
           },
+          //     },
+          //   },
         },
       },
     },
@@ -239,7 +244,7 @@ export const appConfig = {
       footer: {
         // col no
         colSize: 1,
-        idx: "Home",
+        idx: "ActionComp",
         label: "footer",
         colStyle: { borderWidth: 4 },
       },
@@ -259,36 +264,12 @@ export const events = {
   "leftNavHeader-btn-one": {
     // <event> :: <handler>
     onPress: (setLayoutConfig, setAppState) => {
-      setLayoutConfig(routes["routeOne"]);
-
       // setLayoutConfig(routes["routeTwo"]);
-      //   setAppState({
-      //     bodyFooter: {
-      //       ui: "ActionComp",
-      //       props: { label: "bodyFooter" },
-      //       children: <Text>Hello from RandomPic</Text>,
-      //     },
-      //     bodyContent: {
-      //       ui: "RandomPic",
-      //       props: { label: "actioncomp-2" },
-      //       children: null,
-      //     },
-      //   });
-    },
-  },
-  //<label>-<element-id>
-  "leftNavHeader-btn-two": {
-    // <event> :: <handler>
-    onPress: (setLayoutConfig, setAppState) => {
-
-      //   setLayoutConfig(routes["routeOne"]);
-
       setAppState({
         bodyFooter: {
           ui: "ActionComp",
           props: { label: "bodyFooter" },
-          children: <Text>Hello from RandomPic</Text>,
-          
+          //   children: <Text>Hello from RandomPic</Text>,
         },
         bodyContent: {
           ui: "RandomPic",
@@ -296,6 +277,13 @@ export const events = {
           children: null,
         },
       });
+    },
+  },
+  //<label>-<element-id>
+  "leftNavHeader-btn-two": {
+    // <event> :: <handler>
+    onPress: (setLayoutConfig, setAppState) => {
+      setLayoutConfig(routes["routeOne"]);
     },
   },
 

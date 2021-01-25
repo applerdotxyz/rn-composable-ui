@@ -5,35 +5,23 @@ import React, { createElement, useState } from "react";
 import { Text } from "react-native";
 // TODO: See if the below LIB can be removed
 import { Col, Grid, Row } from "react-native-easy-grid";
-<<<<<<< HEAD
-// import { appConfig, events, getEvents } from "../applications/app-two-config";
 // import {
-//   events,
+//     routes,
 //   getEvents,
-//   screenOne as appConfig,
-// } from "../applications/app-one/screen-one";
+//   appConfig,
+// } from "../examples/app-one/layout";
 
 // import {
 //   events,
 //   getEvents,
 //   screenOne as appConfig,
-// } from "../applications/sagar-poc/grid-poc";
-import {
-  events,
-  getEvents,
-  screenOne as appConfig,
-} from "../applications/sagar-poc/examp1";
-import { rowStyle, styles } from "../applications/common";
-import { About } from "./components/About";
-import { ActionComp } from "./components/ActionComp";
-import { Comp5 } from "./components/Comp5";
-// import { JsonForm } from "./components/JsonForm";
-import { Home } from "./components/Home";
-import { RandomPic } from "./components/RandomPic";
-import { JSONEditor } from "./internal/components/JSONEditor";
-=======
+// } from "../examples/sagar-poc/grid-poc";
+// import {
+//   events,
+//   getEvents,
+//   screenOne as appConfig,
+// } from "../examples/sagar-poc/examp1";
 import { styles } from "../examples/common";
->>>>>>> 4ca17845f42c2da1ee6be5b8d5a7393c3335052d
 
 /*
 1. DONE ::: Layout from JSON

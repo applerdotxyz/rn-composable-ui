@@ -29,6 +29,7 @@ export const TodoApp2 = (props: {
 
   console.log(`label is ${label}`);
   console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
+  console.log("appState from TODOApp2 : : : : ", appState);
 
   return (
     <View>

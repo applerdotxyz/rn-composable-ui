@@ -40,145 +40,216 @@ const schema = {
 
 export const routes = {};
 
-routes.routeOne = {
-  0: {
-    0: {
-      // layout: null // evict the earlier 1st column, other way is to hide it
-      layout: {
-        colConfig: {
-          // colSize: 0, // *** change the colSize
-          colStyle: { display: "block" }, // *** hide the 1st column
-        },
-      },
-    },
-    1: {
-      layout: {
-        1: {
-          // *** below we are adding a new row(this will replace current layout config values), and this will have 2 columns
-          0: {
-            // col no
-            colSize: 10,
-            idx: "About",
-            label: "comp5 >> changed at runtime 1",
-          },
-          1: {
-            // col no
-            colSize: 10,
-            idx: "About",
-            label: "comp5 >> changed at runtime 2",
-          },
-        },
-      },
-    },
-  },
-};
+// routes.routeOne = {
+//   0: {
+//     0: {
+//       // layout: null // evict the earlier 1st column, other way is to hide it
+//       layout: {
+//         colConfig: {
+//           // colSize: 0, // *** change the colSize
+//           colStyle: { display: "block" }, // *** hide the 1st column
+//         },
+//       },
+//     },
+//     1: {
+//       layout: {
+//         1: {
+//           // *** below we are adding a new row(this will replace current layout config values), and this will have 2 columns
+//           0: {
+//             // col no
+//             colSize: 10,
+//             idx: "About",
+//             label: "comp5 >> changed at runtime 1",
+//           },
+//           1: {
+//             // col no
+//             colSize: 10,
+//             idx: "About",
+//             label: "comp5 >> changed at runtime 2",
+//           },
+//         },
+//       },
+//     },
+//   },
+// };
 
-routes.routeTwo = {
-  "1.container": {
-    "1.1.leftNavCol": {
-      layout: null, // evict the earlier 1st column, other way is to hide it
-      // layout: {
-      //   colConfig: {
-      //     // colSize: 0, // *** change the colSize
-      //     colStyle: { display: "none" }, // *** hide the 1st column
-      //   },
-      // },
-    },
-    "1.2.bodyCol": {
-      layout: {
-        colConfig: {
-          colSize: 11,
-        },
-        "1.2.1.bodyHeaderRow": {
-          bodyHeader: {
-            idx: "ActionComp",
-          },
-        },
-        "1.2.2.bodyContentRow": {
-          bodyContent: {
-            idx: "RandomPic",
-          },
-        },
-        "1.2.3.bodyFooterRow": {
-          bodyFooter: {
-            idx: "About",
-          },
-        },
-      },
-    },
-  },
-};
+// routes.routeTwo = {
+//   "1.container": {
+//     "1.1.leftNavCol": {
+//       layout: null, // evict the earlier 1st column, other way is to hide it
+//       // layout: {
+//       //   colConfig: {
+//       //     // colSize: 0, // *** change the colSize
+//       //     colStyle: { display: "none" }, // *** hide the 1st column
+//       //   },
+//       // },
+//     },
+//     "1.2.bodyCol": {
+//       layout: {
+//         colConfig: {
+//           colSize: 11,
+//         },
+//         "1.2.1.bodyHeaderRow": {
+//           bodyHeader: {
+//             idx: "ActionComp",
+//           },
+//         },
+//         "1.2.2.bodyContentRow": {
+//           bodyContent: {
+//             idx: "RandomPic",
+//           },
+//         },
+//         "1.2.3.bodyFooterRow": {
+//           bodyFooter: {
+//             idx: "About",
+//           },
+//         },
+//       },
+//     },
+//   },
+// };
 
 routes.routeThree = {
-  "1.container": {
-    "1.2.bodyCol": {
+  0: {
+    // col no : 1
+    0: {
       layout: {
         colConfig: {
-          colSize: 11,
+          colSize: 2.5,
+          height: "100vh",
         },
-        "1.2.1.bodyHeaderRow": {
-          // row no
-          rowConfig: {
-            rowStyle: { height: "10vh" }, // TODO : If I change the row into 2 equal half it is also reflected into nav col
+        // row 1
+        0: {
+          0: {
+            // col no
+            idx: "SideNavBar",
+            label: "sideNavBar",
+            colStyle: { borderWidth: 1, height: "100vh" },
           },
-          bodyHeader: {
+        },
+      },
+    },
+    // col no : 2
+    1: {
+      layout: {
+        colConfig: {
+          colSize: 12,
+          height: "100vh",
+        },
+        0: {
+          // Row 1
+          0: {
             // col no
             colSize: 1,
             idx: "TodoApp1",
             label: "todoAppComponent1",
-            schema,
-            colStyle: { borderWidth: 1 },
+            colStyle: {
+              display: "flex",
+              borderWidth: 2,
+              // //  borderColor: "yellow",
+              height: "50vh",
+            },
           },
         },
-        "1.2.2.bodyContentRow": {
-          // row no
-          rowConfig: {
-            rowStyle: { display: "none" }, // TODO : If I change the row into 2 equal half it is also reflected into nav col
+        1: {
+          // Row 2
+          0: {
+            // col no
+            colSize: 1,
+            // idx: "Home",
+            // label: "body-header",
+            colStyle: {
+              display: "none",
+              // borderWidth: 2,
+              //  borderColor: "yellow",
+              // height: "50vh",
+            },
           },
-          //   bodyContent: {
-          //     colStyle: { display: "none" },
-          //   },
         },
+        // Row 3
+        // 2: {
+        //   // Row 3
+        //   0: {
+        //     // col no
+        //     colSize: 1,
+        //     idx: "Home",
+        //     label: "body-footer",
+        //     colStyle: { borderWidth: 1, height: "10vh" },
+        //   },
+        // },
       },
     },
   },
 };
 
 routes.routeFour = {
-  "1.container": {
-    "1.2.bodyCol": {
+  0: {
+    // col no : 1
+    0: {
       layout: {
         colConfig: {
-          colSize: 11,
+          colSize: 2.5,
+          height: "100vh",
         },
-        "1.2.1.bodyHeaderRow": {
-          // row no
-          rowConfig: {
-            rowStyle: { height: "10vh" }, // TODO : If I change the row into 2 equal half it is also reflected into nav col
+        // row 1
+        0: {
+          0: {
+            // col no
+            idx: "SideNavBar",
+            label: "sideNavBar",
+            colStyle: { borderWidth: 1, height: "100vh" },
           },
-          bodyHeader: {
+        },
+      },
+    },
+    // col no : 2
+    1: {
+      layout: {
+        colConfig: {
+          colSize: 12,
+          height: "100vh",
+        },
+        0: {
+          // Row 1
+          0: {
             // col no
             colSize: 1,
             idx: "TodoApp1",
             label: "todoAppComponent1",
-            schema,
-            colStyle: { borderWidth: 1 },
+            colStyle: {
+              display: "flex",
+              borderWidth: 2,
+              //  borderColor: "yellow",
+              height: "50vh",
+            },
           },
         },
-        "1.2.2.bodyContentRow": {
-          // row no
-          rowConfig: {
-            rowStyle: { height: "80vh", display: "flex" }, // TODO : If I change the row into 2 equal half it is also reflected into nav col
-          },
-          bodyContent: {
+        1: {
+          // Row 2
+          0: {
             // col no
             colSize: 1,
             idx: "TodoApp2",
-            label: "todoAppComponent2",
-            schema,
-            colStyle: { borderWidth: 1, flex: 1 },
+            label: "todoAppComponent1",
+            colStyle: {
+              display: "flex",
+              borderWidth: 2,
+              //  borderColor: "yellow",
+              height: "50vh",
+            },
           },
         },
+        // Row 3
+        // 2: {
+        //   // Row 3
+        //   0: {
+        //     // col no
+        //     colSize: 1,
+        //     idx: "Home",
+        //     label: "body-footer",
+        //     colStyle: { borderWidth: 1, height: "10vh" },
+        //   },
+        // },
       },
     },
   },
@@ -208,92 +279,164 @@ export const appConfig = {
     },
   },
   layout: {
-    colConfig: {
-      colSize: 1,
-    },
     // row no
-    "1.container": {
-      rowConfig: {
-        rowSize: 1,
-        style: rowStyle,
-      },
-      // col no
-      "1.1.leftNavCol": {
+    0: {
+      // col no : 1
+      0: {
         layout: {
           colConfig: {
-            colSize: 3,
+            colSize: 2.5,
+            height: "100vh",
           },
-          "1.1.leftNavHeaderRow": {
-            // row no
-            rowConfig: {
-              // rowSize: 1,
-              rowStyle: {
-                height: "10vh",
-              },
-            },
-            leftNavHeader: {
+          // row 1
+          0: {
+            0: {
               // col no
-              colSize: 1,
-              idx: "Home",
-              label: "leftNavHeader",
-              colStyle: { borderWidth: 1 },
-            },
-          },
-          "1.1.leftNavBodyRow": {
-            // row no
-            rowConfig: {
-              // rowSize: 1,
-              rowStyle: {
-                height: "90vh",
-              },
-            },
-            leftNavBody: {
-              // col no
-              colSize: 1,
               idx: "SideNavBar",
               label: "sideNavBar",
-              colStyle: { borderWidth: 1 },
+              colStyle: { display: "flex", borderWidth: 1, height: "100vh" },
             },
           },
         },
       },
-      "1.2.bodyCol": {
+      // col no : 2
+      1: {
         layout: {
           colConfig: {
-            colSize: 11,
+            colSize: 12,
+            height: "100vh",
           },
-          "1.2.1.bodyHeaderRow": {
-            // row no
-            rowConfig: {
-              rowStyle: { height: "10vh" }, // TODO : If I change the row into 2 equal half it is also reflected into nav col
-            },
-            bodyHeader: {
+          0: {
+            // Row 1
+            0: {
               // col no
               colSize: 1,
               idx: "DefaultScreen",
               label: "defaultScreen",
-              schema,
-              colStyle: { borderWidth: 1 },
+              colStyle: {
+                display: "flex",
+                borderWidth: 2,
+                //  borderColor: "yellow",
+                height: "50vh",
+              },
             },
           },
+          // 1: {
+          //   // Row 2
+          //   0: {
+          //     // col no
+          //     colSize: 1,
+          //     idx: "Home",
+          //     label: "body-header",
+          //     colStyle: {
+          //       borderWidth: 2,
+          //       //  borderColor: "yellow",
+          //       height: "50vh",
+          //     },
+          //   },
+          // },
+          // Row 3
+          // 2: {
+          //   // Row 3
+          //   0: {
+          //     // col no
+          //     colSize: 1,
+          //     idx: "Home",
+          //     label: "body-footer",
+          //     colStyle: { borderWidth: 1, height: "10vh" },
+          //   },
+          // },
         },
       },
     },
-    "2.container": {
-      // row no
-      rowConfig: {
-        rowSize: "0.21",
-        style: rowStyle,
-      },
-      footer: {
-        // col no
-        colSize: 1,
-        idx: "Home",
-        label: "footer",
-        colStyle: { borderWidth: 4 },
-      },
-    },
   },
+  // layout: {
+  //   colConfig: {
+  //     colSize: 1,
+  //   },
+  //   // row no
+  //   "1.container": {
+  //     rowConfig: {
+  //       rowSize: 1,
+  //       style: rowStyle,
+  //     },
+  //     // col no
+  //     "1.1.leftNavCol": {
+  //       layout: {
+  //         colConfig: {
+  //           colSize: 3,
+  //         },
+  //         "1.1.leftNavHeaderRow": {
+  //           // row no
+  //           rowConfig: {
+  //             // rowSize: 1,
+  //             rowStyle: {
+  //               height: "10vh",
+  //             },
+  //           },
+  //           leftNavHeader: {
+  //             // col no
+  //             colSize: 1,
+  //             idx: "Home",
+  //             label: "leftNavHeader",
+  //             colStyle: { borderWidth: 1 },
+  //           },
+  //         },
+  //         "1.1.leftNavBodyRow": {
+  //           // row no
+  //           rowConfig: {
+  //             // rowSize: 1,
+  //             rowStyle: {
+  //               height: "90vh",
+  //             },
+  //           },
+  //           leftNavBody: {
+  //             // col no
+  //             colSize: 1,
+  //             idx: "SideNavBar",
+  //             label: "sideNavBar",
+  //             colStyle: { borderWidth: 1 },
+  //           },
+  //         },
+  //       },
+  //     },
+  //     "1.2.bodyCol": {
+  //       layout: {
+  //         colConfig: {
+  //           colSize: 11,
+  //         },
+  //         "1.2.1.bodyHeaderRow": {
+  //           // row no
+  //           rowConfig: {
+  //             rowStyle: { height: "10vh" }, // TODO : If I change the row into 2 equal half it is also reflected into nav col
+  //           },
+  //           bodyHeader: {
+  //             // col no
+  //             colSize: 1,
+  //             idx: "DefaultScreen",
+  //             label: "defaultScreen",
+  //             schema,
+  //             colStyle: { borderWidth: 1 },
+  //           },
+  //         },
+  //       },
+  //     },
+  //   },
+  //   "2.container": {
+  //     // row no
+  //     rowConfig: {
+  //       rowSize: "0.21",
+  //       style: rowStyle,
+  //     },
+  //     footer: {
+  //       // col no
+  //       colSize: 1,
+  //       idx: "Home",
+  //       label: "footer",
+  //       colStyle: { borderWidth: 4 },
+  //     },
+  //   },
+  // },
 };
 
 // *************************************************
@@ -323,9 +466,10 @@ export const events = {
       });
     },
   },
-  "todoAppComponent1-btn-one": {
+  "sideNavBar-btn-two": {
     // <event> :: <handler>
     onPress: (setLayoutConfig, setAppState) => {
+      console.log("Back button clicked");
       setLayoutConfig(routes["routeFour"]);
       setAppState({
         bodyFooter: {
@@ -339,6 +483,24 @@ export const events = {
           children: null,
         },
       });
+    },
+  },
+  "todoAppComponent1-btn-one": {
+    // <event> :: <handler>
+    onPress: (setLayoutConfig, setAppState) => {
+      setLayoutConfig(routes["routeFour"]);
+      // setAppState({
+      //   bodyFooter: {
+      //     ui: "ActionComp",
+      //     props: { label: "bodyFooter" },
+      //     children: <Text>Hello from RandomPic</Text>,
+      //   },
+      //   bodyContent: {
+      //     ui: "RandomPic",
+      //     props: { label: "actioncomp-2" },
+      //     children: null,
+      //   },
+      // });
     },
   },
   "leftNavHeader-btn-one": {

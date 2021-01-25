@@ -33,6 +33,20 @@ export const TodoApp1 = (props: {
   console.log(`label is ${label}`);
   console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
 
+  console.log("appState : : : : ", appState);
+  console.log("setAppState : : : ", setAppState);
+
+  const setTodoTask = (_text: string) => {
+    onChangeText(_text);
+    const newState = {
+      ui: {},
+      children: {},
+      props: {},
+      todoTask: [value],
+    };
+    setAppState(newState);
+  };
+
   return (
     <View>
       <Text style={{}}>TodoApp1 *** {label}</Text>
@@ -46,6 +60,9 @@ export const TodoApp1 = (props: {
       >
         <TextInput
           style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          // FIXME :  I am using this setTodoTask here textbox
+          // is not working correctly
+          // SAND
           onChangeText={(text) => onChangeText(text)}
           value={value}
         />

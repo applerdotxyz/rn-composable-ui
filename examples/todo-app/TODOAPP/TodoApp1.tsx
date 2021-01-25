@@ -62,6 +62,7 @@ export const TodoApp1 = (props: {
           style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
           // FIXME :  I am using this setTodoTask here textbox
           // is not working correctly
+          // SAND
           onChangeText={(text) => onChangeText(text)}
           value={value}
         />

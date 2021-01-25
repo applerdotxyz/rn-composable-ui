@@ -55,7 +55,7 @@ export const appConfig = {
       0: {
         layout: {
           colConfig: {
-            colSize: 1,
+            colSize: 5,
             height: "100vh",
           },
           0: {
@@ -63,7 +63,7 @@ export const appConfig = {
               // col no
               idx: "Home",
               label: "left-nav",
-              colStyle: { borderWidth: 1, height: "10vh" },
+              colStyle: { borderWidth: 1, height: "20vh" },
             },
           },
           1: {
@@ -71,7 +71,7 @@ export const appConfig = {
               // col no
               idx: "About",
               label: "footer",
-              colStyle: { borderWidth: 4, height: "90vh" },
+              colStyle: { borderWidth: 4, height: "51vh" },
             },
           },
         },

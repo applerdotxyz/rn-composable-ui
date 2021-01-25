@@ -1,3 +1,4 @@
+
 // TODO: See if the below LIB can be removed
 import merge from "deepmerge";
 import React, { createElement, useState } from "react";
@@ -17,10 +18,6 @@ import { styles } from "../examples/common";
 8. API Connectors (Datafire)
 9. Scrollable Views (Outer and Inner)
 10. Examples config JSONs for realistic apps
-
-
-
-
 */
 // ******************************************************************** //
 
@@ -90,25 +87,19 @@ export const GridSection = ({
     ui: {},
     children: {},
     props: {},
-    todoTask: [], // for todo app example
   });
 
-  const setAppState = (
-    newAppState: Partial<{ ui: {}; children: {}; props: {}; todoTask: [] }>
-  ) => {
+  const setAppState = (newAppState) => {
     _setAppState(merge(appState, newAppState));
   };
 
   //  overall routing engine
-  const UX = (layoutConfig: { colConfig: { colSize: any } }) => {
+  const UX = (layoutConfig) => {
     // window.appState = appState;
     // window.setAppState = setAppState;
-    const gridSection = (rows: { [x: string]: any }, setLayoutConfig: any) => {
+    const gridSection = (rows, setLayoutConfig) => {
       // builds the columns
-      const colsSection = (
-        rId: string,
-        cols: { [x: string]: { layout: any } }
-      ) => {
+      const colsSection = (rId, cols) => {
         let rowJsx = [];
         rowJsx = Object.keys(cols).map((cId, colNo) => {
           if (cId === "rowConfig") {

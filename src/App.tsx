@@ -25,7 +25,12 @@ import { styles } from "../examples/common";
 // ******************************************************************** //
 
 // render a grid layout as per the configuration
-export const GridSection = ({ layoutConfig, setLayoutConfig, routes, getEvents }) => {
+export const GridSection = ({
+  layoutConfig,
+  setLayoutConfig,
+  routes,
+  getEvents,
+}) => {
   // const history = useHistory();
 
   // pick from pre-loaded components and render properly, renders each component at column level
@@ -79,6 +84,8 @@ export const GridSection = ({ layoutConfig, setLayoutConfig, routes, getEvents }
   });
 
   const headerSection = <Col style={styles.nav}>{linksSection}</Col>;
+
+  // TODO: add ability to add/remove labels and row/columns new from layout config
   const [appState, _setAppState] = useState({
     ui: {},
     children: {},
@@ -128,8 +135,8 @@ export const GridSection = ({ layoutConfig, setLayoutConfig, routes, getEvents }
             // console.log(`colSize is ${colSize}`);
             return (
               <Col
-                // size={colSize}
-                style={{ ...colStyle, flexGrow: 1, flex: 1 }}
+                size={colSize}
+                style={{ ...colStyle }}
                 key={`${rId}-${colNo}`}
               >
                 <UXColumn {...passProps} />
@@ -160,7 +167,7 @@ export const GridSection = ({ layoutConfig, setLayoutConfig, routes, getEvents }
 
       let gridJsx = [];
       gridJsx = Object.keys(rows).map((rId) => {
-        const style = rows[rId]?.rowConfig?.rowStyle || {};
+        // const style = rows[rId]?.rowConfig?.rowStyle || {};
         // console.log(rows[rId].rowConfig);
 
         // FIXME: fix rowSize. is rowConfig used ?
@@ -173,12 +180,12 @@ export const GridSection = ({ layoutConfig, setLayoutConfig, routes, getEvents }
               key={`${rId}`}
               // size={rows[rId]?.rowConfig?.rowSize || 1}
               style={{
-                ...style,
+                // ...style,
                 borderWidth: 6,
                 borderColor: "gray",
-                ...rows[rId]?.rowConfig?.rowStyle,
+                // ...rows[rId]?.rowConfig?.rowStyle,
                 // flexGrow: 1,
-                flex: 1,
+                // flex: 1,
               }}
             >
               {colsSection(rId, rows[rId])}
@@ -187,11 +194,7 @@ export const GridSection = ({ layoutConfig, setLayoutConfig, routes, getEvents }
         }
       });
       return (
-        <Col
-          style={{ borderWidth: 0, borderColor: "red", flexGrow: 1, flex: 1 }}
-        >
-          {gridJsx}
-        </Col>
+        <Col style={{ borderWidth: 0, borderColor: "red" }}>{gridJsx}</Col>
       ); /// return all rows in layout
     };
 
@@ -215,7 +218,7 @@ export const GridSection = ({ layoutConfig, setLayoutConfig, routes, getEvents }
   return (
     <Grid style={{ flex: 1, borderWidth: 0, borderColor: "yellow" }}>
       <Row size={0.05}>{headerSection}</Row>
-      <Row style={{ flex: 1 }}>{UX(layoutConfig?.layout) || {}}</Row>
+      <Row style={{}}>{UX(layoutConfig?.layout) || {}}</Row>
     </Grid>
   );
 };

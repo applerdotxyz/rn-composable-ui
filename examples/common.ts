@@ -16,7 +16,7 @@ export const style1 = {
 export const gridStyle = {
   borderWidth: 1,
   borderColor: "blue",
-  minHeight: 500,
+  // minHeight: 500,
 };
 
 export const styles = {

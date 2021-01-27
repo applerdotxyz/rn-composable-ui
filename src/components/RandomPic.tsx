@@ -28,6 +28,7 @@ export const RandomPic = ({
   return (
     <View>
       <View>
+        <Text>`RandomPic *** {label}`</Text>
         <Button
           onPress={() => {
             fetchRandomCat();
@@ -57,7 +58,7 @@ export const RandomPic = ({
           />
         </View>
       ) : (
-        <Text>Loading Image</Text>
+        <Text>`Loading Image *** {label}`</Text>
       )}
     </View>
   );

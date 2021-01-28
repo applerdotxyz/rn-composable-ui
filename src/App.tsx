@@ -1,4 +1,3 @@
-
 // TODO: See if the below LIB can be removed
 import merge from "deepmerge";
 import React, { createElement, useState } from "react";
@@ -105,9 +104,7 @@ export const GridSection = ({
           if (cId === "rowConfig") {
             return null;
           } else if (cols[cId].idx) {
-            const { idx, label, colSize, props, children, colStyle } = cols[
-              cId
-            ];
+            const { idx, label, colSize, props, children, colStyle } = cols[cId];
 
             const passProps = {
               ...props,
@@ -141,10 +138,9 @@ export const GridSection = ({
               <Col
                 size={cols[cId].layout?.colConfig?.colSize || 1}
                 style={{
-                  ...cols[cId].layout?.colConfig?.style,
+                  ...(cols[cId].layout?.colConfig?.colStyle || {}),
                   borderWidth: 0,
                   borderColor: "blue",
-                  // flexGrow: 1,
                 }}
               >
                 <Grid style={{}}>{UX(cols[cId].layout)}</Grid>
@@ -162,21 +158,18 @@ export const GridSection = ({
         // console.log(rows[rId].rowConfig);
 
         // FIXME: fix rowSize. is rowConfig used ?
-        // console.log(`rowSize is ${rows[rId]?.rowConfig?.rowSize}`);
         if (rId === "colConfig") {
           return null;
         } else {
+          console.log(rows[rId]?.rowConfig?.rowSize);
           return (
             <Row
+              size={rows[rId]?.rowConfig?.rowSize || 1}
               key={`${rId}`}
-              // size={rows[rId]?.rowConfig?.rowSize || 1}
               style={{
-                // ...style,
                 borderWidth: 6,
                 borderColor: "gray",
-                // ...rows[rId]?.rowConfig?.rowStyle,
-                // flexGrow: 1,
-                // flex: 1,
+                ...rows[rId]?.rowConfig?.rowStyle,
               }}
             >
               {colsSection(rId, rows[rId])}
@@ -194,9 +187,7 @@ export const GridSection = ({
       <Col
         size={layoutConfig?.colConfig?.colSize || 1}
         style={{
-          // flexGrow: 1,
           ...layoutConfig?.colConfig?.colStyle,
-          // flex: 1,
         }}
       >
         {gridSection(layoutConfig, setLayoutConfig)}
@@ -208,8 +199,8 @@ export const GridSection = ({
 
   return (
     <Grid style={{ flex: 1, borderWidth: 0, borderColor: "yellow" }}>
-      <Row size={0.05}>{headerSection}</Row>
-      <Row style={{}}>{UX(layoutConfig?.layout) || {}}</Row>
+      <Row>{headerSection}</Row>
+      <Row>{UX(layoutConfig?.layout) || {}}</Row>
     </Grid>
   );
 };

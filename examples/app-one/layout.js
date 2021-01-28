@@ -31,48 +31,52 @@ const schema = {
 export const routes = {};
 
 routes.routeOne = {
-  0: {
-    0: {
-      // layout: null // evict the earlier 1st column, other way is to hide it
+  "1.container": {
+    // col no
+    "1.1.leftNavCol": {
       layout: {
         colConfig: {
-          // colSize: 0, // *** change the colSize
-          colStyle: { display: "block" }, // *** hide the 1st column
+          colStyle: { display: "block" },
         },
       },
+      // layout: null,
     },
-    1: {
-      layout: {
-        1: {
-          // *** below we are adding a new row(this will replace current layout config values), and this will have 2 columns
-          0: {
-            // col no
-            colSize: 10,
-            idx: "About",
-            label: "comp5 >> changed at runtime 1",
-          },
-          1: {
-            // col no
-            colSize: 10,
-            idx: "About",
-            label: "comp5 >> changed at runtime 2",
-          },
-        },
-      },
-    },
+    // "1.2.bodyCol": {
+    //   layout: {
+    //     colConfig: {
+    //       colSize: 11,
+    //     },
+    //     "1.2.1.bodyHeaderRow": {
+    //       bodyHeader: {
+    //         idx: "ActionComp",
+    //       },
+    //     },
+    //     "1.2.2.bodyContentRow": {
+    //       bodyContent: {
+    //         idx: "RandomPic",
+    //       },
+    //     },
+    //     "1.2.3.bodyFooterRow": {
+    //       bodyFooter: {
+    //         idx: "About",
+    //       },
+    //     },
+    //   },
+    // },
   },
 };
 
 routes.routeTwo = {
+  // row no
   "1.container": {
+    // col no
     "1.1.leftNavCol": {
-      layout: null, // evict the earlier 1st column, other way is to hide it
-      // layout: {
-      //   colConfig: {
-      //     // colSize: 0, // *** change the colSize
-      //     colStyle: { display: "none" }, // *** hide the 1st column
-      //   },
-      // },
+      layout: {
+        colConfig: {
+          colStyle: { display: "none" },
+        },
+      },
+      // layout: null,
     },
     "1.2.bodyCol": {
       layout: {
@@ -102,131 +106,128 @@ routes.routeTwo = {
 // *************************************************
 //  Layout config
 // *************************************************
+
+// links row
+const links = {
+  "/": {
+    style: styles.navItem,
+    linkStyle: styles.tabName,
+    linkText: "Home",
+  },
+  "/about": {
+    style: styles.navItem,
+    linkStyle: styles.tabName,
+    linkText: "Feed",
+  },
+  "/contact": {
+    style: styles.navItem,
+    linkStyle: styles.tabName,
+    linkText: "Messages",
+  },
+};
+
 export const appConfig = {
   /// 1st layout
   componentsSet,
-  links: {
-    "/": {
-      style: styles.navItem,
-      linkStyle: styles.tabName,
-      linkText: "Home",
-    },
-    "/about": {
-      style: styles.navItem,
-      linkStyle: styles.tabName,
-      linkText: "Feed",
-    },
-    "/contact": {
-      style: styles.navItem,
-      linkStyle: styles.tabName,
-      linkText: "Messages",
-    },
-  },
+  links, // FIXME: links mess up the styling in dynamic page transitions. pls look at the fix
   layout: {
-    colConfig: {
-      colSize: 1,
-    },
     // row no
     "1.container": {
       rowConfig: {
         rowSize: 1,
-        style: rowStyle,
+        rowStyle: rowStyle,
       },
       // col no
       "1.1.leftNavCol": {
         layout: {
           colConfig: {
-            colSize: 3,
+            colSize: 2,
           },
           "1.1.leftNavHeaderRow": {
             // row no
             rowConfig: {
-              // rowSize: 1,
-              rowStyle: {
-                height: "10vh",
-              },
+              rowSize: 0.5,
+              rowStyle: rowStyle,
             },
             leftNavHeader: {
               // col no
               colSize: 1,
               idx: "Home",
               label: "leftNavHeader",
-              colStyle: { borderWidth: 1 },
+              colStyle: { borderWidth: 1, height: "10vh" },
             },
           },
           "1.1.leftNavBodyRow": {
-            // row no
             rowConfig: {
-              // rowSize: 1,
-              rowStyle: {
-                height: "90vh",
-              },
+              rowSize: 5,
+              // rowStyle: rowStyle,
             },
             leftNavBody: {
               // col no
               colSize: 1,
               idx: "Home",
               label: "leftNavBody",
-              colStyle: { borderWidth: 1 },
+              colStyle: { borderWidth: 1, height: "90vh" },
             },
           },
         },
       },
       "1.2.bodyCol": {
+        rowConfig: {
+          rowSize: 1,
+          rowStyle: rowStyle,
+        },
         layout: {
           colConfig: {
             colSize: 11,
+            colStyle: { borderColor: "cyan", borderWidth: 4 },
           },
           "1.2.1.bodyHeaderRow": {
-            // row no
             rowConfig: {
-              rowStyle: { height: "10vh" },
+              rowSize: 1,
+              rowStyle: rowStyle,
             },
             bodyHeader: {
               // col no
               colSize: 1,
               idx: "About",
               label: "bodyHeader",
-              schema,
-              colStyle: { borderWidth: 1 },
+              colStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
             },
           },
           "1.2.2.bodyContentRow": {
-            // row no
             rowConfig: {
-              rowStyle: { height: "80vh" },
+              rowSize: 12,
+              rowStyle: rowStyle,
             },
             bodyContent: {
               // col no
-              colSize: 1,
               idx: "Home",
+              colSize: 1,
               label: "bodyContent",
-              schema,
-              colStyle: { borderWidth: 1, flex: 1 },
+              colStyle: { borderColor: "red", borderWidth: 2, height: "80vh" },
             },
           },
           "1.2.3.bodyFooterRow": {
-            // row no
             rowConfig: {
-              rowStyle: { height: "10vh" },
+              rowSize: 1,
+              rowStyle: rowStyle,
             },
             bodyFooter: {
               // col no
-              colSize: 1,
               idx: "Home",
+              colSize: 1,
               label: "bodyFooter",
-              schema,
-              colStyle: { borderWidth: 1 },
+              colStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
             },
           },
         },
       },
     },
     "2.container": {
-      // row no
       rowConfig: {
-        rowSize: "0.21",
-        style: rowStyle,
+        rowSize: 1,
+        rowStyle: rowStyle,
       },
       footer: {
         // col no
@@ -251,7 +252,14 @@ export const events = {
   "leftNavHeader-btn-one": {
     // <event> :: <handler>
     onPress: (setLayoutConfig, setAppState) => {
-      // setLayoutConfig(routes["routeTwo"]);
+      setLayoutConfig(routes["routeTwo"]);
+    },
+  },
+  //<label>-<element-id>
+  "leftNavHeader-btn-two": {
+    // <event> :: <handler>
+    onPress: (setLayoutConfig, setAppState) => {
+      // setLayoutConfig(routes["routeOne"]);
       setAppState({
         bodyFooter: {
           ui: "ActionComp",
@@ -266,8 +274,8 @@ export const events = {
       });
     },
   },
-  //<label>-<element-id>
-  "leftNavHeader-btn-two": {
+
+  "bodyHeader-btn-two": {
     // <event> :: <handler>
     onPress: (setLayoutConfig, setAppState) => {
       setLayoutConfig(routes["routeOne"]);

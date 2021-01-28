@@ -105,7 +105,7 @@ export const appConfig = {
               colSize: 1,
               idx: "Home",
               label: "leftNavHeader",
-              colStyle: { borderWidth: 1, height: "10vh" },
+              colStyle: { borderWidth: 1, height: "8vh" },
             },
           },
           "1.1.leftNavBodyRow": {
@@ -113,7 +113,7 @@ export const appConfig = {
               colSize: 1,
               idx: "Home",
               label: "leftNavBody",
-              colStyle: { borderWidth: 1, height: "90vh" },
+              colStyle: { borderWidth: 1, height: "92vh" },
             },
           },
         },

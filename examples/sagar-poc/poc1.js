@@ -1,12 +1,11 @@
-import React from "react";
-import { Text } from "react-native";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { About } from "../../src/components/About";
 import { ActionComp } from "../../src/components/ActionComp";
 import { Comp5 } from "../../src/components/Comp5";
-// import { JsonForm } from "./components/JsonForm";
 import { Home } from "../../src/components/Home";
 import { RandomPic } from "../../src/components/RandomPic";
 import { rowStyle, styles } from "../common";
+import { JsonForm } from "../../src/components/json-form/JsonForm";
 
 // All component which will be rendered
 export const componentsSet = {
@@ -15,7 +14,7 @@ export const componentsSet = {
   Home,
   About,
   RandomPic,
-  // JsonForm
+  JsonForm,
 };
 
 // components section
@@ -35,33 +34,28 @@ routes.routeOne = {
     "1.1.leftNavCol": {
       layout: {
         colConfig: {
-          colStyle: { display: "block" },
+          colStyle: { display: "none" },
         },
       },
-      // layout: null,
     },
-    // "1.2.bodyCol": {
-    //   layout: {
-    //     colConfig: {
-    //       colSize: 11,
-    //     },
-    //     "1.2.1.bodyHeaderRow": {
-    //       bodyHeader: {
-    //         idx: "ActionComp",
-    //       },
-    //     },
-    //     "1.2.2.bodyContentRow": {
-    //       bodyContent: {
-    //         idx: "RandomPic",
-    //       },
-    //     },
-    //     "1.2.3.bodyFooterRow": {
-    //       bodyFooter: {
-    //         idx: "About",
-    //       },
-    //     },
-    //   },
-    // },
+    "1.2.bodyCol": {
+      layout: {
+        colConfig: {
+          colSize: 11,
+        },
+        "1.2.1.bodyHeaderRow": {
+          rowConfig: {
+            rowSize: 2,
+            rowStyle: rowStyle,
+          },
+          bodyHeader: {
+            colSize: 1,
+            idx: "About",
+            label: "bodyHeader-changed at 1st",
+          },
+        },
+      },
+    },
   },
 };
 
@@ -75,7 +69,6 @@ routes.routeTwo = {
           colStyle: { display: "none" },
         },
       },
-      // layout: null,
     },
     "1.2.bodyCol": {
       layout: {
@@ -83,18 +76,92 @@ routes.routeTwo = {
           colSize: 11,
         },
         "1.2.1.bodyHeaderRow": {
+          rowConfig: {
+            rowSize: 2,
+            rowStyle: rowStyle,
+          },
           bodyHeader: {
-            idx: "ActionComp",
+            colSize: 1,
+            idx: "About",
+            label: "bodyHeader-changed at 2nd",
+            colStyle: {
+              borderColor: "cyan",
+              alignSelf: "none",
+              borderWidth: 4,
+              height: "50vh",
+              backgroundColor: "skyblue",
+            },
+          },
+          bodyHeader1: {
+            colSize: 1,
+            idx: "About",
+            label: "bodyHeader1",
+            colStyle: {
+              borderColor: "cyan",
+              alignSelf: "none",
+              borderWidth: 4,
+              height: "50vh",
+              backgroundColor: "red",
+            },
           },
         },
         "1.2.2.bodyContentRow": {
           bodyContent: {
-            idx: "RandomPic",
+            colSize: 1,
+            idx: "Home",
+            label: "bodyContent",
+            colStyle: {
+              borderColor: "cyan",
+              alignSelf: "none",
+              borderWidth: 4,
+              height: "50vh",
+              backgroundColor: "yellow",
+            },
           },
         },
-        "1.2.3.bodyFooterRow": {
-          bodyFooter: {
+      },
+    },
+  },
+};
+
+routes.routeThree = {
+  // row no
+  "1.container": {
+    // col no
+    "1.1.leftNavCol": {
+      layout: {
+        colConfig: {
+          colStyle: { display: "none" },
+        },
+      },
+    },
+    "1.2.bodyCol": {
+      layout: {
+        colConfig: {
+          colSize: 11,
+        },
+        "1.2.1.bodyHeaderRow": {
+          rowConfig: {
+            rowSize: 1,
+            rowStyle: rowStyle,
+          },
+          bodyHeader: {
+            colStyle: { display: "none" },
+          },
+          bodyHeader1: {
+            colSize: 11,
             idx: "About",
+            label: "bodyHeader1-changed 1st",
+            colStyle: {
+              height: "100vh",
+            },
+          },
+        },
+        "1.2.2.bodyContentRow": {
+          bodyContent: {
+            colStyle: {
+              display: "none",
+            },
           },
         },
       },
@@ -140,12 +207,13 @@ export const appConfig = {
       "1.1.leftNavCol": {
         layout: {
           colConfig: {
-            colSize: 2,
+            colSize: 3,
+            colStyle: { backgroundColor: "grey" },
           },
           "1.1.leftNavHeaderRow": {
             // row no
             rowConfig: {
-              rowSize: 0.1,
+              rowSize: 1,
               rowStyle: rowStyle,
             },
             leftNavHeader: {
@@ -153,20 +221,12 @@ export const appConfig = {
               colSize: 1,
               idx: "Home",
               label: "leftNavHeader",
-              colStyle: { borderWidth: 1, height: "10vh" },
-            },
-          },
-          "1.1.leftNavBodyRow": {
-            rowConfig: {
-              rowSize: 5,
-              // rowStyle: rowStyle,
-            },
-            leftNavBody: {
-              // col no
-              colSize: 1,
-              idx: "Home",
-              label: "leftNavBody",
-              colStyle: { borderWidth: 1, height: "90vh" },
+              colStyle: {
+                borderColor: "cyan",
+                borderWidth: 4,
+                height: "100vh",
+                backgroundColor: "lightgreen",
+              },
             },
           },
         },
@@ -179,7 +239,9 @@ export const appConfig = {
         layout: {
           colConfig: {
             colSize: 11,
-            colStyle: { borderColor: "cyan", borderWidth: 4 },
+            colStyle: {
+              backgroundColor: "grey",
+            },
           },
           "1.2.1.bodyHeaderRow": {
             rowConfig: {
@@ -191,49 +253,17 @@ export const appConfig = {
               colSize: 1,
               idx: "About",
               label: "bodyHeader",
-              colStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
-            },
-          },
-          "1.2.2.bodyContentRow": {
-            rowConfig: {
-              rowSize: 5,
-              rowStyle: rowStyle,
-            },
-            bodyContent: {
-              // col no
-              idx: "Home",
-              colSize: 1,
-              label: "bodyContent",
-              colStyle: { borderColor: "red", borderWidth: 2, height: "80vh" },
-            },
-          },
-          "1.2.3.bodyFooterRow": {
-            rowConfig: {
-              rowSize: 1,
-              rowStyle: rowStyle,
-            },
-            bodyFooter: {
-              // col no
-              idx: "Home",
-              colSize: 1,
-              label: "bodyFooter",
-              colStyle: { borderColor: "red", borderWidth: 2, height: "0.8vh" },
+              colStyle: {
+                borderColor: "cyan",
+                alignSelf: "center",
+                borderWidth: 4,
+                height: "80vh",
+                backgroundColor: "skyblue",
+              },
+              //   props:{schema:schema}
             },
           },
         },
-      },
-    },
-    "2.container": {
-      rowConfig: {
-        rowSize: 1,
-        rowStyle: rowStyle,
-      },
-      footer: {
-        // col no
-        colSize: 1,
-        idx: "Home",
-        label: "footer",
-        colStyle: { borderWidth: 4 },
       },
     },
   },
@@ -246,44 +276,24 @@ export const appConfig = {
 //  logic that binds
 
 export const events = {
-  /// <label>
   //<label>-<element-id> : <handler>
   "leftNavHeader-btn-one": {
     // <event> :: <handler>
-    onPress: (setLayoutConfig, setAppState) => {
-      setLayoutConfig(routes["routeTwo"]);
-    },
-  },
-  //<label>-<element-id>
-  "leftNavHeader-btn-two": {
-    // <event> :: <handler>
-    onPress: (setLayoutConfig, setAppState) => {
-      // setLayoutConfig(routes["routeOne"]);
-      setAppState({
-        bodyFooter: {
-          ui: "ActionComp",
-          props: { label: "bodyFooter" },
-          children: <Text>Hello from RandomPic</Text>,
-        },
-        bodyContent: {
-          ui: "RandomPic",
-          props: { label: "actioncomp-2" },
-          children: null,
-        },
-      });
-    },
-  },
-
-  "bodyHeader-btn-two": {
-    // <event> :: <handler>
-    onPress: (setLayoutConfig, setAppState) => {
+    onPress: (setLayoutConfig) => {
       setLayoutConfig(routes["routeOne"]);
     },
   },
 
-  // <label>
-  "leftNavBody-btn-two": {},
-  "leftNavBody-btn-one": {},
+  "bodyHeader-changed at 1st-btn-one": {
+    onPress: (setLayoutConfig) => {
+      setLayoutConfig(routes["routeTwo"]);
+    },
+  },
+  "bodyHeader1-btn-one": {
+    onPress: (setLayoutConfig) => {
+      setLayoutConfig(routes["routeThree"]);
+    },
+  },
 };
 
 // *************************************************
@@ -294,12 +304,10 @@ export const getEvents = (elId, setLayoutConfig, setAppState) => {
   const elEvents = {};
   events[elId] &&
     Object.keys(events[elId]).map((eventName) => {
-      // console.log({ [eventName]: events[elId][eventName] });
       elEvents[eventName] = () =>
         events[elId] && events[elId][eventName] && events[elId][eventName]
           ? events[elId][eventName](setLayoutConfig, setAppState)
           : {};
     });
-  // console.log(elEvents);
   return elEvents;
 };

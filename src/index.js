@@ -8,9 +8,15 @@ import React from "react";
 // import { appConfig, routes, getEvents } from "../examples/react-router-port/layout"; /// starter example with nav bars and changes to content area
 // import { appConfig, routes, getEvents } from "../examples/app-one/layout"; /// example with button clicks and routing with dynamic changes to screen
 // import { appConfig, routes } from "../examples/app-two/layout"; /// another example with changes
-import { appConfig, routes, getEvents } from "../examples/todo-app/layout";
+// import { appConfig, routes, getEvents } from "../examples/todo-app/layout";
 // import { appConfig, routes, getEvents } from "../examples/sagar-poc/layout"; /// example with button clicks and routing with dynamic changes to screen
 // ****** EXAMPLE CONFIGS END ****************
+
+// ****************** TSD CONFIG ********************
+import { appConfig } from "../examples/TSDigisolPlatform/configs/layouts/dashboardLayout";
+import { routes } from "../examples/TSDigisolPlatform/configs/routes/routesConfig";
+import { getEvents } from "../examples/TSDigisolPlatform/configs/events/eventConfig";
+// ****************** TSD CONFIG ********************
 
 import { GridSection } from "./App";
 import { JSONEditor } from "./internal/components/JSONEditor";
@@ -32,7 +38,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <JSONEditor
+        {/* <JSONEditor
           json={this.state?.config}
           onChangeJSON={(json) => {
             // TODO: add schema conformation for JSONEditor values of component names
@@ -40,7 +46,7 @@ class App extends React.Component {
               //
             });
           }}
-        />
+        /> */}
         <GridSection
           layoutConfig={this?.state?.config}
           routes={routes}

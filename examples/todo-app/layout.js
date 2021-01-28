@@ -40,75 +40,6 @@ const schema = {
 
 export const routes = {};
 
-// routes.routeOne = {
-//   0: {
-//     0: {
-//       // layout: null // evict the earlier 1st column, other way is to hide it
-//       layout: {
-//         colConfig: {
-//           // colSize: 0, // *** change the colSize
-//           colStyle: { display: "block" }, // *** hide the 1st column
-//         },
-//       },
-//     },
-//     1: {
-//       layout: {
-//         1: {
-//           // *** below we are adding a new row(this will replace current layout config values), and this will have 2 columns
-//           0: {
-//             // col no
-//             colSize: 10,
-//             idx: "About",
-//             label: "comp5 >> changed at runtime 1",
-//           },
-//           1: {
-//             // col no
-//             colSize: 10,
-//             idx: "About",
-//             label: "comp5 >> changed at runtime 2",
-//           },
-//         },
-//       },
-//     },
-//   },
-// };
-
-// routes.routeTwo = {
-//   "1.container": {
-//     "1.1.leftNavCol": {
-//       layout: null, // evict the earlier 1st column, other way is to hide it
-//       // layout: {
-//       //   colConfig: {
-//       //     // colSize: 0, // *** change the colSize
-//       //     colStyle: { display: "none" }, // *** hide the 1st column
-//       //   },
-//       // },
-//     },
-//     "1.2.bodyCol": {
-//       layout: {
-//         colConfig: {
-//           colSize: 11,
-//         },
-//         "1.2.1.bodyHeaderRow": {
-//           bodyHeader: {
-//             idx: "ActionComp",
-//           },
-//         },
-//         "1.2.2.bodyContentRow": {
-//           bodyContent: {
-//             idx: "RandomPic",
-//           },
-//         },
-//         "1.2.3.bodyFooterRow": {
-//           bodyFooter: {
-//             idx: "About",
-//           },
-//         },
-//       },
-//     },
-//   },
-// };
-
 routes.routeThree = {
   0: {
     // col no : 1
@@ -220,7 +151,7 @@ routes.routeFour = {
               display: "flex",
               borderWidth: 2,
               //  borderColor: "yellow",
-              height: "50vh",
+              height: "20vh",
             },
           },
         },
@@ -235,7 +166,7 @@ routes.routeFour = {
               display: "flex",
               borderWidth: 2,
               //  borderColor: "yellow",
-              height: "50vh",
+              height: "80vh",
             },
           },
         },

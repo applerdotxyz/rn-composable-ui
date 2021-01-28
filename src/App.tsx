@@ -1,4 +1,5 @@
-
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/prop-types */
 // TODO: See if the below LIB can be removed
 import merge from "deepmerge";
 import React, { createElement, useState } from "react";
@@ -172,7 +173,7 @@ export const GridSection = ({
               // size={rows[rId]?.rowConfig?.rowSize || 1}
               style={{
                 // ...style,
-                borderWidth: 6,
+                // borderWidth: 6,
                 borderColor: "gray",
                 // ...rows[rId]?.rowConfig?.rowStyle,
                 // flexGrow: 1,
@@ -208,7 +209,7 @@ export const GridSection = ({
 
   return (
     <Grid style={{ flex: 1, borderWidth: 0, borderColor: "yellow" }}>
-      <Row size={0.05}>{headerSection}</Row>
+      {/* <Row size={0.05}>{headerSection}</Row> */}
       <Row style={{}}>{UX(layoutConfig?.layout) || {}}</Row>
     </Grid>
   );

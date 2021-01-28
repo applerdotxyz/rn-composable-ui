@@ -3,6 +3,7 @@
 import merge from "deepmerge";
 import { registerRootComponent } from "expo";
 import React from "react";
+import { object } from "dot-object";
 
 // ****** EXAMPLE CONFIGS START ****************
 // import { appConfig, routes, getEvents } from "../examples/sagar-poc/layout"; /// example with button clicks and routing with dynamic changes to screen
@@ -49,7 +50,12 @@ class App extends React.Component {
           layoutConfig={this?.state?.config}
           routes={routes}
           getEvents={getEvents}
-          setLayoutConfig={(config) =>
+          setLayoutConfig={(config, isDottedFormat = false) => {
+            // TODO: find out if the object is in collapsed/dotted format
+            if (isDottedFormat) {
+              // expand to proper JSON from dotted notation
+              config = object(config);
+            }
             this.setState(
               {
                 // TODO: fix thois to be possible with only identifier
@@ -58,8 +64,8 @@ class App extends React.Component {
               () => {
                 console.log(this?.state?.config);
               }
-            )
-          }
+            );
+          }}
         />
       </>
     );

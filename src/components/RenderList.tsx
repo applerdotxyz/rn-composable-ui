@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   ScrollView,
   TouchableHighlight,
@@ -15,7 +15,7 @@ export function RenderList({
   visibleKeys,
   titleStyle,
   dataStyle,
-}) {
+}: any) {
   const [searchItem, setSearchItem] = useState("");
 
   const filterData = data.filter(createFilter(searchItem, searchFields));

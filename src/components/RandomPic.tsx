@@ -7,7 +7,7 @@ export const RandomPic = ({
   setAppState,
   appState,
   getEvents,
-}) => {
+}: any) => {
   const [randomCatImg, setRandomCatImg] = useState(null);
 
   const fetchRandomCat = () => {

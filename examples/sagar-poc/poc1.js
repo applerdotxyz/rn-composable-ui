@@ -18,11 +18,23 @@ export const componentsSet = {
 };
 
 // components section
+
+const formData = {
+  phone: 8654787549,
+  otp: 654789,
+};
+
 const schema = {
   type: "object",
   properties: {
-    username: { type: "string" },
-    password: { type: "string" },
+    phone: { type: "number" },
+    otp: { type: "number" },
+  },
+};
+
+const uiSchema = {
+  phone: {
+    "ui:title": "Phone No. ",
   },
 };
 
@@ -251,7 +263,8 @@ export const appConfig = {
             bodyHeader: {
               // col no
               colSize: 1,
-              idx: "About",
+              //   idx: "About",
+              idx: "JsonForm",
               label: "bodyHeader",
               colStyle: {
                 borderColor: "cyan",
@@ -260,7 +273,12 @@ export const appConfig = {
                 height: "80vh",
                 backgroundColor: "skyblue",
               },
-              //   props:{schema:schema}
+              passProps: {
+                schema,
+                uiSchema,
+                formData,
+                // style: { margin: 20, height: "20vh" },
+              },
             },
           },
         },

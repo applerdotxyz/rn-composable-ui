@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import { Button, Image, Text, View } from "react-native";
 

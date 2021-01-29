@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from "react";
 import { Text } from "react-native";
 import { About } from "../../src/components/About";
@@ -185,40 +184,43 @@ export const appConfig = {
           "1.2.1.bodyHeaderRow": {
             rowConfig: {
               rowSize: 1,
-              rowStyle: rowStyle,
+              // rowStyle: rowStyle,
+              rowStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
             },
             bodyHeader: {
               // col no
               colSize: 1,
               idx: "About",
               label: "bodyHeader",
-              colStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
+              colStyle: { borderColor: "blue", borderWidth: 0, height: "10vh" },
             },
           },
           "1.2.2.bodyContentRow": {
             rowConfig: {
               rowSize: 12,
-              rowStyle: rowStyle,
+              // rowStyle: rowStyle,
+              rowStyle: { borderColor: "red", borderWidth: 2, height: "80vh" },
             },
             bodyContent: {
               // col no
               idx: "Home",
               colSize: 1,
               label: "bodyContent",
-              colStyle: { borderColor: "red", borderWidth: 2, height: "80vh" },
+              colStyle: { borderColor: "blue", borderWidth: 0, height: "80vh" },
             },
           },
           "1.2.3.bodyFooterRow": {
             rowConfig: {
               rowSize: 1,
-              rowStyle: rowStyle,
+              // rowStyle: rowStyle,
+              rowStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
             },
             bodyFooter: {
               // col no
               idx: "Home",
               colSize: 1,
               label: "bodyFooter",
-              colStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
+              colStyle: { borderColor: "blue", borderWidth: 0, height: "10vh" },
             },
           },
         },

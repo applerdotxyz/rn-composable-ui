@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from "react";
 import { Text } from "react-native";
 import { About } from "../../src/components/About";

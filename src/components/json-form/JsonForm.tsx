@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/prop-types */
 import { createBrowserHistory } from "history";
 import React, { useState } from "react";
 import { Platform, StyleSheet } from "react-native";

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ace from "brace";

@@ -12,20 +12,19 @@ import { object } from "dot-object";
 
 // import { appConfig, routes, getEvents } from "../examples/sagar-poc/example1";
 
-
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
 // } from "../examples/sagar-poc/poc-with-appstate/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "../examples/sagar-poc/poc-with-setLayout/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/sagar-poc/poc-with-setLayout/layout";
 
-// import { appConfig, routes, getEvents } from "../examples/sagar-poc/poc1";
+import { appConfig, routes, getEvents } from "../examples/sagar-poc/poc1";
 
 // import {
 //   appConfig,

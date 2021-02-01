@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { About } from "../../src/components/About";
-import { ActionComp } from "../../src/components/ActionComp";
-import { Comp5 } from "../../src/components/Comp5";
-import { Home } from "../../src/components/Home";
-import { RandomPic } from "../../src/components/RandomPic";
-import { styles } from "../common";
+import { About } from "../../../src/components/About";
+import { ActionComp } from "../../../src/components/ActionComp";
+import { Comp5 } from "../../../src/components/Comp5";
+import { Home } from "../../../src/components/Home";
+import { RandomPic } from "../../../src/components/RandomPic";
+import { styles } from "../../common";
 
 // All component which will be rendered
 export const componentsSet = {
@@ -16,6 +17,60 @@ export const componentsSet = {
 };
 
 export const routes = {};
+
+routes.routeOne = {
+  "1.container": {
+    "1.1.leftNavCol": {
+      layout: null,
+      //   layout: {
+      //     colConfig: {
+      //       colSize: 0, // *** change the colSize
+      //       colStyle: { display: "none" }, // *** hide the 1st column
+      //     },
+      //   },
+    },
+    "1.2.bodyCol": {
+      layout: {
+        colConfig: {
+          colSize: 11, // *** change the colSize
+        },
+        "1.2.1.bodyHeaderRow": {
+          bodyHeader: {
+            colSize: 4,
+            idx: "About",
+            label: "bodyHeader",
+            colStyle: { borderWidth: 2, height: "60vh" },
+          },
+          bodyHeader1: {
+            colSize: 6,
+            idx: "About",
+            label: "bodyHeader1",
+            colStyle: { borderWidth: 2, height: "60vh" },
+          },
+        },
+        "1.2.2.bodyContentRow": {
+          bodyContent: {
+            colStyle: { display: "none" },
+          },
+          bodyContent1: {
+            colStyle: { display: "none" },
+          },
+          bodyContent2: {
+            colStyle: { display: "none" },
+          },
+        },
+      },
+    },
+  },
+  "2.container": {
+    footer: {
+      colSize: 1,
+      idx: "Home",
+      label: "home",
+      colStyle: { borderWidth: 4 },
+    },
+  },
+};
 
 // *************************************************
 //  Layout config
@@ -50,7 +105,7 @@ export const appConfig = {
               colSize: 1,
               idx: "Home",
               label: "leftNavHeader",
-              colStyle: { borderWidth: 1, height: "10vh" },
+              colStyle: { borderWidth: 1, height: "8vh" },
             },
           },
           "1.1.leftNavBodyRow": {
@@ -58,7 +113,7 @@ export const appConfig = {
               colSize: 1,
               idx: "Home",
               label: "leftNavBody",
-              colStyle: { borderWidth: 1, height: "90vh" },
+              colStyle: { borderWidth: 1, height: "92vh" },
             },
           },
         },
@@ -70,14 +125,15 @@ export const appConfig = {
           },
           "1.2.1.bodyHeaderRow": {
             bodyHeader: {
+              colSize: 6,
               idx: "RandomPic",
               label: "bodyHeader",
-              colStyle: { borderWidth: 1, height: "40vh", flex: 0.6 },
+              colStyle: { borderWidth: 1, height: "40vh" },
             },
             bodyHeader1: {
               idx: "Home",
               label: "bodyHeader1",
-              colStyle: { borderWidth: 2, height: "8vh", flex: 0.4 },
+              colStyle: { borderWidth: 2, height: "8vh" },
             },
           },
           "1.2.2.bodyContentRow": {
@@ -95,7 +151,7 @@ export const appConfig = {
             },
             bodyContent2: {
               colSize: 4,
-              idx: "About",
+              idx: "RandomPic",
               label: "bodyContent2",
               colStyle: { borderWidth: 4, borderColor: "black" },
             },
@@ -114,21 +170,19 @@ export const appConfig = {
   },
 };
 
+// *************************************************
+//  "../applications/app-one/screen-one";
+// *************************************************
+// bind events to
+//  logic that binds
+
 export const events = {
+  /// <label>
   //<label>-<element-id> : <handler>
   "leftNavHeader-btn-one": {
     // <event> :: <handler>
     onPress: (setLayoutConfig, setAppState) => {
-      setAppState({
-        bodyHeader: {
-          ui: "About",
-          props: { label: "bodyHeader" },
-        },
-        bodyContent: {
-          ui: "RandomPic",
-          props: { label: "bodyContent" },
-        },
-      });
+      setLayoutConfig(routes["routeOne"]);
     },
   },
 };

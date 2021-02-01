@@ -19,7 +19,7 @@ export const componentsSet = {
 
 // components section
 
-const _formData = {
+const formData = {
   phone: 8654787549,
   otp: 654789,
 };
@@ -219,7 +219,7 @@ export const appConfig = {
       "1.1.leftNavCol": {
         layout: {
           colConfig: {
-            colSize: 3,
+            colSize: 2,
             colStyle: { backgroundColor: "grey" },
           },
           "1.1.leftNavHeaderRow": {
@@ -236,7 +236,7 @@ export const appConfig = {
               colStyle: {
                 borderColor: "cyan",
                 borderWidth: 4,
-                height: "100vh",
+                height: 550,
                 backgroundColor: "lightgreen",
               },
             },
@@ -276,7 +276,8 @@ export const appConfig = {
               passProps: {
                 schema,
                 uiSchema,
-                _formData,
+                formData,
+                // style: { margin: 20, height: "20vh" },
               },
             },
           },

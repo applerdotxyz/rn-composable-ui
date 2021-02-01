@@ -110,19 +110,19 @@ export const JsonForm = ({
 
   return (
     <ThemeWrapper>
-      <MainContainer style={{ padding: "2%" }}>
-        <Form
-          style={{ margin: 10 }}
-          formData={formData}
-          schema={schema}
-          onChange={onChange}
-          onCancel={_onClose}
-          onSuccess={onSuccess}
-          onSubmit={onSubmit}
-          onError={onError}
-          uiSchema={uiSchema}
-        />
-      </MainContainer>
+      {/* <MainContainer style={{ padding: "2%", minHeight: "10vh" }}> */}
+      <Form
+        // style={{ margin: 10 }}
+        formData={_formData}
+        schema={schema}
+        onChange={onChange}
+        onCancel={_onClose}
+        onSuccess={onSuccess}
+        onSubmit={onSubmit}
+        onError={onError}
+        uiSchema={uiSchema}
+      />
+      {/* </MainContainer> */}
     </ThemeWrapper>
   );
 };

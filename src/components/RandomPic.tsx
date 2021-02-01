@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import { Button, Image, Text, View } from "react-native";
 
@@ -32,6 +28,7 @@ export const RandomPic = ({
   return (
     <View>
       <View>
+        <Text>`RandomPic *** {label}`</Text>
         <Button
           onPress={() => {
             fetchRandomCat();
@@ -61,7 +58,7 @@ export const RandomPic = ({
           />
         </View>
       ) : (
-        <Text>Loading Image</Text>
+        <Text>`Loading Image *** {label}`</Text>
       )}
     </View>
   );

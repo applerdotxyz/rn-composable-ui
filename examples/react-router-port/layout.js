@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable react/prop-types */
 import React from "react";
 import { Text, View } from "react-native";
 

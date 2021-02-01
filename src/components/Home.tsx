@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/prop-types */
 import React from "react";
 import { Button, Text, View } from "react-native";
 
@@ -27,8 +23,8 @@ export const Home = (props: {
     getEvents,
   } = props;
 
-  console.log(`label is ${label}`);
-  console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
+  // console.log(`label is ${label}`);
+  // console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
 
   return (
     <View>

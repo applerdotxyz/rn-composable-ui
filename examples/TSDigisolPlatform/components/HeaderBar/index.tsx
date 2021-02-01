@@ -5,6 +5,7 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { Row, Col } from "react-native-easy-grid";
+import { useSelector, useDispatch } from "react-redux";
 
 export const HeaderBar = (props: {
   appState: any;
@@ -30,6 +31,10 @@ export const HeaderBar = (props: {
 
   console.log(`label is ${label}`);
   console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
+
+  const state = useSelector((s: any) => s);
+
+  console.log("State in header bar : : : : ", state);
 
   return (
     <View style={HeaderStyles.container}>

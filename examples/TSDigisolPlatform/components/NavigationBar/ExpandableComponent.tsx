@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable react/prop-types */
+/* eslint-disable @typescript-eslint/ban-types */
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
@@ -8,7 +6,7 @@ export const ExpandableComponent = ({ props, item, onClickFunction }: any) => {
   //Custom Component for the Expandable List
   const [layoutHeight, setLayoutHeight] = useState(100);
 
-  // console.log("Props in Expandable Component : : : : ", props);
+  console.log("Props in Expandable Component : : : : ", props);
 
   useEffect(() => {
     if (item.isExpanded) {
@@ -24,10 +22,10 @@ export const ExpandableComponent = ({ props, item, onClickFunction }: any) => {
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={onClickFunction}
-        style={styles.header}
+        style={ExpandableComStyles.header}
       >
         {/* <Link to='/home'> */}
-        <Text style={styles.headerText}>{item.functionName}</Text>
+        <Text style={ExpandableComStyles.headerText}>{item.functionName}</Text>
         {/* </Link> */}
       </TouchableOpacity>
       <View
@@ -37,17 +35,17 @@ export const ExpandableComponent = ({ props, item, onClickFunction }: any) => {
         }}
       >
         {/*Content under the header of the Expandable List Item*/}
-        {item.modules.map((item: any, key: any) => (
+        {item.modules.map((item, key: string | number | null | undefined) => (
           <TouchableOpacity
             key={key}
-            style={styles.content}
+            style={ExpandableComStyles.content}
             onPress={() =>
               alert("Id: " + item.moduleKey + " val: " + item.moduleName)
             }
           >
             {/* Link config should API */}
             {/* <Link to={item.link} underlayColor="#adc650"> */}
-            <Text style={styles.text}>
+            <Text style={ExpandableComStyles.text}>
               {/* {key}.  */}
               {item.moduleDisplayName}
             </Text>
@@ -61,7 +59,7 @@ export const ExpandableComponent = ({ props, item, onClickFunction }: any) => {
   );
 };
 
-const styles = StyleSheet.create({
+const ExpandableComStyles = StyleSheet.create({
   header: {
     backgroundColor: "#5cabc5",
     padding: 20,

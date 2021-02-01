@@ -13,7 +13,27 @@ import {
 import { Grid, Row, Col } from "react-native-easy-grid";
 import ExpandableComponent from "./ExpandableComponent";
 
-export const NavigationBar = (props) => {
+export const NavigationBar = (props: {
+  appState;
+  label;
+  styles;
+  children;
+  setAppState;
+  layoutConfig;
+  setLayoutConfig;
+  getEvents;
+  events;
+}) => {
+  const {
+    appState,
+    label,
+    styles,
+    children,
+    setAppState,
+    layoutConfig,
+    setLayoutConfig,
+    getEvents,
+  } = props;
   const [loading, setLoading] = useState(true);
   const [listDataSource, setListDataSource] = useState([]);
   const [multiSelect] = useState(true);
@@ -72,7 +92,7 @@ export const NavigationBar = (props) => {
 
   if (loading)
     return (
-      <View style={styles.container}>
+      <View style={NavStyles.container}>
         <ActivityIndicator />
       </View>
     );
@@ -81,10 +101,10 @@ export const NavigationBar = (props) => {
     <SafeAreaView
       style={{
         flex: 1,
-        minHeight: Dimensions.get("window").height,
+        minHeight: Dimensions.get("window").height / 2,
       }}
     >
-      <View style={styles.container}>
+      <View style={NavStyles.container}>
         <Grid>
           <Row>
             <Col size={1} style={{ backgroundColor: "#5cabc5" }}>
@@ -95,6 +115,7 @@ export const NavigationBar = (props) => {
                     onClickFunction={() => {
                       updateLayout(key);
                     }}
+                    props={props}
                     item={item}
                   />
                 ))}
@@ -109,9 +130,14 @@ export const NavigationBar = (props) => {
 
 export default NavigationBar;
 
-const styles = StyleSheet.create({
+const NavStyles = StyleSheet.create({
   container: {
     flex: 1,
+    shadowColor: "#000",
+    shadowOffset: { width: 2, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    elevation: 10,
   },
   //   titleText: {
   //     flex: 1,

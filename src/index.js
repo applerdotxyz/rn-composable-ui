@@ -3,10 +3,12 @@
 import merge from "deepmerge";
 import { registerRootComponent } from "expo";
 import React from "react";
-
+import { persistStore } from "redux-persist";
+import { configureStore } from "../src/state-management/store"; //Import the store
+import { Provider as ReduxProvider } from "react-redux";
 // ****** EXAMPLE CONFIGS START ****************
 // import { appConfig, routes, getEvents } from "../examples/react-router-port/layout"; /// starter example with nav bars and changes to content area
-import { appConfig, routes, getEvents } from "../examples/app-one/layout"; /// example with button clicks and routing with dynamic changes to screen
+// import { appConfig, routes, getEvents } from "../examples/app-one/layout"; /// example with button clicks and routing with dynamic changes to screen
 // import { appConfig, routes } from "../examples/app-two/layout"; /// another example with changes
 // import { appConfig, routes, getEvents } from "../examples/todo-app/layout";
 // import { appConfig, routes, getEvents } from "../examples/sagar-poc/layout"; /// example with button clicks and routing with dynamic changes to screen
@@ -22,6 +24,9 @@ import { getEvents } from "../examples/TSDigisolPlatform/configs/events/eventCon
 
 import { GridSection } from "./App";
 import { JSONEditor } from "./internal/components/JSONEditor";
+
+const store = configureStore();
+const persistor = persistStore(store);
 
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
@@ -49,22 +54,24 @@ class App extends React.Component {
             });
           }}
         /> */}
-        <GridSection
-          layoutConfig={this?.state?.config}
-          routes={routes}
-          getEvents={getEvents}
-          setLayoutConfig={(config) =>
-            this.setState(
-              {
-                // TODO: fix thois to be possible with only identifier
-                config: merge(this?.state?.config, { layout: config }),
-              },
-              () => {
-                console.log(this?.state?.config);
-              }
-            )
-          }
-        />
+        <ReduxProvider store={store}>
+          <GridSection
+            layoutConfig={this?.state?.config}
+            routes={routes}
+            getEvents={getEvents}
+            setLayoutConfig={(config) =>
+              this.setState(
+                {
+                  // TODO: fix thois to be possible with only identifier
+                  config: merge(this?.state?.config, { layout: config }),
+                },
+                () => {
+                  console.log(this?.state?.config);
+                }
+              )
+            }
+          />
+        </ReduxProvider>
       </>
     );
   }

@@ -63,7 +63,13 @@ export const ActionComponent = (props: {
         title="TODO APP DEMO"
         {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
       ></Button> */}
-      <Grid>
+      <Grid
+        style={
+          {
+            // borderWidth: 2,
+          }
+        }
+      >
         <Row>
           <Col>
             <View

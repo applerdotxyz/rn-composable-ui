@@ -23,7 +23,7 @@ export default class JSONEditor extends Component {
         onChange={onChangeJSON}
         onError={onError}
         theme={"ace/theme/github"}
-      />
+      />,
     ];
   }
 }
@@ -31,5 +31,5 @@ export default class JSONEditor extends Component {
 JSONEditor.propTypes = {
   json: PropTypes.object,
   onError: PropTypes.func,
-  onChangeJSON: PropTypes.func
+  onChangeJSON: PropTypes.func,
 };

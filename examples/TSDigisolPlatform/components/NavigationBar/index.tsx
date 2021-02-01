@@ -48,8 +48,8 @@ export const NavigationBar = (props: {
     setLoading(true);
     const fetchData = async () => {
       const res = await fetch(
-        `https://run.mocky.io/v3/c03ca82f-c15f-4bc3-beef-4f64d297654d`,
-        // "http://localhost:8080/transaction-web/v1/schema/",
+        // `https://run.mocky.io/v3/c03ca82f-c15f-4bc3-beef-4f64d297654d`,
+        "http://localhost:8080/transaction-web/v1/schema/",
         {
           method: "POST",
           headers: {

@@ -167,9 +167,9 @@ export const JsonFormComponent = (props: {
     >
       {/* TODO : Remove before final demo */}
       {/* <Text>{JSON.stringify(props)}</Text> */}
-      <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
+      {/* <Text accessibilityRole="header" style={{ alignSelf: "center" }}>
         Current User is :: {JSON.stringify(state)}
-      </Text>
+      </Text> */}
       {/* <ConnectedForm controller="person" action="get" /> */}
       {/* <ScrollView>  */}
       {/* Use Grid */}
@@ -194,7 +194,7 @@ export const JsonFormComponent = (props: {
 
           dispatch(updateState());
           console.log("Hello onSuccess");
-          console.log("state", state);
+          console.log("state inside JSON FORM : : : : ", state);
 
           // props.navigation.navigate("First");
         }}

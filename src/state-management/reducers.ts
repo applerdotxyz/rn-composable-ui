@@ -3,8 +3,11 @@ import {
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
   LOGOUT_SUCCESS,
+  UPADATE_ACTIVE_MODULE_SELECTION,
   UPDATE_ORDER_VIEW_DATA,
   UPDATE_STATE,
+  UPDATE_ACTIVE_TAB_SELECTION,
+  UPDATE_ACTIVE_ACTION_SELECTION,
 } from "./actions"; //Import the actions types constant we defined in our actions
 import { initialState } from "./app";
 
@@ -86,11 +89,40 @@ const orderViewUpdate = (
   }
 };
 
+const activeModuleSelection = (
+  state = { ...initialState.activeSelection.active },
+  action
+) => {
+  switch (action.type) {
+    case UPADATE_ACTIVE_MODULE_SELECTION:
+      return {
+        ...state,
+        key: initialState.activeSelection.active.module.key,
+        name: initialState.activeSelection.active.module.name,
+      };
+    case UPDATE_ACTIVE_TAB_SELECTION:
+      return {
+        ...state,
+        key: initialState.activeSelection.active.tab.key,
+        name: initialState.activeSelection.active.tab.name,
+      };
+    case UPDATE_ACTIVE_ACTION_SELECTION:
+      return {
+        ...state,
+        key: initialState.activeSelection.active.action.key,
+        name: initialState.activeSelection.active.action.name,
+      };
+    default:
+      return state;
+  }
+};
+
 // Combine all the reducers
 const rootReducer = combineReducers({
   user,
   env,
   orderViewUpdate,
+  activeModuleSelection,
 });
 
 export default rootReducer;

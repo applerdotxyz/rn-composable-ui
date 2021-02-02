@@ -21,4 +21,20 @@ export const initialState = {
   orderViewUpdate: {
     keyName: "YourName",
   },
+  activeSelection: {
+    active: {
+      module: {
+        key: "",
+        name: "",
+      },
+      action: {
+        key: "",
+        name: "",
+      },
+      tab: {
+        key: "",
+        name: "",
+      },
+    },
+  },
 };

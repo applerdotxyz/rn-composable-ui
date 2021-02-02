@@ -120,7 +120,7 @@ export const appConfig = {
           "11leftNavHeaderRow": {
             // row no
             rowConfig: {
-              rowSize: 0.5,
+              rowSize: 0.1,
               rowStyle: rowStyle,
             },
             leftNavHeader: {
@@ -172,7 +172,7 @@ export const appConfig = {
           },
           "122bodyContentRow": {
             rowConfig: {
-              rowSize: 12,
+            rowSize: 12,
               // rowStyle: rowStyle,
               rowStyle: { borderColor: "red", borderWidth: 2, height: "80vh" },
             },

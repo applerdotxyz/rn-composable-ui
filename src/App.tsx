@@ -4,22 +4,6 @@ import React, { createElement, useState } from "react";
 import { Text } from "react-native";
 // TODO: See if the below LIB can be removed
 import { Col, Grid, Row } from "react-native-easy-grid";
-// import {
-//     routes,
-//   getEvents,
-//   appConfig,
-// } from "../examples/app-one/layout";
-
-// import {
-//   events,
-//   getEvents,
-//   screenOne as appConfig,
-// } from "../examples/sagar-poc/grid-poc";
-// import {
-//   events,
-//   getEvents,
-//   screenOne as appConfig,
-// } from "../examples/sagar-poc/examp1";
 import { styles } from "../examples/common";
 
 /*

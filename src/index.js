@@ -24,13 +24,13 @@ import { object } from "dot-object";
 //   getEvents,
 // } from "../examples/sagar-poc/poc-with-setLayout/layout";
 
-import { appConfig, routes, getEvents } from "../examples/sagar-poc/poc1";
+// import { appConfig, routes, getEvents } from "../examples/sagar-poc/poc1";
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "../examples/sagar-poc/poc1-mobile";
+import {
+  appConfig,
+  routes,
+  getEvents,
+} from "../examples/sagar-poc/poc1-mobile";
 
 // import {
 //   appConfig,

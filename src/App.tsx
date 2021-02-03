@@ -124,7 +124,9 @@ export const GridSection = ({
           if (cId === "rowConfig") {
             return null;
           } else if (cols[cId].idx) {
-            const { idx, label, colSize, props, children, colStyle } = cols[cId];
+            const { idx, label, colSize, props, children, colStyle } = cols[
+              cId
+            ];
 
             const passProps = {
               ...props,

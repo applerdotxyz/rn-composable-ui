@@ -4,7 +4,7 @@ import React from "react";
 import { Dimensions, Platform, StyleSheet, Text } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { UIProvider } from "react-native-web-ui-components";
-import { JsonForm } from "../components/json-form/JsonForm";
+import { JsonForm } from "./json-form/JsonForm";
 import useSafeSetState from "../utils/useSafeState";
 
 const theme = {

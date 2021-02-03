@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable react/prop-types */
 import { createBrowserHistory } from "history";
@@ -9,7 +7,9 @@ import Form from "react-native-web-jsonschema-form";
 import { MainContainer, UIProvider } from "react-native-web-ui-components";
 import useSafeSetState from "../../utils/useSafeState";
 
-const noOp = (): void => {};
+const noOp = (): void => {
+  /* */
+};
 
 export const JsonForm = ({
   _onBeforeSubmit = noOp,
@@ -21,7 +21,6 @@ export const JsonForm = ({
   _onClose = noOp,
   schema = {},
   uiSchema = {},
-  _submitButton = true,
   ...props
 }): AnyRecord => {
   // TODO: show loading indicator based on loading value
@@ -31,7 +30,7 @@ export const JsonForm = ({
   // TODO: show message
   const [message, setMessage] = useSafeSetState(null);
   // TODO: submit formData to ideal connected endpoint
-  const [formData, setFormData] = useState(_formData);
+  const [formData, setFormData] = useSafeSetState(_formData);
 
   const onBeforeSubmit = (event) => {
     console.log("*** onBeforeSubmit ***");
@@ -67,7 +66,7 @@ export const JsonForm = ({
   // form data mutator
   const onChange = (event) => {
     setFormData({
-      ..._formData,
+      ...formData,
       [event.params.name]: event.params.value,
     });
   };
@@ -76,28 +75,7 @@ export const JsonForm = ({
     input: {
       focused: StyleSheet.create({
         border: {
-          borderColor: "yellow",
-          borderWidth: 2,
-          borderStyle: "solid",
-        },
-        background: {
-          backgroundColor: "white",
-        },
-        text: {
-          fontSize: 14,
-          color: "#545454",
-        },
-        placeholder: {
-          color: "#FAFAFA",
-        },
-        opacity: {
-          opacity: 1,
-        },
-        selected: {
-          color: "blue",
-        },
-        unselected: {
-          color: "#FAFAFA",
+          borderColor: "#33bfff",
         },
       }),
     },
@@ -132,25 +110,17 @@ export const JsonForm = ({
 
   return (
     <ThemeWrapper>
-      {/* <MainContainer
-        style={{
-          padding: "2%",
-          marginHorizontal: 10,
-          marginVertical: 10,
-          minHeight: 10,
-        }}
-      > */}
+      {/* <MainContainer style={{ padding: "2%", minHeight: "10vh" }}> */}
       <Form
-        // style={{ margin: 30 }}
-        formData={formData}
+        // style={{ margin: 10 }}
+        formData={_formData}
         schema={schema}
-        uiSchema={uiSchema}
-        onSubmit={onSubmit}
+        onChange={onChange}
+        onCancel={_onClose}
         onSuccess={onSuccess}
-        submitButton={_submitButton}
-        cancelButton={false}
-        onChange={_onChange}
-        buttonPosition="center"
+        onSubmit={onSubmit}
+        onError={onError}
+        uiSchema={uiSchema}
       />
       {/* </MainContainer> */}
     </ThemeWrapper>

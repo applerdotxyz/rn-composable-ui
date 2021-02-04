@@ -151,8 +151,7 @@ const activeActionSelection = (
       console.log("action for action : : : : ", action);
       return {
         // ...state,
-        key: action.data.action.key,
-        name: action.data.action.name,
+        actionData: action.data.action.actionData,
       };
     default:
       return state;

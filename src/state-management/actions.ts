@@ -99,18 +99,14 @@ export const updateTabSelection = (tabName: string, tabKey: string) => {
   };
 };
 
-export const updateActionSelection = (
-  actionName: string,
-  actionKey: string
-) => {
+export const updateActionSelection = (actionData) => {
   console.log("Action updated");
   return async (dispatch: Function) => {
     dispatch({
       type: UPDATE_ACTIVE_ACTION_SELECTION,
       data: {
         action: {
-          key: actionKey,
-          name: actionName,
+          actionData: actionData,
         },
       },
     });

@@ -34,8 +34,14 @@ export const initialState = {
     name: "Organisation",
   },
   activeActionSelection: {
-    key: "4003",
-    name: "Search",
+    actionData: {
+      actionKey: 124684,
+      actionName: "Search",
+      endPoint: "v1/organization/list",
+      httpMethod: "POST",
+      showButton: true,
+      tabKey: 118201,
+    },
   },
   schemaUpdate: {
     schema: [],

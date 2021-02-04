@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Dimensions, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { JsonForm } from "../../../../src/components/json-form/JsonForm";
@@ -12,6 +12,7 @@ import {
   updateState,
   updateTabSelection,
 } from "../../../../src/state-management/actions";
+import { DEV_END_POINT } from "../../../../src/state-management/config/constant";
 
 export const JsonFormComponent = (props: {
   appState;
@@ -159,6 +160,53 @@ export const JsonFormComponent = (props: {
     // },
   };
 
+  const initialFormSchema = {
+    type: "object",
+    required: ["keyName"],
+    properties: {
+      keyName: { type: "string" },
+    },
+  };
+
+  const [formLayout, setformLayout] = useState(initialFormSchema);
+
+  useEffect(() => {
+    const fetchFormLayoutData = async () => {
+      const res = await fetch(
+        `http://localhost:8080/transaction-web//v1/schema/singleformLayout`,
+        {
+          method: `POST`,
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            moduleKey: state.activeModuleSelection.key,
+            roleKey: 1,
+            tabKey: state.activeTabSelection.key,
+            userId: "TsdAdmin",
+            actionName: state.activeActionSelection.actionData.actionName,
+          }),
+        }
+      );
+      const resJSON = await res.json();
+      console.log("RES JSON : : : : ", resJSON);
+      const json_name = `${state.activeActionSelection.actionData.actionName}${state.activeTabSelection.name}Schema`;
+      console.log("resJSON.json_name : : : : : ", resJSON[json_name]);
+      console.log("resJSON.json_name : : : :: : :", json_name);
+
+      setformLayout(resJSON[json_name]);
+      console.log("Action in form  : : : : ", state);
+    };
+    fetchFormLayoutData();
+  }, [
+    state.activeActionSelection.actionData.actionName,
+    state.activeModuleSelection,
+    state.activeTabSelection,
+  ]);
+
+  console.log("FormLayoout : : : : : ", formLayout);
+
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
@@ -179,7 +227,8 @@ export const JsonFormComponent = (props: {
       {/* <ScrollView>  */}
       {/* Use Grid */}
       <JsonForm
-        schema={_schema}
+        schema={formLayout}
+        // schema={_schema}
         uiSchema={_uiSchema}
         _formData={_formData}
         // _onBeforeSubmit={(e) => {
@@ -197,12 +246,12 @@ export const JsonFormComponent = (props: {
         _onSuccess={(e) => {
           console.log("e : : : : ", e);
 
-          dispatch(updateState());
-          dispatch(updateModuleSelection("Hello", "1233"));
-          dispatch(updateTabSelection("Bolo", "12334"));
-          dispatch(updateActionSelection("Gooo", "893839"));
-          console.log("Hello onSuccess");
-          console.log("state inside JSON FORM : : : : ", state);
+          // dispatch(updateState());
+          // dispatch(updateModuleSelection("Hello", "1233"));
+          // dispatch(updateTabSelection("Bolo", "12334"));
+          // dispatch(updateActionSelection("Gooo", "893839"));
+          // console.log("Hello onSuccess");
+          // console.log("state inside JSON FORM : : : : ", state);
 
           // props.navigation.navigate("First");
         }}

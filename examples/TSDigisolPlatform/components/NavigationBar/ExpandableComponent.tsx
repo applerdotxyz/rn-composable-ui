@@ -39,7 +39,7 @@ export const ExpandableComponent = ({ props, item, onClickFunction }: any) => {
             roleKey: 1,
             moduleName: state.activeModuleSelection.name,
             // tabName: "CreateOrders",
-            actionName: state.activeActionSelection.name,
+            actionName: state.activeActionSelection.actionData.actionName,
           }),
         }
       );
@@ -51,12 +51,26 @@ export const ExpandableComponent = ({ props, item, onClickFunction }: any) => {
         resJSON.businessFunctions[0].modules[0].tabs[0].tabName
       );
       setdata(resJSON.businessFunctions[0].modules[0].tabs[0]);
+      dispatch(
+        updateModuleSelection(
+          resJSON.businessFunctions[0].modules[0].moduleName,
+          resJSON.businessFunctions[0].modules[0].moduleKey
+        )
+      );
+      dispatch(
+        updateTabSelection(
+          resJSON.businessFunctions[0].modules[0].tabs[0].tabName,
+          resJSON.businessFunctions[0].modules[0].tabs[0].tabKey
+        )
+      );
     };
     fetchData();
+    // dispatch(updateTabSelection(data.tabName, data.tabKey));
+    console.log("After tab  updated : : : : ", state.activeTabSelection);
   }, [
     item.isExpanded,
     state.activeModuleSelection.name,
-    state.activeTabSelection.name,
+    // state.activeTabSelection.name,
   ]);
 
   return (
@@ -87,7 +101,7 @@ export const ExpandableComponent = ({ props, item, onClickFunction }: any) => {
               dispatch(
                 updateModuleSelection(item.moduleDisplayName, item.moduleKey)
               );
-              dispatch(updateTabSelection(data.tabName, data.tabKey));
+              // dispatch(updateTabSelection(data.tabName, data.tabKey));
               // props.setLayoutConfig(routes["routeThree"]);
             }}
           >

@@ -69,13 +69,35 @@ export const NavigationBar = (props: {
       updateBuisnessFunctionSelection(item.functionName, item.functionKey)
     );
     if (item.functionName === "Foundation") {
-      dispatch(updateActionSelection("Search", "4003"));
+      dispatch(
+        updateActionSelection({
+          actionData: {
+            actionKey: 124684,
+            actionName: "Search",
+            endPoint: "v1/organization/list",
+            httpMethod: "POST",
+            showButton: true,
+            tabKey: 118201,
+          },
+        })
+      );
       dispatch(updateModuleSelection("Catalog", "2001"));
       dispatch(updateTabSelection("Organisation", "118201"));
     } else {
-      dispatch(updateActionSelection("Search", "47351"));
+      dispatch(
+        updateActionSelection({
+          actionData: {
+            actionKey: 71806,
+            actionName: "Search",
+            endPoint: "v1/servicescapacitymanage/list",
+            httpMethod: "POST",
+            showButton: true,
+            tabKey: 84705,
+          },
+        })
+      );
       dispatch(updateModuleSelection("Capacity", "47351"));
-      dispatch(updateTabSelection("Calendar", "84701"));
+      dispatch(updateTabSelection("ServicesCapacityManage", "84705"));
     }
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     const array = state.schemaUpdate.schema;

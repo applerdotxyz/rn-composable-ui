@@ -53,7 +53,7 @@ export const TabComponent = (props: {
             roleKey: 1,
             moduleName: state.activeModuleSelection.name,
             // tabName: "CreateOrders",
-            actionName: state.activeActionSelection.name,
+            actionName: state.activeActionSelection.actionData.actionName,
           }),
         }
       );
@@ -69,7 +69,7 @@ export const TabComponent = (props: {
     fetchData();
   }, [
     state.activeModuleSelection.name,
-    state.activeActionSelection.name,
+    state.activeActionSelection.actionData.actionName,
     state.activeTabSelection.name,
   ]);
 

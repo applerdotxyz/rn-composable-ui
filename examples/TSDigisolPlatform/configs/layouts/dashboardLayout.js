@@ -15,7 +15,7 @@ import { SideNavBar } from "../../../todo-app/TODOAPP/SideNavBar";
 import { NavigationBar } from "../../components/NavigationBar";
 import { HeaderBar } from "../../components/HeaderBar";
 import { TabComponent } from "../../components/TabComponent";
-import { ActionComponent } from "../../components/ActionComponent";
+import { ActionComponent } from "../../components/ActionComponent/index";
 import { JsonFormComponent } from "../../components/JsonFormComponent";
 import { DefaultScreen } from "../../components/DefaultScreen";
 
@@ -111,7 +111,7 @@ export const appConfig = {
           },
           "2.2.1.bodyHeaderRow": {
             rowConfig: {
-              rowSize: 1.2, // TODO : Adjusted Height with Upper component using calculation of Row Config
+              rowSize: 1.4, // TODO : Adjusted Height with Upper component using calculation of Row Config
               // rowStyle: rowStyle,
               // rowStyle: { borderColor: "red", borderWidth: 1, height: "20vh" },
             },
@@ -120,11 +120,11 @@ export const appConfig = {
               colSize: 1,
               idx: "ActionComponent",
               label: "actionComponent",
-              // colStyle: {
-              //   borderColor: "blue",
-              //   borderWidth: 0,
-              //   height: "20vh",
-              // },
+              colStyle: {
+                borderColor: "blue",
+                // borderWidth: 2,
+                // height: "20vh",
+              },
             },
           },
           "2.2.2.bodyTabRow": {

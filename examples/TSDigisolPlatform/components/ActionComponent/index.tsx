@@ -8,7 +8,12 @@ import {
 } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
 import { useSelector, useDispatch } from "react-redux";
-import { updateActionSelection } from "../../../../src/state-management/actions";
+import {
+  updateActionSelection,
+  updateBuisnessFunctionSelection,
+  updateModuleSelection,
+  updateTabSelection,
+} from "../../../../src/state-management/actions";
 import { routes } from "../../configs/routes/routesConfig";
 
 export const ActionComponent = (props: {
@@ -33,18 +38,14 @@ export const ActionComponent = (props: {
     getEvents,
   } = props;
 
-  console.log(`label is ${label}`);
-  console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
-
-  const [action1BtnColor, setActionBtn1Color] = useState("#5cabc5");
-  const [action2BtnColor, setActionBtn2Color] = useState("#b2c560");
-
+  // console.log(`label is ${label}`);
+  // console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
   const state = useSelector((s: any) => s);
   const dispatch = useDispatch((s: any) => s);
-
-  const [loader, setloader] = useState(false);
   const [data, setdata] = useState({});
   const [action, setaction] = useState(`Search`);
+
+  // console.log("Action Set : : : : : ", action);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,153 +67,122 @@ export const ActionComponent = (props: {
         }
       );
       const resJSON = await res.json();
+      // // console.log("active module : : : :", state.activeModuleSelection);
 
-      console.log("Buisness Functions with action", resJSON);
-      // setdata(resJSON.businessFunctions[0].modules[0].tabs[0].actions[0]);
+      console.log(
+        "Buisness Functions with ACTION :  : : : : :: ------------------",
+        resJSON.businessFunctions[0].modules[0].tabs[0].actions[0]
+      );
+      setdata(resJSON.businessFunctions[0].modules[0].tabs[0].actions[0]);
+      dispatch(
+        updateActionSelection(
+          resJSON.businessFunctions[0].modules[0].tabs[0].actions[0]
+        )
+      );
     };
     fetchData();
   }, [
-    // FIXME : Need to click the Action Button twice to change the state
-    state.activeModuleSelection.name,
+    // state.activeModuleSelection.name,
+    // state.activeActionSelection.actionData.actionName,
     state.activeTabSelection.name,
-    state.activeActionSelection.Key,
+    state.activeBuisnessFunctionSelection.key,
     action,
   ]);
-
-  if (loader) {
-    return (
-      <View>
-        <ActivityIndicator />
-      </View>
-    );
-  }
-
-  // TODO : Implementation Left
-  /**
-   * Update State for Action
-   * Change the ActionBtn1 color --> #b2c560
-   * Change the ActionBtn2 color --> #5cabc5
-   * Change Layout
-   */
-
-  // console.log("Data : : : : in action Component : : : ", data);
-
-  const createActionHandler = () => {
-    setActionBtn1Color("#b2c560");
-    setActionBtn2Color("#5cabc5");
-    setaction(`Create`);
-    dispatch(updateActionSelection(data.actionName, data.actionKey));
-    console.log("Updated Action state");
-    // setLayoutConfig(routes["search"]);
-  };
-
-  // TODO : Implementation Left
-  /**
-   * Update State for Action
-   * Change the ActionBtn2 color --> #b2c560
-   * Change the ActionBtn1 color --> #5cabc5
-   * Change Layout
-   */
-  const searchActionHandler = () => {
-    setActionBtn2Color("#b2c560");
-    setActionBtn1Color("#5cabc5");
-    setaction(`Search`);
-    dispatch(updateActionSelection(data.actionName, data.actionKey));
-    console.log("Updated Action state");
-    // setLayoutConfig(routes["search"]);
-  };
-
   return (
     <View>
-      <Grid
-        style={
-          {
-            // borderWidth: 2,
-          }
-        }
-      >
+      <Grid>
         <Row>
-          <Col>
-            <View
+          <Col
+            style={{
+              marginTop: 10,
+              marginBottom: 10,
+              marginLeft: 180,
+              marginRight: 180,
+              // borderWidth: 2,
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => {
+                setaction("Create");
+              }}
               style={{
-                marginTop: 10,
-                marginBottom: 10,
-                marginLeft: 180,
-                marginRight: 180,
+                backgroundColor:
+                  "Create" === state.activeActionSelection.actionData.actionName
+                    ? "#b2c560"
+                    : "#5cabc5",
+                height: 35,
+                paddingTop: 7,
+                paddingBottom: 5,
+                paddingLeft: 50,
+                paddingRight: 30,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 2 },
+                shadowOpacity: 0.5,
+                shadowRadius: 2,
+                elevation: 5,
               }}
             >
-              <TouchableOpacity
-                onPress={createActionHandler}
-                // TODO : Title of button should come from API
+              <Text
                 style={{
-                  backgroundColor: action1BtnColor,
-                  height: 35,
-                  paddingTop: 7,
-                  paddingBottom: 5,
-                  paddingLeft: 50,
-                  paddingRight: 30,
-                  shadowColor: "#000",
-                  shadowOffset: { width: 0, height: 2 },
-                  shadowOpacity: 0.5,
-                  shadowRadius: 2,
-                  elevation: 5,
+                  justifyContent: "center",
+                  alignContent: "center",
+                  marginLeft: 10,
+                  marginRight: 10,
+                  color: "white",
+                  fontWeight: "bold",
                 }}
               >
-                <Text
-                  style={{
-                    justifyContent: "center",
-                    alignContent: "center",
-                    marginLeft: 10,
-                    marginRight: 10,
-                    color: "white",
-                    fontWeight: "bold",
-                  }}
-                >
-                  CREATE
-                </Text>
-              </TouchableOpacity>
-            </View>
+                Create
+              </Text>
+            </TouchableOpacity>
           </Col>
-          <Col>
-            <View
+          <Col
+            style={{
+              marginTop: 10,
+              marginBottom: 10,
+              marginLeft: 180,
+              marginRight: 180,
+              // borderWidth: 2,
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => {
+                console.log(
+                  "SEARCH ACTION : : : : ",
+                  state.activeActionSelection.actionData.actionName
+                );
+                setaction("Search");
+              }}
               style={{
-                marginTop: 10,
-                marginBottom: 10,
-                marginLeft: 180,
-                marginRight: 180,
+                backgroundColor:
+                  "Search" === state.activeActionSelection.actionData.actionName
+                    ? "#b2c560"
+                    : "#5cabc5",
+                height: 35,
+                paddingTop: 7,
+                paddingBottom: 5,
+                paddingLeft: 50,
+                paddingRight: 30,
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 2 },
+                shadowOpacity: 0.5,
+                shadowRadius: 2,
+                elevation: 5,
               }}
             >
-              <TouchableOpacity
-                onPress={searchActionHandler}
-                // TODO : Title of button should come from API
+              <Text
                 style={{
-                  backgroundColor: action2BtnColor,
-                  height: 35,
-                  paddingTop: 7,
-                  paddingBottom: 5,
-                  paddingLeft: 50,
-                  paddingRight: 30,
-                  shadowColor: "#000",
-                  shadowOffset: { width: 0, height: 2 },
-                  shadowOpacity: 0.5,
-                  shadowRadius: 2,
-                  elevation: 5,
+                  justifyContent: "center",
+                  alignContent: "center",
+                  marginLeft: 10,
+                  marginRight: 10,
+                  color: "white",
+                  fontWeight: "bold",
                 }}
               >
-                <Text
-                  style={{
-                    justifyContent: "center",
-                    alignContent: "center",
-                    marginLeft: 10,
-                    marginRight: 10,
-                    color: "white",
-                    fontWeight: "bold",
-                  }}
-                >
-                  SEARCH
-                </Text>
-              </TouchableOpacity>
-            </View>
+                Search
+              </Text>
+            </TouchableOpacity>
           </Col>
         </Row>
       </Grid>

@@ -21,7 +21,11 @@
 
 ### A mobile starter template with Configurability and Composability
 
+#### Demo
 [Demo](https://rn-compose.saurabhxyz.vercel.app/)
+![demo for the router](https://github.com/applerdotxyz/rn-config-tyler/blob/develop/demo-config-router.png)
+
+#### Features
 - uses configurable UI layouts uses [rn-config-tyler](https://www.npmjs.com/package/rn-config-tyler)
 - uses configurable UI components (forms, lists, imagebox, videos etc.)
 - uses multi-render routing capabilities (thanks to saurshaz/rn-config-tyler TODO: insert codesandbox.io link)

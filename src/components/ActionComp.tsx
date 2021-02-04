@@ -8,8 +8,8 @@ export const ActionComp = ({
   setAppState,
   setLayoutConfig,
   events,
-  getEvents
-}) => {
+  getEvents,
+}: any) => {
   return (
     <View
       style={

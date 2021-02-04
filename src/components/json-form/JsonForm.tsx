@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/prop-types */
 import { createBrowserHistory } from "history";
 import React from "react";
 import { Platform, StyleSheet } from "react-native";
 import Form from "react-native-web-jsonschema-form";
-import { MainContainer, UIProvider } from "react-native-web-ui-components";
-export { useSafeSetState } from "../utils/useSafeState";
+import { UIProvider } from "react-native-web-ui-components";
+import useSafeSetState from "../utils/useSafeState";
+export { useSafeSetState };
 
 const noOp = (): void => {
   /* */
@@ -108,19 +111,19 @@ export const JsonForm = ({
 
   return (
     <ThemeWrapper>
-      <MainContainer style={{ padding: "2%" }}>
-        <Form
-          style={{ margin: 10 }}
-          formData={formData}
-          schema={schema}
-          onChange={onChange}
-          onCancel={_onClose}
-          onSuccess={onSuccess}
-          onSubmit={onSubmit}
-          onError={onError}
-          uiSchema={uiSchema}
-        />
-      </MainContainer>
+      {/* <MainContainer style={{ padding: "2%", minHeight: "10vh" }}> */}
+      <Form
+        // style={{ margin: 10 }}
+        formData={_formData}
+        schema={schema}
+        onChange={onChange}
+        onCancel={_onClose}
+        onSuccess={onSuccess}
+        onSubmit={onSubmit}
+        onError={onError}
+        uiSchema={uiSchema}
+      />
+      {/* </MainContainer> */}
     </ThemeWrapper>
   );
 };

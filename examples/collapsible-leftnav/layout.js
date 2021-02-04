@@ -120,7 +120,7 @@ export const appConfig = {
           "11leftNavHeaderRow": {
             // row no
             rowConfig: {
-              rowSize: 0.5,
+              rowSize: 0.1,
               rowStyle: rowStyle,
             },
             leftNavHeader: {
@@ -159,40 +159,43 @@ export const appConfig = {
           "121bodyHeaderRow": {
             rowConfig: {
               rowSize: 1,
-              rowStyle: rowStyle,
+              // rowStyle: rowStyle,
+              rowStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
             },
             bodyHeader: {
               // col no
               colSize: 1,
               idx: "About",
               label: "bodyHeader",
-              colStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
+              colStyle: { borderColor: "blue", borderWidth: 0, height: "10vh" },
             },
           },
           "122bodyContentRow": {
             rowConfig: {
-              rowSize: 12,
-              rowStyle: rowStyle,
+            rowSize: 12,
+              // rowStyle: rowStyle,
+              rowStyle: { borderColor: "red", borderWidth: 2, height: "80vh" },
             },
             bodyContent: {
               // col no
               idx: "Home",
               colSize: 1,
               label: "bodyContent",
-              colStyle: { borderColor: "red", borderWidth: 2, height: "80vh" },
+              colStyle: { borderColor: "blue", borderWidth: 0, height: "80vh" },
             },
           },
           "123bodyFooterRow": {
             rowConfig: {
               rowSize: 1,
-              rowStyle: rowStyle,
+              // rowStyle: rowStyle,
+              rowStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
             },
             bodyFooter: {
               // col no
               idx: "Home",
               colSize: 1,
               label: "bodyFooter",
-              colStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
+              colStyle: { borderColor: "blue", borderWidth: 0, height: "10vh" },
             },
           },
         },

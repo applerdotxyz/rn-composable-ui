@@ -1,7 +1,7 @@
 {
   "name": "rn-composable",
   "version": "1.0.0",
-  "description": "",
+  "description": "Composable UI app :: composition is fun",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -10,12 +10,12 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "0.63.4",
+    "rn-config-tyler": "0.0.1",
     "react-native-easy-grid": "0.2.2",
     "react-native-search-filter": "^0.1.5",
     "react-native-sortable-multilist": "1.1.2",
     "react-native-web-jsonschema-form": "^3.1.4",
-    "react-native-web-ui-components": "^5.0.7",
-    "rn-config-tyler": "0.0.1"
+    "react-native-web-ui-components": "^5.0.7"
   },
   "devDependencies": {
     "@babel/preset-env": "latest",

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createBrowserHistory } from "history";
 import React from "react";
 import { Dimensions, Platform, StyleSheet, Text } from "react-native";

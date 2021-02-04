@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import {
   FlatList,
@@ -45,7 +44,7 @@ const DATA = [
   },
 ];
 
-const Item = ({ item, onPress, style }) => (
+const Item = ({ item, onPress, style }: any) => (
   <TouchableHighlight onPress={onPress} style={[styles.item, style]}>
     {/* <Text style={styles.title}>{item.title}</Text>
     <Text style={styles.description}>{item.description}</Text>
@@ -110,10 +109,10 @@ const Item = ({ item, onPress, style }) => (
   </TouchableHighlight>
 );
 
-export const ShowEntity = (props) => {
+export const ShowEntity = (props: any) => {
   const [selectedId, setSelectedId] = useState(null);
 
-  const renderItem = ({ item }) => {
+  const renderItem = ({ item }: any) => {
     const backgroundColor = item.id === selectedId ? "#e0e0e0" : "#fff";
     // const titleBackgroundColor = item.id === selectedId ? "#fff" : "#0d47a1";
     // const descriptionBackgroundColor = item.id === selectedId ? "#fff" : "#0d47a1";
@@ -141,7 +140,7 @@ export const ShowEntity = (props) => {
       </ScrollView>
       {/* </SafeAreaView> */}
       {/* TODO : Remove before final demo */}
-  {/* <Text>
+      {/* <Text>
     {JSON.stringify(props)}
   </Text> */}
       <View

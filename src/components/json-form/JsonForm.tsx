@@ -3,7 +3,7 @@ import React from "react";
 import { Platform, StyleSheet } from "react-native";
 import Form from "react-native-web-jsonschema-form";
 import { MainContainer, UIProvider } from "react-native-web-ui-components";
-import useSafeSetState from "../../lib/utils/useSafeState";
+export { useSafeSetState } from "../utils/useSafeState";
 
 const noOp = (): void => {
   /* */

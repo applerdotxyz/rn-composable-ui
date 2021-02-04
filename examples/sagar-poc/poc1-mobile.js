@@ -38,9 +38,6 @@ const uiSchema = {
   },
 };
 
-
-
-
 export const routes = {};
 
 routes.routeOne = {

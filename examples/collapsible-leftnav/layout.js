@@ -172,7 +172,7 @@ export const appConfig = {
           },
           "122bodyContentRow": {
             rowConfig: {
-            rowSize: 12,
+              rowSize: 12,
               // rowStyle: rowStyle,
               rowStyle: { borderColor: "red", borderWidth: 2, height: "80vh" },
             },

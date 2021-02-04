@@ -5,23 +5,17 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "brace": "^0.11.1",
-    "deepmerge": "4.2.2",
     "dot-object": "^2.1.4",
     "expo": "^40.0.0",
-    "expo-asset": "~8.2.1",
-    "expo-font": "~8.4.0",
-    "history": "5.0.0",
-    "jsoneditor": "^9.1.8",
-    "jsoneditor-react": "^3.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native": "0.63.4",
     "react-native-easy-grid": "0.2.2",
     "react-native-search-filter": "^0.1.5",
     "react-native-sortable-multilist": "1.1.2",
     "react-native-web-jsonschema-form": "3.1.2",
-    "react-native-web-ui-components": "5.0.4"
+    "react-native-web-ui-components": "5.0.4",
+    "rn-config-tyler": "applerdotxyz/rn-config-tyler"
   },
   "devDependencies": {
     "@babel/preset-env": "latest",
@@ -31,7 +25,6 @@
     "@testing-library/jest-native": "^3.3.0",
     "@testing-library/react-native": "^7.0.2",
     "@types/detox": "16.4.0",
-    "@types/dot-object": "^2.1.2",
     "@types/jest": "^26.0.4",
     "@types/jest-json-schema": "^2.1.2",
     "@types/node": "^14.0.14",
@@ -105,5 +98,15 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/applerdotxyz/rn-composable-ui.git"
+  },
+  "author": "applerdotxyz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/applerdotxyz/rn-composable-ui/issues"
+  },
+  "homepage": "https://github.com/applerdotxyz/rn-composable-ui#readme"
 }

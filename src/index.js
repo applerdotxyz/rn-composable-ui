@@ -1,9 +1,4 @@
-// import { route } from "./utils/router";
-
-import merge from "deepmerge";
-import { registerRootComponent } from "expo";
 import React from "react";
-import { object } from "dot-object";
 
 // ****** EXAMPLE CONFIGS START ****************
 // import { appConfig, routes, getEvents } from "../examples/sagar-poc/layout"; /// example with button clicks and routing with dynamic changes to screen
@@ -16,63 +11,33 @@ import { object } from "dot-object";
 import { appConfig, routes, getEvents } from "../examples/app-one/layout"; /// example with button clicks and routing with dynamic changes to screen
 // import { appConfig, routes, getEvents } from "../examples/app-two/layout"; /// another example with changes
 // ****** EXAMPLE CONFIGS END ****************
+// ****** EXAMPLE CONFIGS END ****************
+import WrappedApp from "./WrappedApp";
 
-import { GridSection } from "./App";
-import { JSONEditor } from "./internal/components/JSONEditor";
+// **************************************************
+// TODO uncomment below, and comment section at very bottom for non-codesandbox
+// **************************************************
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { registerRootComponent } = require("expo");
+registerRootComponent(() => (
+  <WrappedApp appConfig={appConfig} routes={routes} debug={false} />
+));
 
-if (process.env.NODE_ENV !== "production") {
-  console.log("Looks like we are in development mode!");
-}
+// **************************************************
+// TODO: below section to make it run on codesandbox.io
+// **************************************************
 
-//  overall container app
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      config: appConfig,
-    };
-    // console.log(this.state.config);
-  }
-
-  render() {
-    return (
-      <>
-        <JSONEditor
-          json={this.state?.config}
-          onChangeJSON={(json) => {
-            // TODO: add schema conformation for JSONEditor values of component names
-            this.setState({ config: json }, () => {
-              //
-            });
-          }}
-        />
-        <GridSection
-          layoutConfig={this?.state?.config}
-          routes={routes}
-          getEvents={getEvents}
-          setLayoutConfig={(config, isDottedFormat = false) => {
-            // TODO: find out if the object is in collapsed/dotted format
-            if (isDottedFormat) {
-              // expand to proper JSON from dotted notation
-              config = object(config);
-            }
-            this.setState(
-              {
-                // TODO: fix thois to be possible with only identifier
-                config: merge(this?.state?.config, { layout: config }),
-              },
-              () => {
-                console.log(this?.state?.config);
-              }
-            );
-          }}
-        />
-      </>
-    );
-  }
-}
-
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in the Expo client or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+// const { render } = require("react-dom");
+// const rootElement = document.getElementById("root");
+// render(
+//   <React.StrictMode>
+//     {/*
+//       `appConfig` is the original layout configuration for initial render
+//       `routes` is the routes object (multiple possible layout configurations possible) for later renders
+//       `debug` determines that whether `debugging` related features are enabled or not along with router (e.g. json tree)
+//     */}
+//     <WrappedApp appConfig={appConfig} routes={routes} debug={false} />
+//   </React.StrictMode>,
+//   rootElement
+// );

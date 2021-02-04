@@ -21,8 +21,8 @@
 
 ### A mobile starter template with Configurability and Composability
 
-[Demo](https://rn-composable-ui.applerdotxyz.vercel.app/)
-- uses configurable UI layouts
+[Demo](https://rn-compose.saurabhxyz.vercel.app/)
+- uses configurable UI layouts uses [rn-config-tyler](https://www.npmjs.com/package/rn-config-tyler)
 - uses configurable UI components (forms, lists, imagebox, videos etc.)
 - uses multi-render routing capabilities (thanks to saurshaz/rn-config-tyler TODO: insert codesandbox.io link)
 - uses configurable event-binding capabilities (TODO: insert codesandbox.io link)

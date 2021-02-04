@@ -4,7 +4,7 @@ import React from "react";
 
 // import { appConfig, routes, getEvents } from "../examples/todo-app/layout";
 // import { appConfig, routes, getEvents } from "../examples/sagar-poc/layout"; /// example with button clicks and routing with dynamic changes to screen
-import { appConfig, routes, getEvents } from "../examples/app-three/layout"; /// example with NavBarComponent addeed and Tab Component added
+// import { appConfig, routes, getEvents } from "../examples/app-three/layout"; /// example with NavBarComponent addeed and Tab Component added
 // import { appConfig, routes, getEvents } from "../examples/sagar-poc/example1";
 
 // import {

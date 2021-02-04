@@ -7,6 +7,8 @@ import { Comp5 } from "../../src/components/Comp5";
 import { Home } from "../../src/components/Home";
 import { RandomPic } from "../../src/components/RandomPic";
 import { rowStyle, styles } from "../common";
+import { NavigationBar } from "../../src/components/NavigationBar";
+import { TabComponent } from "../../src/components/TabComponent";
 
 // All component which will be rendered
 export const componentsSet = {
@@ -15,6 +17,8 @@ export const componentsSet = {
   Home,
   About,
   RandomPic,
+  NavigationBar,
+  TabComponent,
   // JsonForm
 };
 
@@ -27,32 +31,12 @@ const schema = {
   },
 };
 
-
 export const routes = {};
 
-// dotted notation config route
 routes.routeOne = {
-  "1container.11leftNavCol.layout.colConfig.colStyle.display": "block",
-  "1container.12bodyCol.layout.colConfig.colSize": 11,
-  "1container.12bodyCol.layout.121bodyHeaderRow.bodyHeader.idx": "ActionComp",
-  "1container.12bodyCol.layout.122bodyContentRow.bodyContent.idx": "RandomPic",
-  "1container.12bodyCol.layout.123bodyFooterRow.bodyFooter.idx": "ActionComp",
-};
-
-// dotted notation config route
-routes.routeTwo = {
-  "1container.11leftNavCol.layout.colConfig.colStyle.display": "none",
-  "1container.12bodyCol.layout.colConfig.colSize": 11,
-  "1container.12bodyCol.layout.121bodyHeaderRow.bodyHeader.idx": "ActionComp",
-  "1container.12bodyCol.layout.122bodyContentRow.bodyContent.idx": "RandomPic",
-  "1container.12bodyCol.layout.123bodyFooterRow.bodyFooter.idx": "About",
-};
-
-// expanded (non-dottend notation) route config
-routes.routeThree = {
-  // row no
-  "1container": {
-    "11leftNavCol": {
+  "1.container": {
+    // col no
+    "1.1.leftNavCol": {
       layout: {
         colConfig: {
           colStyle: { display: "block" },
@@ -60,15 +44,61 @@ routes.routeThree = {
       },
       // layout: null,
     },
+    // "1.2.bodyCol": {
+    //   layout: {
+    //     colConfig: {
+    //       colSize: 11,
+    //     },
+    //     "1.2.1.bodyHeaderRow": {
+    //       bodyHeader: {
+    //         idx: "ActionComp",
+    //       },
+    //     },
+    //     "1.2.2.bodyContentRow": {
+    //       bodyContent: {
+    //         idx: "RandomPic",
+    //       },
+    //     },
+    //     "1.2.3.bodyFooterRow": {
+    //       bodyFooter: {
+    //         idx: "About",
+    //       },
+    //     },
+    //   },
+    // },
+  },
+};
+
+routes.routeTwo = {
+  // row no
+  "1.container": {
     // col no
-    "12bodyCol": {
+    "1.1.leftNavCol": {
       layout: {
         colConfig: {
-          colSize: 18,
+          colStyle: { display: "none" },
         },
-        "122bodyContentRow": {
+      },
+      // layout: null,
+    },
+    "1.2.bodyCol": {
+      layout: {
+        colConfig: {
+          colSize: 11,
+        },
+        "1.2.1.bodyHeaderRow": {
+          bodyHeader: {
+            idx: "ActionComp",
+          },
+        },
+        "1.2.2.bodyContentRow": {
           bodyContent: {
-            idx: "Home",
+            idx: "RandomPic",
+          },
+        },
+        "1.2.3.bodyFooterRow": {
+          bodyFooter: {
+            idx: "About",
           },
         },
       },
@@ -99,39 +129,38 @@ const links = {
   },
 };
 
-
 export const appConfig = {
   /// 1st layout
   componentsSet,
-  links,
+  links, // FIXME: links mess up the styling in dynamic page transitions. pls look at the fix
   layout: {
     // row no
-    "1container": {
+    "1.container": {
       rowConfig: {
         rowSize: 1,
         rowStyle: rowStyle,
       },
       // col no
-      "11leftNavCol": {
+      "1.1.leftNavCol": {
         layout: {
           colConfig: {
             colSize: 2,
           },
-          "11leftNavHeaderRow": {
-            // row no
-            rowConfig: {
-              rowSize: 0.1,
-              rowStyle: rowStyle,
-            },
-            leftNavHeader: {
-              // col no
-              colSize: 1,
-              idx: "Home",
-              label: "leftNavHeader",
-              colStyle: { borderWidth: 1, height: "10vh" },
-            },
-          },
-          "11leftNavBodyRow": {
+          //   "1.1.leftNavHeaderRow": {
+          //     // row no
+          //     rowConfig: {
+          //       rowSize: 0.5,
+          //       rowStyle: rowStyle,
+          //     },
+          //     leftNavHeader: {
+          //       // col no
+          //       colSize: 1,
+          //       idx: "Home",
+          //       label: "leftNavHeader",
+          //       colStyle: { borderWidth: 1, height: "10vh" },
+          //     },
+          //   },
+          "1.1.leftNavBodyRow": {
             rowConfig: {
               rowSize: 5,
               // rowStyle: rowStyle,
@@ -139,14 +168,14 @@ export const appConfig = {
             leftNavBody: {
               // col no
               colSize: 1,
-              idx: "Home",
-              label: "leftNavBody",
-              colStyle: { borderWidth: 1, height: "90vh" },
+              idx: "NavigationBar",
+              label: "navBar",
+              colStyle: { borderWidth: 1, height: "100vh" },
             },
           },
         },
       },
-      "12bodyCol": {
+      "1.2.bodyCol": {
         rowConfig: {
           rowSize: 1,
           rowStyle: rowStyle,
@@ -156,7 +185,7 @@ export const appConfig = {
             colSize: 11,
             colStyle: { borderColor: "cyan", borderWidth: 4 },
           },
-          "121bodyHeaderRow": {
+          "1.2.1.bodyHeaderRow": {
             rowConfig: {
               rowSize: 1,
               // rowStyle: rowStyle,
@@ -165,12 +194,12 @@ export const appConfig = {
             bodyHeader: {
               // col no
               colSize: 1,
-              idx: "About",
-              label: "bodyHeader",
+              idx: "TabComponent",
+              label: "tabComponent",
               colStyle: { borderColor: "blue", borderWidth: 0, height: "10vh" },
             },
           },
-          "122bodyContentRow": {
+          "1.2.2.bodyContentRow": {
             rowConfig: {
               rowSize: 12,
               // rowStyle: rowStyle,
@@ -184,24 +213,24 @@ export const appConfig = {
               colStyle: { borderColor: "blue", borderWidth: 0, height: "80vh" },
             },
           },
-          "123bodyFooterRow": {
-            rowConfig: {
-              rowSize: 1,
-              // rowStyle: rowStyle,
-              rowStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
-            },
-            bodyFooter: {
-              // col no
-              idx: "Home",
-              colSize: 1,
-              label: "bodyFooter",
-              colStyle: { borderColor: "blue", borderWidth: 0, height: "10vh" },
-            },
-          },
+          //   "1.2.3.bodyFooterRow": {
+          //     rowConfig: {
+          //       rowSize: 1,
+          //       // rowStyle: rowStyle,
+          //       rowStyle: { borderColor: "red", borderWidth: 2, height: "10vh" },
+          //     },
+          //     bodyFooter: {
+          //       // col no
+          //       idx: "Home",
+          //       colSize: 1,
+          //       label: "bodyFooter",
+          //       colStyle: { borderColor: "blue", borderWidth: 0, height: "10vh" },
+          //     },
+          //   },
         },
       },
     },
-    "2container": {
+    "2.container": {
       rowConfig: {
         rowSize: 1,
         rowStyle: rowStyle,
@@ -229,7 +258,7 @@ export const events = {
   "leftNavHeader-btn-one": {
     // <event> :: <handler>
     onPress: (setLayoutConfig, setAppState) => {
-      setLayoutConfig(routes["routeTwo"], true);
+      setLayoutConfig(routes["routeTwo"]);
     },
   },
   //<label>-<element-id>
@@ -250,19 +279,12 @@ export const events = {
         },
       });
     },
-
-    "bodyContentFooter-btn-one": {
-      // <event> :: <handler>
-      onPress: (setLayoutConfig, setAppState) => {
-        setLayoutConfig(routes["routeTwo"]);
-      },
-    },
   },
 
   "bodyHeader-btn-two": {
     // <event> :: <handler>
     onPress: (setLayoutConfig, setAppState) => {
-      setLayoutConfig(routes["routeOne"], true);
+      setLayoutConfig(routes["routeOne"]);
     },
   },
 

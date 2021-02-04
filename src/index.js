@@ -6,6 +6,13 @@ import React from "react";
 import { object } from "dot-object";
 
 // ****** EXAMPLE CONFIGS START ****************
+// import { appConfig, routes, getEvents } from "../examples/react-router-port/layout"; /// starter example with nav bars and changes to content area
+// import { appConfig, routes, getEvents } from "../examples/app-one/layout"; /// example with button clicks and routing with dynamic changes to screen
+// import { appConfig, routes } from "../examples/app-two/layout"; /// another example with changes
+// import { appConfig, routes, getEvents } from "../examples/todo-app/layout";
+// import { appConfig, routes, getEvents } from "../examples/sagar-poc/layout"; /// example with button clicks and routing with dynamic changes to screen
+// import { appConfig, routes, getEvents } from "../examples/sagar-poc/layout"; /// example with button clicks and routing with dynamic changes to screen
+import { appConfig, routes, getEvents } from "../examples/app-three/layout"; /// example with NavBarComponent addeed and Tab Component added
 // import { appConfig, routes } from "../examples/react-router-port/layout"; /// starter example with nav bars and changes to content area
 // import { appConfig, routes, getEvents } from "../examples/app-one/layout"; // example with button clicks and routing with dynamic changes to screen
 // import { appConfig, routes } from "../examples/app-two/layout"; /// another example with changes
@@ -24,7 +31,7 @@ import { object } from "dot-object";
 //   getEvents,
 // } from "../examples/sagar-poc/poc-with-setLayout/layout";
 
-import { appConfig, routes, getEvents } from "../examples/sagar-poc/poc1";
+// import { appConfig, routes, getEvents } from "../examples/sagar-poc/poc1";
 
 // import {
 //   appConfig,

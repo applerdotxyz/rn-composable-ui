@@ -21,20 +21,23 @@ export const initialState = {
   orderViewUpdate: {
     keyName: "YourName",
   },
-  activeSelection: {
-    active: {
-      module: {
-        key: "",
-        name: "",
-      },
-      action: {
-        key: "",
-        name: "",
-      },
-      tab: {
-        key: "",
-        name: "",
-      },
-    },
+  activeBuisnessFunctionSelection: {
+    key: "1000",
+    name: "Foundation",
+  },
+  activeModuleSelection: {
+    key: "2001",
+    name: "Catalog",
+  },
+  activeTabSelection: {
+    key: "118201",
+    name: "Organisation",
+  },
+  activeActionSelection: {
+    key: "4003",
+    name: "Search",
+  },
+  schemaUpdate: {
+    schema: [],
   },
 };

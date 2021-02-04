@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -12,6 +13,14 @@ import {
 } from "react-native";
 import { Grid, Row, Col } from "react-native-easy-grid";
 import ExpandableComponent from "./ExpandableComponent";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  updateActionSelection,
+  updateBuisnessFunctionSelection,
+  updateModuleSelection,
+  updateSchema,
+  updateTabSelection,
+} from "../../../../src/state-management/actions";
 
 export const NavigationBar = (props: {
   appState;
@@ -34,48 +43,42 @@ export const NavigationBar = (props: {
     setLayoutConfig,
     getEvents,
   } = props;
-  const [loading, setLoading] = useState(true);
-  const [listDataSource, setListDataSource] = useState([]);
+  const [loading, setLoading] = useState(false);
+  // const [listDataSource, setListDataSource] = useState([]);
   const [multiSelect] = useState(true);
-
+  const state = useSelector((s: any) => s);
+  const dispatch = useDispatch((s: any) => s);
   console.log("Props from Nav bar : : : : ", props);
 
   if (Platform.OS === "android") {
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 
-  useEffect(() => {
-    setLoading(true);
-    const fetchData = async () => {
-      const res = await fetch(
-        // `https://run.mocky.io/v3/c03ca82f-c15f-4bc3-beef-4f64d297654d`,
-        "http://localhost:8080/transaction-web/v1/schema/",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            // TODO : REMOVE this hardcoding
-            userId: "TsdAdmin",
-            roleKey: "1",
-          }),
-        }
-      );
-      const resJSON = await res.json();
-      console.log(resJSON);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   const fetchData = async () => {
 
-      setListDataSource(resJSON.businessFunctions);
+  //     setLoading(false);
+  //   };
+  //   fetchData();
+  // }, [state.schemaUpdate.schema]);
 
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
-
-  const updateLayout = (index: number) => {
+  const updateLayout = (item: any, index: number) => {
+    // TODO : Save the selected function << Check for any optimised way
+    dispatch(
+      updateBuisnessFunctionSelection(item.functionName, item.functionKey)
+    );
+    if (item.functionName === "Foundation") {
+      dispatch(updateActionSelection("Search", "4003"));
+      dispatch(updateModuleSelection("Catalog", "2001"));
+      dispatch(updateTabSelection("Organisation", "118201"));
+    } else {
+      dispatch(updateActionSelection("Search", "47351"));
+      dispatch(updateModuleSelection("Capacity", "47351"));
+      dispatch(updateTabSelection("Calendar", "84701"));
+    }
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    const array = [...listDataSource];
+    const array = state.schemaUpdate.schema;
     if (multiSelect) {
       // If multiple select is enabled
       array[index]["isExpanded"] = !array[index]["isExpanded"];
@@ -87,7 +90,7 @@ export const NavigationBar = (props: {
           : (array[placeindex]["isExpanded"] = false)
       );
     }
-    setListDataSource(array);
+    // setListDataSource(array);
   };
 
   if (loading)
@@ -109,11 +112,11 @@ export const NavigationBar = (props: {
           <Row>
             <Col size={1} style={{ backgroundColor: "#5cabc5" }}>
               <ScrollView>
-                {listDataSource.map((item: any, key: any) => (
+                {state.schemaUpdate.schema.map((item: any, key: any) => (
                   <ExpandableComponent
                     key={item.functionName}
                     onClickFunction={() => {
-                      updateLayout(key);
+                      updateLayout(item, key);
                     }}
                     props={props}
                     item={item}

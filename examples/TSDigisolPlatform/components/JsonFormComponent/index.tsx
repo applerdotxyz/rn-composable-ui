@@ -3,10 +3,15 @@
 import React from "react";
 import { Dimensions, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { JsonForm } from "./json-form/JsonForm";
+import { JsonForm } from "../../../../src/components/json-form/JsonForm";
 import { useSelector, useDispatch } from "react-redux";
 import useSafeSetState from "../../helper/useSafeState";
-import { updateState } from "../../../../src/state-management/actions";
+import {
+  updateActionSelection,
+  updateModuleSelection,
+  updateState,
+  updateTabSelection,
+} from "../../../../src/state-management/actions";
 
 export const JsonFormComponent = (props: {
   appState;
@@ -193,6 +198,9 @@ export const JsonFormComponent = (props: {
           console.log("e : : : : ", e);
 
           dispatch(updateState());
+          dispatch(updateModuleSelection("Hello", "1233"));
+          dispatch(updateTabSelection("Bolo", "12334"));
+          dispatch(updateActionSelection("Gooo", "893839"));
           console.log("Hello onSuccess");
           console.log("state inside JSON FORM : : : : ", state);
 

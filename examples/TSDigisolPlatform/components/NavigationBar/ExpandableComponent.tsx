@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  updateModuleSelection,
+  updateTabSelection,
+} from "../../../../src/state-management/actions";
+import { routes } from "../../configs/routes/routesConfig";
 
 export const ExpandableComponent = ({ props, item, onClickFunction }: any) => {
   //Custom Component for the Expandable List
@@ -8,13 +14,50 @@ export const ExpandableComponent = ({ props, item, onClickFunction }: any) => {
 
   console.log("Props in Expandable Component : : : : ", props);
 
+  const state = useSelector((s: any) => s);
+  const dispatch = useDispatch((s: any) => s);
+
+  const [data, setdata] = useState({});
+
   useEffect(() => {
     if (item.isExpanded) {
       setLayoutHeight(null);
     } else {
       setLayoutHeight(0);
     }
-  }, [item.isExpanded]);
+    const fetchData = async () => {
+      const res = await fetch(
+        `http://localhost:8080/transaction-web/v1/schema/modulelayout`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: "TsdAdmin",
+            roleKey: 1,
+            moduleName: state.activeModuleSelection.name,
+            // tabName: "CreateOrders",
+            actionName: state.activeActionSelection.name,
+          }),
+        }
+      );
+      const resJSON = await res.json();
+      // console.log("active module : : : :", state.activeModuleSelection);
+
+      console.log(
+        "Buisness Functions with Module",
+        resJSON.businessFunctions[0].modules[0].tabs[0].tabName
+      );
+      setdata(resJSON.businessFunctions[0].modules[0].tabs[0]);
+    };
+    fetchData();
+  }, [
+    item.isExpanded,
+    state.activeModuleSelection.name,
+    state.activeTabSelection.name,
+  ]);
 
   return (
     <View>
@@ -39,13 +82,28 @@ export const ExpandableComponent = ({ props, item, onClickFunction }: any) => {
           <TouchableOpacity
             key={key}
             style={ExpandableComStyles.content}
-            onPress={() =>
-              alert("Id: " + item.moduleKey + " val: " + item.moduleName)
-            }
+            onPress={() => {
+              // alert("Id: " + item.moduleKey + " val: " + item.moduleName);
+              dispatch(
+                updateModuleSelection(item.moduleDisplayName, item.moduleKey)
+              );
+              dispatch(updateTabSelection(data.tabName, data.tabKey));
+              // props.setLayoutConfig(routes["routeThree"]);
+            }}
           >
             {/* Link config should API */}
             {/* <Link to={item.link} underlayColor="#adc650"> */}
-            <Text style={ExpandableComStyles.text}>
+            <Text
+              style={{
+                fontSize: 16,
+                color: "white",
+                padding: 10,
+                backgroundColor:
+                  state.activeModuleSelection.name === item.moduleName
+                    ? "#b2c560"
+                    : "",
+              }}
+            >
               {/* {key}.  */}
               {item.moduleDisplayName}
             </Text>

@@ -6,9 +6,12 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const UPDATE_STATE = "UPDATE_STATE";
 
+export const UPADATE_ACTIVE_BUISNESS_FUNCTION_SELECTION =
+  "UPADATE_ACTIVE_BUISNESS_FUNCTION_SELECTION";
 export const UPADATE_ACTIVE_MODULE_SELECTION = "UPADATE_ACTIVE_SELECTION";
 export const UPDATE_ACTIVE_ACTION_SELECTION = "UPDATE_ACTIVE_ACTION_SELECTION";
 export const UPDATE_ACTIVE_TAB_SELECTION = "UPDATE_ACTIVE_TAB_SELECTION";
+export const UPDATE_SCHEMA = "UPDATE_SCHEMA";
 
 export const UPDATE_ORDER_VIEW_DATA = "UPDATE_ORDER_VIEW_DATA";
 
@@ -45,6 +48,24 @@ export const updateOrderViewData = (keyName: any) => {
   };
 };
 
+export const updateBuisnessFunctionSelection = (
+  functionName: string,
+  functionKey: string
+) => {
+  console.log("Module updated");
+  return async (dispatch: Function) => {
+    dispatch({
+      type: UPADATE_ACTIVE_BUISNESS_FUNCTION_SELECTION,
+      data: {
+        function: {
+          key: functionKey,
+          name: functionName,
+        },
+      },
+    });
+  };
+};
+
 export const updateModuleSelection = (
   moduleName: string,
   moduleKey: string
@@ -54,11 +75,9 @@ export const updateModuleSelection = (
     dispatch({
       type: UPADATE_ACTIVE_MODULE_SELECTION,
       data: {
-        active: {
-          module: {
-            key: moduleKey,
-            name: moduleName,
-          },
+        module: {
+          key: moduleKey,
+          name: moduleName,
         },
       },
     });
@@ -71,11 +90,9 @@ export const updateTabSelection = (tabName: string, tabKey: string) => {
     dispatch({
       type: UPDATE_ACTIVE_TAB_SELECTION,
       data: {
-        active: {
-          tab: {
-            key: tabKey,
-            name: tabName,
-          },
+        tab: {
+          key: tabKey,
+          name: tabName,
         },
       },
     });
@@ -91,11 +108,45 @@ export const updateActionSelection = (
     dispatch({
       type: UPDATE_ACTIVE_ACTION_SELECTION,
       data: {
-        active: {
-          action: {
-            key: actionKey,
-            name: actionName,
-          },
+        action: {
+          key: actionKey,
+          name: actionName,
+        },
+      },
+    });
+  };
+};
+
+export const businessFunctionHandler = () => {
+  console.log("Hello this is BuisnessFunction Handler");
+
+  return (dispatch: Function) => {
+    return fetch(`http://localhost:8080/transaction-web/v1/schema/`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // TODO : REMOVE this hardcoding
+        userId: "TsdAdmin",
+        roleKey: "1",
+      }),
+    }).then(async (response) => {
+      dispatch(updateSchema(await response.json()));
+      console.log("RESPONSE FOR BUISNESS FUNCTION : : :  ", response.json);
+    });
+  };
+};
+
+export const updateSchema = (schema: { businessFunctions: [] }) => {
+  console.log("Schema Update");
+  return async (dispatch: Function) => {
+    dispatch({
+      type: UPDATE_SCHEMA,
+      data: {
+        action: {
+          schema: schema.businessFunctions,
         },
       },
     });

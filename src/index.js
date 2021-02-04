@@ -1,8 +1,10 @@
+/* eslint-disable prettier/prettier */
 // import { route } from "./utils/router";
 
 import merge from "deepmerge";
 import { registerRootComponent } from "expo";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { persistStore } from "redux-persist";
 import { configureStore } from "../src/state-management/store"; //Import the store
 import { Provider as ReduxProvider } from "react-redux";
@@ -20,10 +22,12 @@ import { Provider as ReduxProvider } from "react-redux";
 import { appConfig } from "../examples/TSDigisolPlatform/configs/layouts/dashboardLayout";
 import { routes } from "../examples/TSDigisolPlatform/configs/routes/routesConfig";
 import { getEvents } from "../examples/TSDigisolPlatform/configs/events/eventConfig";
+import { ApiLoaderComponent } from "../examples/TSDigisolPlatform/components/ApiLoaderComponent";
 // ****************** TSD CONFIG ********************
 
 import { GridSection } from "./App";
 import { JSONEditor } from "./internal/components/JSONEditor";
+import { updateSchema } from "./state-management/actions";
 
 const store = configureStore();
 const persistor = persistStore(store);
@@ -55,6 +59,7 @@ class App extends React.Component {
           }}
         /> */}
         <ReduxProvider store={store}>
+          <ApiLoaderComponent />
           <GridSection
             layoutConfig={this?.state?.config}
             routes={routes}

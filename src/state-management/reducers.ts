@@ -8,6 +8,8 @@ import {
   UPDATE_STATE,
   UPDATE_ACTIVE_TAB_SELECTION,
   UPDATE_ACTIVE_ACTION_SELECTION,
+  UPDATE_SCHEMA,
+  UPADATE_ACTIVE_BUISNESS_FUNCTION_SELECTION,
 } from "./actions"; //Import the actions types constant we defined in our actions
 import { initialState } from "./app";
 
@@ -89,28 +91,84 @@ const orderViewUpdate = (
   }
 };
 
+const activeBuisnessFunctionSelection = (
+  state = { ...initialState.activeBuisnessFunctionSelection },
+  action
+) => {
+  switch (action.type) {
+    case UPADATE_ACTIVE_BUISNESS_FUNCTION_SELECTION:
+      console.log("action for buisness function : : : : ", action);
+      return {
+        // ...state,
+        key: action.data.function.key,
+        name: action.data.function.name,
+      };
+    default:
+      return state;
+  }
+};
+
 const activeModuleSelection = (
-  state = { ...initialState.activeSelection.active },
+  state = { ...initialState.activeModuleSelection },
   action
 ) => {
   switch (action.type) {
     case UPADATE_ACTIVE_MODULE_SELECTION:
+      console.log("action for module : : : : ", action);
       return {
-        ...state,
-        key: initialState.activeSelection.active.module.key,
-        name: initialState.activeSelection.active.module.name,
+        // ...state,
+        key: action.data.module.key,
+        name: action.data.module.name,
       };
+    default:
+      return state;
+  }
+};
+
+const activeTabSelection = (
+  state = { ...initialState.activeTabSelection },
+  action
+) => {
+  switch (action.type) {
     case UPDATE_ACTIVE_TAB_SELECTION:
+      console.log("action for tab : : : : ", action);
       return {
-        ...state,
-        key: initialState.activeSelection.active.tab.key,
-        name: initialState.activeSelection.active.tab.name,
+        // ...state,
+        key: action.data.tab.key,
+        name: action.data.tab.name,
       };
+    default:
+      return state;
+  }
+};
+
+const activeActionSelection = (
+  state = { ...initialState.activeActionSelection },
+  action
+) => {
+  switch (action.type) {
     case UPDATE_ACTIVE_ACTION_SELECTION:
+      console.log("action for action : : : : ", action);
+      return {
+        // ...state,
+        key: action.data.action.key,
+        name: action.data.action.name,
+      };
+    default:
+      return state;
+  }
+};
+
+const schemaUpdate = (
+  state = { ...initialState.schemaUpdate.schema },
+  action
+) => {
+  switch (action.type) {
+    case UPDATE_SCHEMA:
+      console.log("action for action : : : : ", action);
       return {
         ...state,
-        key: initialState.activeSelection.active.action.key,
-        name: initialState.activeSelection.active.action.name,
+        schema: action.data.action.schema,
       };
     default:
       return state;
@@ -122,7 +180,11 @@ const rootReducer = combineReducers({
   user,
   env,
   orderViewUpdate,
+  activeBuisnessFunctionSelection,
   activeModuleSelection,
+  activeTabSelection,
+  activeActionSelection,
+  schemaUpdate,
 });
 
 export default rootReducer;

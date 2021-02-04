@@ -23,18 +23,8 @@ export default class WrappedApp extends React.Component {
   render() {
     return (
       <>
-        {this.props?.debug ? (
-          <JSONEditor
-            json={this.state?.config}
-            onChangeJSON={(json) => {
-              // TODO: add schema conformation for JSONEditor values of component names
-              this.setState({ config: json }, () => {
-                //
-              });
-            }}
-          />
-        ) : null}
         <GridSection
+          getEvents={this.props?.getEvents}
           layoutConfig={this.state?.config}
           routes={this.props?.routes}
           setLayoutConfig={(config, isDottedFormat = false) => {

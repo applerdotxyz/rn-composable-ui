@@ -1,9 +1,9 @@
 import { createBrowserHistory } from "history";
-import React, { useState } from "react";
+import React from "react";
 import { Platform, StyleSheet } from "react-native";
 import Form from "react-native-web-jsonschema-form";
 import { MainContainer, UIProvider } from "react-native-web-ui-components";
-import useSafeSetState from "../../utils/useSafeState";
+import useSafeSetState from "../../lib/utils/useSafeState";
 
 const noOp = (): void => {
   /* */
@@ -28,7 +28,7 @@ export const JsonForm = ({
   // TODO: show message
   const [message, setMessage] = useSafeSetState(null);
   // TODO: submit formData to ideal connected endpoint
-  const [formData, setFormData] = useState(_formData);
+  const [formData, setFormData] = useSafeSetState(_formData);
 
   const onBeforeSubmit = (event) => {
     console.log("*** onBeforeSubmit ***");

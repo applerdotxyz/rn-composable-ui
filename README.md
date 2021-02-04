@@ -23,7 +23,7 @@
 
 #### Demo
 [Demo](https://rn-compose.saurabhxyz.vercel.app/)
-![demo for the router](https://github.com/applerdotxyz/rn-config-tyler/blob/develop/demo-config-router.png)
+![demo for the router](https://github.com/applerdotxyz/rn-config-tyler/blob/main/demo-config-router.png)
 
 #### Features
 - uses configurable UI layouts uses [rn-config-tyler](https://www.npmjs.com/package/rn-config-tyler)

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable react/prop-types */
 import { createBrowserHistory } from "history";
@@ -8,9 +10,7 @@ import { UIProvider } from "react-native-web-ui-components";
 import useSafeSetState from "../utils/useSafeState";
 export { useSafeSetState };
 
-const noOp = (): void => {
-  /* */
-};
+const noOp = (): void => {};
 
 export const JsonForm = ({
   _onBeforeSubmit = noOp,
@@ -22,6 +22,7 @@ export const JsonForm = ({
   _onClose = noOp,
   schema = {},
   uiSchema = {},
+  _submitButton = true,
   ...props
 }): AnyRecord => {
   // TODO: show loading indicator based on loading value
@@ -35,7 +36,10 @@ export const JsonForm = ({
 
   const onBeforeSubmit = (event) => {
     console.log("*** onBeforeSubmit ***");
+    console.log(event.params.values.phone);
+    console.log(event.params.values.otp);
     console.log(event);
+
     _onBeforeSubmit(event);
   };
 
@@ -67,7 +71,7 @@ export const JsonForm = ({
   // form data mutator
   const onChange = (event) => {
     setFormData({
-      ...formData,
+      ..._formData,
       [event.params.name]: event.params.value,
     });
   };
@@ -76,7 +80,28 @@ export const JsonForm = ({
     input: {
       focused: StyleSheet.create({
         border: {
-          borderColor: "#33bfff",
+          borderColor: "yellow",
+          borderWidth: 2,
+          borderStyle: "solid",
+        },
+        background: {
+          backgroundColor: "white",
+        },
+        text: {
+          fontSize: 14,
+          color: "#545454",
+        },
+        placeholder: {
+          color: "#FAFAFA",
+        },
+        opacity: {
+          opacity: 1,
+        },
+        selected: {
+          color: "blue",
+        },
+        unselected: {
+          color: "#FAFAFA",
         },
       }),
     },
@@ -111,17 +136,25 @@ export const JsonForm = ({
 
   return (
     <ThemeWrapper>
-      {/* <MainContainer style={{ padding: "2%", minHeight: "10vh" }}> */}
+      {/* <MainContainer
+        style={{
+          padding: "2%",
+          marginHorizontal: 10,
+          marginVertical: 10,
+          minHeight: 10,
+        }}
+      > */}
       <Form
-        // style={{ margin: 10 }}
-        formData={_formData}
+        // style={{ margin: 30 }}
+        formData={formData}
         schema={schema}
-        onChange={onChange}
-        onCancel={_onClose}
-        onSuccess={onSuccess}
-        onSubmit={onSubmit}
-        onError={onError}
         uiSchema={uiSchema}
+        onSubmit={onSubmit}
+        onSuccess={onSuccess}
+        submitButton={_submitButton}
+        cancelButton={false}
+        onChange={_onChange}
+        buttonPosition="center"
       />
       {/* </MainContainer> */}
     </ThemeWrapper>

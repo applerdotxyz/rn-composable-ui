@@ -12,22 +12,44 @@ import React from "react";
 //   routes,
 //   getEvents,
 // } from "../examples/dynamic-navigation/layout"; /// example with button clicks and routing with dynamic changes to screen
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/sagar-poc/with-appstate/layout";
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/sagar-poc/with-setLayout/layout";
+
 import {
   appConfig,
   routes,
   getEvents,
-} from "../examples/sagar-poc/poc-with-appstate/layout";
+} from "../examples/sagar-poc/3_4-screen-example-web/layout";
+
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "../examples/sagar-poc/poc-with-setLayout/layout";
-// import { appConfig, routes, getEvents } from "../examples/sagar-poc/poc1";
+// } from "../examples/sagar-poc/with-calendar/layout";
+
+
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "../examples/sagar-poc/poc1-mobile";
+// } from "../examples/sagar-poc/3_4-screen-example-mobile/layout";
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/sagar-poc/with-jsonforms/layout";
+
 // import {
 //   appConfig,
 //   routes,

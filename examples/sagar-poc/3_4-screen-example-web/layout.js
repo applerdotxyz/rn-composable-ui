@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { About } from "../../src/components/About";
-import { ActionComp } from "../../src/components/ActionComp";
-import { Comp5 } from "../../src/components/Comp5";
-import { Home } from "../../src/components/Home";
-import { RandomPic } from "../../src/components/RandomPic";
-import { rowStyle, styles } from "../common";
-import { JsonForm } from "../../src/components/json-form/JsonForm";
+import { About } from "../../../src/components/About";
+import { ActionComp } from "../../../src/components/ActionComp";
+import { Comp5 } from "../../../src/components/Comp5";
+import { Home } from "../../../src/components/Home";
+import { RandomPic } from "../../../src/components/RandomPic";
+import { rowStyle, styles } from "../../common";
+import { JsonForm } from "../../../src/components/json-form/JsonForm";
 
 // All component which will be rendered
 export const componentsSet = {
@@ -18,29 +18,17 @@ export const componentsSet = {
 };
 
 // components section
-
-const _formData = {
-  phone: 8654787549,
-  otp: 654789,
-};
-
 const schema = {
   type: "object",
   properties: {
-    phone: { type: "number" },
-    otp: { type: "number" },
-  },
-};
-
-const uiSchema = {
-  phone: {
-    "ui:title": "Phone No. ",
+    username: { type: "string" },
+    password: { type: "string" },
   },
 };
 
 export const routes = {};
-
 routes.routeOne = {
+  // row no
   "1.container": {
     // col no
     "1.1.leftNavCol": {
@@ -64,6 +52,13 @@ routes.routeOne = {
             colSize: 1,
             idx: "About",
             label: "bodyHeader-changed at 1st",
+            colStyle: {
+              borderColor: "cyan",
+              alignSelf: "none",
+              borderWidth: 4,
+              height: "100vh",
+              backgroundColor: "skyblue",
+            },
           },
         },
       },
@@ -263,8 +258,7 @@ export const appConfig = {
             bodyHeader: {
               // col no
               colSize: 1,
-              //   idx: "About",
-              idx: "JsonForm",
+              idx: "About",
               label: "bodyHeader",
               colStyle: {
                 borderColor: "cyan",
@@ -272,11 +266,6 @@ export const appConfig = {
                 borderWidth: 4,
                 height: "80vh",
                 backgroundColor: "skyblue",
-              },
-              passProps: {
-                schema,
-                uiSchema,
-                _formData,
               },
             },
           },

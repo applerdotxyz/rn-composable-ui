@@ -4,9 +4,8 @@ import { ActionComp } from "../../../src/components/ActionComp";
 import { Comp5 } from "../../../src/components/Comp5";
 import { Home } from "../../../src/components/Home";
 import { RandomPic } from "../../../src/components/RandomPic";
-import { Cal } from "../../../src/components/Cal";
+import { rowStyle, styles } from "../../common";
 import { JsonForm } from "../../../src/components/json-form/JsonForm";
-import { styles, rowStyle } from "../../common";
 
 // All component which will be rendered
 export const componentsSet = {
@@ -16,7 +15,6 @@ export const componentsSet = {
   About,
   RandomPic,
   JsonForm,
-  Cal,
 };
 
 // components section
@@ -36,25 +34,147 @@ routes.routeOne = {
     "1.2.bodyCol": {
       layout: {
         colConfig: {
-          colSize: 11,
+          colSize: 1,
+        },
+        "1.2.1.bodyHeaderRow": {
+          // rowConfig: {
+          //   rowSize: 1,
+          //   rowStyle: rowStyle,
+          // },
+          bodyHeader: {
+            colSize: 1,
+            idx: "About",
+            label: "bodyHeader-changed at 1st",
+          },
+        },
+      },
+    },
+  },
+};
+
+routes.routeTwo = {
+  // row no
+  "1.container": {
+    // col no
+    "1.1.leftNavCol": {
+      layout: {
+        colConfig: {
+          colStyle: { display: "none" },
+        },
+      },
+    },
+    "1.2.bodyCol": {
+      rowConfig: {
+        rowSize: 1,
+        rowStyle: rowStyle,
+      },
+      layout: {
+        colConfig: {
+          colSize: 1,
         },
         "1.2.1.bodyHeaderRow": {
           rowConfig: {
             rowSize: 1,
-            rowStyle: rowStyle,
+            rowStyle: { height: "30%" },
           },
           bodyHeader: {
-            colSize: 1,
-            //   idx: "About",
-            idx: "Cal",
-            label: "bodyHeader",
+            // colSize: 1,
+            idx: "About",
+            label: "bodyHeader-changed at 2nd",
             colStyle: {
               borderColor: "cyan",
-              alignSelf: "center",
               borderWidth: 4,
-              height: 600,
+              height: "30%",
               backgroundColor: "skyblue",
             },
+          },
+        },
+        "1.2.2.bodyContentRow": {
+          rowConfig: {
+            rowSize: 1,
+            rowStyle: { height: "40%" },
+          },
+          bodyContent: {
+            // colSize: 1,
+            idx: "About",
+            label: "bodyContent",
+            colStyle: {
+              borderColor: "cyan",
+              borderWidth: 4,
+              height: "40%",
+              backgroundColor: "red",
+            },
+          },
+        },
+        "1.2.3.bodyFooterRow": {
+          rowConfig: {
+            rowSize: 1,
+            rowStyle: { height: "30%" },
+          },
+          bodyFooter: {
+            // colSize: 1,
+            idx: "Home",
+            label: "bodyFooter",
+            colStyle: {
+              borderColor: "cyan",
+              borderWidth: 4,
+              height: "30%",
+              backgroundColor: "yellow",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+routes.routeThree = {
+  // row no
+  "1.container": {
+    // col no
+    "1.1.leftNavCol": {
+      layout: {
+        colConfig: {
+          colStyle: { display: "none" },
+        },
+      },
+    },
+    "1.2.bodyCol": {
+      rowConfig: {
+        rowSize: 1,
+        rowStyle: rowStyle,
+      },
+      layout: {
+        colConfig: {
+          colSize: 1,
+        },
+        "1.2.1.bodyHeaderRow": {
+          rowConfig: {
+            rowSize: 1,
+            rowStyle: { display: "none" },
+          },
+        },
+        "1.2.2.bodyContentRow": {
+          rowConfig: {
+            rowSize: 1,
+            rowStyle: { height: "100%" },
+          },
+          bodyContent: {
+            // colSize: 1,
+            idx: "About",
+            label: "bodyContent-changed1",
+            colStyle: {
+              borderColor: "cyan",
+              borderWidth: 4,
+              height: "100%",
+              backgroundColor: "red",
+            },
+          },
+        },
+        "1.2.3.bodyFooterRow": {
+          rowConfig: {
+            rowSize: 1,
+            rowStyle: { display: "none" },
           },
         },
       },
@@ -78,36 +198,31 @@ const links = {
     linkStyle: styles.tabName,
     linkText: "Feed",
   },
-  "/contact": {
-    style: styles.navItem,
-    linkStyle: styles.tabName,
-    linkText: "Messages",
-  },
 };
 
 export const appConfig = {
   /// 1st layout
   componentsSet,
-  links, // FIXME: links mess up the styling in dynamic page transitions. pls look at the fix
+  links,
   layout: {
     // row no
     "1.container": {
       rowConfig: {
         rowSize: 1,
-        rowStyle: rowStyle,
+        rowStyle: { height: "100%" },
       },
       // col no
       "1.1.leftNavCol": {
         layout: {
           colConfig: {
-            colSize: 3,
+            colSize: 1,
             colStyle: { backgroundColor: "grey" },
           },
           "1.1.leftNavHeaderRow": {
             // row no
             rowConfig: {
               rowSize: 1,
-              rowStyle: rowStyle,
+              rowStyle: { height: "100%" },
             },
             leftNavHeader: {
               // col no
@@ -117,7 +232,7 @@ export const appConfig = {
               colStyle: {
                 borderColor: "cyan",
                 borderWidth: 4,
-                height: 600,  
+                height: "100%",
                 backgroundColor: "lightgreen",
               },
             },
@@ -127,11 +242,11 @@ export const appConfig = {
       "1.2.bodyCol": {
         rowConfig: {
           rowSize: 1,
-          rowStyle: rowStyle,
+          rowStyle: { height: "100%" },
         },
         layout: {
           colConfig: {
-            colSize: 11,
+            colSize: 2,
             colStyle: {
               backgroundColor: "grey",
             },
@@ -139,19 +254,18 @@ export const appConfig = {
           "1.2.1.bodyHeaderRow": {
             rowConfig: {
               rowSize: 1,
-              rowStyle: rowStyle,
+              rowStyle: { height: "80%" },
             },
             bodyHeader: {
               // col no
-              colSize: 1,
-              //   idx: "About",
+              colSize: 2,
               idx: "About",
               label: "bodyHeader",
               colStyle: {
                 borderColor: "cyan",
                 alignSelf: "center",
                 borderWidth: 4,
-                height: 400,
+                height: "80%",
                 backgroundColor: "skyblue",
               },
             },
@@ -174,6 +288,19 @@ export const events = {
     // <event> :: <handler>
     onPress: (setLayoutConfig) => {
       setLayoutConfig(routes["routeOne"]);
+    },
+  },
+
+  "bodyHeader-changed at 1st-btn-one": {
+    // <event> :: <handler>
+    onPress: (setLayoutConfig) => {
+      setLayoutConfig(routes["routeTwo"]);
+    },
+  },
+  "bodyContent-btn-one": {
+    // <event> :: <handler>
+    onPress: (setLayoutConfig) => {
+      setLayoutConfig(routes["routeThree"]);
     },
   },
 };

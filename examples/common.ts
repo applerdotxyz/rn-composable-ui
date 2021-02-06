@@ -39,7 +39,7 @@ export const styles = {
     // minHeight: "10%",
   },
   navItem: {
-    // flex: 1,
+    flex: 1,
     alignItems: "center",
     padding: 10,
     backgroundColor: "coral",

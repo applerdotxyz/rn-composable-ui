@@ -6,7 +6,7 @@ import { Calendar } from "react-native-calendars";
 import { FontAwesome } from "@expo/vector-icons";
 
 export const Cal = (props) => {
-  const [transactionTime, setTransactionTime] = useState(null);
+  const [transactionTime, setTransactionTime] = useState();
   const today = new Date();
   return (
     <View style={{ justifyContent: "center", flex: 1 }}>
@@ -43,12 +43,13 @@ export const Cal = (props) => {
         markedDates={{
           [transactionTime]: { selected: true },
         }}
-        minDate={`2020-${("0" + (today.getMonth() + 1)).slice(
-          -2
-        )}-${today.getUTCDate()}`}
+        // minDate={`2021-${("0" + (today.getMonth() + 1)).slice(
+        //   -2
+        // )}-${today.getUTCDate()}`}
+        minDate={"2021-02-10"}
         // // Handler which gets executed on day press. Default = undefined
         onDayPress={(day) => {
-          // console.log('selected day', day.dateString);
+          console.log("selected day", day.dateString);
           setTransactionTime(day.dateString);
         }}
         maxDate={"2021-06-30"}
@@ -66,7 +67,6 @@ export const Cal = (props) => {
         showWeekNumbers={false}
         onPressArrowLeft={(subtractMonth) => subtractMonth()}
         onPressArrowRight={(addMonth) => addMonth()}
-        
       />
     </View>
   );

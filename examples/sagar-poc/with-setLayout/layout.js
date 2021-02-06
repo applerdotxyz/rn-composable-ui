@@ -5,7 +5,7 @@ import { ActionComp } from "../../../src/components/ActionComp";
 import { Comp5 } from "../../../src/components/Comp5";
 import { Home } from "../../../src/components/Home";
 import { RandomPic } from "../../../src/components/RandomPic";
-import { styles } from "../../common";
+import { styles, rowStyle } from "../../common";
 
 // All component which will be rendered
 export const componentsSet = {
@@ -19,30 +19,47 @@ export const componentsSet = {
 export const routes = {};
 
 routes.routeOne = {
+  // row no
   "1.container": {
+    // rowConfig: {
+    //   rowSize: 1,
+    //   rowStyle: rowStyle,
+    // },
+    // col no
     "1.1.leftNavCol": {
-      layout: null,
-      //   layout: {
-      //     colConfig: {
-      //       colSize: 0, // *** change the colSize
-      //       colStyle: { display: "none" }, // *** hide the 1st column
-      //     },
-      //   },
-    },
-    "1.2.bodyCol": {
       layout: {
         colConfig: {
-          colSize: 11, // *** change the colSize
+          colStyle: { display: "none" },
+        },
+      },
+      // "1.1.leftNavHeaderRow": {
+      //   rowConfig: {
+      //     rowStyle: { display: "none" },
+      //   },
+      // },
+    },
+    "1.2.bodyCol": {
+      // rowConfig: {
+      //   rowSize: 1,
+      //   rowStyle: rowStyle,
+      // },
+      layout: {
+        colConfig: {
+          colSize: 11,
         },
         "1.2.1.bodyHeaderRow": {
+          // rowConfig: {
+          //   rowSize: 1,
+          //   rowStyle: rowStyle,
+          // },
           bodyHeader: {
-            colSize: 4,
+            colSize: 2,
             idx: "About",
             label: "bodyHeader",
             colStyle: { borderWidth: 2, height: "60vh" },
           },
           bodyHeader1: {
-            colSize: 6,
+            colSize: 8,
             idx: "About",
             label: "bodyHeader1",
             colStyle: { borderWidth: 2, height: "60vh" },
@@ -72,35 +89,43 @@ routes.routeOne = {
   },
 };
 
+const links = {
+  "/": {
+    style: styles.navItem,
+    linkStyle: styles.tabName,
+    linkText: "Home",
+  },
+  "/about": {
+    style: styles.navItem,
+    linkStyle: styles.tabName,
+    linkText: "Feed",
+  },
+};
+
 // *************************************************
 //  Layout config
 // *************************************************
 export const appConfig = {
   /// 1st layout
   componentsSet,
-  links: {
-    "/": {
-      style: styles.navItem,
-      linkStyle: styles.tabName,
-      linkText: "Home",
-    },
-    "/about": {
-      style: styles.navItem,
-      linkStyle: styles.tabName,
-      linkText: "Feed",
-    },
-  },
+  links,
   layout: {
-    colConfig: {
-      colSize: 1,
-    },
     "1.container": {
+      // rowConfig: {
+      //   rowSize: 1,
+      //   rowStyle: rowStyle,
+      // },
       "1.1.leftNavCol": {
         layout: {
           colConfig: {
             colSize: 3,
           },
           "1.1.leftNavHeaderRow": {
+            // row no
+            // rowConfig: {
+            //   rowSize: 1,
+            //   rowStyle: rowStyle,
+            // },
             leftNavHeader: {
               colSize: 1,
               idx: "Home",
@@ -119,11 +144,19 @@ export const appConfig = {
         },
       },
       "1.2.bodyCol": {
+        // rowConfig: {
+        //   rowSize: 1,
+        //   rowStyle: rowStyle,
+        // },
         layout: {
           colConfig: {
             colSize: 11,
           },
           "1.2.1.bodyHeaderRow": {
+            rowConfig: {
+              rowSize: 1,
+              rowStyle: rowStyle,
+            },
             bodyHeader: {
               colSize: 6,
               idx: "RandomPic",

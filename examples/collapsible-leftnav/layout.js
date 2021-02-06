@@ -6,7 +6,7 @@ import { Comp5 } from "../../src/components/Comp5";
 // import { JsonForm } from "./components/JsonForm";
 import { Home } from "../../src/components/Home";
 import { RandomPic } from "../../src/components/RandomPic";
-import {  row Style, styles } from "../common";
+import {  rowStyle, styles } from "../common";
 
 // All component which will be rendered
 export const componentsSet = {

@@ -29,7 +29,13 @@ import {
   appConfig,
   routes,
   getEvents,
-} from "../examples/sagar-poc/3_4-screen-example-web/layout";
+} from "../examples/todo-app/layout.js";
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/sagar-poc/3_4-screen-example-web/layout";
 
 // import {
 //   appConfig,
@@ -37,12 +43,12 @@ import {
 //   getEvents,
 // } from "../examples/sagar-poc/with-calendar/layout";
 
-
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
 // } from "../examples/sagar-poc/3_4-screen-example-mobile/layout";
+// } from "../examples/sagar-poc/with-calendar/layout";
 
 // import {
 //   appConfig,

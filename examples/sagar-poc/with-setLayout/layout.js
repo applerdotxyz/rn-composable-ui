@@ -21,10 +21,10 @@ export const routes = {};
 routes.routeOne = {
   // row no
   "1.container": {
-    // rowConfig: {
-    //   rowSize: 1,
-    //   rowStyle: rowStyle,
-    // },
+    rowConfig: {
+      rowSize: 1,
+      rowStyle: rowStyle,
+    },
     // col no
     "1.1.leftNavCol": {
       layout: {
@@ -32,37 +32,32 @@ routes.routeOne = {
           colStyle: { display: "none" },
         },
       },
-      // "1.1.leftNavHeaderRow": {
-      //   rowConfig: {
-      //     rowStyle: { display: "none" },
-      //   },
-      // },
     },
     "1.2.bodyCol": {
-      // rowConfig: {
-      //   rowSize: 1,
-      //   rowStyle: rowStyle,
-      // },
+      rowConfig: {
+        rowSize: 1,
+        rowStyle: rowStyle,
+      },
       layout: {
         colConfig: {
           colSize: 11,
         },
         "1.2.1.bodyHeaderRow": {
-          // rowConfig: {
-          //   rowSize: 1,
-          //   rowStyle: rowStyle,
-          // },
+          rowConfig: {
+            rowSize: 1,
+            rowStyle: rowStyle,
+          },
           bodyHeader: {
             colSize: 2,
             idx: "About",
             label: "bodyHeader",
-            colStyle: { borderWidth: 2, height: "60vh" },
+            colStyle: { borderWidth: 2, height: "100vh" },
           },
           bodyHeader1: {
             colSize: 8,
             idx: "About",
             label: "bodyHeader1",
-            colStyle: { borderWidth: 2, height: "60vh" },
+            colStyle: { borderWidth: 2, height: "100vh", },
           },
         },
         "1.2.2.bodyContentRow": {
@@ -80,6 +75,10 @@ routes.routeOne = {
     },
   },
   "2.container": {
+    rowConfig: {
+      rowSize: 1,
+      rowStyle: rowStyle,
+    },
     footer: {
       colSize: 1,
       idx: "Home",
@@ -111,10 +110,10 @@ export const appConfig = {
   links,
   layout: {
     "1.container": {
-      // rowConfig: {
-      //   rowSize: 1,
-      //   rowStyle: rowStyle,
-      // },
+      rowConfig: {
+        rowSize: 1,
+        rowStyle: rowStyle,
+      },
       "1.1.leftNavCol": {
         layout: {
           colConfig: {
@@ -122,10 +121,10 @@ export const appConfig = {
           },
           "1.1.leftNavHeaderRow": {
             // row no
-            // rowConfig: {
-            //   rowSize: 1,
-            //   rowStyle: rowStyle,
-            // },
+            rowConfig: {
+              rowSize: 1,
+              rowStyle: rowStyle,
+            },
             leftNavHeader: {
               colSize: 1,
               idx: "Home",
@@ -144,10 +143,10 @@ export const appConfig = {
         },
       },
       "1.2.bodyCol": {
-        // rowConfig: {
-        //   rowSize: 1,
-        //   rowStyle: rowStyle,
-        // },
+        rowConfig: {
+          rowSize: 1,
+          rowStyle: rowStyle,
+        },
         layout: {
           colConfig: {
             colSize: 11,
@@ -193,6 +192,10 @@ export const appConfig = {
       },
     },
     "2.container": {
+      rowConfig: {
+        rowSize: 1,
+        rowStyle: rowStyle,
+      },
       footer: {
         colSize: 1,
         idx: "ActionComp",

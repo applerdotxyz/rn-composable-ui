@@ -53,7 +53,7 @@ routes.routeOne = {
             idx: "About",
             label: "bodyHeader-changed at 1st",
             colStyle: {
-              borderColor: "cyan",
+              borderColor: "white",
               alignSelf: "none",
               borderWidth: 4,
               height: "100vh",
@@ -92,7 +92,7 @@ routes.routeTwo = {
             idx: "About",
             label: "bodyHeader-changed at 2nd",
             colStyle: {
-              borderColor: "cyan",
+              borderColor: "white",
               alignSelf: "none",
               borderWidth: 4,
               height: "50vh",
@@ -104,7 +104,7 @@ routes.routeTwo = {
             idx: "About",
             label: "bodyHeader1",
             colStyle: {
-              borderColor: "cyan",
+              borderColor: "white",
               alignSelf: "none",
               borderWidth: 4,
               height: "50vh",
@@ -118,7 +118,7 @@ routes.routeTwo = {
             idx: "Home",
             label: "bodyContent",
             colStyle: {
-              borderColor: "cyan",
+              borderColor: "white",
               alignSelf: "none",
               borderWidth: 4,
               height: "50vh",
@@ -168,6 +168,64 @@ routes.routeThree = {
           bodyContent: {
             colStyle: {
               display: "none",
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+routes.routeFour = {
+  // row no
+  "1.container": {
+    // col no
+    "1.1.leftNavCol": {
+      layout: {
+        colConfig: {
+          colStyle: { display: "none" },
+        },
+      },
+    },
+    "1.2.bodyCol": {
+      layout: {
+        colConfig: {
+          colSize: 11,
+        },
+        "1.2.1.bodyHeaderRow": {
+          rowConfig: {
+            rowSize: 1,
+            rowStyle: rowStyle,
+          },
+          bodyHeader: {
+            colStyle: { display: "none" },
+          },
+          bodyHeader1: {
+            colSize: 11,
+            idx: "About",
+            label: "bodyHeader1-changed 2nd",
+            colStyle: {
+              height: "50vh",
+            },
+          },
+        },
+        "1.2.2.bodyContentRow": {
+          bodyContent: {
+            colStyle: {
+              display: "none",
+            },
+          },
+        },
+        "1.2.3.bodyContentRow": {
+          bodyHeader2: {
+            colSize: 11,
+            idx: "About",
+            label: "bodyHeader2-changed 1st",
+            colStyle: {
+              height: "50vh",
+              borderColor: "white",
+              borderWidth: 4,
+              backgroundColor: "violet",
             },
           },
         },
@@ -229,7 +287,7 @@ export const appConfig = {
               idx: "Home",
               label: "leftNavHeader",
               colStyle: {
-                borderColor: "cyan",
+                borderColor: "white",
                 borderWidth: 4,
                 height: "100vh",
                 backgroundColor: "lightgreen",
@@ -261,7 +319,7 @@ export const appConfig = {
               idx: "About",
               label: "bodyHeader",
               colStyle: {
-                borderColor: "cyan",
+                borderColor: "white",
                 alignSelf: "center",
                 borderWidth: 4,
                 height: "80vh",
@@ -298,6 +356,11 @@ export const events = {
   "bodyHeader1-btn-one": {
     onPress: (setLayoutConfig) => {
       setLayoutConfig(routes["routeThree"]);
+    },
+  },
+  "bodyHeader1-changed 1st-btn-one": {
+    onPress: (setLayoutConfig) => {
+      setLayoutConfig(routes["routeFour"]);
     },
   },
 };

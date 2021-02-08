@@ -20,23 +20,23 @@ export const componentsSet = {
 // components section
 
 const _formData = {
-    phone: 8654787549,
-    otp: 654789,
-  };
-  
-  const schema = {
-    type: "object",
-    properties: {
-      phone: { type: "number" },
-      otp: { type: "number" },
-    },
-  };
-  
-  const uiSchema = {
-    phone: {
-      "ui:title": "Phone No. ",
-    },
-  };
+  phone: 8654787549,
+  otp: 654789,
+};
+
+const schema = {
+  type: "object",
+  properties: {
+    phone: { type: "number" },
+    otp: { type: "number" },
+  },
+};
+
+const uiSchema = {
+  phone: {
+    "ui:title": "Phone No. ",
+  },
+};
 
 export const routes = {};
 routes.routeOne = {
@@ -65,7 +65,7 @@ routes.routeOne = {
             idx: "About",
             label: "bodyHeader-changed at 1st",
             colStyle: {
-              borderColor: "cyan",
+              borderColor: "white",
               alignSelf: "none",
               borderWidth: 4,
               height: "100vh",
@@ -104,7 +104,7 @@ routes.routeTwo = {
             idx: "About",
             label: "bodyHeader-changed at 2nd",
             colStyle: {
-              borderColor: "cyan",
+              borderColor: "white",
               alignSelf: "none",
               borderWidth: 4,
               height: "50vh",
@@ -116,7 +116,7 @@ routes.routeTwo = {
             idx: "About",
             label: "bodyHeader1",
             colStyle: {
-              borderColor: "cyan",
+              borderColor: "white",
               alignSelf: "none",
               borderWidth: 4,
               height: "50vh",
@@ -130,7 +130,7 @@ routes.routeTwo = {
             idx: "Home",
             label: "bodyContent",
             colStyle: {
-              borderColor: "cyan",
+              borderColor: "white",
               alignSelf: "none",
               borderWidth: 4,
               height: "50vh",
@@ -241,7 +241,7 @@ export const appConfig = {
               idx: "Home",
               label: "leftNavHeader",
               colStyle: {
-                borderColor: "cyan",
+                borderColor: "white",
                 borderWidth: 4,
                 height: "100vh",
                 backgroundColor: "lightgreen",
@@ -273,7 +273,7 @@ export const appConfig = {
               idx: "JsonForm",
               label: "bodyHeader",
               colStyle: {
-                borderColor: "cyan",
+                borderColor: "white",
                 alignSelf: "center",
                 borderWidth: 4,
                 height: "80vh",

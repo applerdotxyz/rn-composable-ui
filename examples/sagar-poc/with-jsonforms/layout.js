@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { About } from "../../../src/components/About";
-import { ActionComp } from "../../../src/components/ActionComp";
-import { Comp5 } from "../../../src/components/Comp5";
-import { Home } from "../../../src/components/Home";
-import { RandomPic } from "../../../src/components/RandomPic";
-import { rowStyle, styles } from "../../common";
-import { JsonForm } from "../../../src/components/json-form/JsonForm";
+import {
+  About,
+  Cal,
+  ActionComp,
+  Comp5,
+  Home,
+  RandomPic,
+  JsonForm,
+} from "../../../src/components/src";
+import { styles, rowStyle } from "../../common";
 
 // All component which will be rendered
 export const componentsSet = {
@@ -20,23 +23,23 @@ export const componentsSet = {
 // components section
 
 const _formData = {
-    phone: 8654787549,
-    otp: 654789,
-  };
-  
-  const schema = {
-    type: "object",
-    properties: {
-      phone: { type: "number" },
-      otp: { type: "number" },
-    },
-  };
-  
-  const uiSchema = {
-    phone: {
-      "ui:title": "Phone No. ",
-    },
-  };
+  phone: 8654787549,
+  otp: 654789,
+};
+
+const schema = {
+  type: "object",
+  properties: {
+    phone: { type: "number" },
+    otp: { type: "number" },
+  },
+};
+
+const uiSchema = {
+  phone: {
+    "ui:title": "Phone No. ",
+  },
+};
 
 export const routes = {};
 routes.routeOne = {

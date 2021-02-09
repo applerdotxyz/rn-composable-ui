@@ -10,3 +10,4 @@ export * from "./Home";
 // export * from "./RenderList";
 export * from "./NavigationBar";
 export * from "./RandomPic";
+export * from "./json-form/JsonForm";

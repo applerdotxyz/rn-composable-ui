@@ -3,9 +3,13 @@ import React from "react";
 // ****** EXAMPLE CONFIGS START ****************
 
 // import { appConfig, routes, getEvents } from "../examples/todo-app/layout";
-// import { appConfig, routes, getEvents } from "../examples/sagar-poc/layout"; /// example with button clicks and routing with dynamic changes to screen
-// import { appConfig, routes, getEvents } from "../examples/app-three/layout"; /// example with NavBarComponent addeed and Tab Component added
 // import { appConfig, routes, getEvents } from "../examples/sagar-poc/example1";
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/with-sidenav-bar/layout"; /// example with NavBarComponent addeed and Tab Component added
 
 // import {
 //   appConfig,
@@ -48,7 +52,13 @@ import {
 //   routes,
 //   getEvents,
 // } from "../examples/vanilla-grid-layout/layout"; /// starter example with nav bars and changes to content area
-// import { appConfig, routes, getEvents } from "../examples/collapsible-leftnav/layout"; /// example with button clicks and routing with dynamic changes to screen
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/collapsible-leftnav/layout"; /// example with button clicks and routing with dynamic changes to screen
+
 // import { appConfig, routes, getEvents } from "../examples/another-grid/layout"; /// another example with changes
 
 // ****** EXAMPLE CONFIGS END ****************

@@ -7,9 +7,9 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  View
+  View,
 } from "react-native";
-import RenderList from "../components/RenderList";
+import { RenderList } from "./RenderList";
 // import { useRouting } from "expo-next-react-navigation";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

@@ -31,17 +31,17 @@ import React from "react";
 //   getEvents,
 // } from "../examples/sagar-poc/with-calendar/layout";
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "../examples/sagar-poc/3_4-screen-example-mobile/layout";
-
 import {
   appConfig,
   routes,
   getEvents,
-} from "../examples/sagar-poc/with-jsonforms/layout";
+} from "../examples/sagar-poc/3_4-screen-example-mobile/layout";
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/sagar-poc/with-jsonforms/layout";
 
 // import {
 //   appConfig,

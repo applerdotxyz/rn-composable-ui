@@ -4,7 +4,8 @@ import React from "react";
 import { Dimensions, Platform, StyleSheet, Text } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { UIProvider } from "react-native-web-ui-components";
-import { JsonForm, useSafeSetState } from "./json-form/JsonForm";
+import { JsonForm } from "./json-form/JsonForm";
+import { useSafeSetState } from "../utils/useSafeState";
 
 const theme = {
   input: {
@@ -152,7 +153,7 @@ export const AddEditEntity = (props) => {
         flex: 1,
         borderWidth: 0,
         minHeight: Dimensions.get("window").height - 85,
-        minWidth : Dimensions.get("window").width/4,
+        minWidth: Dimensions.get("window").width / 4,
       }}
     >
       {/* TODO : Remove before final demo */}
@@ -185,9 +186,9 @@ export const AddEditEntity = (props) => {
           // props.route.params.dispatch(updateState());
           props.navigation.navigate("First");
         }}
-      // _onChange={(e) => {
-      //   console.log("data changed");
-      // }}
+        // _onChange={(e) => {
+        //   console.log("data changed");
+        // }}
       />
       {/* </ScrollView> */}
 

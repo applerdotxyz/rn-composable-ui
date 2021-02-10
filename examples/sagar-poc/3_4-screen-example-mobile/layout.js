@@ -5,8 +5,8 @@ import {
   Comp5,
   Home,
   RandomPic,
-  JsonForm,
 } from "../../../src/components/src";
+import { JsonForm } from "../../../src/components/src/json-form/JsonForm";
 import { rowStyle, styles } from "../../common";
 
 // All component which will be rendered
@@ -75,52 +75,52 @@ routes.routeTwo = {
           colSize: 1,
         },
         "1.2.1.bodyHeaderRow": {
-          rowConfig: {
-            rowSize: 1,
-            rowStyle: { height: "30%" },
-          },
+          // rowConfig: {
+          //   rowSize: 1,
+          //   rowStyle: { height: "30%" },
+          // },
           bodyHeader: {
-            // colSize: 1,
+            colSize: 1,
             idx: "About",
             label: "bodyHeader-changed at 2nd",
             colStyle: {
               borderColor: "cyan",
               borderWidth: 4,
-              height: "30%",
+              height: "100%",
               backgroundColor: "skyblue",
             },
           },
         },
         "1.2.2.bodyContentRow": {
-          rowConfig: {
-            rowSize: 1,
-            rowStyle: { height: "40%" },
-          },
+          // rowConfig: {
+          //   rowSize: 1,
+          //   rowStyle: { height: "40%" },
+          // },
           bodyContent: {
-            // colSize: 1,
+            colSize: 1,
             idx: "About",
             label: "bodyContent",
             colStyle: {
               borderColor: "cyan",
               borderWidth: 4,
-              height: "40%",
+              height: "100%",
               backgroundColor: "red",
             },
           },
         },
         "1.2.3.bodyFooterRow": {
-          rowConfig: {
-            rowSize: 1,
-            rowStyle: { height: "30%" },
-          },
+          // rowConfig: {
+          //   rowSize: 1,
+          //   rowStyle: { height: "30%" },
+          // },
           bodyFooter: {
-            // colSize: 1,
+            colSize: 1,
             idx: "Home",
             label: "bodyFooter",
             colStyle: {
               borderColor: "cyan",
               borderWidth: 4,
-              height: "30%",
+              height: "100%",
               backgroundColor: "yellow",
             },
           },

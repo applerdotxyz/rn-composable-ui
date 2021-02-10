@@ -4,7 +4,7 @@ import React from "react";
 import { Dimensions, Platform, StyleSheet, Text } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { UIProvider } from "react-native-web-ui-components";
-import { JsonForm, useSafeSetState } from "../components/json-form/JsonForm";
+import { JsonForm, useSafeSetState } from "./json-form/JsonForm";
 
 const theme = {
   input: {

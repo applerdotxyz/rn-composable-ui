@@ -19,11 +19,11 @@ import React from "react";
 //   getEvents,
 // } from "../examples/sagar-poc/with-appstate/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "../examples/sagar-poc/with-setLayout/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/sagar-poc/with-setLayout/layout";
 
 // import { appConfig, routes, getEvents } from "../examples/todo-app/layout.js";
 
@@ -39,12 +39,11 @@ import {
 //   getEvents,
 // } from "../examples/sagar-poc/with-calendar/layout";
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "../examples/sagar-poc/3_4-screen-example-mobile/layout";
-// } from "../examples/sagar-poc/with-calendar/layout";
+import {
+  appConfig,
+  routes,
+  getEvents,
+} from "../examples/sagar-poc/3_4-screen-example-mobile/layout";
 
 // import {
 //   appConfig,

@@ -1,109 +1,89 @@
-// import { route } from "./utils/router";
-
-import merge from "deepmerge";
-import { registerRootComponent } from "expo";
 import React from "react";
-import { object } from "dot-object";
 
 // ****** EXAMPLE CONFIGS START ****************
-// import { appConfig, routes, getEvents } from "../examples/react-router-port/layout"; /// starter example with nav bars and changes to content area
-// import { appConfig, routes, getEvents } from "../examples/app-one/layout"; /// example with button clicks and routing with dynamic changes to screen
-// import { appConfig, routes } from "../examples/app-two/layout"; /// another example with changes
+
 // import { appConfig, routes, getEvents } from "../examples/todo-app/layout";
 // import { appConfig, routes, getEvents } from "../examples/sagar-poc/layout"; /// example with button clicks and routing with dynamic changes to screen
-// import { appConfig, routes, getEvents } from "../examples/sagar-poc/layout"; /// example with button clicks and routing with dynamic changes to screen
-import { appConfig, routes, getEvents } from "../examples/app-three/layout"; /// example with NavBarComponent addeed and Tab Component added
-// import { appConfig, routes } from "../examples/react-router-port/layout"; /// starter example with nav bars and changes to content area
-// import { appConfig, routes, getEvents } from "../examples/app-one/layout"; // example with button clicks and routing with dynamic changes to screen
-// import { appConfig, routes } from "../examples/app-two/layout"; /// another example with changes
-
+// import { appConfig, routes, getEvents } from "../examples/app-three/layout"; /// example with NavBarComponent addeed and Tab Component added
 // import { appConfig, routes, getEvents } from "../examples/sagar-poc/example1";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "../examples/sagar-poc/poc-with-appstate/layout";
+// } from "../examples/sagar-poc/with-appstate/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "../examples/sagar-poc/poc-with-setLayout/layout";
-
-// import { appConfig, routes, getEvents } from "../examples/sagar-poc/poc1";
+// } from "../examples/sagar-poc/with-setLayout/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "../examples/sagar-poc/poc1-mobile";
+// } from "../examples/sagar-poc/3_4-screen-example-web/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "../examples/react-router-port/layout"; /// starter example with nav bars and changes to content area
-// import { appConfig, routes, getEvents } from "../examples/app-one/layout"; /// example with button clicks and routing with dynamic changes to screen
-// import { appConfig, routes, getEvents } from "../examples/app-two/layout"; /// another example with changes
+// } from "../examples/sagar-poc/with-calendar/layout";
+
+import {
+  appConfig,
+  routes,
+  getEvents,
+} from "../examples/sagar-poc/3_4-screen-example-mobile/layout";
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/sagar-poc/with-jsonforms/layout";
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/vanilla-grid-layout/layout"; /// starter example with nav bars and changes to content area
+// import { appConfig, routes, getEvents } from "../examples/collapsible-leftnav/layout"; /// example with button clicks and routing with dynamic changes to screen
+// import { appConfig, routes, getEvents } from "../examples/another-grid/layout"; /// another example with changes
+
 // ****** EXAMPLE CONFIGS END ****************
+import WrappedApp from "./WrappedApp";
 
-import { GridSection } from "./App";
-import { JSONEditor } from "./internal/components/JSONEditor";
+// **************************************************
+// TODO uncomment below, and comment section at very bottom for non-codesandbox
+// **************************************************
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { registerRootComponent } = require("expo");
+registerRootComponent(() => (
+  // {/* FIXME: debug=true below results in error */}
+  <WrappedApp
+    appConfig={appConfig}
+    routes={routes}
+    debug={false}
+    getEvents={getEvents}
+  />
+));
 
-if (process.env.NODE_ENV !== "production") {
-  console.log("Looks like we are in development mode!");
-}
+// **************************************************
+// TODO: below section to make it run on codesandbox.io
+// **************************************************
 
-//  overall container app
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      config: appConfig,
-    };
-    // console.log(this.state.config);
-  }
-
-  render() {
-    return (
-      <>
-        <JSONEditor
-          json={this.state?.config}
-          onChangeJSON={(json) => {
-            // TODO: add schema conformation for JSONEditor values of component names
-            this.setState({ config: json }, () => {
-              //
-            });
-          }}
-        />
-        <GridSection
-          layoutConfig={this?.state?.config}
-          routes={routes}
-          getEvents={getEvents}
-          setLayoutConfig={(config, isDottedFormat = false) => {
-            // TODO: find out if the object is in collapsed/dotted format
-            if (isDottedFormat) {
-              // expand to proper JSON from dotted notation
-              config = object(config);
-            }
-            this.setState(
-              {
-                // TODO: fix thois to be possible with only identifier
-                config: merge(this?.state?.config, { layout: config }),
-              },
-              () => {
-                console.log(this?.state?.config);
-              }
-            );
-          }}
-        />
-      </>
-    );
-  }
-}
-
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in the Expo client or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+// const { render } = require("react-dom");
+// const rootElement = document.getElementById("root");
+// render(
+//   <React.StrictMode>
+//     {/*
+//       `appConfig` is the original layout configuration for initial render
+//       `routes` is the routes object (multiple possible layout configurations possible) for later renders
+//       `debug` determines that whether `debugging` related features are enabled or not along with router (e.g. json tree)
+//     */}
+//     <WrappedApp appConfig={appConfig} routes={routes} debug={false} />
+//   </React.StrictMode>,
+//   rootElement
+// );

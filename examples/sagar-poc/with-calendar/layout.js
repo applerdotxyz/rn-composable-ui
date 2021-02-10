@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { About } from "../../src/components/About";
-import { ActionComp } from "../../src/components/ActionComp";
-import { Comp5 } from "../../src/components/Comp5";
-import { Home } from "../../src/components/Home";
-import { RandomPic } from "../../src/components/RandomPic";
-import { rowStyle, styles } from "../common";
-import { JsonForm } from "../../src/components/json-form/JsonForm";
+import { About } from "../../../src/components/About";
+import { ActionComp } from "../../../src/components/ActionComp";
+import { Comp5 } from "../../../src/components/Comp5";
+import { Home } from "../../../src/components/Home";
+import { RandomPic } from "../../../src/components/RandomPic";
+import { Cal } from "../../../src/components/Cal";
+import { JsonForm } from "../../../src/components/json-form/JsonForm";
+import { styles, rowStyle } from "../../common";
 
 // All component which will be rendered
 export const componentsSet = {
@@ -15,28 +16,10 @@ export const componentsSet = {
   About,
   RandomPic,
   JsonForm,
+  Cal,
 };
 
 // components section
-
-const _formData = {
-  phone: 8654787549,
-  otp: 654789,
-};
-
-const schema = {
-  type: "object",
-  properties: {
-    phone: { type: "number" },
-    otp: { type: "number" },
-  },
-};
-
-const uiSchema = {
-  phone: {
-    "ui:title": "Phone No. ",
-  },
-};
 
 export const routes = {};
 
@@ -57,122 +40,20 @@ routes.routeOne = {
         },
         "1.2.1.bodyHeaderRow": {
           rowConfig: {
-            rowSize: 2,
-            rowStyle: rowStyle,
-          },
-          bodyHeader: {
-            colSize: 1,
-            idx: "About",
-            label: "bodyHeader-changed at 1st",
-          },
-        },
-      },
-    },
-  },
-};
-
-routes.routeTwo = {
-  // row no
-  "1.container": {
-    // col no
-    "1.1.leftNavCol": {
-      layout: {
-        colConfig: {
-          colStyle: { display: "none" },
-        },
-      },
-    },
-    "1.2.bodyCol": {
-      layout: {
-        colConfig: {
-          colSize: 11,
-        },
-        "1.2.1.bodyHeaderRow": {
-          rowConfig: {
-            rowSize: 2,
-            rowStyle: rowStyle,
-          },
-          bodyHeader: {
-            colSize: 1,
-            idx: "About",
-            label: "bodyHeader-changed at 2nd",
-            colStyle: {
-              borderColor: "cyan",
-              alignSelf: "none",
-              borderWidth: 4,
-              height: "50vh",
-              backgroundColor: "skyblue",
-            },
-          },
-          bodyHeader1: {
-            colSize: 1,
-            idx: "About",
-            label: "bodyHeader1",
-            colStyle: {
-              borderColor: "cyan",
-              alignSelf: "none",
-              borderWidth: 4,
-              height: "50vh",
-              backgroundColor: "red",
-            },
-          },
-        },
-        "1.2.2.bodyContentRow": {
-          bodyContent: {
-            colSize: 1,
-            idx: "Home",
-            label: "bodyContent",
-            colStyle: {
-              borderColor: "cyan",
-              alignSelf: "none",
-              borderWidth: 4,
-              height: "50vh",
-              backgroundColor: "yellow",
-            },
-          },
-        },
-      },
-    },
-  },
-};
-
-routes.routeThree = {
-  // row no
-  "1.container": {
-    // col no
-    "1.1.leftNavCol": {
-      layout: {
-        colConfig: {
-          colStyle: { display: "none" },
-        },
-      },
-    },
-    "1.2.bodyCol": {
-      layout: {
-        colConfig: {
-          colSize: 11,
-        },
-        "1.2.1.bodyHeaderRow": {
-          rowConfig: {
             rowSize: 1,
             rowStyle: rowStyle,
           },
           bodyHeader: {
-            colStyle: { display: "none" },
-          },
-          bodyHeader1: {
-            colSize: 11,
-            idx: "About",
-            label: "bodyHeader1-changed 1st",
+            colSize: 1,
+            //   idx: "About",
+            idx: "Cal",
+            label: "bodyHeader",
             colStyle: {
-              height: "100vh",
-            },
-          },
-        },
-        "1.2.2.bodyContentRow": {
-          bodyContent: {
-            colStyle: {
-              display: "none",
+              borderColor: "cyan",
+              alignSelf: "center",
+              borderWidth: 4,
+              height: 700,
+              backgroundColor: "skyblue",
             },
           },
         },
@@ -236,7 +117,7 @@ export const appConfig = {
               colStyle: {
                 borderColor: "cyan",
                 borderWidth: 4,
-                height: "100vh",
+                height: 700,
                 backgroundColor: "lightgreen",
               },
             },
@@ -264,19 +145,14 @@ export const appConfig = {
               // col no
               colSize: 1,
               //   idx: "About",
-              idx: "JsonForm",
+              idx: "About",
               label: "bodyHeader",
               colStyle: {
                 borderColor: "cyan",
                 alignSelf: "center",
                 borderWidth: 4,
-                height: "80vh",
+                height: 500,
                 backgroundColor: "skyblue",
-              },
-              passProps: {
-                schema,
-                uiSchema,
-                _formData,
               },
             },
           },
@@ -298,17 +174,6 @@ export const events = {
     // <event> :: <handler>
     onPress: (setLayoutConfig) => {
       setLayoutConfig(routes["routeOne"]);
-    },
-  },
-
-  "bodyHeader-changed at 1st-btn-one": {
-    onPress: (setLayoutConfig) => {
-      setLayoutConfig(routes["routeTwo"]);
-    },
-  },
-  "bodyHeader1-btn-one": {
-    onPress: (setLayoutConfig) => {
-      setLayoutConfig(routes["routeThree"]);
     },
   },
 };

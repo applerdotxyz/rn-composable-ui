@@ -3,8 +3,7 @@
 import React, { useRef, useState } from "react";
 import { Dimensions, Text } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { JsonForm } from "../components/json-form/JsonForm";
-import useSafeSetState from "../utils/useSafeState";
+import { JsonForm, useSafeSetState } from "../components/json-form/JsonForm";
 import ButtonX from "./ButtonX";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

@@ -17,7 +17,7 @@
     "react-native-sortable-multilist": "1.1.2",
     "react-native-web-jsonschema-form": "^3.1.4",
     "react-native-web-ui-components": "^5.0.7",
-    "rn-config-tyler": "0.0.1"
+    "rn-config-tyler": "0.0.2"
   },
   "devDependencies": {
     "@babel/preset-env": "latest",

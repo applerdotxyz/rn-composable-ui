@@ -31,11 +31,11 @@ import React from "react";
 //   getEvents,
 // } from "../examples/sagar-poc/with-calendar/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "../examples/sagar-poc/3_4-screen-example-mobile/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/sagar-poc/3_4-screen-example-mobile/layout";
 
 // import {
 //   appConfig,
@@ -50,6 +50,12 @@ import {
 // } from "../examples/vanilla-grid-layout/layout"; /// starter example with nav bars and changes to content area
 // import { appConfig, routes, getEvents } from "../examples/collapsible-leftnav/layout"; /// example with button clicks and routing with dynamic changes to screen
 // import { appConfig, routes, getEvents } from "../examples/another-grid/layout"; /// another example with changes
+
+import {
+  appConfig,
+  routes,
+  getEvents,
+} from "../examples/dashboard-demo/layout";
 
 // ****** EXAMPLE CONFIGS END ****************
 import WrappedApp from "./WrappedApp";

@@ -140,9 +140,7 @@ routes.routeThree = {
             rowStyle: rowStyle,
           },
           bodyHeader: {
-            
-              colStyle: { display: "none" },
-            
+            colStyle: { display: "none" },
           },
           bodyHeader1: {
             colSize: 11,
@@ -253,7 +251,7 @@ export const appConfig = {
                 height: "80vh",
                 backgroundColor: "skyblue",
               },
-            //   props:{schema:schema}
+              //   props:{schema:schema}
             },
           },
         },

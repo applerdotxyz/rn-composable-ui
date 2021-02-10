@@ -19,17 +19,13 @@ import React from "react";
 //   getEvents,
 // } from "../examples/sagar-poc/with-appstate/layout";
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "../examples/sagar-poc/with-setLayout/layout";
-
 import {
   appConfig,
   routes,
   getEvents,
-} from "../examples/todo-app/layout.js";
+} from "../examples/sagar-poc/with-setLayout/layout";
+
+// import { appConfig, routes, getEvents } from "../examples/todo-app/layout.js";
 
 // import {
 //   appConfig,

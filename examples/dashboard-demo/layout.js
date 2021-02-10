@@ -140,18 +140,6 @@ export const appConfig = {
   },
 };
 
-// NavBar: {
-//     colSize: 2,
-//     idx: "Home",
-//     label: "navBar-label",
-//     colStyle: { borderWidth: 4 },
-//   },
-//   BodyDisplay: {
-//     colSize: 10,
-//     idx: "Home",
-//     label: "BodyDisplay-label",
-//     colStyle: { borderWidth: 4 },
-//   },
 // End of Main appConfig for Default Load
 
 // *************************************************

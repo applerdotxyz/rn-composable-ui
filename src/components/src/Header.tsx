@@ -1,4 +1,4 @@
-import { Link } from "@react-navigation/native";
+// import { Link } from "@react-navigation/native";
 import React from "react";
 import { View, Text } from "react-native";
 
@@ -19,19 +19,19 @@ export default function Header() {
           borderWidth: 0.5,
         }}
       />
-      <Link style={{ color: "green", fontSize: 20 }} to="/Index">
+      {/* <Link style={{ color: "green", fontSize: 20 }} to="/Index">
         Index
       </Link>
       <Link style={{ color: "green", fontSize: 20 }} to="/First">
         Home
-      </Link>
+      </Link> */}
       {/* <Link style={{ color: "green", fontSize: 20 }} to="/Alternate">
         Alternate
       </Link>
       <Link style={{ color: "green", fontSize: 20 }} to="/Test">
         Test
       </Link> */}
-      <Link style={{ color: "green", fontSize: 20 }} to="/AddEditEntity">
+      {/* <Link style={{ color: "green", fontSize: 20 }} to="/AddEditEntity">
         AddEditEntity
       </Link>
       <Link style={{ color: "green", fontSize: 20 }} to="/ListEntities">
@@ -61,7 +61,7 @@ export default function Header() {
       </Link>
       <Link style={{ color: "green", fontSize: 20 }} to="/OneMoreApp">
         OneMoreApp
-      </Link>
+      </Link> */}
     </View>
   );
 }

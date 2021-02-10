@@ -18,7 +18,8 @@ import { TabComponent } from "../../components/TabComponent";
 import { ActionComponent } from "../../components/ActionComponent/index";
 import { JsonFormComponent } from "../../components/JsonFormComponent";
 import { DefaultScreen } from "../../components/DefaultScreen";
-
+import { ListComponent } from "../../components/ListComponent";
+import { DetailListComponent } from "../../components/DetailListComponent";
 export const componentsSet = {
   Comp5,
   ActionComp,
@@ -34,6 +35,8 @@ export const componentsSet = {
   TabComponent,
   ActionComponent,
   JsonFormComponent,
+  ListComponent,
+  DetailListComponent,
   // JsonForm
 };
 // *************************************************
@@ -67,9 +70,9 @@ export const appConfig = {
       },
       Header: {
         // col no
-        colSize: 1,
-        idx: "HeaderBar",
-        label: "headerBar",
+        colSize: 12,
+        idx: "HeaderBar", // componentName
+        label: "headerBar", //component
         // colStyle: { borderWidth: 4 },
       },
     },
@@ -91,7 +94,7 @@ export const appConfig = {
             },
             leftNavBody: {
               // col no
-              colSize: 1,
+              colSize: 2,
               idx: "NavigationBar",
               label: "navigationBar",
               colStyle: { borderWidth: 0, height: "100vh" },
@@ -106,7 +109,7 @@ export const appConfig = {
         },
         layout: {
           colConfig: {
-            colSize: 11,
+            colSize: 10,
             // colStyle: { borderColor: "cyan", borderWidth: 4 },
           },
           "2.2.1.bodyHeaderRow": {
@@ -163,46 +166,19 @@ export const appConfig = {
                 height: "80vh", // TODO : Adjusted Height with Upper component using calculation of Row Config
               },
             },
-            "2.2.3.2.bodyContent2": {
-              layout: {
-                colConfig: {
-                  colSize: 3,
-                },
-                "2.2.3.1.1.bodyContent2": {
-                  rowConfig: {
-                    rowSize: 12,
-                    // rowStyle: rowStyle,
-                  },
-                  leftNavBody: {
-                    // col no
-                    colSize: 1,
-                    idx: "DefaultScreen",
-                    label: "defaultScreen",
-                    colStyle: { borderWidth: 0, height: "80vh" },
-                  },
-                },
+            "2.2.3.1.bodyContent2": {
+              // col no
+              // idx: "JsonFormComponent",
+              idx: "DetailListComponent",
+              colSize: 4,
+              label: "defaultScreen",
+              colStyle: {
+                display: "flex",
+                borderColor: "blue",
+                // borderWidth: 1,
+                height: "80vh", // TODO : Adjusted Height with Upper component using calculation of Row Config
               },
             },
-            // "2.2.3.2.bodyContent2": {
-            //   layout: {
-            //     colConfig: {
-            //       colSize: 1,
-            //     },
-            //     "2.2.3.1.2.bodyContent2": {
-            //       rowConfig: {
-            //         rowSize: 12,
-            //         // rowStyle: rowStyle,
-            //       },
-            //       leftNavBody: {
-            //         // col no
-            //         colSize: 1,
-            //         idx: "DefaultScreen",
-            //         label: "defaultScreen",
-            //         colStyle: { borderWidth: 0, height: "80vh" },
-            //       },
-            //     },
-            //   },
-            // },
           },
         },
       },

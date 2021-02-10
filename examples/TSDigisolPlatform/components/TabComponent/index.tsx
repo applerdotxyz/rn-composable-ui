@@ -27,6 +27,7 @@ export const TabComponent = (props: {
     getEvents,
   } = props;
 
+  // TODO : ....
   // console.log(`label is ${label}`);
   // console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
 

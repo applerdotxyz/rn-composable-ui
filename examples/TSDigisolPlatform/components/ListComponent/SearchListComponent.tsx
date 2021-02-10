@@ -32,7 +32,7 @@ import SearchInput, { createFilter } from "react-native-search-filter";
 */
 }
 
-export default function SearchList({
+export default function SearchListComponent({
   data,
   searchFields,
   visibleKeys,
@@ -50,7 +50,7 @@ export default function SearchList({
 }) {
   // const history = useHistory();
   const [searchItem, setSearchItem] = useState("");
-  let [isSelected, setSelected] = useState(false);
+  const [isSelected, setSelected] = useState(false);
   // const initalCheckboxState = () => {
   //   var initialStateArray = [];
   //   for (var i = 0; i < numberOfLines; i++) {
@@ -64,8 +64,8 @@ export default function SearchList({
   const keys = visibleKeys || Object.keys(data[0] || []);
 
   useEffect(() => {
-    var tempArray = [];
-    for (var i = 0; i < numberOfLines; i++) {
+    const tempArray = [];
+    for (let i = 0; i < numberOfLines; i++) {
       tempArray.push(isSelected);
     }
     isSelected ? setChecked(tempArray) : setChecked([]);
@@ -195,7 +195,7 @@ export default function SearchList({
               <Text
                 key={i}
                 style={[
-                  styles.tableHead,
+                  styles.tableVal,
                   { flex: flexWidth ? flexWidth[i] : 1 },
                   titleStyle,
                 ]}
@@ -288,7 +288,7 @@ export default function SearchList({
   );
 }
 
-SearchList.propTypes = {
+SearchListComponent.propTypes = {
   data: PropTypes.array,
   searchFields: PropTypes.array,
   visibleKeys: PropTypes.array,
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
     // alignContent: "flex-start",
     // textAlign: "flex-start",
     borderBottomWidth: 2,
-    borderWidth: 1,
+    // borderWidth: 1,
     borderBottomColor: "grey",
   },
 

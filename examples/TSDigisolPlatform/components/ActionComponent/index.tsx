@@ -104,6 +104,7 @@ export const ActionComponent = (props: {
             <TouchableOpacity
               onPress={() => {
                 setaction("Create");
+                // setLayoutConfig(routes["defaultAppConfig"]);
               }}
               style={{
                 backgroundColor:
@@ -152,6 +153,7 @@ export const ActionComponent = (props: {
                   state.activeActionSelection.actionData.actionName
                 );
                 setaction("Search");
+                setLayoutConfig(routes["defaultAppConfig"]);
               }}
               style={{
                 backgroundColor:

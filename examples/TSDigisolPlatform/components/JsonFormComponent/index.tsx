@@ -13,6 +13,7 @@ import {
   updateTabSelection,
 } from "../../../../src/state-management/actions";
 import { DEV_END_POINT } from "../../../../src/state-management/config/constant";
+import { routes } from "../../configs/routes/routesConfig";
 
 export const JsonFormComponent = (props: {
   appState;
@@ -56,51 +57,51 @@ export const JsonFormComponent = (props: {
     recievemsgs: true,
   };
 
-  const [_schema, setSchema] = useSafeSetState({
-    type: "object",
-    required: [
-      "firstName",
-      "lastName",
-      "stype",
-      "date",
-      "username",
-      "password",
-      "Confirm password",
-      "languages",
-      "recievemsgs",
-    ],
-    properties: {
-      firstName: { type: "string" },
-      lastName: { type: "string" },
-      stype: {
-        enum: ["Male", "Female", "Others"],
-        type: "string",
-      },
-      date: {
-        format: "date",
-        type: "string",
-        title: "Date",
-      },
-      username: { type: "string" },
-      password: { type: "string" },
-      "Confirm password": { type: "string" },
-      languages: {
-        type: "array",
-        items: {
-          type: "string",
-        },
-      },
-      recievemsgs: { type: "boolean" },
-      upload: {
-        format: "data-url",
-        type: "string",
-      },
-      age: {
-        type: "integer",
-        title: "Age",
-      },
-    },
-  });
+  // const [_schema, setSchema] = useSafeSetState({
+  //   type: "object",
+  //   required: [
+  //     "firstName",
+  //     "lastName",
+  //     "stype",
+  //     "date",
+  //     "username",
+  //     "password",
+  //     "Confirm password",
+  //     "languages",
+  //     "recievemsgs",
+  //   ],
+  //   properties: {
+  //     firstName: { type: "string" },
+  //     lastName: { type: "string" },
+  //     stype: {
+  //       enum: ["Male", "Female", "Others"],
+  //       type: "string",
+  //     },
+  //     date: {
+  //       format: "date",
+  //       type: "string",
+  //       title: "Date",
+  //     },
+  //     username: { type: "string" },
+  //     password: { type: "string" },
+  //     "Confirm password": { type: "string" },
+  //     languages: {
+  //       type: "array",
+  //       items: {
+  //         type: "string",
+  //       },
+  //     },
+  //     recievemsgs: { type: "boolean" },
+  //     upload: {
+  //       format: "data-url",
+  //       type: "string",
+  //     },
+  //     age: {
+  //       type: "integer",
+  //       title: "Age",
+  //     },
+  //   },
+  // });
 
   const languages = ["Java", "Python", "C"];
 
@@ -253,7 +254,8 @@ export const JsonFormComponent = (props: {
           // console.log("Hello onSuccess");
           // console.log("state inside JSON FORM : : : : ", state);
 
-          // props.navigation.navigate("First");
+          // TODO : REDIRECT TO SEARCH ROUTE
+          setLayoutConfig(routes["search"]);
         }}
         // _onChange={(e) => {
         //   console.log("data changed");

@@ -38,7 +38,6 @@ export const JsonForm = ({
     console.log(event.params.values.phone);
     console.log(event.params.values.otp);
     console.log(event);
-
     _onBeforeSubmit(event);
   };
 

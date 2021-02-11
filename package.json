@@ -8,6 +8,7 @@
     "axios": "^0.21.1",
     "dot-object": "^2.1.4",
     "expo": "^40.0.0",
+    "history": "^5.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "0.63.4",
@@ -19,8 +20,7 @@
     "react-native-sortable-multilist": "1.1.2",
     "react-native-svg": "^12.1.0",
     "react-native-web-jsonschema-form": "^3.1.4",
-    "react-native-web-ui-components": "^5.0.7",
-    "rn-config-tyler": "0.0.2"
+    "react-native-web-ui-components": "^5.0.7"
   },
   "devDependencies": {
     "@babel/preset-env": "latest",

@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+// import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -8,13 +8,14 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
 } from "react-native";
 import { RenderList } from "./RenderList";
 // import { useRouting } from "expo-next-react-navigation";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const ListEntities = () => {
-  const { goBack } = useNavigation();
+  // const { goBack } = useNavigation();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,9 +23,10 @@ export const ListEntities = () => {
     setLoading(true);
     const fetchData = async () => {
       const res = await fetch(
-        "https://run.mocky.io/v3/56a7c1e0-434a-4773-b6b4-4cfc12fe1624"
+        "https://run.mocky.io/v3/15c75559-42b2-45ed-bcf2-06c48aa51bdf"
       );
       const resJSON = await res.json();
+
       setData(resJSON.ticketDetails);
 
       setLoading(false);
@@ -50,19 +52,98 @@ export const ListEntities = () => {
         titleStyle={null}
         dataStyle={{ color: "darkblue" }}
       />
-      {/* COmponent Satyam Rendered */}
-      {/* <SearchList 
-        data={data} 
-        searchFields={["name", "description", "category", "subCategory"]} 
-        visibleKeys={["name", "category", "description"]}
-        flexWidth={[1,1,3]} // Column-span (length of array should be equal to that of visibleKeys)
-        numberOfLines={3} // Row-span
-        searchBarWrapperStyle={null}
-        searchBarStyle={null}
+
+      {/* No Filtering Demo-ed */}
+      {/* <RenderList
+        data={data}
+        searchFields={["name", "description", "category", "subCategory"]}
+        visibleKeys={["name", "category", "subCategory"]}
+        filterEnabled={false}
+      /> */}
+
+      {/* Custom Rendering Demo-ed, hedings hidden */}
+      {/* <RenderList
+        data={data}
+        searchFields={[
+          "name",
+          "description",
+          "categoryImg",
+          "category",
+          "subCategory",
+        ]}
+        visibleKeys={["categoryImg"]}
         titleStyle={null}
-        dataStyle={{color: 'darkblue'}}
-        inputPlaceholder="Search Here"
-    />  */}
+        dataStyle={{ color: "red" }}
+        filterEnabled={true}
+        customFilter={false}
+        hideHeader={true}
+        customRender={{
+          categoryImg: (val, allData) => {
+            return (
+              <View style={{}}>
+                <Image
+                  source={{ uri: val }}
+                  style={{
+                    height: 250,
+                    width: 400,
+                    alignSelf: "center",
+                    padding: 10,
+                  }}
+                />
+                <View
+                  style={{
+                    alignSelf: "center",
+                    padding: 15,
+                  }}
+                >
+                  <Text>Name: {allData.name}</Text>
+                  <Text>Category: {allData.category}</Text>
+                  <Text>Sub Category: {allData.subCategory}</Text>
+                </View>
+              </View>
+            );
+          },
+        }}
+      /> */}
+{/* 
+      <RenderList
+        data={data}
+        searchFields={[
+          "name",
+          "description",
+          "categoryImg",
+          "category",
+          "subCategory",
+        ]}
+        visibleKeys={["categoryImg"]}
+        hideHeader={true}
+        customRender={{
+          categoryImg: (val, allData) => (
+            <View style={{}}>
+              <Image
+                source={{ uri: val }}
+                style={{
+                  height: 250,
+                  width: 400,
+                  alignSelf: "center",
+                  padding: 10,
+                }}
+              />
+              <View
+                style={{
+                  alignSelf: "center",
+                  padding: 15,
+                }}
+              >
+                <Text>Name: {allData.name}</Text>
+                <Text>Category: {allData.category}</Text>
+                <Text>Sub Category: {allData.subCategory}</Text>
+              </View>
+            </View>
+          ),
+        }}
+      /> */}
+
       <View
         style={{
           marginLeft: 100,
@@ -74,7 +155,7 @@ export const ListEntities = () => {
         <Button
           accessibilityLabel="link"
           onPress={() => {
-            goBack();
+            // goBack();
           }}
           title="Go Back"
         />

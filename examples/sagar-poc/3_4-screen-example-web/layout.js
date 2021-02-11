@@ -6,6 +6,10 @@ import {
   Home,
   RandomPic,
   JsonForm,
+  ListEntities,
+  RenderList,
+  NavigationBar,
+  TabComponent,
 } from "../../../src/components/src";
 import { styles, rowStyle } from "../../common";
 // All component which will be rendered
@@ -16,14 +20,29 @@ export const componentsSet = {
   About,
   RandomPic,
   JsonForm,
+  ListEntities,
+  RenderList,
+  NavigationBar,
+  TabComponent,
 };
 
-// components section
+let data = [];
+const _formData = {
+  phone: 8654787549,
+  otp: 654789,
+};
+
 const schema = {
   type: "object",
   properties: {
-    username: { type: "string" },
-    password: { type: "string" },
+    phone: { type: "number" },
+    otp: { type: "number" },
+  },
+};
+
+const uiSchema = {
+  phone: {
+    "ui:title": "Phone No. ",
   },
 };
 
@@ -227,7 +246,7 @@ export const appConfig = {
             leftNavHeader: {
               // col no
               colSize: 1,
-              idx: "Home",
+              idx: "NavigationBar",
               label: "leftNavHeader",
               colStyle: {
                 borderColor: "cyan",
@@ -252,21 +271,50 @@ export const appConfig = {
             },
           },
           "1.2.1.bodyHeaderRow": {
-            rowConfig: {
-              rowSize: 1,
-              rowStyle: rowStyle,
-            },
             bodyHeader: {
               // col no
               colSize: 1,
-              idx: "About",
+              idx: "JsonForm",
               label: "bodyHeader",
               colStyle: {
                 borderColor: "cyan",
                 alignSelf: "center",
                 borderWidth: 4,
-                height: "80vh",
+                height: "20vh",
                 backgroundColor: "skyblue",
+              },
+              passProps: {
+                _formData,
+                schema,
+                uiSchema,
+              },
+            },
+          },
+          "1.2.2.bodyContentRow": {
+            bodyHeader: {
+              // col no
+              colSize: 1,
+              idx: "RenderList",
+              label: "bodyContent",
+              colStyle: {
+                borderColor: "red",
+                alignSelf: "center",
+                borderWidth: 4,
+                height: "90vh",
+                backgroundColor: "lightgray",
+              },
+              passProps: {
+                // data: appState?.$global?.list_of_complaints?.data || [],
+                data: [],
+                searchFields: [
+                  "name",
+                  "description",
+                  "category",
+                  "subCategory",
+                ],
+                visibleKeys: ["name", "category", "subCategory"],
+                titleStyle: null,
+                dataStyle: { color: "darkblue" },
               },
             },
           },
@@ -283,11 +331,53 @@ export const appConfig = {
 //  logic that binds
 
 export const events = {
+  $appInit: async (setLayoutConfig, setAppState) => {
+    // PREPARING THE DATA
+    // FIXME: MOVE THIS TO EVENT MANAGEMENT SIDE
+    let data = [];
+    const res = fetch(
+      "https://run.mocky.io/v3/15c75559-42b2-45ed-bcf2-06c48aa51bdf"
+    )
+      .then((res) => res.json())
+      .then((_data) => {
+        const _formData = {
+          phone: 8654787549,
+          otp: 654789,
+        };
+
+        const schema = {
+          type: "object",
+          properties: {
+            phone: { type: "number" },
+            otp: { type: "number" },
+          },
+        };
+
+        const uiSchema = {
+          phone: {
+            "ui:title": "Phone No. ",
+          },
+        };
+        setAppState({
+          $global: {
+            list_of_complaints: {
+              data: _data,
+              formData: _formData,
+              schema,
+              uiSchema,
+            },
+          },
+        });
+      });
+  },
+
   //<label>-<element-id> : <handler>
   "leftNavHeader-btn-one": {
     // <event> :: <handler>
-    onPress: (setLayoutConfig) => {
+    onPress: (setLayoutConfig, setAppState) => {
       setLayoutConfig(routes["routeOne"]);
+
+      // components section
     },
   },
 
@@ -307,14 +397,18 @@ export const events = {
 //  Helper Util
 // *************************************************
 // bind events based on the layout config
-export const getEvents = (elId, setLayoutConfig, setAppState) => {
-  const elEvents = {};
-  events[elId] &&
-    Object.keys(events[elId]).map((eventName) => {
-      elEvents[eventName] = () =>
-        events[elId] && events[elId][eventName] && events[elId][eventName]
-          ? events[elId][eventName](setLayoutConfig, setAppState)
-          : {};
-    });
-  return elEvents;
+export const getEvents = async (elId, setLayoutConfig, setAppState) => {
+  if (elId === "$appInit") {
+    await events["$appInit"](setLayoutConfig, setAppState);
+  } else {
+    const elEvents = {};
+    events[elId] &&
+      Object.keys(events[elId]).map((eventName) => {
+        elEvents[eventName] = () =>
+          events[elId] && events[elId][eventName] && events[elId][eventName]
+            ? events[elId][eventName](setLayoutConfig, setAppState)
+            : {};
+      });
+    return elEvents;
+  }
 };

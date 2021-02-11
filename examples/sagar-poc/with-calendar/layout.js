@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { About } from "../../../src/components/About";
-import { ActionComp } from "../../../src/components/ActionComp";
-import { Comp5 } from "../../../src/components/Comp5";
-import { Home } from "../../../src/components/Home";
-import { RandomPic } from "../../../src/components/RandomPic";
-import { Cal } from "../../../src/components/Cal";
-import { JsonForm } from "../../../src/components/json-form/JsonForm";
+import { About } from "../../../src/components/src/About";
+import { ActionComp } from "../../../src/components/src/ActionComp";
+import { Comp5 } from "../../../src/components/src/Comp5";
+import { Home } from "../../../src/components/src/Home";
+import { RandomPic } from "../../../src/components/src/RandomPic";
+import { Cal } from "../../../src/components/src/Cal";
+import AgendaScroll from "../../../src/components/src/AgendaScroll";
+
+import { JsonForm } from "../../../src/components/src/json-form/JsonForm";
 import { styles, rowStyle } from "../../common";
 
 // All component which will be rendered
@@ -17,6 +19,7 @@ export const componentsSet = {
   RandomPic,
   JsonForm,
   Cal,
+  AgendaScroll,
 };
 
 // components section
@@ -145,7 +148,7 @@ export const appConfig = {
               // col no
               colSize: 1,
               //   idx: "About",
-              idx: "About",
+              idx: "AgendaScroll",
               label: "bodyHeader",
               colStyle: {
                 borderColor: "cyan",

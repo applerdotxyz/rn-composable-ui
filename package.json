@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "axios": "^0.21.1",
     "dot-object": "^2.1.4",
     "expo": "^40.0.0",
     "react": "16.13.1",

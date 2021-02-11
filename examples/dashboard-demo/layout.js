@@ -14,6 +14,7 @@ import { ActionDashboard } from "./component-for-dashboard/ActionDashboard";
 import { JsonFormDashboard } from "./component-for-dashboard/JsonFormDashboard";
 import { DefaultScreen } from "./component-for-dashboard/DefaultScreen";
 import { NavigationBarDashboard } from "./component-for-dashboard/NavigationBarDashboard";
+import { HeaderDashboard } from "./component-for-dashboard/HeaderDashboard";
 
 // All component which will be rendered
 export const componentsSet = {
@@ -30,6 +31,7 @@ export const componentsSet = {
   JsonFormDashboard,
   DefaultScreen,
   NavigationBarDashboard,
+  HeaderDashboard,
 };
 
 // ****************** Routes for Dashboard naming *************************
@@ -66,11 +68,9 @@ export const appConfig = {
         rowSize: 1,
         rowStyle: { height: "100%" },
       },
-      //   When we wnt to render any component JSON expected
-      //   with property should be same
       Header: {
         colSize: 12,
-        idx: "Home",
+        idx: "HeaderDashboard",
         label: "header-label",
         colStyle: { borderWidth: 0 },
       },
@@ -93,7 +93,7 @@ export const appConfig = {
             leftNavBody: {
               // col no
               colSize: 2,
-              idx: "Home",
+              idx: "NavigationBarDashboard",
               label: "navigationBar",
               colStyle: { borderWidth: 0 },
             },
@@ -138,7 +138,7 @@ export const appConfig = {
               colSize: 1,
               idx: "JsonFormDashboard",
               label: "jsonFormComponent",
-              colStyle: { borderWidth: 1 },
+              colStyle: { borderWidth: 2, borderColor: "red" },
             },
             emptyComponent: {
               colSize: 2,
@@ -152,6 +152,58 @@ export const appConfig = {
     },
   },
 };
+
+// export const appConfig = {
+//   /// 1st layout
+//   componentsSet,
+//   links,
+//   "layout": {
+//     "1.container": {rowConfig: {rowSize: 1,rowStyle: {height: "100%"
+//             },
+//         },
+//         "Header": {colSize: 12,idx: "Home",label: "header-label",colStyle: {},
+//         },
+//     },
+//     "2.container": {rowConfig: {rowSize: 11,rowStyle: {height: "100%"
+//             },
+//         },
+//         "2.1.leftNavCol": {layout: {colConfig: {colSize: 2,
+//                 },
+//                 "2.1.leftNavBodyRow": {rowConfig: {rowSize: 12,rowStyle: {height: "100%"
+//                         },
+//                     },
+//                     "leftNavBody": {colSize: 2,idx: "Home",label: "navigationBar",colStyle: {},
+//                     },
+//                 },
+//             },
+//         },
+//         "2.2.bodyCol": {layout: {colConfig: {colSize: 10,
+//                 },
+//                 "2.2.1.BodyRow": {rowConfig: {rowSize: 1,rowStyle: {height: "100%"
+//                         },
+//                     },
+//                     "actionView": {colSize: 2,idx: "Home",label: "actionComponent",colStyle: {},
+//                     },
+//                 },
+//                 "2.2.2.BodyRow": {rowConfig: {rowSize: 1,rowStyle: {height: "100%"
+//                         },
+//                     },
+//                     "tabView": {colSize: 2,idx: "Home",label: "tabComponent",colStyle: {},
+//                     },
+//                 },
+//                 "2.2.3.BodyRow": {rowConfig: {rowSize: 8,rowStyle: {height: "100%"
+//                         },
+//                     },
+//                     "jsonFormComponent": {colSize: 1,idx: "Home",label: "jsonFormComponent",colStyle: {},
+//                     },
+//                     "emptyComponent": {colSize: 2,idx: "Home",label: "DefaultScreenComponent",colStyle: {},
+//                     },
+//                 },
+//             },
+//         },
+//     },
+// },
+// };
 
 // End of Main appConfig for Default Load
 

@@ -174,60 +174,60 @@ routes.search = {
           colSize: 11,
           // colStyle: { borderColor: "cyan", borderWidth: 4 },
         },
-        "2.2.1.bodyHeaderRow": {
-          rowConfig: {
-            rowSize: 1.4, // TODO : Adjusted Height with Upper component using calculation of Row Config
-            // rowStyle: rowStyle,
-            // rowStyle: { borderColor: "red", borderWidth: 1, height: "20vh" },
-          },
-          bodyHeader: {
-            // col no
-            colSize: 1,
-            idx: "ActionComponent",
-            label: "actionComponent",
-            colStyle: {
-              borderColor: "blue",
-              // borderWidth: 2,
-              // height: "20vh",
-            },
-          },
-        },
-        "2.2.2.bodyTabRow": {
-          rowConfig: {
-            rowSize: 1.3,
-            // rowStyle: rowStyle,
-            // rowStyle: { borderColor: "red", borderWidth: 4, height: "80vh" },
-          },
-          bodyContent: {
-            // col no
-            idx: "TabComponent",
-            colSize: 1,
-            label: "tabComponent",
-            colStyle: {
-              borderColor: "blue",
-              // borderWidth: 1,
-              // height: "89.2vh", // TODO : Adjusted Height with Upper component using calculation of Row Config
-            },
-          },
-        },
+        // "2.2.1.bodyHeaderRow": {
+        //   rowConfig: {
+        //     rowSize: 1.4, // TODO : Adjusted Height with Upper component using calculation of Row Config
+        //     // rowStyle: rowStyle,
+        //     // rowStyle: { borderColor: "red", borderWidth: 1, height: "20vh" },
+        //   },
+        //   bodyHeader: {
+        //     // col no
+        //     colSize: 1,
+        //     idx: "ActionComponent",
+        //     label: "actionComponent",
+        //     colStyle: {
+        //       borderColor: "blue",
+        //       // borderWidth: 2,
+        //       // height: "20vh",
+        //     },
+        //   },
+        // },
+        // "2.2.2.bodyTabRow": {
+        //   rowConfig: {
+        //     rowSize: 1.3,
+        //     // rowStyle: rowStyle,
+        //     // rowStyle: { borderColor: "red", borderWidth: 4, height: "80vh" },
+        //   },
+        //   bodyContent: {
+        //     // col no
+        //     idx: "TabComponent",
+        //     colSize: 1,
+        //     label: "tabComponent",
+        //     colStyle: {
+        //       borderColor: "blue",
+        //       // borderWidth: 1,
+        //       // height: "89.2vh", // TODO : Adjusted Height with Upper component using calculation of Row Config
+        //     },
+        //   },
+        // },
         "2.2.3.bodyContentRow": {
           rowConfig: {
             rowSize: 10,
             // rowStyle: rowStyle,
             // rowStyle: { borderColor: "red", borderWidth: 4, height: "80vh" },
           },
-          "2.2.3.1.bodyContent": {
-            // col no
-            // idx: "JsonFormComponent",
-            idx: "JsonFormComponent",
-            colSize: 2,
-            label: "jsonFormComponent",
-            colStyle: {
-              borderColor: "blue",
-              // borderWidth: 1,
-              height: "80vh", // TODO : Adjusted Height with Upper component using calculation of Row Config
-            },
-          },
+          // "2.2.3.1.bodyContent": {
+          //   // col no
+          //   // idx: "JsonFormComponent",
+          //   idx: "JsonFormComponent",
+          //   colSize: 2,
+          //   label: "jsonFormComponent",
+          //   colStyle: {
+          //     borderColor: "blue",
+          //     // borderWidth: 1,
+          //     height: "80vh", // TODO : Adjusted Height with Upper component using calculation of Row Config
+          //   },
+          // },
           "2.2.3.1.bodyContent2": {
             // col no
             // idx: "JsonFormComponent",

@@ -4,7 +4,7 @@ import { Agenda } from "react-native-calendars";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import axios from "axios";
 
-export default function AgendaScroll() {
+export default function AgendaScroll({ route, navigation }: any) {
   const [items, setItems] = useState();
 
   useEffect(() => {
@@ -44,7 +44,6 @@ export default function AgendaScroll() {
         pastScrollRange={1}
         futureScrollRange={1}
       />
-      {/* <Button title="back"  onPress={() => goBack()} />  */}
     </View>
   );
 }

@@ -9,6 +9,12 @@ import {
 } from "../../src/components/src";
 import { rowStyle, styles } from "../common";
 
+import { TabDashboard } from "./component-for-dashboard/TabDashboard";
+import { ActionDashboard } from "./component-for-dashboard/ActionDashboard";
+import { JsonFormDashboard } from "./component-for-dashboard/JsonFormDashboard";
+import { DefaultScreen } from "./component-for-dashboard/DefaultScreen";
+import { NavigationBarDashboard } from "./component-for-dashboard/NavigationBarDashboard";
+
 // All component which will be rendered
 export const componentsSet = {
   Comp5,
@@ -17,6 +23,13 @@ export const componentsSet = {
   About,
   RandomPic,
   JsonForm,
+
+  // Dashboard Demo Example Component
+  TabDashboard,
+  ActionDashboard,
+  JsonFormDashboard,
+  DefaultScreen,
+  NavigationBarDashboard,
 };
 
 // ****************** Routes for Dashboard naming *************************
@@ -99,7 +112,7 @@ export const appConfig = {
             },
             actionView: {
               colSize: 2,
-              idx: "Home",
+              idx: "ActionDashboard",
               label: "actionComponent",
               colStyle: { borderWidth: 1 },
             },
@@ -111,7 +124,7 @@ export const appConfig = {
             },
             tabView: {
               colSize: 2,
-              idx: "Home",
+              idx: "TabDashboard",
               label: "tabComponent",
               colStyle: { borderWidth: 1 },
             },
@@ -123,13 +136,13 @@ export const appConfig = {
             },
             jsonFormComponent: {
               colSize: 1,
-              idx: "Home",
+              idx: "JsonFormDashboard",
               label: "jsonFormComponent",
               colStyle: { borderWidth: 1 },
             },
             emptyComponent: {
               colSize: 2,
-              idx: "Home",
+              idx: "DefaultScreen",
               label: "DefaultScreenComponent",
               colStyle: { borderWidth: 1 },
             },
@@ -157,6 +170,9 @@ export const events = {
     onPress: (setLayoutConfig) => {
       setLayoutConfig(routes["routeOne"]);
     },
+  },
+  "header-label-btn-one": {
+    // <envet> : <Handler>
   },
 
   "bodyHeader-changed at 1st-btn-one": {

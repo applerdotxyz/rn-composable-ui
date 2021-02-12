@@ -7,7 +7,6 @@ import React from "react";
 
 // FIXME: below
 // import {
-//   appConfig,
 //   routes,
 //   getEvents,
 //   appConfig,
@@ -20,11 +19,11 @@ import React from "react";
 //   getEvents,
 // } from "../rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "../rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
 
 // import {
 //   appConfig,
@@ -32,11 +31,11 @@ import {
 //   getEvents,
 // } from "../rn-config-tyler/packages/demo/examples/sagar-poc/with-calendar/layout";
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "../rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-mobile/layout";
+import {
+  appConfig,
+  routes,
+  getEvents,
+} from "../rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-mobile/layout";
 
 // import {
 //   appConfig,

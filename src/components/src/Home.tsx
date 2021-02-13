@@ -29,11 +29,11 @@ export const Home = (props: {
   return (
     <View>
       <Text style={{}}>Home *** {label}</Text>
-      <Button
+      {/* <Button
         testID={`${label}-btn-one`} // header-label-btn-one
         title="ACT"
         {...getEvents(`${label}-btn-one`, setLayoutConfig, setAppState)}
-      ></Button>
+      ></Button> */}
       {children || (appState && appState[label] && appState[label]?.children)}
     </View>
   );

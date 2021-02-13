@@ -120,7 +120,7 @@ export const appConfig = {
           "2.2.2.BodyRow": {
             rowConfig: {
               rowSize: 1,
-              rowStyle: { height: "100%" },
+              rowStyle: { height: "20vh" },
             },
             tabView: {
               colSize: 2,
@@ -132,7 +132,7 @@ export const appConfig = {
           "2.2.3.BodyRow": {
             rowConfig: {
               rowSize: 8,
-              rowStyle: { height: "100%" },
+              rowStyle: { height: "20vh" },
             },
             jsonFormComponent: {
               colSize: 1,
@@ -153,57 +153,197 @@ export const appConfig = {
   },
 };
 
-// export const appConfig = {
-//   /// 1st layout
-//   componentsSet,
-//   links,
-//   "layout": {
-//     "1.container": {rowConfig: {rowSize: 1,rowStyle: {height: "100%"
-//             },
-//         },
-//         "Header": {colSize: 12,idx: "Home",label: "header-label",colStyle: {},
-//         },
-//     },
-//     "2.container": {rowConfig: {rowSize: 11,rowStyle: {height: "100%"
-//             },
-//         },
-//         "2.1.leftNavCol": {layout: {colConfig: {colSize: 2,
-//                 },
-//                 "2.1.leftNavBodyRow": {rowConfig: {rowSize: 12,rowStyle: {height: "100%"
-//                         },
-//                     },
-//                     "leftNavBody": {colSize: 2,idx: "Home",label: "navigationBar",colStyle: {},
-//                     },
-//                 },
-//             },
-//         },
-//         "2.2.bodyCol": {layout: {colConfig: {colSize: 10,
-//                 },
-//                 "2.2.1.BodyRow": {rowConfig: {rowSize: 1,rowStyle: {height: "100%"
-//                         },
-//                     },
-//                     "actionView": {colSize: 2,idx: "Home",label: "actionComponent",colStyle: {},
-//                     },
-//                 },
-//                 "2.2.2.BodyRow": {rowConfig: {rowSize: 1,rowStyle: {height: "100%"
-//                         },
-//                     },
-//                     "tabView": {colSize: 2,idx: "Home",label: "tabComponent",colStyle: {},
-//                     },
-//                 },
-//                 "2.2.3.BodyRow": {rowConfig: {rowSize: 8,rowStyle: {height: "100%"
-//                         },
-//                     },
-//                     "jsonFormComponent": {colSize: 1,idx: "Home",label: "jsonFormComponent",colStyle: {},
-//                     },
-//                     "emptyComponent": {colSize: 2,idx: "Home",label: "DefaultScreenComponent",colStyle: {},
-//                     },
-//                 },
-//             },
-//         },
-//     },
-// },
-// };
+export const appConfig2 = {
+  /// 1st layout
+  componentsSet,
+  links,
+  layout: {
+    "1.container": {
+      rowConfig: { rowSize: 1, rowStyle: { height: "100%" } },
+      Header: { colSize: 12, idx: "Home", label: "header-label", colStyle: {} },
+    },
+    "2.container": {
+      rowConfig: { rowSize: 11, rowStyle: { height: "100%" } },
+      "2.1.leftNavCol": {
+        layout: {
+          colConfig: { colSize: 2 },
+          "2.1.leftNavBodyRow": {
+            rowConfig: { rowSize: 12, rowStyle: { height: "100%" } },
+            leftNavBody: {
+              colSize: 2,
+              idx: "Home",
+              label: "navigationBar",
+              colStyle: {},
+            },
+          },
+        },
+      },
+      "2.2.bodyCol": {
+        layout: {
+          colConfig: { colSize: 10 },
+          "2.2.1.BodyRow": {
+            rowConfig: { rowSize: 1, rowStyle: { height: "100%" } },
+            actionView: {
+              colSize: 2,
+              idx: "Home",
+              label: "actionComponent",
+              colStyle: {},
+            },
+          },
+          "2.2.2.BodyRow": {
+            rowConfig: { rowSize: 1, rowStyle: { height: "100%" } },
+            tabView: {
+              colSize: 2,
+              idx: "Home",
+              label: "tabComponent",
+              colStyle: {},
+            },
+          },
+          "2.2.3.BodyRow": {
+            rowConfig: { rowSize: 8, rowStyle: { height: "100%" } },
+            jsonFormComponent: {
+              colSize: 1,
+              idx: "Home",
+              label: "jsonFormComponent",
+              colStyle: {},
+            },
+            emptyComponent: {
+              colSize: 2,
+              idx: "Home",
+              label: "DefaultScreenComponent",
+              colStyle: {},
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+export const appConfig3 = {
+  /// 1st layout
+  componentsSet,
+  links,
+  layout: {
+    "1.container": {
+      rowConfig: {
+        rowSize: 1,
+        rowStyle: { height: "100%" },
+      },
+      Header: {
+        colSize: 12,
+        idx: "HeaderDashboard",
+        label: "header-label",
+        colStyle: { borderWidth: 0 },
+      },
+    },
+    "2.container": {
+      rowConfig: {
+        rowSize: 11,
+        rowStyle: { height: "100%" },
+      },
+      "2.1.leftNavCol": {
+        layout: {
+          colConfig: {
+            colSize: 2,
+          },
+          "2.1.leftNavBodyRow": {
+            rowConfig: {
+              rowSize: 12,
+              rowStyle: { height: "100%" },
+            },
+            leftNavBody: {
+              // col no
+              colSize: 2,
+              idx: "NavigationBarDashboard",
+              label: "navigationBar",
+              colStyle: { borderWidth: 0 },
+            },
+          },
+        },
+      },
+      "2.2.bodyCol": {
+        layout: {
+          colConfig: {
+            colSize: 10,
+          },
+          "2.2.1.BodyRow": {
+            rowConfig: {
+              rowSize: 1,
+              rowStyle: { height: "100%" },
+            },
+            actionView: {
+              colSize: 2,
+              idx: "Home",
+              label: "actionComponent",
+              colStyle: { borderWidth: 1 },
+            },
+          },
+          "2.2.2.BodyRow": {
+            rowConfig: {
+              rowSize: 1,
+              rowStyle: { height: "100%" },
+            },
+            tabView: {
+              colSize: 2,
+              idx: "Home",
+              label: "tabComponent",
+              colStyle: { borderWidth: 1 },
+            },
+          },
+          "2.2.3.BodyRow": {
+            rowConfig: {
+              rowSize: 8,
+              rowStyle: { height: "100%" },
+            },
+            orderDetailView: {
+              colSize: 4,
+              idx: "Home",
+              label: "orderDetailView",
+              colStyle: { borderWidth: 2, borderColor: "red" },
+            },
+          },
+          "2.2.4.BodyRow": {
+            rowConfig: {
+              rowSize: 8,
+              rowStyle: { height: "100%" },
+            },
+            orderLineListView: {
+              colSize: 2,
+              idx: "Home",
+              label: "orderLineListView",
+              colStyle: { borderWidth: 2, borderColor: "red" },
+            },
+            billToAddressDetailView: {
+              colSize: 2,
+              idx: "DefaultScreen",
+              label: "billToAddressDetailView",
+              colStyle: { borderWidth: 1 },
+            },
+          },
+          "2.2.5.BodyRow": {
+            rowConfig: {
+              rowSize: 8,
+              rowStyle: { height: "100%" },
+            },
+            orderLineDetail: {
+              colSize: 2,
+              idx: "Home",
+              label: "orderLineDetail",
+              colStyle: { borderWidth: 2, borderColor: "red" },
+            },
+            orderLineAddressDetail: {
+              colSize: 2,
+              idx: "DefaultScreen",
+              label: "orderLineAddressDetail",
+              colStyle: { borderWidth: 1 },
+            },
+          },
+        },
+      },
+    },
+  },
+};
 
 // End of Main appConfig for Default Load
 

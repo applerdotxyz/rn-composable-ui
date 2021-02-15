@@ -15,15 +15,15 @@ import { Grid, Row, Col } from "react-native-easy-grid";
 import ExpandableComponent from "./ExpandableComponent";
 
 export const NavigationBar = (props: {
-  appState;
-  label;
-  styles;
-  children;
-  setAppState;
-  layoutConfig;
-  setLayoutConfig;
-  getEvents;
-  events;
+  appState: any;
+  label: any;
+  styles: any;
+  children: any;
+  setAppState: any;
+  layoutConfig: any;
+  setLayoutConfig: any;
+  getEvents: any;
+  events: any;
 }) => {
   const {
     appState,

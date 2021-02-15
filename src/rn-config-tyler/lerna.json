@@ -1,0 +1,7 @@
+{
+  "packages": [
+    "packages/demo/router-demo",
+    "packages/demo/router-demo/helpers/lib"
+  ],
+  "version": "0.0.1"
+}

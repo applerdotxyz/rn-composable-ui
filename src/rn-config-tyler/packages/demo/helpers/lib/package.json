@@ -1,0 +1,68 @@
+{
+  "name": "rn-config-tyler",
+  "version": "0.0.2",
+  "description": "[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/applerdotxyz/rn-config-tyler)",
+  "keywords": [],
+  "main": "src/index.js",
+  "module": "dist/index.es.js",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "peerDependencies": {
+    "tslib": "*"
+  },
+  "dependencies": {
+    "@unimodules/core": "~6.0.0",
+    "@unimodules/react-native-adapter": "~5.7.0",
+    "brace": "^0.11.1",
+    "deepmerge": "4.2.2",
+    "history": "5.0.0",
+    "jsoneditor": "^9.1.9",
+    "jsoneditor-react": "^3.1.0",
+    "react-native-easy-grid": "0.2.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-typescript": "^8.1.1",
+    "@rollup/pluginutils": "^3.1.0",
+    "@types/node": "^10.0.0",
+    "acorn-jsx": "^5.3.1",
+    "buble": "^0.20.0",
+    "ms": "^2.0.0",
+    "resolve": "^1.17.0",
+    "rollup": "^2.38.1",
+    "rollup-plugin-commonjs": "latest",
+    "rollup-plugin-node-resolve": "latest",
+    "rollup-plugin-typescript": "latest",
+    "typescript": "^4.1.2"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "ts-node test/test.ts",
+    "pretest": "npm run build"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "files": [
+    "dist"
+  ],
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/applerdotxyz/rn-config-tyler.git"
+  },
+  "author": "applerdotxyz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/applerdotxyz/rn-config-tyler/issues"
+  },
+  "homepage": "https://github.com/applerdotxyz/rn-config-tyler#readme"
+}

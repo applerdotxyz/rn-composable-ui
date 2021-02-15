@@ -6,7 +6,7 @@ import React from "react";
 import {
   GridSection,
   JSONEditor,
-} from "../rn-config-tyler/packages/demo/helpers/lib/src/index";
+} from "./rn-config-tyler/packages/demo/helpers/lib/src/index";
 
 // INFO: when using the npmjs module
 // import { GridSection, JSONEditor } from "rn-config-tyler/dist/index.es";
@@ -24,6 +24,12 @@ export default class WrappedApp extends React.Component {
     };
   }
 
+  setStateAsync(state) {
+    return new Promise((resolve) => {
+      this.setState(state, resolve)
+    });
+  }
+
   render() {
     return (
       <>
@@ -37,7 +43,7 @@ export default class WrappedApp extends React.Component {
               // expand to proper JSON from dotted notation
               config = object(config);
             }
-            this.setState(
+            this.setStateAsync(
               {
                 // TODO: fix thois to be possible with only identifier
                 config: merge(this?.state?.config, { layout: config }),

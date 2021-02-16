@@ -26,9 +26,9 @@ export const JsonForm = ({
   _onClose = noOp,
   schema = {},
   uiSchema = {},
-  label,
+  label = "",
   _submitButton = true,
-  setLayoutConfig,
+  setLayoutConfig = {},
   ...props
 }): AnyRecord => {
   // TODO: show loading indicator based on loading value
@@ -38,7 +38,10 @@ export const JsonForm = ({
   // TODO: show message
   const [message, setMessage] = useSafeSetState(null);
   // TODO: submit formData to ideal connected endpoint
-  const [formData, setFormData] = useSafeSetState(_formData);
+  const [formData, setFormData] = useSafeSetState({
+    ..._formData,
+    ...appState?.$global?.form?.formData, // FIXME: get this based on component property
+  });
 
   // const onBeforeSubmit = (event) => {
   //   console.log("*** onBeforeSubmit ***");
@@ -53,8 +56,6 @@ export const JsonForm = ({
   //   });
   //   _onBeforeSubmit(event);
   // };
-
-  
 
   const onError = (event) => {
     console.log("*** onError ***");
@@ -75,7 +76,7 @@ export const JsonForm = ({
   // form data mutator
   const onChange = (event) => {
     setFormData({
-      ..._formData,
+      ...formData,
       [event.params.name]: event.params.value,
     });
   };
@@ -156,7 +157,7 @@ export const JsonForm = ({
         uiSchema={uiSchema}
         submitButton={_submitButton}
         cancelButton={false}
-        onChange={_onChange}
+        onChange={onChange}
         buttonPosition="center"
         {...getEvents(`${label}-form`, setLayoutConfig, setAppState, appState)}
       />

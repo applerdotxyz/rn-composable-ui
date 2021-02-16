@@ -25,27 +25,6 @@ export const componentsSet = {
   NavigationBar,
   TabComponent,
 };
-
-let data = [];
-const _formData = {
-  phone: 8654787549,
-  otp: 654789,
-};
-
-const schema = {
-  type: "object",
-  properties: {
-    phone: { type: "number" },
-    otp: { type: "number" },
-  },
-};
-
-const uiSchema = {
-  phone: {
-    "ui:title": "Phone No. ",
-  },
-};
-
 export const routes = {};
 routes.routeOne = {
   // row no
@@ -237,6 +216,26 @@ const links = {
   },
 };
 
+let data = [];
+const _formData = {
+  phone: 8654787549,
+  otp: 654789,
+};
+
+const schema = {
+  type: "object",
+  properties: {
+    phone: { type: "number" },
+    otp: { type: "number" },
+  },
+};
+
+const uiSchema = {
+  phone: {
+    "ui:title": "Phone No. ",
+  },
+};
+
 export const appConfig = {
   /// 1st layout
   componentsSet,
@@ -293,7 +292,7 @@ export const appConfig = {
                 backgroundColor: "skyblue",
               },
               passProps: {
-                _formData,
+                _formData: { ..._formData },
                 schema,
                 uiSchema,
               },
@@ -344,18 +343,6 @@ export const events = {
       console.log(args.params.values);
       // PREPARING THE DATA
       // FIXME: MOVE THIS TO EVENT MANAGEMENT SIDE
-      setAppState({
-        $global: {
-          list_of_complaints: {
-            data: [],
-          },
-          form: {
-            formData: args.params.values,
-            schema,
-            uiSchema,
-          },
-        },
-      });
       const res = fetch(
         "https://run.mocky.io/v3/15c75559-42b2-45ed-bcf2-06c48aa51bdf"
       )

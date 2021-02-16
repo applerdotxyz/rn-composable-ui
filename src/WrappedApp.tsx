@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 // import { registerRootComponent } from "expo";
 import merge from "deepmerge";
 import { object } from "dot-object";
@@ -24,6 +25,19 @@ export default class WrappedApp extends React.Component {
     };
   }
 
+  setStateAsync(state) {
+    return new Promise((resolve) => {
+      this.setState(state, resolve);
+    });
+  }
+
+  async handleChange(config) {
+    await this.setStateAsync({
+      config: merge(this?.state?.config, { layout: config }),
+    });
+    console.log("inner", this?.state?.config);
+  }
+
   render() {
     return (
       <>
@@ -37,15 +51,20 @@ export default class WrappedApp extends React.Component {
               // expand to proper JSON from dotted notation
               config = object(config);
             }
-            this.setState(
-              {
-                // TODO: fix thois to be possible with only identifier
-                config: merge(this?.state?.config, { layout: config }),
-              },
-              () => {
-                console.log(this?.state?.config);
-              }
-            );
+            this.handleChange(config);
+            // this.setState((prevState) => ({
+            //   config: merge(prevState?.config, { layout: config }),
+            // }));
+            // this.setState(
+            //   {
+            //     // TODO: fix thois to be possible with only identifier
+            //     config: merge(this?.state?.config, { layout: config }),
+            //   },
+            //   () => {
+            //     console.log("inner",this?.state?.config);
+            //   }
+            // );
+            console.log("outer", this?.state?.config);
           }}
         />
       </>

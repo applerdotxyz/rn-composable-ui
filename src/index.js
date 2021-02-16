@@ -19,11 +19,11 @@ import React from "react";
 //   getEvents,
 // } from "../rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "../rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
 
 // import {
 //   appConfig,
@@ -35,10 +35,16 @@ import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "../rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-mobile/layout";
+// } from "../rn-config-tyler/packages/demo/examples/sagar-poc/with-charts/layout";
 
-// import {
-//   appConfig,
+import {
+  appConfig,
+  routes,
+  getEvents,
+} from "../rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-mobile/layout";
+
+// import { 
+//   appConfig, 
 //   routes,
 //   getEvents,
 // } from "../rn-config-tyler/packages/demo/examples/sagar-poc/with-jsonforms/layout";

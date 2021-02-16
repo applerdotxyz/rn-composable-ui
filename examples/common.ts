@@ -30,12 +30,13 @@ export const styles = {
   header: {
     fontSize: 20,
     backgroundColor: "skyblue",
-    marginTop: 10,
+    marginTop: 0,
     padding: 15,
   },
   nav: {
     flexDirection: "row",
     justifyContent: "space-around",
+    // minHeight: "10%",
   },
   navItem: {
     flex: 1,

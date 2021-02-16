@@ -3,15 +3,16 @@ import React, { useState } from "react";
 import merge from "deepmerge";
 import { object } from "dot-object";
 
-import { GridSection, JSONEditor } from "../helpers/lib/src/index";
+const overwriteMerge = (destinationArray, sourceArray, options) => sourceArray;
+
 // FIXME: when publish the module, use only one of two lines below, right now local npm linking being used
 // import { GridSection, JSONEditor } from "rn-config-tyler";
+import { GridSection, JSONEditor } from "../helpers/lib/src/index";
 // import { GridSection, JSONEditor, styles } from "rn-config-tyler/dist/index.es";
 
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
 }
-
 //  overall container app
 const WrappedApp = (props) => {
   const [config, setConfig] = useState(props?.appConfig);
@@ -20,10 +21,18 @@ const WrappedApp = (props) => {
     // find out if the object is in collapsed/dotted format
     if (isDottedFormat) {
       // expand to proper JSON from dotted notation
-      _config = object(_config);
+      setConfig(
+        merge(
+          config,
+          { layout: object(_config) },
+          { arrayMerge: overwriteMerge }
+        )
+      );
+    } else {
+      setConfig(
+        merge(config, { layout: _config }, { arrayMerge: overwriteMerge })
+      );
     }
-    setConfig(merge(config, { layout: _config }));
-    // console.log(config);
   };
   return (
     <>

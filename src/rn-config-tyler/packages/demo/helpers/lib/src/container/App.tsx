@@ -1,12 +1,14 @@
 // TODO: See if the below LIB can be removed
 import merge from "deepmerge";
-import React, { createElement, useEffect } from "react";
+import React, { createElement } from "react";
 import { Text } from "react-native";
 // TODO: See if the below LIB can be removed
 import { Col, Grid, Row } from "react-native-easy-grid";
-import useSafeState from "../../../../../../../rn-config-tyler/packages/demo/components/utils/useSafeState";
+import { useSafeSetState } from "../../../../../../../rn-config-tyler/packages/demo/components/utils/useSafeState";
 import { styles } from "../styles";
 // ******************************************************************** //
+
+const overwriteMerge = (destinationArray, sourceArray, options) => sourceArray;
 
 // render a grid layout as per the configuration
 export const GridSection = ({
@@ -22,9 +24,6 @@ export const GridSection = ({
     label,
     key,
     idx,
-    style,
-    colSize,
-    colStyle,
     children,
     passProps,
     appState,
@@ -69,23 +68,21 @@ export const GridSection = ({
   const headerSection = <Col style={{ ...styles.nav }}>{linksSection}</Col>;
 
   // TODO: add ability to add/remove labels and row/columns new from layout config
-  const [appState, _setAppState] = useSafeState({
+  const [appState, _setAppState] = useSafeSetState({
     ui: {},
     children: {},
     props: {},
     $global: {},
   });
 
-  const setAppState = async (newAppState) => {
+  const setAppState = (newAppState) => {
     return new Promise((resolve) => {
-      _setAppState(merge(appState, newAppState), resolve)
+      _setAppState(
+        merge(appState, newAppState, { arrayMerge: overwriteMerge }),
+        resolve
+      );
     });
   };
-
-  useEffect(() => {
-    // {/* TRIGGER initial events */}
-    getEvents("$appInit", setLayoutConfig, setAppState);
-  }, []);
 
   //  overall routing engine
   const UX = (layoutConfig) => {
@@ -152,13 +149,9 @@ export const GridSection = ({
       let gridJsx = [];
       if (rows && Object.keys(rows)) {
         gridJsx = Object.keys(rows).map((rId) => {
-          // const style = rows[rId]?.rowConfig?.rowStyle || {};
-          // console.log(rows[rId].rowConfig);
-
           if (rId === "colConfig") {
             return null;
           } else {
-            // console.log(rows[rId]?.rowConfig?.rowSize);
             return (
               <Row
                 size={rows[rId]?.rowConfig?.rowSize || 1}
@@ -195,8 +188,6 @@ export const GridSection = ({
       </Col>
     );
   };
-
-  // console.log(layoutConfig);
 
   return (
     <Grid style={{ flex: 1, borderWidth: 0, borderColor: "yellow" }}>

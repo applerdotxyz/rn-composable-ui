@@ -2,6 +2,7 @@
 import merge from "deepmerge";
 import { object } from "dot-object";
 import React from "react";
+const overwriteMerge = (destinationArray, sourceArray, options) => sourceArray;
 
 import {
   GridSection,
@@ -26,7 +27,7 @@ export default class WrappedApp extends React.Component {
 
   setStateAsync(state) {
     return new Promise((resolve) => {
-      this.setState(state, resolve)
+      this.setState(state, resolve);
     });
   }
 
@@ -46,7 +47,11 @@ export default class WrappedApp extends React.Component {
             this.setStateAsync(
               {
                 // TODO: fix thois to be possible with only identifier
-                config: merge(this?.state?.config, { layout: config }),
+                config: merge(
+                  this?.state?.config,
+                  { layout: config },
+                  { arrayMerge: overwriteMerge }
+                ),
               },
               () => {
                 console.log(this?.state?.config);

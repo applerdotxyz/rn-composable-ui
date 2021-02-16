@@ -12,6 +12,7 @@ import {
   TabComponent,
 } from "../../../components";
 import { styles, rowStyle } from "../../common";
+
 // All component which will be rendered
 export const componentsSet = {
   Comp5,
@@ -363,6 +364,10 @@ export const events = {
               "ui:title": "Phone No. ",
             },
           };
+
+          console.log(`*** _data.ticketDetails`);
+          console.log(_data.ticketDetails);
+
           setAppState({
             $global: {
               list_of_complaints: {
@@ -375,7 +380,8 @@ export const events = {
               },
             },
           });
-          // FIXME: below change is not immedeately reflected , fix the bug
+          console.log(appState?.$global?.list_of_complaints?.data);
+
           setLayoutConfig(
             {
               // "1container.12bodyCol.layout.121bodyHeaderRow.bodyHeader.idx":
@@ -400,12 +406,13 @@ export const events = {
             true
           );
         });
+      // FIXME: below change is not immedeately reflected , fix the bug
     },
-    onSubmit: (setLayoutConfig) => {
-      console.log("submitted");
-      // FIXME: fill in data
-      // setLayoutConfig(routes.showListing);
-    },
+    // onSubmit: (setLayoutConfig) => {
+    //   console.log("submitted");
+    //   // FIXME: fill in data
+    //   // setLayoutConfig(routes.showListing);
+    // },
   },
   "bodyHeader-changed at 1st-btn-one": {
     onPress: (setLayoutConfig) => {

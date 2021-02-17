@@ -2,6 +2,13 @@ import React from "react";
 
 // ****** EXAMPLE CONFIGS START ****************
 
+import {
+  appConfig,
+  routes,
+  getEvents,
+  getInitEvents,
+} from "./rn-config-tyler/packages/demo/examples/sagar-poc/component-mount/layout";
+
 // import { appConfig, routes, getEvents } from "./rn-config-tyler/packages/demo/examples/todo-app/layout";
 // import { appConfig, routes, getEvents } from "./rn-config-tyler/packages/demo/examples/sagar-poc/example1";
 
@@ -24,11 +31,12 @@ import React from "react";
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+//   getInitEvents,
+// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
 
 // import {
 //   appConfig,

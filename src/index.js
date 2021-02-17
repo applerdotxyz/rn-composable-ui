@@ -24,11 +24,11 @@ import React from "react";
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
 
 // import {
 //   appConfig,
@@ -65,6 +65,12 @@ import {
 //   routes,
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/another-grid/layout"; /// another example with changes
+
+import {
+  appConfig,
+  routes,
+  getEvents,
+} from "./rn-config-tyler/packages/demo/examples/subham-poc/setAppState-validation/layout";
 
 // ****** EXAMPLE CONFIGS END ****************
 import WrappedApp from "./WrappedApp";

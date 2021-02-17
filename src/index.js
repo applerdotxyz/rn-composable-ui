@@ -81,6 +81,7 @@ registerRootComponent(() => (
     routes={routes}
     debug={false}
     getEvents={getEvents}
+    getInitEvents={getInitEvents}
   />
 ));
 

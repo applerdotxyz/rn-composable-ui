@@ -28,6 +28,7 @@ import {
   appConfig,
   routes,
   getEvents,
+  getInitEvents,
 } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
 
 // import {
@@ -81,6 +82,7 @@ registerRootComponent(() => (
     routes={routes}
     debug={false}
     getEvents={getEvents}
+    getInitEvents={getInitEvents}
   />
 ));
 

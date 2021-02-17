@@ -36,6 +36,7 @@ export default class WrappedApp extends React.Component {
       <>
         <GridSection
           getEvents={this.props?.getEvents}
+          getInitEvents={this.props?.getInitEvents}
           layoutConfig={this.state?.config}
           routes={this.props?.routes}
           setLayoutConfig={(config, isDottedFormat = false) => {

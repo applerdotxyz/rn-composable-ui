@@ -74,11 +74,11 @@ import {
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/another-grid/layout"; /// another example with changes
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "../examples/dashboard-demo/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/dashboard-demo/layout";
 
 // ****** EXAMPLE CONFIGS END ****************
 import WrappedApp from "./WrappedApp";

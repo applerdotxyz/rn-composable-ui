@@ -38,7 +38,12 @@
 - Setup your project with Expo
   - Install the CLI: `npm i -g expo-cli`
   - `cd` into the project `npm i` or `yarn`
-  - Start the project with `yarn web`
+  - 1. fetch rn-composable repo (with submodules)
+    `git submodule update --remote --recursive`
+    2. install dependencies by doing `npm install` from within `rn-config-tyler` folder
+    3. install dependencies from main folder `npm install`
+    4. run `npm run web`
+    5. toggle between example configs using index.js`
   - Copy `.env.sample` to create `.env` for maintaining your env data
   - Go to `http://localhost:19006/` to see your project!
 

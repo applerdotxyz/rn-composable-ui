@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Dimensions, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { JsonForm } from "../../../../src/components/src/json-form/JsonForm";
+import { JsonForm } from "../../../../src/rn-config-tyler/packages/demo/components/json-form/JsonForm";
 // import { useSelector, useDispatch } from "react-redux";
 import useSafeSetState from "../../helper/useSafeState";
 import {

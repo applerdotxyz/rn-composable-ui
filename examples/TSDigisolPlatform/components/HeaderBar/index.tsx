@@ -5,6 +5,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { Row, Col } from "react-native-easy-grid";
+import { getInitEvents } from "../../configs/events/eventConfig";
 // import { useSelector, useDispatch } from "react-redux";
 
 export const HeaderBar = (props: {
@@ -28,6 +29,10 @@ export const HeaderBar = (props: {
     setLayoutConfig,
     getEvents,
   } = props;
+
+  useEffect(() => {
+    getInitEvents(`${label}-$init`, setLayoutConfig, setAppState);
+  }, []);
 
   // console.log(`label is ${label}`);
   // console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));

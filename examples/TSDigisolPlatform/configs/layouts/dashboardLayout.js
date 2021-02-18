@@ -6,20 +6,20 @@
 // import { RandomPic } from "../../../../src/components/RandomPic";
 // import { rowStyle, styles } from "../../styles/common";
 
-import {
-  About,
-  ActionComp,
-  Comp5,
-  Home,
-  RandomPic,
-  // JsonForm,
-} from "../../../../src/components/src";
+// import {
+//   About,
+//   ActionComp,
+//   Comp5,
+//   Home,
+//   RandomPic,
+//   // JsonForm,
+// } from "../../../../src/components/src";
 import { rowStyle, styles } from "../../styles/common";
 
 // ******************** TODO APP EXAMPLE ************************* //
-import { TodoApp1 } from "../../../todo-app/TODOAPP/TodoApp1";
-import { TodoApp2 } from "../../../todo-app/TODOAPP/TodoApp2";
-import { SideNavBar } from "../../../todo-app/TODOAPP/SideNavBar";
+// import { TodoApp1 } from "../../../todo-app/TODOAPP/TodoApp1";
+// import { TodoApp2 } from "../../../todo-app/TODOAPP/TodoApp2";
+// import { SideNavBar } from "../../../todo-app/TODOAPP/SideNavBar";
 
 // TSD COMPONENT
 import { NavigationBar } from "../../components/NavigationBar/index";
@@ -31,14 +31,14 @@ import { DefaultScreen } from "../../components/DefaultScreen";
 import { ListComponent } from "../../components/ListComponent";
 import { DetailListComponent } from "../../components/DetailListComponent";
 export const componentsSet = {
-  Comp5,
-  ActionComp,
-  Home,
-  About,
-  RandomPic,
-  TodoApp1,
-  TodoApp2,
-  SideNavBar,
+  // Comp5,
+  // ActionComp,
+  // Home,
+  // About,
+  // RandomPic,
+  // TodoApp1,
+  // TodoApp2,
+  // SideNavBar,
   DefaultScreen,
   NavigationBar,
   HeaderBar,

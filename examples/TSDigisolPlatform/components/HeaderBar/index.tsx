@@ -2,10 +2,10 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { Row, Col } from "react-native-easy-grid";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 
 export const HeaderBar = (props: {
   appState: any;
@@ -29,15 +29,38 @@ export const HeaderBar = (props: {
     getEvents,
   } = props;
 
-  console.log(`label is ${label}`);
-  console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
+  // console.log(`label is ${label}`);
+  // console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
 
-  const state = useSelector((s: any) => s);
+  // const state = useSelector((s: any) => s);
 
-  console.log("State in header bar : : : : ", state);
+  // console.log("State in header bar : : : : ", state);
+
+  // setAppState({
+  //   global: {
+  //     tsdApp: {
+  //       activeModule: {
+  //         name: "",
+  //         key: "",
+  //       },
+  //       activeTab: {
+  //         name: "",
+  //         key: "",
+  //       },
+  //       activeAction: {
+  //         name: "",
+  //         key: "",
+  //       },
+  //     },
+  //   },
+  // });
 
   return (
-    <View style={HeaderStyles.container}>
+    <View
+      testID={`${label}-$init`}
+      {...getEvents(`${label}-$init`, setLayoutConfig, setAppState)}
+      style={HeaderStyles.container}
+    >
       {/* <Text style={{}}>HeaderBar *** {label}</Text> */}
       {/* <Text>
         <h1>DEMO FOR TODO APP</h1>
@@ -80,7 +103,6 @@ const HeaderStyles = StyleSheet.create({
     elevation: 5,
   },
   logoViewStyle: {
-    //   borderWidth: 1,
     margin: 1,
   },
   logoTextStyle: {

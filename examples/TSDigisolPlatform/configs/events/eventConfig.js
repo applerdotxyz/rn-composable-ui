@@ -6,6 +6,16 @@ import { routes } from "../routes/routesConfig";
 export const events = {
   /// <label>
   //<label>-<element-id> : <handler>
+  headerBar: (setLayoutConfig, setAppState, appState) => {
+    $init: () => {
+      setAppState({
+        $global: {
+          key: "Loaded...",
+        },
+      });
+      console.log("initial State updated : : : :: : ");
+    };
+  },
   "sideNavBar-btn-one": {
     // <event> :: <handler>
     onPress: (setLayoutConfig, setAppState) => {
@@ -98,6 +108,7 @@ export const events = {
 // bind events based on the layout config
 export const getEvents = (elId, setLayoutConfig, setAppState) => {
   const elEvents = {};
+  console.log("elID : : : : : : ", elId + " ---->  " + events[elId]);
   events[elId] &&
     Object.keys(events[elId]).map((eventName) => {
       // console.log({ [eventName]: events[elId][eventName] });

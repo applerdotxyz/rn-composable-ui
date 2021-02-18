@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 import {
   updateActionSelection,
   updateBuisnessFunctionSelection,
@@ -40,8 +40,8 @@ export const ActionComponent = (props: {
 
   // console.log(`label is ${label}`);
   // console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
-  const state = useSelector((s: any) => s);
-  const dispatch = useDispatch((s: any) => s);
+  // const state = useSelector((s: any) => s);
+  // const dispatch = useDispatch((s: any) => s);
   const [data, setdata] = useState({});
   const [action, setaction] = useState(`Search`);
 
@@ -60,8 +60,8 @@ export const ActionComponent = (props: {
           body: JSON.stringify({
             userId: "TsdAdmin",
             roleKey: 1,
-            moduleName: state.activeModuleSelection.name,
-            tabName: state.activeTabSelection.name,
+            moduleName: "Service Orders",
+            tabName: "BookOrders",
             actionName: action,
           }),
         }
@@ -74,18 +74,18 @@ export const ActionComponent = (props: {
         resJSON.businessFunctions[0].modules[0].tabs[0].actions[0]
       );
       setdata(resJSON.businessFunctions[0].modules[0].tabs[0].actions[0]);
-      dispatch(
-        updateActionSelection(
-          resJSON.businessFunctions[0].modules[0].tabs[0].actions[0]
-        )
-      );
+      // dispatch(
+      //   updateActionSelection(
+      //     resJSON.businessFunctions[0].modules[0].tabs[0].actions[0]
+      //   )
+      // );
     };
     fetchData();
   }, [
     // state.activeModuleSelection.name,
     // state.activeActionSelection.actionData.actionName,
-    state.activeTabSelection.name,
-    state.activeBuisnessFunctionSelection.key,
+    // state.activeTabSelection.name,
+    // state.activeBuisnessFunctionSelection.key,
     action,
   ]);
   return (
@@ -107,10 +107,10 @@ export const ActionComponent = (props: {
                 // setLayoutConfig(routes["defaultAppConfig"]);
               }}
               style={{
-                backgroundColor:
-                  "Create" === state.activeActionSelection.actionData.actionName
-                    ? "#b2c560"
-                    : "#5cabc5",
+                backgroundColor: "#5cabc5",
+                // "Create" === state.activeActionSelection.actionData.actionName
+                //   ? "#b2c560"
+                //   : "#5cabc5",
                 height: 35,
                 paddingTop: 7,
                 paddingBottom: 5,
@@ -150,16 +150,16 @@ export const ActionComponent = (props: {
               onPress={() => {
                 console.log(
                   "SEARCH ACTION : : : : ",
-                  state.activeActionSelection.actionData.actionName
+                  // state.activeActionSelection.actionData.actionName
                 );
                 setaction("Search");
                 setLayoutConfig(routes["defaultAppConfig"]);
               }}
               style={{
-                backgroundColor:
-                  "Search" === state.activeActionSelection.actionData.actionName
-                    ? "#b2c560"
-                    : "#5cabc5",
+                backgroundColor: "#5cabc5",
+                // "Search" === state.activeActionSelection.actionData.actionName
+                //   ? "#b2c560"
+                //   : "#5cabc5",
                 height: 35,
                 paddingTop: 7,
                 paddingBottom: 5,

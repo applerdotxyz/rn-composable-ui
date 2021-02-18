@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { Dimensions, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { JsonForm } from "../../../../src/components/json-form/JsonForm";
-import { useSelector, useDispatch } from "react-redux";
+import { JsonForm } from "../../../../src/components/src/json-form/JsonForm";
+// import { useSelector, useDispatch } from "react-redux";
 import useSafeSetState from "../../helper/useSafeState";
 import {
   updateActionSelection,
@@ -40,10 +40,10 @@ export const JsonFormComponent = (props: {
   // console.log(`label is ${label}`);
   // console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
 
-  const state = useSelector((s: any) => s);
-  const dispatch = useDispatch((s: any) => s);
+  // const state = useSelector((s: any) => s);
+  // const dispatch = useDispatch((s: any) => s);
 
-  console.log("DISPATCH : : : : ", dispatch);
+  // console.log("DISPATCH : : : : ", dispatch);
 
   const _formData = {
     firstName: "Raj",
@@ -57,51 +57,51 @@ export const JsonFormComponent = (props: {
     recievemsgs: true,
   };
 
-  // const [_schema, setSchema] = useSafeSetState({
-  //   type: "object",
-  //   required: [
-  //     "firstName",
-  //     "lastName",
-  //     "stype",
-  //     "date",
-  //     "username",
-  //     "password",
-  //     "Confirm password",
-  //     "languages",
-  //     "recievemsgs",
-  //   ],
-  //   properties: {
-  //     firstName: { type: "string" },
-  //     lastName: { type: "string" },
-  //     stype: {
-  //       enum: ["Male", "Female", "Others"],
-  //       type: "string",
-  //     },
-  //     date: {
-  //       format: "date",
-  //       type: "string",
-  //       title: "Date",
-  //     },
-  //     username: { type: "string" },
-  //     password: { type: "string" },
-  //     "Confirm password": { type: "string" },
-  //     languages: {
-  //       type: "array",
-  //       items: {
-  //         type: "string",
-  //       },
-  //     },
-  //     recievemsgs: { type: "boolean" },
-  //     upload: {
-  //       format: "data-url",
-  //       type: "string",
-  //     },
-  //     age: {
-  //       type: "integer",
-  //       title: "Age",
-  //     },
-  //   },
-  // });
+  const [_schema, setSchema] = useSafeSetState({
+    type: "object",
+    required: [
+      "firstName",
+      "lastName",
+      "stype",
+      "date",
+      "username",
+      "password",
+      "Confirm password",
+      "languages",
+      "recievemsgs",
+    ],
+    properties: {
+      firstName: { type: "string" },
+      lastName: { type: "string" },
+      stype: {
+        enum: ["Male", "Female", "Others"],
+        type: "string",
+      },
+      date: {
+        format: "date",
+        type: "string",
+        title: "Date",
+      },
+      username: { type: "string" },
+      password: { type: "string" },
+      "Confirm password": { type: "string" },
+      languages: {
+        type: "array",
+        items: {
+          type: "string",
+        },
+      },
+      recievemsgs: { type: "boolean" },
+      upload: {
+        format: "data-url",
+        type: "string",
+      },
+      age: {
+        type: "integer",
+        title: "Age",
+      },
+    },
+  });
 
   const languages = ["Java", "Python", "C"];
 
@@ -171,40 +171,43 @@ export const JsonFormComponent = (props: {
 
   const [formLayout, setformLayout] = useState(initialFormSchema);
 
-  useEffect(() => {
-    const fetchFormLayoutData = async () => {
-      const res = await fetch(
-        `http://localhost:8080/transaction-web//v1/schema/singleformLayout`,
-        {
-          method: `POST`,
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            moduleKey: state.activeModuleSelection.key,
-            roleKey: 1,
-            tabKey: state.activeTabSelection.key,
-            userId: "TsdAdmin",
-            actionName: state.activeActionSelection.actionData.actionName,
-          }),
-        }
-      );
-      const resJSON = await res.json();
-      console.log("RES JSON : : : : ", resJSON);
-      const json_name = `${state.activeActionSelection.actionData.actionName}${state.activeTabSelection.name}Schema`;
-      console.log("resJSON.json_name : : : : : ", resJSON[json_name]);
-      console.log("resJSON.json_name : : : :: : :", json_name);
+  // useEffect(
+  //   () => {
+  //     const fetchFormLayoutData = async () => {
+  //       const res = await fetch(
+  //         `http://localhost:8080/transaction-web//v1/schema/singleformLayout`,
+  //         {
+  //           method: `POST`,
+  //           headers: {
+  //             Accept: "application/json",
+  //             "Content-Type": "application/json",
+  //           },
+  //           body: JSON.stringify({
+  //             moduleKey: "Service Orders",
+  //             roleKey: 1,
+  //             tabKey: "BookOrders",
+  //             userId: "TsdAdmin",
+  //             actionName: "Search",
+  //           }),
+  //         }
+  //       );
+  //       const resJSON = await res.json();
+  //       console.log("RES JSON : : : : ", resJSON);
+  //       // const json_name = `${state.activeActionSelection.actionData.actionName}${state.activeTabSelection.name}Schema`;
+  //       // console.log("resJSON.json_name : : : : : ", resJSON[json_name]);
+  //       // console.log("resJSON.json_name : : : :: : :", json_name);
 
-      setformLayout(resJSON[json_name]);
-      console.log("Action in form  : : : : ", state);
-    };
-    fetchFormLayoutData();
-  }, [
-    state.activeActionSelection.actionData.actionName,
-    state.activeModuleSelection,
-    state.activeTabSelection,
-  ]);
+  //       // setformLayout(resJSON[json_name]);
+  //       // console.log("Action in form  : : : : ", state);
+  //     };
+  //     fetchFormLayoutData();
+  //   },
+  //   [
+  //     // state.activeActionSelection.actionData.actionName,
+  //     // state.activeModuleSelection,
+  //     // state.activeTabSelection,
+  //   ]
+  // );
 
   console.log("FormLayoout : : : : : ", formLayout);
 
@@ -216,7 +219,13 @@ export const JsonFormComponent = (props: {
         borderWidth: 0,
         // minHeight: Dimensions.get("window").height - 85,
         minWidth: Dimensions.get("window").width / 4,
+        maxHeight: 430,
         margin: 2,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
+        elevation: 5,
       }}
     >
       {/* TODO : Remove before final demo */}
@@ -228,8 +237,8 @@ export const JsonFormComponent = (props: {
       {/* <ScrollView>  */}
       {/* Use Grid */}
       <JsonForm
-        schema={formLayout}
-        // schema={_schema}
+        // schema={formLayout}
+        schema={_schema}
         uiSchema={_uiSchema}
         _formData={_formData}
         // _onBeforeSubmit={(e) => {

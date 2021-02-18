@@ -1,11 +1,24 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-const ExpandableComponent = ({ item, onClickFunction }) => {
+const ExpandableComponent = ({ item, onClickFunction, props }: any) => {
+  const {
+    appState,
+    label,
+    styles,
+    children,
+    setAppState,
+    layoutConfig,
+    setLayoutConfig,
+    getEvents,
+  } = props;
   //Custom Component for the Expandable List
   const [layoutHeight, setLayoutHeight] = useState(100);
+
+  console.log("props : : : : ", props);
 
   useEffect(() => {
     if (item.isExpanded) {
@@ -21,10 +34,12 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={onClickFunction}
-        style={styles.header}
+        style={ExpandableComponentStyles.header}
       >
         {/* <Link to='/home'> */}
-        <Text style={styles.headerText}>{item.functionName}</Text>
+        <Text style={ExpandableComponentStyles.headerText}>
+          {item.functionName}
+        </Text>
         {/* </Link> */}
       </TouchableOpacity>
       <View
@@ -37,20 +52,34 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
         {item.modules.map((item, key) => (
           <TouchableOpacity
             key={key}
-            style={styles.content}
-            onPress={() =>
-              alert("Id: " + item.moduleKey + " val: " + item.moduleName)
-            }
+            style={ExpandableComponentStyles.content}
+            // TODO : Add generic way to make things work on press of any sub category
+            onPress={() => {
+              // TODO : How to seprate this part to make it a generic component ? [setAppState is taking indivisual modules one by one]
+              // on click of the module tsdApp state will be updated with new activeModule
+              setAppState({
+                global: {
+                  tsdApp: {
+                    activeModule: {
+                      name: item.moduleName,
+                      key: item.moduleKey,
+                    },
+                  },
+                },
+              });
+            }}
           >
-            {/* Link config should API */}
-            {/* <Link to={item.link} underlayColor="#adc650"> */}
-            <Text style={styles.text}>
-              {/* {key}.  */}
+            <Text
+              style={{
+                fontSize: 16,
+                color: "white",
+                padding: 10,
+                backgroundColor:
+                  item.moduleName === item.moduleName ? "#b2c560" : "",
+              }}
+            >
               {item.moduleDisplayName}
             </Text>
-            {/* </Link> */}
-
-            {/* <View style={styles.separator} /> */}
           </TouchableOpacity>
         ))}
       </View>
@@ -58,7 +87,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
   );
 };
 
-const styles = StyleSheet.create({
+const ExpandableComponentStyles = StyleSheet.create({
   header: {
     backgroundColor: "#5cabc5",
     padding: 20,

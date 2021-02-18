@@ -11,9 +11,7 @@ import {
   FlatList,
 } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
-import { ShowEntity } from "./ShowEntity";
 import { routes } from "../../configs/routes/routesConfig";
-import { ScrollView } from "react-native-gesture-handler";
 
 const TextRender = ({ textFeild, value }: any) => {
   return (
@@ -118,99 +116,31 @@ export const DetailListComponent = (props: {
   console.log(`label is ${label}`);
   console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
 
-  const [action, setAction] = useState({
-    actionKey: "",
-    actionName: "View",
-    endPoint: "",
-    httpMethod: "GET",
-    showButton: true,
-    tabKey: "",
-  });
+  const [selectedId, setSelectedId] = useState(null);
 
-  const [formLayout, setFormLayout] = useState({
-    type: "object",
-    properties: {},
-  });
-
-  const [data, setdata] = useState({});
+  const [data, setdata] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    const fetchAction = async () => {
-      const res1 = await fetch(
-        `http://localhost:8080/transaction-web/v1/schema/modulelayout`,
-        // `https://run.mocky.io/v3/31e2c2ab-c3de-464a-9f75-17324669aa95`,
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId: "TsdAdmin",
-            roleKey: 1,
-            moduleName: "Catalog",
-            actionName: "View",
-            tabName: "Sku",
-          }),
-        }
-      );
-      const res1JSON = await res1.json();
-      // console.log(
-      //   "action : : ",
-      //   res1JSON.businessFunctions[0].modules[0].tabs[0].actions[0]
-      // );
-
-      setAction(res1JSON.businessFunctions[0].modules[0].tabs[0].actions[0]);
-    };
-
-    const fetchFormLayout = async () => {
-      const res = await fetch(
-        `http://localhost:8080/transaction-web/v1/schema/singleformLayout`,
-        // `https://run.mocky.io/v3/31e2c2ab-c3de-464a-9f75-17324669aa95`,
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            moduleKey: 2001,
-            roleKey: 1,
-            tabKey: 3004,
-            userId: "TsdAdmin",
-            actionName: "View",
-          }),
-        }
-      );
-      const resJSON = await res.json();
-
-      setFormLayout(resJSON);
-    };
-
     const fetchData = async () => {
       const res = await fetch(
-        `http://localhost:8080/transaction-web/v1/sku/112264303`,
-        // `http://localhost:8080/transaction-web/${action.endPoint}1122137901`,
+        `http://localhost:8080/transaction-web/v1/address/1122150101`,
         // `https://run.mocky.io/v3/31e2c2ab-c3de-464a-9f75-17324669aa95`,
         {
-          method: `${action.httpMethod}`,
+          method: "GET",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            languageKey: 1,
           },
         }
       );
       const resJSON = await res.json();
-      setdata(resJSON);
+      // console.log(resJSON);
+      setdata([resJSON]);
 
       setLoading(false);
     };
-
-    fetchAction();
-    // fetchFormLayout();
     fetchData();
   }, []);
 
@@ -221,22 +151,39 @@ export const DetailListComponent = (props: {
       </View>
     );
 
+  const renderItem = ({ item }: any) => {
+    const backgroundColor = item.id === selectedId ? "#e0e0e0" : "#fff";
+    return (
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        style={{ backgroundColor }}
+        match={match}
+        routes={routes}
+      />
+    );
+  };
+
   return (
     <View>
-      {/* <Text style={{}}>DetailListComponent *** {label}</Text>
+      <Text style={{}}>DetailListComponent *** {label}</Text>
       <Text>
         <h1>{label}</h1>
-      </Text> */}
-      {/* <ScrollView
-        style={{
-          borderWidth: 5,
-          maxHeight: 400,
-        }}
-      > */}
-      <View>
-        <ShowEntity props={props} viewData={data} />
+      </Text>
+      <View style={detailViewStyles.container}>
+        {/* <SafeAreaView style={styles.container}> */}
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          extraData={selectedId}
+        />
+        {/* </SafeAreaView> */}
+        {/* TODO : Remove before final demo */}
+        {/* <Text>
+    {JSON.stringify(props)}
+  </Text> */}
       </View>
-      {/* </ScrollView> */}
       {children || (appState && appState[label] && appState[label]?.children)}
     </View>
   );

@@ -51,13 +51,18 @@ import React from "react";
 // import { appConfig, routes, getEvents } from "../examples/collapsible-leftnav/layout"; /// example with button clicks and routing with dynamic changes to screen
 // import { appConfig, routes, getEvents } from "../examples/another-grid/layout"; /// another example with changes
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "../examples/dashboard-demo/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "../examples/dashboard-demo/layout";
 
 // ****** EXAMPLE CONFIGS END ****************
+
+import { appConfig } from "../examples/TSDigisolPlatform/configs/layouts/dashboardLayout";
+import { routes } from "../examples/TSDigisolPlatform/configs/routes/routesConfig";
+import { getEvents } from "../examples/TSDigisolPlatform/configs/events/eventConfig";
+
 import WrappedApp from "./WrappedApp";
 
 // **************************************************

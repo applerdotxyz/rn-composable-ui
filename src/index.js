@@ -1,6 +1,6 @@
 import React from "react";
-
 // ****** EXAMPLE CONFIGS START ****************
+// FIXME: fix the component mount stage example with <label>-$init logic fix
 
 // import {
 //   appConfig,
@@ -90,7 +90,14 @@ import {
 //   getInitEvents,
 // } from "./rn-config-tyler/packages/demo/examples/TSDigisolPlatform/configs/events/eventConfig.js";
 
-import WrappedApp from "./WrappedApp";
+// import {
+//   appConfig,
+//   getEvents,
+//   getInitEvents,
+//   routes,
+// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-appstate/layout";
+// ****** EXAMPLE CONFIGS END ****************
+import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
 
 // **************************************************
 // TODO uncomment below, and comment section at very bottom for non-codesandbox
@@ -99,8 +106,8 @@ import WrappedApp from "./WrappedApp";
 const { registerRootComponent } = require("expo");
 registerRootComponent(() => (
   // {/* FIXME: debug=true below results in error */}
-  <WrappedApp
-    appConfig={appConfig}
+  <App
+    config={appConfig}
     routes={routes}
     debug={false}
     getEvents={getEvents}

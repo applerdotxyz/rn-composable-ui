@@ -1,4 +1,4 @@
-[submodule "rn-config-tyler"]
+[submodule "./src/rn-config-tyler"]
 	path = ./src/rn-config-tyler
 	url = git@github.com:applerdotxyz/rn-config-tyler.git
 

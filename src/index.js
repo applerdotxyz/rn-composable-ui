@@ -74,21 +74,21 @@ import React from "react";
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/another-grid/layout"; /// another example with changes
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-//   getInitEvents,
-// } from "./rn-config-tyler/packages/demo/examples/dashboard-demo/layout";
+import {
+  appConfig,
+  routes,
+  getEvents,
+  getInitEvents,
+} from "./rn-config-tyler/packages/demo/examples/dashboard-demo/layout";
 
 // ****** EXAMPLE CONFIGS END ****************
 
-import { appConfig } from "./rn-config-tyler/packages/demo/examples/TSDigisolPlatform/configs/layouts/dashboardLayout";
-import { routes } from "./rn-config-tyler/packages/demo/examples/TSDigisolPlatform/configs/routes/routesConfig";
-import {
-  getEvents,
-  getInitEvents,
-} from "./rn-config-tyler/packages/demo/examples/TSDigisolPlatform/configs/events/eventConfig.js";
+// import { appConfig } from "./rn-config-tyler/packages/demo/examples/TSDigisolPlatform/configs/layouts/dashboardLayout";
+// import { routes } from "./rn-config-tyler/packages/demo/examples/TSDigisolPlatform/configs/routes/routesConfig";
+// import {
+//   getEvents,
+//   getInitEvents,
+// } from "./rn-config-tyler/packages/demo/examples/TSDigisolPlatform/configs/events/eventConfig.js";
 
 import WrappedApp from "./WrappedApp";
 

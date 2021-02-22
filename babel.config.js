@@ -8,12 +8,13 @@ module.exports = function (api) {
         {
           root: ["./src"],
           extensions: [".js", ".json", ".ts", "tsx"],
-          alias: {
-            src: "./src",
-            components: "./src/rn-config-tyler/packages/demo/components",
-            examples: "./src/rn-config-tyler/packages/demo/examples",
-            "rn-config-tyler":"./src/rn-config-tyler/packages/demo/helpers/lib",
-          },
+          // alias: {
+          //   src: "./src",
+          //   components: "./src/rn-config-tyler/packages/demo/components",
+          //   examples: "./src/rn-config-tyler/packages/demo/examples",
+          //   "rn-config-tyler":
+          //     "./src/rn-config-tyler/packages/demo/helpers/lib",
+          // },
         },
       ],
     ],

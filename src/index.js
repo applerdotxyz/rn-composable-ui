@@ -1,6 +1,6 @@
 import React from "react";
-
 // ****** EXAMPLE CONFIGS START ****************
+// FIXME: fix the component mount stage example with <label>-$init logic fix
 
 // import {
 //   appConfig,
@@ -30,12 +30,12 @@ import React from "react";
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout/layout";
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-//   getInitEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
+import {
+  appConfig,
+  routes,
+  getEvents,
+  getInitEvents,
+} from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
 
 // import {
 //   appConfig,
@@ -91,8 +91,14 @@ import {
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/another-grid/layout"; /// another example with changes
 
+// import {
+//   appConfig,
+//   getEvents,
+//   getInitEvents,
+//   routes,
+// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-appstate/layout";
 // ****** EXAMPLE CONFIGS END ****************
-import WrappedApp from "./WrappedApp";
+import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
 
 // **************************************************
 // TODO uncomment below, and comment section at very bottom for non-codesandbox
@@ -101,8 +107,8 @@ import WrappedApp from "./WrappedApp";
 const { registerRootComponent } = require("expo");
 registerRootComponent(() => (
   // {/* FIXME: debug=true below results in error */}
-  <WrappedApp
-    appConfig={appConfig}
+  <App
+    config={appConfig}
     routes={routes}
     debug={false}
     getEvents={getEvents}

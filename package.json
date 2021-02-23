@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "axios": "^0.21.1",
     "dot-object": "^2.1.4",
     "expo": "^40.0.1",
     "history": "^5.0.0",
@@ -12,9 +13,12 @@
     "react-dom": "16.13.1",
     "react-native": "0.63.4",
     "react-native-calendars": "^1.1247.0",
+    "react-native-chart-kit": "^6.11.0",
     "react-native-easy-grid": "0.2.2",
+    "react-native-gesture-handler": "^1.8.0",
     "react-native-search-filter": "^0.1.5",
     "react-native-sortable-multilist": "1.1.2",
+    "react-native-svg": "^12.1.0",
     "react-native-web-jsonschema-form": "^3.1.4",
     "react-native-web-ui-components": "^5.0.7"
   },

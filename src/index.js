@@ -31,6 +31,12 @@ import React from "react";
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout/layout";
 
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+//   getInitEvents,
+// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
 import {
   appConfig,
   routes,
@@ -42,7 +48,16 @@ import {
 //   appConfig,
 //   routes,
 //   getEvents,
+//   getInitEvents,
 // } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-calendar/layout";
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "./rn-config-tyler/packages/demo/examples/todo-app/layout";
+
+
 
 // import {
 //   appConfig,
@@ -60,13 +75,35 @@ import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/vanilla-grid-layout/layout"; /// starter example with nav bars and changes to content area
+// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-mobile/layout";
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-jsonforms/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/collapsible-leftnav/layout"; /// example with button clicks and routing with dynamic changes to screen
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+//   getInitEvents,
+// } from "./rn-config-tyler/packages/demo/examples/dashboard-demo/layout";
+
+// ****** EXAMPLE CONFIGS END ****************
+
+// import { appConfig } from "./rn-config-tyler/packages/demo/examples/TSDigisolPlatform/configs/layouts/dashboardLayout";
+// import { routes } from "./rn-config-tyler/packages/demo/examples/TSDigisolPlatform/configs/routes/routesConfig";
+// import {
+//   getEvents,
+//   getInitEvents,
+// } from "./rn-config-tyler/packages/demo/examples/TSDigisolPlatform/configs/events/eventConfig.js";
 
 // import {
 //   appConfig,

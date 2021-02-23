@@ -30,11 +30,11 @@ import React from "react";
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout (without hide)/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout (without hide)/layout";
 
 // import {
 //   appConfig,

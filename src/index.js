@@ -7,47 +7,41 @@ import React from "react";
 //   routes,
 //   getEvents,
 //   getInitEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/component-mount/layout";
+// } from "./rn-config-tyler/packages/demo/examples/component-mount/layout";
 
 // import { appConfig, routes, getEvents } from "./rn-config-tyler/packages/demo/examples/todo-app/layout";
-// import { appConfig, routes, getEvents } from "./rn-config-tyler/packages/demo/examples/sagar-poc/example1";
 
-// FIXME: below
-// import {
-//   routes,
-//   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/with-sidenav-bar/layout"; /// example with NavBarComponent addeed and Tab Component added
 
 // import {
 //   appConfig,
 //   getEvents,
 //   routes,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-appstate/layout";
+// } from "./rn-config-tyler/packages/demo/examples/with-appstate/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout/layout";
+// } from "./rn-config-tyler/packages/demo/examples/with-setLayout/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout (without hide)/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "./rn-config-tyler/packages/demo/examples/with-setLayout (without hide)/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
 // //   getInitEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
+// } from "./rn-config-tyler/packages/demo/examples/3_4-screen-example-web/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-calendar/layout";
+// } from "./rn-config-tyler/packages/demo/examples/with-calendar/layout";
 
 // import {
 //   appConfig,
@@ -56,23 +50,23 @@ import {
 // } from "./rn-config-tyler/packages/demo/examples/todo-app/layout";
 
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-charts/layout";
+import {
+  appConfig,
+  routes,
+  getEvents,
+} from "./rn-config-tyler/packages/demo/examples/with-charts/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-mobile/layout";
+// } from "./rn-config-tyler/packages/demo/examples/3_4-screen-example-mobile/layout";
 
 // import { 
 //   appConfig, 
 //   routes,
 //   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-jsonforms/layout";
+// } from "./rn-config-tyler/packages/demo/examples/with-jsonforms/layout";
 
 // import {
 //   appConfig,

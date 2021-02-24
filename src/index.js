@@ -6,10 +6,14 @@ import React from "react";
 //   appConfig,
 //   routes,
 //   getEvents,
-//   getInitEvents,
+//   // getInitEvents,
 // } from "./rn-config-tyler/packages/demo/examples/component-mount/layout";
 
-// import { appConfig, routes, getEvents } from "./rn-config-tyler/packages/demo/examples/todo-app/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "./rn-config-tyler/packages/demo/examples/todo-app/layout";
 
 
 // import {
@@ -24,17 +28,17 @@ import React from "react";
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/with-setLayout/layout";
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/with-setLayout (without hide)/layout";
+import {
+  appConfig,
+  routes,
+  getEvents,
+} from "./rn-config-tyler/packages/demo/examples/with-setLayout (without hide)/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// //   getInitEvents,
+//   //   getInitEvents,
 // } from "./rn-config-tyler/packages/demo/examples/3_4-screen-example-web/layout";
 
 // import {
@@ -43,18 +47,12 @@ import React from "react";
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/with-calendar/layout";
 
+
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/todo-app/layout";
-
-
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "./rn-config-tyler/packages/demo/examples/with-charts/layout";
+// } from "./rn-config-tyler/packages/demo/examples/with-charts/layout";
 
 // import {
 //   appConfig,
@@ -62,8 +60,8 @@ import {
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/3_4-screen-example-mobile/layout";
 
-// import { 
-//   appConfig, 
+// import {
+//   appConfig,
 //   routes,
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/with-jsonforms/layout";

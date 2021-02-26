@@ -1,98 +1,42 @@
-import React from "react";
 // ****** EXAMPLE CONFIGS START ****************
 // FIXME: fix the component mount stage example with <label>-$init logic fix
-
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-//   // getInitEvents,
 // } from "./rn-config-tyler/packages/demo/examples/component-mount/layout";
-
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/todo-app/layout";
-
-// import {
-//   appConfig,
-//   getEvents,
-//   routes,
 // } from "./rn-config-tyler/packages/demo/examples/with-appstate/layout";
-
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/with-setLayout/layout";
+// } from "./rn-config-tyler/packages/demo/examples/with-setLayout (without hide)/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "./rn-config-tyler/packages/demo/examples/with-setLayout (without hide)/layout";
-
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-//   //   getInitEvents,
 // } from "./rn-config-tyler/packages/demo/examples/3_4-screen-example-web/layout";
-
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/with-calendar/layout";
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/with-charts/layout";
-
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/3_4-screen-example-mobile/layout";
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/with-jsonforms/layout";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+// let moduleConfig = require("./rn-config-tyler/packages/demo/examples/with-charts/layout");
+// let moduleConfig = require("./rn-config-tyler/packages/demo/examples/another-grid/layout"); /// another example with changes
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/collapsible-leftnav/layout"; /// example with button clicks and routing with dynamic changes to screen
+/*** example with button clicks and routing with dynamic changes to screen  */
+// let moduleConfig = require("./rn-config-tyler/packages/demo/examples/collapsible-leftnav/layout");
 
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/another-grid/layout"; /// another example with changes
+/*** example with json based forms  */
+let moduleConfig = require("./rn-config-tyler/packages/demo/examples/with-jsonforms/layout");
 
 // ****** EXAMPLE CONFIGS END ****************
-import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
-
-// **************************************************
-// TODO uncomment below, and comment section at very bottom for non-codesandbox
-// **************************************************
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { registerRootComponent } = require("expo");
+import React from "react";
 const noOp = () => {
   /** */
 };
+import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
+// const moduleConfig = require(`${moduleConfig}`);
 const passProps = {
-  config: appConfig,
-  routes,
-  getEvents: getEvents || noOp,
-  getInitEvents: getInitEvents || noOp,
+  config: moduleConfig.appConfig,
+  routes: moduleConfig.routes,
+  getEvents: moduleConfig.getEvents || noOp,
+  getInitEvents: moduleConfig.getInitEvents || noOp,
 };
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { registerRootComponent } = require("expo");
 registerRootComponent(() => <App debug={false} {...passProps} />);
 
 // **************************************************

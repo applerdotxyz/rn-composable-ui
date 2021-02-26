@@ -29,6 +29,7 @@ import React from "react";
 //   appConfig,
 //   routes,
 //   getEvents,
+//   getInitEvents,
 // } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout/layout";
 
 import {
@@ -48,7 +49,9 @@ import {
 //   appConfig,
 //   routes,
 //   getEvents,
+//   getInitEvents,
 // } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-mobile/layout";
+// import { getInitEvents } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
 
 // import {
 //   appConfig,
@@ -87,16 +90,19 @@ import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
 // TODO uncomment below, and comment section at very bottom for non-codesandbox
 // **************************************************
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { registerRootComponent } = require("expo");
+const { registerRootComponent } = require("expo")
+const noOp = () => {
+  /** */
+};
+const passProps = {
+  config: appConfig,
+  routes,
+  getEvents: getEvents || noOp,
+  getInitEvents: getInitEvents || noOp,
+};
 registerRootComponent(() => (
   // {/* FIXME: debug=true below results in error */}
-  <App
-    config={appConfig}
-    routes={routes}
-    debug={false}
-    getEvents={getEvents}
-    getInitEvents={getInitEvents}
-  />
+  <App debug={false} {...passProps} />
 ));
 
 // **************************************************

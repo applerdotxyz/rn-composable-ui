@@ -6,64 +6,63 @@ import React from "react";
 //   appConfig,
 //   routes,
 //   getEvents,
-//   getInitEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/component-mount/layout";
-
-// import { appConfig, routes, getEvents } from "./rn-config-tyler/packages/demo/examples/todo-app/layout";
-// import { appConfig, routes, getEvents } from "./rn-config-tyler/packages/demo/examples/sagar-poc/example1";
-
-// FIXME: below
-// import {
-//   appConfig,
-//   routes,
-//   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/with-sidenav-bar/layout"; /// example with NavBarComponent addeed and Tab Component added
+//   // getInitEvents,
+// } from "./rn-config-tyler/packages/demo/examples/component-mount/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-appstate/layout";
+// } from "./rn-config-tyler/packages/demo/examples/todo-app/layout";
+
+// import {
+//   appConfig,
+//   getEvents,
+//   routes,
+// } from "./rn-config-tyler/packages/demo/examples/with-appstate/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-//   getInitEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-setLayout/layout";
+// } from "./rn-config-tyler/packages/demo/examples/with-setLayout/layout";
 
 import {
   appConfig,
   routes,
   getEvents,
-  getInitEvents,
-} from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
+} from "./rn-config-tyler/packages/demo/examples/with-setLayout (without hide)/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-calendar/layout";
+//   //   getInitEvents,
+// } from "./rn-config-tyler/packages/demo/examples/3_4-screen-example-web/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-//   getInitEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-mobile/layout";
-// import { getInitEvents } from "./rn-config-tyler/packages/demo/examples/sagar-poc/3_4-screen-example-web/layout";
+// } from "./rn-config-tyler/packages/demo/examples/with-calendar/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-jsonforms/layout";
+// } from "./rn-config-tyler/packages/demo/examples/with-charts/layout";
 
 // import {
 //   appConfig,
 //   routes,
 //   getEvents,
-// } from "./rn-config-tyler/packages/demo/examples/vanilla-grid-layout/layout"; /// starter example with nav bars and changes to content area
+// } from "./rn-config-tyler/packages/demo/examples/3_4-screen-example-mobile/layout";
+
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "./rn-config-tyler/packages/demo/examples/with-jsonforms/layout";
 
 // import {
 //   appConfig,
@@ -77,12 +76,6 @@ import {
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/another-grid/layout"; /// another example with changes
 
-// import {
-//   appConfig,
-//   getEvents,
-//   getInitEvents,
-//   routes,
-// } from "./rn-config-tyler/packages/demo/examples/sagar-poc/with-appstate/layout";
 // ****** EXAMPLE CONFIGS END ****************
 import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
 
@@ -90,7 +83,7 @@ import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
 // TODO uncomment below, and comment section at very bottom for non-codesandbox
 // **************************************************
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { registerRootComponent } = require("expo")
+const { registerRootComponent } = require("expo");
 const noOp = () => {
   /** */
 };
@@ -100,10 +93,7 @@ const passProps = {
   getEvents: getEvents || noOp,
   getInitEvents: getInitEvents || noOp,
 };
-registerRootComponent(() => (
-  // {/* FIXME: debug=true below results in error */}
-  <App debug={false} {...passProps} />
-));
+registerRootComponent(() => <App debug={false} {...passProps} />);
 
 // **************************************************
 // TODO: below section to make it run on codesandbox.io

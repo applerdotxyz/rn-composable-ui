@@ -28,11 +28,11 @@ import React from "react";
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/with-setLayout/layout";
 
-import {
-  appConfig,
-  routes,
-  getEvents,
-} from "./rn-config-tyler/packages/demo/examples/with-setLayout (without hide)/layout";
+// import {
+//   appConfig,
+//   routes,
+//   getEvents,
+// } from "./rn-config-tyler/packages/demo/examples/with-setLayout (without hide)/layout";
 
 // import {
 //   appConfig,
@@ -53,6 +53,7 @@ import {
 //   routes,
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/with-charts/layout";
+
 
 // import {
 //   appConfig,
@@ -79,7 +80,10 @@ import {
 // } from "./rn-config-tyler/packages/demo/examples/another-grid/layout"; /// another example with changes
 
 // ****** EXAMPLE CONFIGS END ****************
-import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
+// import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
+
+import Entry from "./rn-config-tyler/packages/demo/components/Entry";
+
 
 // **************************************************
 // TODO uncomment below, and comment section at very bottom for non-codesandbox
@@ -88,13 +92,14 @@ import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
 const { registerRootComponent } = require("expo");
 registerRootComponent(() => (
   // {/* FIXME: debug=true below results in error */}
-  <App
-    config={appConfig}
-    routes={routes}
-    debug={false}
-    getEvents={getEvents}
-    // getInitEvents={getInitEvents}
-  />
+  // <App
+  //   config={appConfig}
+  //   routes={routes}
+  //   debug={false}
+  //   getEvents={getEvents}
+  //   // getInitEvents={getInitEvents}
+  // />
+  <Entry />
 ));
 
 // **************************************************

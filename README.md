@@ -19,7 +19,7 @@
 
 
 
-### A mobile starter template with Configurability and Composability
+### A mobile/web starter template with Configurability and Composability
 
 #### Demo
 [Demo](https://rn-compose.saurabhxyz.vercel.app/)

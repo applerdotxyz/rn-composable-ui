@@ -8,6 +8,7 @@
     "dot-object": "^2.1.4",
     "expo": "^40.0.1",
     "history": "^5.0.0",
+    "modal-react-native-web": "^0.2.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "0.63.4",

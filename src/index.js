@@ -21,7 +21,9 @@
 /*** example with json based forms  */
 let moduleConfig = require("./rn-config-tyler/packages/demo/examples/with-jsonforms/layout");
 const getComponents = moduleConfig.getComponents;
+const fetchConfig = moduleConfig.fetchConfig;
 
+import axios from "axios";
 // ****** EXAMPLE CONFIGS END ****.************
 import React from "react";
 const noOp = () => {
@@ -30,12 +32,29 @@ const noOp = () => {
 import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
 // const moduleConfig = require(`${moduleConfig}`);
 
+// initialize the props to be passed
+const init = (fetchConfig = null, getComponentsSet) => {
+  return new Promise((resolve, reject) => {
+    if (fetchConfig) {
+      return fetch(fetchConfig.url, { headers: { ...fetchConfig.headers } })
+        .then((_data) => {
+          return _data.json();
+        })
+        .then((data) => {
+          const { appConfig, routes } = data;
+          const componentsSet = getComponentsSet();
+          appConfig.componentsSet = componentsSet;
+          passProps.config = appConfig;
+          console.log(passProps);
+          return resolve(passProps);
+        });
+    } else {
+      return resolve(passProps);
+    }
+  });
+};
+
 const passProps = {
-  // fetchConfig: {
-  //   method: "GET",
-  //   url: "https://run.mocky.io/v3/03d0fb91-61ba-4b9b-b452-87d428e68ee8",
-  //   getComponents,
-  // },
   config: moduleConfig?.appConfig,
   routes: moduleConfig?.routes,
   getEvents: moduleConfig?.getEvents || noOp,
@@ -44,11 +63,13 @@ const passProps = {
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { registerRootComponent } = require("expo");
-registerRootComponent(() => <App debug={false} {...passProps} />);
+init(fetchConfig, getComponents).then((passProps) => {
+  registerRootComponent(() => <App debug={true} {...passProps} />);
+});
 
-// **************************************************
+// **************************************************/
 // TODO: below section to make it run on codesandbox.io
-// **************************************************
+/// **************************************************
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 // const { render } = require("react-dom");

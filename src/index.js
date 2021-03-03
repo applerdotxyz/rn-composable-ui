@@ -20,19 +20,26 @@
 
 /*** example with json based forms  */
 let moduleConfig = require("./rn-config-tyler/packages/demo/examples/with-jsonforms/layout");
+const getComponents = moduleConfig.getComponents;
 
-// ****** EXAMPLE CONFIGS END ****************
+// ****** EXAMPLE CONFIGS END ****.************
 import React from "react";
 const noOp = () => {
   /** */
 };
 import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
 // const moduleConfig = require(`${moduleConfig}`);
+
 const passProps = {
-  config: moduleConfig.appConfig,
-  routes: moduleConfig.routes,
-  getEvents: moduleConfig.getEvents || noOp,
-  getInitEvents: moduleConfig.getInitEvents || noOp,
+  // fetchConfig: {
+  //   method: "GET",
+  //   url: "https://run.mocky.io/v3/03d0fb91-61ba-4b9b-b452-87d428e68ee8",
+  //   getComponents,
+  // },
+  config: moduleConfig?.appConfig,
+  routes: moduleConfig?.routes,
+  getEvents: moduleConfig?.getEvents || noOp,
+  getInitEvents: moduleConfig?.getInitEvents || noOp,
 };
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

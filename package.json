@@ -30,6 +30,7 @@
     "@expo/webpack-config": "^0.12.60",
     "@testing-library/jest-native": "^3.3.0",
     "@testing-library/react-native": "^7.0.2",
+    "@types/axios": "^0.14.0",
     "@types/detox": "16.4.0",
     "@types/jest": "^26.0.4",
     "@types/jest-json-schema": "^2.1.2",

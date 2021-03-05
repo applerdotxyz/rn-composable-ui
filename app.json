@@ -1,0 +1,24 @@
+{
+    "expo": {
+      "name": "rn-composable",
+      "slug": "rn-composable",
+      "platforms": ["ios", "android", "web"],
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "scheme": "myapp",
+      "splash": {
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      },
+      "updates": {
+        "fallbackToCacheTimeout": 0
+      },
+      "assetBundlePatterns": ["**/*"],
+      "ios": {
+        "bundleIdentifier": "com.starterapp.mobile",
+        "supportsTablet": true
+      },
+      "web": {}
+    }
+  }
+  

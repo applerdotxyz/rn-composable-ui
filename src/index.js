@@ -34,6 +34,12 @@ import React from "react";
 //   getEvents,
 // } from "./rn-config-tyler/packages/demo/examples/with-setLayout (without hide)/layout";
 
+import {
+  appConfig,
+  routes,
+  getEvents,
+} from "./rn-config-tyler/packages/demo/examples/tailwindExample";
+
 // import {
 //   appConfig,
 //   routes,
@@ -80,9 +86,9 @@ import React from "react";
 // } from "./rn-config-tyler/packages/demo/examples/another-grid/layout"; /// another example with changes
 
 // ****** EXAMPLE CONFIGS END ****************
-// import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
+import { App } from "./rn-config-tyler/packages/demo/helpers/lib/src";
 
-import Entry from "./rn-config-tyler/packages/demo/components/Entry";
+// import Entry from "./rn-config-tyler/packages/demo/components/Entry";
 
 
 // **************************************************
@@ -92,14 +98,14 @@ import Entry from "./rn-config-tyler/packages/demo/components/Entry";
 const { registerRootComponent } = require("expo");
 registerRootComponent(() => (
   // {/* FIXME: debug=true below results in error */}
-  // <App
-  //   config={appConfig}
-  //   routes={routes}
-  //   debug={false}
-  //   getEvents={getEvents}
-  //   // getInitEvents={getInitEvents}
-  // />
-  <Entry />
+  <App
+    config={appConfig}
+    routes={routes}
+    debug={false}
+    getEvents={getEvents}
+    // getInitEvents={getInitEvents}
+  />
+  // <Entry />
 ));
 
 // **************************************************

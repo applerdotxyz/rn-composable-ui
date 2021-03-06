@@ -24,6 +24,7 @@ const configs = {
   "with-setLayout (without hide)": "with-setLayout (without hide)",
   "with-tailwind": "with-tailwind",
 };
+// FIXME: LOAD ABOVE OBJECT dynamically
 const selected = "with-tailwind";
 
 let moduleConfig = require(`./rn-config-tyler/packages/demo/examples/${configs[selected]}/layout`);
@@ -34,27 +35,17 @@ const fetchConfig = moduleConfig.fetchConfig;
 import React from "react";
 import { registerRootComponent } from "expo";
 import { App, init } from "./rn-config-tyler/packages/demo/helpers/lib/src";
+import Entry from "./rn-config-tyler/packages/demo/components/Entry";
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
-  registerRootComponent(() => <App debug={true} {...passProps} />);
-});
-
-// **************************************************/
-// TODO: below section to make it run on codesandbox.io
-/// **************************************************
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-// const { render } = require("react-dom");
-// const rootElement = document.getElementById("root");
-// render(
-//   <React.StrictMode>
-//     {/*
-//       `appConfig` is the original layout configuration for initial render
-//       `routes` is the routes object (multiple possible layout configurations possible) for later renders
-//       `debug` determines that whether `debugging` related features are enabled or not along with router (e.g. json tree)
-//     */}
-//     <WrappedApp appConfig={appConfig} routes={routes} debug={false} />
-//   </React.StrictMode>,
-//   rootElement
-// );
+if (process.env.REACT_NATIVE_DEMO == "true") {
+  init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
+    registerRootComponent(() => (
+      <Entry debug={true} {...passProps} modules={configs} />
+    ));
+  });
+} else {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
+    registerRootComponent(() => <App debug={true} {...passProps} />);
+  });
+}

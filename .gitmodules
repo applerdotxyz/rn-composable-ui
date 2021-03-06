@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 [submodule "src/rn-config-tyler"] 
   path = src/rn-config-tyler
   url = git://github.com/applerdotxyz/rn-config-tyler.git
+=======
+[submodule "src/rn-config-tyler"]
+	path = src/rn-config-tyler
+	url = git@github.com:applerdotxyz/rn-config-tyler.git
+>>>>>>> 8399ffce97c4b6672b3303d2b86d5c0eb446be8b

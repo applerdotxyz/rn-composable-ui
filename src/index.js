@@ -25,7 +25,7 @@ const configs = {
   "with-tailwind": "with-tailwind",
 };
 // FIXME: LOAD ABOVE OBJECT dynamically
-const selected = "with-tailwind";
+const selected = "with-setLayout (without hide)";
 
 let moduleConfig = require(`./rn-config-tyler/packages/demo/examples/${configs[selected]}/layout`);
 const getComponents = moduleConfig.getComponents;

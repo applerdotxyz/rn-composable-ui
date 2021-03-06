@@ -7,10 +7,6 @@
 
 ![E2E](https://github.com/applerdotxyz/rn-composable-ui/workflows/E2E/badge.svg)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8399ffce97c4b6672b3303d2b86d5c0eb446be8b
 --- 
 <p align="center">
   

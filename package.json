@@ -70,13 +70,9 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --format unix src",
-<<<<<<< HEAD
-    "build": "expo build",
-=======
     "demo": "REACT_NATIVE_DEMO=true expo start --web -c",
     "build:demo": "REACT_NATIVE_DEMO=true expo build:web",
     "build": "expo build:web",
->>>>>>> 8399ffce97c4b6672b3303d2b86d5c0eb446be8b
     "start": "expo start -c",
     "android": "expo start --android",
     "ios": "expo start --ios",

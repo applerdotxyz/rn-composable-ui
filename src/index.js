@@ -2,20 +2,29 @@
 // FIXME: fix the component mount stage example with <label>-$init logic fix
 /*** example with json based forms  */
 const configs = {
-  "with-charts": "with-charts",
-  "with-jsonforms": "with-jsonforms",
-  "another-grid": "another-grid",
   "3_4-screen-example-mobile": "3_4-screen-example-mobile",
   "3_4-screen-example-web": "3_4-screen-example-web",
-  "with-calendar": "with-calendar",
+  "another-grid": "another-grid",
+  "app-one": "app-one",
+  "app-three": "app-three",
+  "app-two": "app-two",
+  "collapsible-leftnav": "collapsible-leftnav",
   "component-mount": "component-mount",
+  "dashboard-demo": "dashboard-demo",
+  "dynamic-navigation": "dynamic-navigation",
+  "react-router-port": "react-router-port",
+  "state-mgmt": "state-mgmt",
   "todo-app": "todo-app",
+  "vanilla-grid-layout": "vanilla-grid-layout",
   "with-appstate": "with-appstate",
+  "with-calendar": "with-calendar",
+  "with-charts": "with-charts",
+  "with-jsonforms": "with-jsonforms",
   "with-setLayout": "with-setLayout",
   "with-setLayout (without hide)": "with-setLayout (without hide)",
-  "collapsible-leftnav": "collapsible-leftnav",
+  "with-tailwind": "with-tailwind",
 };
-const selected = "with-jsonforms";
+const selected = "with-tailwind";
 
 let moduleConfig = require(`./rn-config-tyler/packages/demo/examples/${configs[selected]}/layout`);
 const getComponents = moduleConfig.getComponents;

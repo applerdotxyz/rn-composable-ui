@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@react-native-community/checkbox": "^0.5.7",
     "@react-native-community/picker": "^1.8.1",
     "axios": "^0.21.1",
     "dot-object": "^2.1.4",

@@ -18,7 +18,6 @@
 ---
 
 
-
 ### A mobile/web starter template with Configurability and Composability
 
 #### Demo

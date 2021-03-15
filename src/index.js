@@ -13,7 +13,6 @@ const configs = {
   "dashboard-demo": "dashboard-demo",
   "dynamic-navigation": "dynamic-navigation",
   "react-router-port": "react-router-port",
-  "state-mgmt": "state-mgmt",
   "todo-app": "todo-app",
   "vanilla-grid-layout": "vanilla-grid-layout",
   "with-appstate": "with-appstate",

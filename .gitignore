@@ -28,3 +28,5 @@ yarn.lock
 cypress/videos
 e2e/cypress.json
 cypress/screenshots/App.spec.js/RN Compose Test -- check all needed is present (failed).png
+
+.vercel

@@ -1,7 +1,7 @@
 {
     "expo": {
-      "name": "rn-config-tyler",
-      "slug": "rn-config-tyler",
+      "name": "rn-composable",
+      "slug": "rn-composable",
       "platforms": ["ios", "android", "web"],
       "version": "1.0.0",
       "orientation": "portrait",

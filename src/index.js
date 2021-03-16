@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // ****** EXAMPLE CONFIGS START ****************
 // FIXME: fix the component mount stage example with <label>-$init logic fix
 /*** example with json based forms  */
@@ -23,9 +24,10 @@ const configs = {
   "with-setLayout": "with-setLayout",
   "with-setLayout (without hide)": "with-setLayout (without hide)",
   "with-tailwind": "with-tailwind",
+  "TSDigisolPlatform": "TSDigisolPlatform",
 };
 // FIXME: LOAD ABOVE OBJECT dynamically
-const selected = "3_4-screen-example-web";
+const selected = "TSDigisolPlatform";
 
 let moduleConfig = require(`./rn-config-tyler/packages/demo/examples/${configs[selected]}/layout`);
 const getComponents = moduleConfig.getComponents;

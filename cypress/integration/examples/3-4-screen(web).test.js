@@ -9,7 +9,8 @@ describe("3-4-screen(web)", () => {
       cy.get(`input[value="654789"]`).clear().type("12345");
       cy.contains("Submit").click();
       cy.contains("Submit").click();
-      cy.contains("Verified Phone No:- 9874563210");
+      cy.get(`[data-testid="phone_num_verify"]`).contains("Verified Phone No:- 9874563210");
+      // cy.contains("Verified Phone No:- 9874563210");
       cy.contains("Submit").click();
       cy.contains("Name");
       cy.contains("Category");

@@ -47,7 +47,7 @@
     "babel-jest": "^26.1.0",
     "babel-preset-expo": "^8.3.0",
     "babel-preset-react": "latest",
-    "cypress": "^6.6.0",
+    "cypress": "^6.7.1",
     "dotenv": "^8.2.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.0",

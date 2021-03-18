@@ -1,4 +1,4 @@
-describe("3-4-screen(web)", () => {
+describe("with-jsonforms", () => {
     it("Config test", () => {
       cy.visit("http://localhost:19006/");
       cy.contains("Examples");

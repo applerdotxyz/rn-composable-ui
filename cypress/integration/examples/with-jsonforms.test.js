@@ -3,7 +3,7 @@ describe("with-jsonforms", () => {
       cy.visit("http://localhost:19006/");
       cy.contains("Examples");
       cy.get("select").select("with-jsonforms");
-      cy.contains("leftNavHeader");
+      cy.contains("Home *** leftNavHeader");
       cy.contains("bodyHeader");
       cy.get(`input[value="8654787549"]`).clear().type("9874563210").blur();
       cy.get(`input[value="8888888888"]`).clear().type("9898989898").blur();

@@ -4,7 +4,7 @@ describe("another-grid", () => {
       cy.contains("Examples");
       cy.get("select").select("component-mount");
       cy.get(`[role="button"]`).get('[data-testid="bodyHeader-btn-one"]').contains("AboutFlash");
-      cy.contains("bodyHeader");
+      cy.contains("About *** bodyHeader");
     });
   });
   

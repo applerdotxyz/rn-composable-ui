@@ -48,6 +48,7 @@
     "babel-preset-expo": "^8.3.0",
     "babel-preset-react": "latest",
     "cypress": "^6.7.1",
+    "cypress-image-snapshot": "^4.0.1",
     "dotenv": "^8.2.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.0",
@@ -98,6 +99,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/applerdotxyz/rn-composable-ui/issues"
-  },
-  "homepage": "https://github.com/applerdotxyz/rn-composable-ui#readme"
+  }
 }

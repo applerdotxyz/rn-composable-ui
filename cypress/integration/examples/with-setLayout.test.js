@@ -1,6 +1,8 @@
 describe("with-setLayout", () => {
     it("Config test", () => {
-      cy.visit("http://localhost:19006/");
+      // cy.visit("http://localhost:19006/");
+      cy.visit("http://localhost:8080/");
+
       cy.contains("Examples");
       cy.get("select").select("with-setLayout");
       cy.contains("Home *** leftNavHeader");

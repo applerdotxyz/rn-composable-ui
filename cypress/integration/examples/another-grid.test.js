@@ -1,6 +1,8 @@
 describe("another-grid", () => {
   it("Config test", () => {
-    cy.visit("http://localhost:19006/");
+    // cy.visit("http://localhost:19006/");
+    cy.visit("http://localhost:8080/");
+
     cy.contains("Examples");
     cy.get("select").select("another-grid");
     cy.get(`[role="button"]`).get('[data-testid="home-btn-one"]').contains("ACT1");

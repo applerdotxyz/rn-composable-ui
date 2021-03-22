@@ -1,6 +1,8 @@
 describe("with-setLayout (without hide)", () => {
   it("Config test", () => {
-    cy.visit("http://localhost:19006/");
+    // cy.visit("http://localhost:19006/");
+    cy.visit("http://localhost:8080/");
+
     cy.contains("Examples");
     cy.get("select").select("with-setLayout (without hide)");
     // cy.viewport(999, 1800)

@@ -12,6 +12,13 @@ jobs:
           node: [14]
       steps:
         - uses: actions/checkout@v1
+        - name: Submodules setup
+          run: cd src
+          run: git clone https://github.com/applerdotxyz/rn-config-tyler/tree/e2e-testing
+          run: cd rn-config-tyler
+          run: yarn install
+          run: cd ..
+          run: cd ..
         - name: Setup Node
           uses: actions/setup-node@v1
           with:

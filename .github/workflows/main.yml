@@ -12,13 +12,15 @@ jobs:
           node: [14]
       steps:
         - uses: actions/checkout@v1
-        - name: Submodules setup
+        - name: Changed directory to src
           run: cd src
           run: git clone https://github.com/applerdotxyz/rn-config-tyler/tree/e2e-testing
+        - name: Changed directory to rn-config-tyler
           run: cd rn-config-tyler
+        - name: Yarn install
           run: yarn install
-          run: cd ..
-          run: cd ..
+        - name: Changed directory to rn-composible
+          run: cd ../../
         - name: Setup Node
           uses: actions/setup-node@v1
           with:

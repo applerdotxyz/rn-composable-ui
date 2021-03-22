@@ -13,11 +13,11 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Changed directory to src
-          run: cd src
+          run: cd src/rn-config-tyler
         - name: Clone of rn-config-tyler
           run: git clone -b e2e-testing https://github.com/applerdotxyz/rn-config-tyler.git
-        - name: Changed directory to rn-config-tyler
-          run: cd rn-config-tyler
+        # - name: Changed directory to rn-config-tyler
+        #   run: cd rn-config-tyler
         - name: Checking files
           run: ls
         # - name: Yarn install

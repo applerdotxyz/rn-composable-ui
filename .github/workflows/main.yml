@@ -30,8 +30,7 @@ jobs:
           run: |
             cd ..
             ls
-            cd ..
-            ls
+            
         # - name: Setup Node
         #   uses: actions/setup-node@v1
         #   with:

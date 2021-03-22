@@ -15,8 +15,10 @@ jobs:
         - name: Changed directory to src
           run: |
             cd src
+            ls
         - name: Clone of rn-config-tyler
-          run: git clone -b e2e-testing https://github.com/applerdotxyz/rn-config-tyler.git
+          run: |
+            git clone -b e2e-testing https://github.com/applerdotxyz/rn-config-tyler.git
         - name: Changed directory to rn-config-tyler
           run: |
             cd rn-config-tyler

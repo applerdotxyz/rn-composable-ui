@@ -28,7 +28,9 @@ jobs:
             yarn install
         - name: Changed directory to rn-composible
           run: |
-            cd ../../
+            cd ..
+            cd ..
+            ls
         - name: Setup Node
           uses: actions/setup-node@v1
           with:

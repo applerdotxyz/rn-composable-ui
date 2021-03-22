@@ -18,8 +18,8 @@ jobs:
               ~/.cache/Cypress
               node_modules
             key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}  
-       - name: Yarn Install
-          run: yarn install
+      - name: Yarn Install
+        run: yarn install
       - name: expo global setup
         run: npm install -g expo-cli
       # and run all Cypress tests

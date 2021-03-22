@@ -18,27 +18,29 @@ jobs:
           run: git clone -b e2e-testing https://github.com/applerdotxyz/rn-config-tyler.git
         - name: Changed directory to rn-config-tyler
           run: cd rn-config-tyler
-        - name: Yarn install
-          run: yarn install
-        - name: Changed directory to rn-composible
-          run: cd ../../
-        - name: Setup Node
-          uses: actions/setup-node@v1
-          with:
-            node-version: ${{ matrix.node }}
-        - uses: actions/cache@v2
-          id: cache
-          with:
-            path: |
-              ~/.cache/Cypress
-              node_modules
-            key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}  
-        - name: Yarn Install
-          run: yarn install
-        - name: expo global setup
-          run: npm install -g expo-cli
-        - name: E2E testing
-          uses: cypress-io/github-action@v2  
-          with:
-            build: 'yarn build:demo'
-            start: 'yarn serve:web'
+        - name: Checking files
+          run: ls
+        # - name: Yarn install
+        #   run: yarn install
+        # - name: Changed directory to rn-composible
+        #   run: cd ../../
+        # - name: Setup Node
+        #   uses: actions/setup-node@v1
+        #   with:
+        #     node-version: ${{ matrix.node }}
+        # - uses: actions/cache@v2
+        #   id: cache
+        #   with:
+        #     path: |
+        #       ~/.cache/Cypress
+        #       node_modules
+        #     key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}  
+        # - name: Yarn Install
+        #   run: yarn install
+        # - name: expo global setup
+        #   run: npm install -g expo-cli
+        # - name: E2E testing
+        #   uses: cypress-io/github-action@v2  
+        #   with:
+        #     build: 'yarn build:demo'
+        #     start: 'yarn serve:web'

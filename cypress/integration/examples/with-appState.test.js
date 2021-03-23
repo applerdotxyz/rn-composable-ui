@@ -14,6 +14,11 @@ describe("with-appState", () => {
     cy.contains("Home *** bodyContent2");
     cy.contains("footer");
     cy.screenshot();
+    cy.get(`[data-testid="leftNavHeader-btn-one"]`).contains("ACT1").click();
+    cy.contains("About *** bodyHeader");
+    cy.contains("`RandomPic *** bodyContent`");
+    cy.screenshot();
+
 
     // ----------------Has to see how we can do visual testing i better way (TODO) ----------
     // cy.matchImageSnapshot('initialLayout');
@@ -24,7 +29,6 @@ describe("with-appState", () => {
     //     "timeout": 80000
     //   },
     // });
-    // cy.get(`[data-testid="leftNavHeader-btn-one"]`).contains("ACT1").click();
     // cy.document().toMatchImageSnapshot({
     //   "name": "After route",            // Naming resulting image file with a custom name rather than concatenating test titles
     //   "screenshotConfig": {            // See https://docs.cypress.io/api/commands/screenshot.html#Arguments
@@ -33,10 +37,8 @@ describe("with-appState", () => {
     //   },
     // });
     // cy.matchImageSnapshot('layoutChanged');
+
     
-    cy.contains("About *** bodyHeader");
-    cy.contains("`RandomPic *** bodyContent`");
-    cy.screenshot();
 
 
 

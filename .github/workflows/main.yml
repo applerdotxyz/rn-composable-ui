@@ -17,7 +17,7 @@ jobs:
             cd src && git clone -b e2e-testing https://github.com/applerdotxyz/rn-config-tyler.git
         - name: RN Config Tyler Setup
           run: |
-            cd src/rn-config-tyler && ls && yarn install
+            cd src/rn-config-tyler && yarn install
         - name: Setup Node
           uses: actions/setup-node@v1
           with:
@@ -32,11 +32,9 @@ jobs:
         - name: Yarn Install
           run: |
             yarn install
-            ls
         - name: expo global setup
           run: |
             npm install -g expo-cli
-            ls
         - name: E2E testing
           uses: cypress-io/github-action@v2  
           with:

@@ -15,14 +15,20 @@ describe("with-appState", () => {
     cy.contains("footer");
     // cy.matchImageSnapshot('initialLayout');
     // cy.screenshot();
+    
     cy.document().toMatchImageSnapshot({
       "name": "Before route",            // Naming resulting image file with a custom name rather than concatenating test titles
-      "separator": "initial",            // Naming resulting image file with a custom separator rather than using the default ` #`
-    })
+      "screenshotConfig": {            // See https://docs.cypress.io/api/commands/screenshot.html#Arguments
+        "timeout": 80000
+      },
+    });
     cy.get(`[data-testid="leftNavHeader-btn-one"]`).contains("ACT1").click();
     cy.document().toMatchImageSnapshot({
       "name": "After route",            // Naming resulting image file with a custom name rather than concatenating test titles
-      "separator": "final",            // Naming resulting image file with a custom separator rather than using the default ` #`
+      "screenshotConfig": {            // See https://docs.cypress.io/api/commands/screenshot.html#Arguments
+        
+        "timeout": 80000
+      },
     });
     // cy.matchImageSnapshot('layoutChanged');
     cy.contains("About *** bodyHeader");

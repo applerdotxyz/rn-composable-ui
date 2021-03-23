@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - "e2e-testing"
+      - "develop"
 jobs:
   cypress-run:
       runs-on: ubuntu-latest

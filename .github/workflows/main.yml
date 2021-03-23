@@ -54,5 +54,6 @@ jobs:
         - name: E2E testing
           uses: cypress-io/github-action@v2  
           with:
+            start: yarn demo
             build: yarn build:demo
-            start: yarn serve:demo
+            

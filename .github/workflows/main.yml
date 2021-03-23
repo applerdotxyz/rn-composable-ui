@@ -7,23 +7,17 @@ on:
 jobs:
   cypress-run:
       runs-on: ubuntu-latest
-      # let's make sure our "app" works on several versions of Node
       strategy:
         matrix:
           node: [14]
       steps:
         - uses: actions/checkout@v1
-        - name: Changed directory to src
+        - name: Cloning RN Config Tyler
           run: | 
             cd src && git clone -b e2e-testing https://github.com/applerdotxyz/rn-config-tyler.git
-        - name: Changed directory to rn-config-tyler
+        - name: RN Config Tyler Setup
           run: |
             cd src/rn-config-tyler && ls && yarn install
-
-        - name: Changed directory to rn-composible
-          run: |
-            cd ../../ && ls
-            
         - name: Setup Node
           uses: actions/setup-node@v1
           with:

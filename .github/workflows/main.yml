@@ -44,11 +44,15 @@ jobs:
               node_modules
             key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}  
         - name: Yarn Install
-          run: yarn install
+          run: |
+            yarn install
+            ls
         - name: expo global setup
-          run: npm install -g expo-cli
+          run: |
+            npm install -g expo-cli
+            ls
         - name: E2E testing
           uses: cypress-io/github-action@v2  
           with:
-            build: 'yarn build:demo'
-            start: 'yarn serve:web'
+            build: yarn build:demo
+            start: yarn serve:demo

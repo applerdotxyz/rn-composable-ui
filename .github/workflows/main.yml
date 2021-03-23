@@ -12,7 +12,7 @@ jobs:
           node: [14]
       steps:
         - uses: actions/checkout@v1
-        - name: Cloning RN Config Tyler
+        - name: Cloning Rn Config Tyler
           run: | 
             cd src && git clone -b e2e-testing https://github.com/applerdotxyz/rn-config-tyler.git
         - name: RN Config Tyler Setup

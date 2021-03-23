@@ -11,32 +11,23 @@ jobs:
         matrix:
           node: [14]
       steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v1
         - name: Changed directory to src
-          run: |
-            cd src
-            ls
-        - name: Clone of rn-config-tyler
-          run: |
-            git clone -b e2e-testing https://github.com/applerdotxyz/rn-config-tyler.git
+          run: | 
+            cd src && git clone -b e2e-testing https://github.com/applerdotxyz/rn-config-tyler.git
         - name: Changed directory to rn-config-tyler
           run: |
-            cd rn-config-tyler
-            ls
-        - name: Yarn install
-          run: |
-            yarn install
+            cd src/rn-config-tyler && ls && yarn install
+
         - name: Changed directory to rn-composible
           run: |
-            cd ..
-            ls
-            cd rn-composable-ui
-            ls
+            cd ../../ && ls
+            
         - name: Setup Node
-          uses: actions/setup-node@v2
+          uses: actions/setup-node@v1
           with:
             node-version: ${{ matrix.node }}
-        - uses: actions/cache@v2
+        - uses: actions/cache@v1
           id: cache
           with:
             path: |

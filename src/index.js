@@ -7,7 +7,6 @@ const configs = {
   "another-grid": "another-grid",
   "app-one": "app-one",
   "app-three": "app-three",
-  "app-two": "app-two",
   "collapsible-leftnav": "collapsible-leftnav",
   "component-mount": "component-mount",
   "dashboard-demo": "dashboard-demo",

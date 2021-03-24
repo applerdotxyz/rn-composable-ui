@@ -1,8 +1,6 @@
 describe("with-jsonforms", () => {
     it("Config test", () => {
-      // cy.visit("http://localhost:19006/");
-      cy.visit("http://localhost:8080/");
-
+      cy.visit("/");
       cy.contains("Examples");
       cy.get("select").select("with-jsonforms");
       cy.contains("Home *** leftNavHeader");

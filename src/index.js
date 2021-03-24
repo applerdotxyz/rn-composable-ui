@@ -30,10 +30,10 @@ const getComponents = moduleConfig.getComponents;
 const fetchConfig = moduleConfig.fetchConfig;
 
 // ****** EXAMPLE CONFIGS END ****.************
-import React from "react";
 import { registerRootComponent } from "expo";
-import { App, init } from "./rn-config-tyler/packages/demo/helpers/lib/src";
+import React from "react";
 import Entry from "./rn-config-tyler/packages/demo/components/Entry";
+import { App, init } from "./rn-config-tyler/packages/demo/helpers/lib/src";
 
 if (process.env.REACT_NATIVE_DEMO == "true") {
   init(moduleConfig, fetchConfig, getComponents).then((passProps) => {

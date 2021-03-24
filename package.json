@@ -74,8 +74,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint --format unix src",
     "demo": "REACT_NATIVE_DEMO=true expo start --web -c",
-    "build:demo": "REACT_NATIVE_DEMO=true expo build:web",
     "build": "expo build:web",
+    "build:demo": "REACT_NATIVE_DEMO=true expo build:web && find web-build -type f -exec sed -i 's/\/applerdotxyz\/rn-composable-ui\//\//g' {} +",
     "start": "expo start -c",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -99,6 +99,6 @@
   "author": "applerdotxyz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/applerdotxyz/rn-composable-ui/issues"
+    "url": "https://github.com/issues"
   }
 }

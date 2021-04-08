@@ -7,6 +7,8 @@
 
 ![E2E](https://github.com/workflows/E2E/badge.svg)
 
+[![Cypress Tests](https://github.com/applerdotxyz/rn-composable-ui/actions/workflows/main.yml/badge.svg)](https://github.com/applerdotxyz/rn-composable-ui/actions/workflows/main.yml)
+
 --- 
 <p align="center">
   

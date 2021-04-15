@@ -13,7 +13,7 @@ module.exports = {
     "@expo/vector-icons",
     "react-native-vector-icons",
   ],
-  setupFiles: ["./tests/jestSetupFile.js"],
+  // setupFiles: ["./tests/jestSetupFile.js"],
   transform: {
     "^.+\\.js$": "babel-jest",
   },

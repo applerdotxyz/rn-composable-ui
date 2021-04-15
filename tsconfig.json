@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "sum.js", "sum.test.js"  ]
 }

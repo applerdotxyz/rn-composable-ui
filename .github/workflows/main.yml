@@ -32,6 +32,9 @@ jobs:
         - name: Yarn Install
           run: |
             yarn install
+        - name: Run Logic tests
+          run: |
+            yarn logic-test
         - name: expo global setup
           run: |
             npm install -g expo-cli

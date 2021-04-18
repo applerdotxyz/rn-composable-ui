@@ -15,17 +15,21 @@ test("setAppState logic tests", () => {
 //     format)).toBe({"a":["b","c","d"]});
 
 const initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {},
 };
 
 const passState1 = {
-    "$global":{"a":["b","c"]}
+    "a":["b","c"]
 };
 
 let actualState1 = {
-    "ui":{},
-    "children":{},
-    "props":{},
-    "$global":{"a":["d"]}
+    // "ui":{},
+    // "children":{},
+    // "props":{},
+    "a":["d"]
     // "a":["d"]
     
 };
@@ -38,14 +42,14 @@ const expectedState1 = {
 };
 
 // var a= merge(actualState1,passState1)
-console.log(a)
+// console.log(a)
 setAppState((state) => {
     console.log(state)
     actualState1=state
-    console.log(initialState1)
+    // console.log(initialState1)
 
     // return state
-},initialState1,passState1,format="copy")
+},passState1,actualState1,format="copy")
 
 
 

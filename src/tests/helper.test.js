@@ -1,58 +1,612 @@
-const {setAppState }= require("../rn-config-tyler/packages/demo/helpers/lib/src/container/helpers")
-import merge from "deepmerge";
+const {
+  setGlobalState,
+} = require("../rn-config-tyler/packages/demo/helpers/lib/src/container/helpers");
 
-
-
-test("setAppState logic tests", () => {
-//     const _setAppState =any
-//     const appState={"a":["b","c"]}
-//     const newAppState={"a":["d"]}
-//     const format = "copy"
-
-//   expect(setAppState(_setAppState,
-//     appState,
-//     newAppState,
-//     format)).toBe({"a":["b","c","d"]});
-
-const initialState1 = {
+test("setGloablState logic test1 isPartial", () => {
+  let initialState1 = {
     ui: {},
     children: {},
     props: {},
-    $global: {},
-};
+    $global: { a: ["b", "c"] },
+  };
 
-const passState1 = {
-    "a":["b","c"]
-};
+  const passState1 = {
+    a: ["d"],
+  };
 
-let actualState1 = {
-    // "ui":{},
-    // "children":{},
-    // "props":{},
-    "a":["d"]
-    // "a":["d"]
-    
-};
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: ["d"] },
+  };
 
-const expectedState1 = {
-    "ui":{},
-    "children":{},
-    "props":{},
-    "$global":{"a":["b","c","d"]}
-};
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "isPartial")
+  );
 
-// var a= merge(actualState1,passState1)
-// console.log(a)
-setAppState((state) => {
-    console.log(state)
-    actualState1=state
-    // console.log(initialState1)
+  expect(expectedState1).toMatchObject(initialState1);
+});
 
-    // return state
-},passState1,actualState1,format="copy")
+test("setGlobalState logic test1 mo", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: ["b", "c"] },
+  };
 
+  const passState1 = {
+    a: ["d"],
+  };
 
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: ["b", "c"] },
+    a: ["d"],
+  };
 
-expect(expectedState1).toMatchObject(initialState1)
-// console.log(initialState1)
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "mo")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGloablState logic test1 copy", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: ["b", "c"] },
+  };
+
+  const passState1 = {
+    a: ["d"],
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: ["b", "c", "d"] },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "copy")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test1 else", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: ["b", "c"] },
+  };
+
+  const passState1 = {
+    a: ["d"],
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: ["d"] },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test2 isPartial", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: "b" },
+  };
+
+  const passState1 = {
+    c: "d",
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: "b", c: "d" },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "isPartial")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test2 mo", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: "b" },
+  };
+
+  const passState1 = {
+    c: "d",
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: "b" },
+    c: "d",
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "mo")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test2 copy", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: "b" },
+  };
+
+  const passState1 = {
+    c: "d",
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: "b", c: "d" },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "copy")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test2 else", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { a: "b" },
+  };
+
+  const passState1 = {
+    c: "d",
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: { c: "d" },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test3 isPartial", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+      },
+    },
+  };
+
+  const passState1 = {
+    a: {
+      e: "f",
+    },
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+        e: "f",
+      },
+    },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "isPartial")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test3 mo", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+      },
+    },
+  };
+
+  const passState1 = {
+    a: {
+      e: "f",
+    },
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    a: {
+      e: "f",
+    },
+    $global: {
+      a: {
+        b: "c",
+      },
+    },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "mo")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test3 copy", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+      },
+    },
+  };
+
+  const passState1 = {
+    a: {
+      e: "f",
+    },
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+        e: "f",
+      },
+    },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "copy")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test3 isPartial", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+      },
+    },
+  };
+
+  const passState1 = {
+    a: {
+      e: "f",
+    },
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        e: "f",
+      },
+    },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test4 isPartial", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+        e: "f",
+      },
+    },
+  };
+
+  const passState1 = {
+    a: {
+      e: "h",
+    },
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+        e: "h",
+      },
+    },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "isPartial")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test4 mo", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+        e: "f",
+      },
+    },
+  };
+
+  const passState1 = {
+    a: {
+      e: "h",
+    },
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    a: {
+      e: "h",
+    },
+    $global: {
+      a: {
+        b: "c",
+        e: "f",
+      },
+    },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "mo")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test4 copy", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+        e: "f",
+      },
+    },
+  };
+
+  const passState1 = {
+    a: {
+      e: "h",
+    },
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+        e: "h",
+      },
+    },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "copy")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
+});
+
+test("setGlobalState logic test4 else", () => {
+  let initialState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        b: "c",
+        e: "f",
+      },
+    },
+  };
+
+  const passState1 = {
+    a: {
+      e: "h",
+    },
+  };
+
+  const expectedState1 = {
+    ui: {},
+    children: {},
+    props: {},
+    $global: {
+      a: {
+        e: "h",
+      },
+    },
+  };
+
+  setGlobalState(
+    (state) => {
+      console.log(state);
+      initialState1 = state;
+    },
+    initialState1,
+    passState1,
+    (format = "")
+  );
+
+  expect(expectedState1).toMatchObject(initialState1);
 });

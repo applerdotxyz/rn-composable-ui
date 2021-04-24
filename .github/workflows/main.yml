@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - "e2e-testing"
+      - "jest-testing"
       - "develop"
 jobs:
   cypress-run:
@@ -32,7 +33,7 @@ jobs:
         - name: Yarn Install
           run: |
             yarn install
-        - name: Run Logic tests
+        - name: Run Jest Logic tests
           run: |
             yarn logic-test
         - name: expo global setup

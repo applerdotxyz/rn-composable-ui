@@ -83,6 +83,7 @@
     "web": "expo start --web",
     "stage": "REACT_NATIVE_NODE_ENV=stage expo start -a --no-dev --https --ios",
     "test": "jest",
+    "logic-test":"jest ./src/tests",
     "serve:web": "http-server web-build",
     "build:web": "./node_modules/.bin/expo build:web",
     "coverage": "./node_modules/.bin/jest --watchAll=false --coverage"

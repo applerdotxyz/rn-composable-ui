@@ -23,10 +23,12 @@ const configs = {
   "with-setLayout": "with-setLayout",
   "with-setLayout (without hide)": "with-setLayout (without hide)",
   "with-tailwind": "with-tailwind",
+  "tw-grid-layout": "tw-grid-layout",
 };
 // FIXME: LOAD ABOVE OBJECT dynamically
-const selected = "3_4-screen-example-web";
+const selected = "tw-grid-layout";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 let moduleConfig = require(`./rn-config-tyler/packages/demo/examples/${configs[selected]}/layout`);
 const getComponents = moduleConfig.getComponents;
 const fetchConfig = moduleConfig.fetchConfig;
@@ -46,6 +48,6 @@ if (process.env.REACT_NATIVE_DEMO == "true") {
 } else {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
-    registerRootComponent(() => <App debug={true} {...passProps} />);
+    registerRootComponent(() => <App debug={false} {...passProps} />);
   });
 }

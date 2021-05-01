@@ -3,9 +3,11 @@
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/applerdotxyz/rn-composable-ui)
 
 
-![Beta](https://github.com/applerdotxyz/rn-composable-ui/workflows/Beta/badge.svg)
+![Beta](https://github.com/workflows/Beta/badge.svg)
 
-![E2E](https://github.com/applerdotxyz/rn-composable-ui/workflows/E2E/badge.svg)
+![E2E](https://github.com/workflows/E2E/badge.svg)
+
+[![Cypress Tests](https://github.com/applerdotxyz/rn-composable-ui/actions/workflows/main.yml/badge.svg)](https://github.com/applerdotxyz/rn-composable-ui/actions/workflows/main.yml)
 
 --- 
 <p align="center">
@@ -23,6 +25,11 @@
 #### Demo
 [Demo](https://rn-compose.saurabhxyz.vercel.app/)
 ![demo for the router](https://github.com/applerdotxyz/rn-config-tyler/blob/main/demo-config-router.png)
+
+##### Deploy (3 step)
+- `yarn build:demo`
+- `find web-build -type f -exec sed -i 's/\/applerdotxyz\/rn-composable-ui\//\//g' {} +`
+- `vercel --prod`
 
 #### Features
 - uses configurable UI layouts uses [rn-config-tyler](https://www.npmjs.com/package/rn-config-tyler)

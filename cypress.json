@@ -1,0 +1,17 @@
+{
+    "baseUrl": "http://localhost:8080/",
+    "viewportWidth": 1000,
+    "viewportHeight": 2000,
+    "env": {
+        "cypress-plugin-snapshots": {
+            "imageConfig": {
+                "threshold": 0.01
+            }
+        }
+    },
+    "scrollBehavior":"bottom",
+    "ignoreTestFiles": [
+        "**/__snapshots__/*",
+        "**/__image_snapshots__/*"
+    ]
+}

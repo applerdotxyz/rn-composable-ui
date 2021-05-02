@@ -74,6 +74,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint --format unix src",
     "demo": "REACT_NATIVE_DEMO=true expo start --web -c",
+    "editor": "REACT_NATIVE_LIVEEDIT=true expo start --web -c",
     "build": "expo build:web",
     "build:demo": "REACT_NATIVE_DEMO=true expo build:web",
     "start": "expo start -c",

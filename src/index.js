@@ -15,6 +15,14 @@ const configs = {
     id: "tw-grid-layout",
     desc: "demo for grid with tailwind",
   },
+  "liveedit": {
+    id: "liveedit",
+    desc: "demo for grid with Live Editing",
+  },
+  "trello-clone": {
+    id: "trello-clone",
+    desc: "demo for trello clone made with tailwing and rn-composable",
+  },
   "app-one": { id: "app-one" },
   "app-three": { id: "app-three" },
   "collapsible-leftnav": { id: "collapsible-leftnav" },
@@ -33,9 +41,9 @@ const configs = {
   "with-tailwind": { id: "with-tailwind" },
 };
 // FIXME: LOAD ABOVE OBJECT dynamically
-// const selected = "tw-grid-layout";
+const selected = "liveedit";
+// const selected = "3_4-screen-example-web";
 
-const selected = "3_4-screen-example-web";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 let moduleConfig = require(`./rn-config-tyler/packages/demo/examples/${configs[selected]?.id}/layout`);
 const getComponents = moduleConfig.getComponents;
@@ -44,17 +52,31 @@ const fetchConfig = moduleConfig.fetchConfig;
 // ****** EXAMPLE CONFIGS END ****.************
 import { registerRootComponent } from "expo";
 import React from "react";
-import Entry from "./rn-config-tyler/packages/demo/components/Entry";
-import { App, init } from "./rn-config-tyler/packages/demo/helpers/lib/src";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { init } = require("./rn-config-tyler/packages/demo/helpers/lib/src");
 
 if (process.env.REACT_NATIVE_DEMO == "true") {
   init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const Entry = require("./rn-config-tyler/packages/demo/components/Entry");
     registerRootComponent(() => (
       <Entry debug={true} {...passProps} modules={configs} />
     ));
   });
+} else if (process.env.REACT_NATIVE_LIVEEDIT == "true") {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
+    console.log("**** OPENED EDITOR MODE ****");
+    const {
+      LiveEditApp,
+      init,
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+    } = require("./rn-config-tyler/packages/demo/helpers/lib/src/container/LiveEditApp");
+    registerRootComponent(() => <LiveEditApp {...passProps} />);
+  });
 } else {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const { App } = require("./rn-config-tyler/packages/demo/helpers/lib/src");
   init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
     registerRootComponent(() => <App debug={false} {...passProps} />);
   });

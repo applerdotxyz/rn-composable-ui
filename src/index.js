@@ -68,11 +68,10 @@ if (process.env.REACT_NATIVE_DEMO == "true") {
   init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
     console.log("**** OPENED EDITOR MODE ****");
     const {
-      LiveEditApp,
-      init,
+      App,
       // eslint-disable-next-line @typescript-eslint/no-var-requires
-    } = require("./rn-config-tyler/packages/demo/helpers/lib/src/container/LiveEditApp");
-    registerRootComponent(() => <LiveEditApp {...passProps} />);
+    } = require("./rn-config-tyler/packages/demo/helpers/lib/src/container/App");
+    registerRootComponent(() => <App {...passProps} />);
   });
 } else {
   // eslint-disable-next-line @typescript-eslint/no-var-requires

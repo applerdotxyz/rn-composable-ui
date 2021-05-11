@@ -79,6 +79,9 @@ const configs = {
     id: "with-tailwind",
     desc: "General Form using tailwind classes",
   },
+  "wiki": {
+    id: "wiki",
+  },
 };
 // FIXME: LOAD ABOVE OBJECT dynamically
 const selected = "3_4-screen-example-web";

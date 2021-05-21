@@ -52,18 +52,20 @@ const fetchConfig = moduleConfig.fetchConfig;
 // ****** EXAMPLE CONFIGS END ****.************
 import { registerRootComponent } from "expo";
 import React from "react";
+import Entry from "./rn-config-tyler/packages/demo/components/Entry";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { init } = require("./rn-config-tyler/packages/demo/helpers/lib/src");
 
 if (process.env.REACT_NATIVE_DEMO == "true") {
   init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const Entry = require("./rn-config-tyler/packages/demo/components/Entry");
+    // const Entry = require("./rn-config-tyler/packages/demo/components/Entry");
     registerRootComponent(() => (
       <Entry debug={true} {...passProps} modules={configs} />
     ));
   });
-} else if (process.env.REACT_NATIVE_LIVEEDIT == "true") {
+}
+else if (process.env.REACT_NATIVE_LIVEEDIT == "true") {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
     console.log("**** OPENED EDITOR MODE ****");

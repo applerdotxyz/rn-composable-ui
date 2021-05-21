@@ -2,110 +2,81 @@
 // FIXME: fix the component mount stage example with <label>-$init logic fix
 /*** example with json based forms  */
 const configs = {
-  "3_4-screen-example-mobile": 
-    {
-      id: "3_4-screen-example-mobile",
-      desc: "Mobile layout routing",
-    },
   "3_4-screen-example-web": {
     id: "3_4-screen-example-web",
-    desc: "Web layout routing with json form and search list",
+    desc: "demo for router with navigation for web",
   },
-  "another-grid": {
-    id: "another-grid",
-    desc: "another-grid",
+  "3_4-screen-example-mobile": {
+    id: "3_4-screen-example-mobile",
+    desc: "demo for router with navigation for mobile",
   },
-  "app-one": {
-    id: "app-one",
-    desc: "app-one",
+  "another-grid": { id: "another-grid", desc: "demo for grid" },
+  "tw-grid-layout": {
+    id: "tw-grid-layout",
+    desc: "demo for grid with tailwind",
   },
-  "app-three": {
-    id: "app-three",
-    desc: "app-three",
+  "liveedit": {
+    id: "liveedit",
+    desc: "demo for grid with Live Editing",
   },
-  "collapsible-leftnav": {
-    id: "collapsible-leftnav",
-    desc: "collapsible-leftnav",
+  "trello-clone": {
+    id: "trello-clone",
+    desc: "demo for trello clone made with tailwing and rn-composable",
   },
-  "component-mount": {
-    id: "component-mount",
-    desc: "component-mount",
-  },
-  "dashboard-demo": {
-    id: "dashboard-demo",
-    desc: "dashboard-demo",
-  },
-  "dynamic-navigation": {
-    id: "dynamic-navigation",
-    desc: "dynamic-navigation",
-  },
-  "react-router-port": {
-    id: "react-router-port",
-    desc: "react-router-port",
-  },
-  "todo-app": {
-    id: "todo-app",
-    desc: "Todo Application",
-  },
-  "vanilla-grid-layout": {
-    id: "vanilla-grid-layout",
-    desc: "vanilla-grid-layout",
-  },
-  "with-appstate": {
-    id: "with-appstate",
-    desc: "Example of setAppState",
-  },
-  "with-calendar": {
-    id: "with-calendar",
-    desc: "Calendar and agenda view",
-  },
-  "with-charts": {
-    id: "with-charts",
-    desc: "Charts",
-  },
-  "with-jsonforms":  {
-    id: "with-jsonforms",
-    desc: "Basic JsonForm",
-  },
-  "with-setLayout": {
-    id: "with-setLayout",
-    desc: "Example of seLayout with show/hide functionality",
-  },
-  "with-setLayout (without hide)": {
-    id: "with-setLayout (without hide)",
-    desc: "Example of seLayout without show/hide functionality",
-  },
-  "with-tailwind": {
-    id: "with-tailwind",
-    desc: "General Form using tailwind classes",
-  },
-  "wiki": {
-    id: "wiki",
-  },
+  "app-one": { id: "app-one" },
+  "app-three": { id: "app-three" },
+  "collapsible-leftnav": { id: "collapsible-leftnav" },
+  "component-mount": { id: "component-mount" },
+  "dashboard-demo": { id: "dashboard-demo" },
+  "dynamic-navigation": { id: "dynamic-navigation" },
+  "react-router-port": { id: "react-router-port" },
+  "todo-app": { id: "todo-app" },
+  "vanilla-grid-layout": { id: "vanilla-grid-layout" },
+  "with-appstate": { id: "with-appstate" },
+  "with-calendar": { id: "with-calendar" },
+  "with-charts": { id: "with-charts" },
+  "with-jsonforms": { id: "with-jsonforms" },
+  "with-setLayout": { id: "with-setLayout" },
+  "with-setLayout (without hide)": { id: "with-setLayout (without hide)" },
+  "with-tailwind": { id: "with-tailwind" },
 };
 // FIXME: LOAD ABOVE OBJECT dynamically
-const selected = "3_4-screen-example-web";
-console.log(configs[selected].desc)
+const selected = "liveedit";
+// const selected = "3_4-screen-example-web";
 
-let moduleConfig = require(`./rn-config-tyler/packages/demo/examples/${configs[selected].id}/layout`);
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+let moduleConfig = require(`./rn-config-tyler/packages/demo/examples/${configs[selected]?.id}/layout`);
 const getComponents = moduleConfig.getComponents;
 const fetchConfig = moduleConfig.fetchConfig;
 
 // ****** EXAMPLE CONFIGS END ****.************
 import { registerRootComponent } from "expo";
 import React from "react";
-import Entry from "./rn-config-tyler/packages/demo/components/Entry";
-import { App, init } from "./rn-config-tyler/packages/demo/helpers/lib/src";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { init } = require("./rn-config-tyler/packages/demo/helpers/lib/src");
 
 if (process.env.REACT_NATIVE_DEMO == "true") {
   init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const Entry = require("./rn-config-tyler/packages/demo/components/Entry");
     registerRootComponent(() => (
       <Entry debug={true} {...passProps} modules={configs} />
     ));
   });
-} else {
+} else if (process.env.REACT_NATIVE_LIVEEDIT == "true") {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
-    registerRootComponent(() => <App debug={true} {...passProps} />);
+    console.log("**** OPENED EDITOR MODE ****");
+    const {
+      App,
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+    } = require("./rn-config-tyler/packages/demo/helpers/lib/src/container/App");
+    registerRootComponent(() => <App {...passProps} />);
+  });
+} else {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const { App } = require("./rn-config-tyler/packages/demo/helpers/lib/src");
+  init(moduleConfig, fetchConfig, getComponents).then((passProps) => {
+    registerRootComponent(() => <App debug={false} {...passProps} />);
   });
 }

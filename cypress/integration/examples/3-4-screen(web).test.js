@@ -4,6 +4,7 @@ describe("3-4-screen(web)", () => {
 
       cy.contains("Examples");
       cy.get("select").select("3_4-screen-example-web");
+      cy.wait(5000);
       cy.contains("Category").click();
       cy.contains("Sub Category");
       cy.contains("bodyHeader");

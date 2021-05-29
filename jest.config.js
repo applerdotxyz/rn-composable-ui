@@ -2,7 +2,7 @@
 const esModules = ["react-native", "@react-native-community"].join("|");
 module.exports = {
   // ...defaults,
-  preset: "jest-expo",
+  preset: "./node_modules/jest-expo/jest-preset.js",
   transformIgnorePatterns: [
     "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|native-base|@storybook)",
   ],
@@ -13,7 +13,7 @@ module.exports = {
     "@expo/vector-icons",
     "react-native-vector-icons",
   ],
-  setupFiles: ["./tests/jestSetupFile.js"],
+  // setupFiles: ["./tests/jestSetupFile.js"],
   transform: {
     "^.+\\.js$": "babel-jest",
   },

@@ -44,7 +44,7 @@ const configs = {
 };
 // FIXME: LOAD ABOVE OBJECT dynamically
 const selected = "TSDigisolPlatform";
-// const selected = "3_4-screen-example-web";
+// const selected = "with-jsonforms";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 let moduleConfig = require(`./rn-config-tyler/packages/demo/examples/${configs[selected]?.id}/layout`);
